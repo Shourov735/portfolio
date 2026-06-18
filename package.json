@@ -6,5 +6,8 @@
   "scripts": {
     "start": "python3 -m http.server 5173",
     "serve": "python3 -m http.server 5173"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.6.1"
   }
 }

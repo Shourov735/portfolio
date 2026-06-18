@@ -1,0 +1,303 @@
+{
+  "stats": [
+    {
+      "value": "10+",
+      "label": "Projects and practice builds"
+    },
+    {
+      "value": "150+",
+      "label": "Competitive problems solved"
+    },
+    {
+      "value": "5+",
+      "label": "Languages explored"
+    },
+    {
+      "value": "2024",
+      "label": "BSc Software Engineering"
+    }
+  ],
+  "skills": [
+    {
+      "category": "Programming",
+      "items": [
+        {
+          "name": "C++",
+          "level": 82
+        },
+        {
+          "name": "C",
+          "level": 76
+        },
+        {
+          "name": "Java",
+          "level": 58
+        },
+        {
+          "name": "JavaScript",
+          "level": 52
+        }
+      ]
+    },
+    {
+      "category": "Web & Backend",
+      "items": [
+        {
+          "name": "HTML/CSS",
+          "level": 74
+        },
+        {
+          "name": "Vanilla JS",
+          "level": 58
+        },
+        {
+          "name": "REST APIs",
+          "level": 44
+        },
+        {
+          "name": "Serverless Basics",
+          "level": 38
+        }
+      ]
+    },
+    {
+      "category": "Tools & Data",
+      "items": [
+        {
+          "name": "Git & GitHub",
+          "level": 70
+        },
+        {
+          "name": "MySQL",
+          "level": 60
+        },
+        {
+          "name": "Linux/Shell",
+          "level": 56
+        },
+        {
+          "name": "PostgreSQL",
+          "level": 42
+        }
+      ]
+    }
+  ],
+  "featuredProject": {
+    "title": "TetriC",
+    "summary": "A console-based Tetris game implemented in C with multiplayer support, game modes, high score tracking, and smooth terminal gameplay.",
+    "image": "assets/images/project-3.jpg",
+    "tags": ["C", "Game Development", "Sockets", "Terminal UI"],
+    "links": [
+      {
+        "label": "View on GitHub",
+        "url": "https://github.com/Shourov735/TetriC"
+      }
+    ]
+  },
+  "projects": [
+    {
+      "title": "Codeforces Solutions",
+      "summary": "A growing archive of optimized Codeforces solutions focused on algorithms, number theory, and contest practice.",
+      "image": "assets/images/project-1.jpg",
+      "category": "Algorithms",
+      "tags": ["C++", "C", "Java", "Algorithms", "Number Theory"],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/Shourov735/Codeforces"
+        },
+        {
+          "label": "Profile",
+          "url": "https://codeforces.com/profile/Shourov735"
+        }
+      ]
+    },
+    {
+      "title": "LeetCode Solutions",
+      "summary": "Clean solutions for common interview-style problems, with emphasis on data structures and reusable patterns.",
+      "image": "assets/images/project-2.jpg",
+      "category": "Algorithms",
+      "tags": ["C++", "Algorithms", "Data Structures"],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/Shourov735/LeetCode"
+        }
+      ]
+    },
+    {
+      "title": "TetriC",
+      "summary": "A C-based terminal Tetris game with multiplayer experiments, score tracking, and multiple game modes.",
+      "image": "assets/images/project-3.jpg",
+      "category": "Systems",
+      "tags": ["C", "Game Development", "Multiplayer", "Sockets"],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/Shourov735/TetriC"
+        }
+      ]
+    },
+    {
+      "title": "Portfolio Website",
+      "summary": "This content-driven portfolio using plain HTML, CSS, JavaScript, JSON data, and a Vercel-ready contact endpoint.",
+      "image": "assets/images/profile.jpg",
+      "category": "Web",
+      "tags": ["HTML", "CSS", "JavaScript", "Serverless"],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/Shourov735"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "title": "How I approach competitive programming practice",
+      "date": "2026-06-18",
+      "summary": "A future note about turning solved problems into patterns I can remember during contests.",
+      "tags": ["Algorithms", "Practice", "Codeforces"]
+    },
+    {
+      "title": "What I learned while building TetriC",
+      "date": "2026-06-18",
+      "summary": "A placeholder post for lessons from terminal rendering, game loops, and socket programming in C.",
+      "tags": ["C", "Game Development", "Sockets"]
+    },
+    {
+      "title": "Backend basics from a contact form",
+      "date": "2026-06-18",
+      "summary": "A learning note about validation, serverless functions, environment variables, and graceful static fallbacks.",
+      "tags": ["Backend", "JavaScript", "Vercel"]
+    }
+  ],
+  "now": [
+    {
+      "title": "Backend fundamentals",
+      "summary": "Practicing request validation, APIs, deployment, and serverless workflows."
+    },
+    {
+      "title": "JavaScript depth",
+      "summary": "Improving DOM patterns, async fetch flows, state handling, and accessibility."
+    },
+    {
+      "title": "Competitive programming",
+      "summary": "Continuing algorithm practice with a focus on number theory and data structures."
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2026",
+      "title": "Portfolio becomes content-driven",
+      "summary": "Refactored the site into reusable JavaScript-rendered sections backed by JSON data."
+    },
+    {
+      "date": "2024 - Present",
+      "title": "BSc in Software Engineering",
+      "summary": "Studying software engineering at the University of Dhaka with coursework in algorithms, databases, requirements, and systems."
+    },
+    {
+      "date": "2024",
+      "title": "University admission milestone",
+      "summary": "Secured admission to the University of Dhaka after strong admission test performance."
+    },
+    {
+      "date": "2020 - 2022",
+      "title": "Higher Secondary Certificate",
+      "summary": "Built a strong foundation in mathematics, physics, and early computing concepts."
+    }
+  ],
+  "education": [
+    {
+      "title": "Bachelor of Science in Software Engineering",
+      "institution": "University of Dhaka",
+      "duration": "2024 - Present",
+      "summary": "Studying core software engineering concepts including data structures, algorithms, database design, software requirements, and development practices.",
+      "coursework": ["Data Structures & Algorithms", "Database Management Systems", "Operating Systems", "Software Requirement Analysis", "Software Engineering Principles"]
+    },
+    {
+      "title": "University Admission",
+      "institution": "Science Background",
+      "duration": "2024",
+      "summary": "Admission test results across several universities.",
+      "results": [
+        {
+          "university": "University of Dhaka",
+          "marks": "89.5/120",
+          "merit": "735"
+        },
+        {
+          "university": "Rajshahi University",
+          "marks": "92.5/100",
+          "merit": "3 (C-1)"
+        },
+        {
+          "university": "University of Chittagong",
+          "marks": "105/120",
+          "merit": "56"
+        },
+        {
+          "university": "Jahangirnagar University",
+          "marks": "80.8/100",
+          "merit": "245 (boys)"
+        },
+        {
+          "university": "CUET-KUET-RUET",
+          "marks": "N/A",
+          "merit": "2851"
+        }
+      ]
+    },
+    {
+      "title": "Higher Secondary Certificate",
+      "institution": "Science Background",
+      "duration": "2020 - 2022",
+      "summary": "Focused on mathematics and physics, strengthening problem-solving and analytical thinking.",
+      "coursework": ["Mathematics", "Physics", "Computer Science"]
+    }
+  ],
+  "achievements": [
+    {
+      "title": "Competitive Programming",
+      "summary": "Solved 150+ problems and actively practice online contests."
+    },
+    {
+      "title": "Game Development",
+      "summary": "Developed a console-based C Tetris project with gameplay modes and multiplayer experiments."
+    },
+    {
+      "title": "Academic Growth",
+      "summary": "Maintaining focus on practical implementation and software engineering fundamentals."
+    },
+    {
+      "title": "Problem Solving",
+      "summary": "Growing analytical skill through rigorous coding practice and project-based learning."
+    },
+    {
+      "title": "Open Source Mindset",
+      "summary": "Preparing projects and repositories so they are easier for others to inspect, use, and extend."
+    },
+    {
+      "title": "Teamwork",
+      "summary": "Interested in collaborative software development and building useful tools with peers."
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Recommendation coming soon",
+      "role": "Teacher, teammate, or mentor",
+      "quote": "This section is ready for future testimonials once you collect real recommendations."
+    },
+    {
+      "name": "Project feedback placeholder",
+      "role": "Collaborator",
+      "quote": "Use this card for feedback from a teammate, hackathon partner, or open-source maintainer."
+    },
+    {
+      "name": "Academic reference placeholder",
+      "role": "Instructor",
+      "quote": "Replace this placeholder with a short, specific endorsement when available."
+    }
+  ]
+}

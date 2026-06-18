@@ -1,0 +1,10 @@
+{
+  "name": "md-shourov-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A content-driven personal portfolio with a static frontend and Vercel-friendly contact endpoint.",
+  "scripts": {
+    "start": "python3 -m http.server 5173",
+    "serve": "python3 -m http.server 5173"
+  }
+}

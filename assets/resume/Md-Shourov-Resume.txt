@@ -1,0 +1,43 @@
+Md. Shourov
+Software Engineering Student, University of Dhaka
+Email: mdshourov735@gmail.com
+GitHub: https://github.com/Shourov735
+LinkedIn: https://linkedin.com/in/md-shourov-89125a337
+Codeforces: https://codeforces.com/profile/Shourov735
+
+Summary
+Software Engineering student interested in algorithms, competitive programming,
+C/C++ projects, databases, backend fundamentals, and clean web experiences.
+
+Education
+BSc in Software Engineering, University of Dhaka
+2024 - Present
+
+Skills
+- Programming: C++, C, Java, JavaScript
+- Web: HTML, CSS, vanilla JavaScript, REST API basics
+- Data: MySQL, PostgreSQL basics, Oracle basics
+- Tools: Git, GitHub, Linux, VS Code, shell scripting
+
+Projects
+Codeforces Solutions
+- Repository of optimized competitive programming solutions.
+- Focus areas: algorithms, number theory, data structures.
+
+LeetCode Solutions
+- Repository of interview-style problem solutions.
+- Focus areas: data structures and reusable problem-solving patterns.
+
+TetriC
+- Console-based Tetris game implemented in C.
+- Includes game modes, high score tracking, and multiplayer/socket programming experiments.
+
+Achievements
+- Solved 150+ competitive programming problems.
+- Strong university admission test performance, including University of Dhaka merit position 735.
+- Building a content-driven portfolio with a Vercel-ready contact endpoint.
+
+Current Learning
+- Backend fundamentals and serverless deployment.
+- JavaScript DOM patterns and async workflows.
+- More structured competitive programming practice.

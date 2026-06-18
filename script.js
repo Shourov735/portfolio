@@ -1,439 +1,491 @@
-/* ==========================================
-   PORTFOLIO WEBSITE - JAVASCRIPT
-   Handles navigation, animations, and interactions
-   ========================================== */
+const state = {
+    content: null,
+    projectFilter: "All",
+    projectSearch: "",
+    notesSearch: ""
+};
 
-// ==========================================
-// DOM ELEMENTS
-// ==========================================
+const selectors = {
+    header: document.querySelector("#site-header"),
+    menuToggle: document.querySelector("#menu-toggle"),
+    navPanel: document.querySelector("#nav-menu"),
+    navLinks: [...document.querySelectorAll(".nav-link")],
+    themeToggle: document.querySelector("#theme-toggle"),
+    backToTop: document.querySelector("#back-to-top"),
+    contactForm: document.querySelector("#contact-form"),
+    formStatus: document.querySelector("#form-status")
+};
 
-const navbar = document.getElementById('navbar');
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('nav-menu');
-const navLinks = document.querySelectorAll('.nav-link');
-const themeToggle = document.getElementById('theme-toggle');
-const backToTopBtn = document.getElementById('back-to-top');
-const contactForm = document.getElementById('contact-form');
+document.addEventListener("DOMContentLoaded", init);
 
-// ==========================================
-// INITIALIZATION
-// ==========================================
-
-document.addEventListener('DOMContentLoaded', () => {
+async function init() {
     initTheme();
-    setupEventListeners();
-    setupScrollAnimations();
-});
+    bindNavigation();
+    bindScrollUI();
+    bindContactForm();
+    await loadContent();
+    setupRevealAnimations();
+    updateScrollUI();
+}
 
-// ==========================================
-// THEME MANAGEMENT (Dark Mode)
-// ==========================================
+async function loadContent() {
+    try {
+        const response = await fetch("data/content.json", { cache: "no-store" });
+
+        if (!response.ok) {
+            throw new Error(`Content request failed: ${response.status}`);
+        }
+
+        state.content = await response.json();
+        renderPageContent();
+    } catch (error) {
+        console.error(error);
+        renderContentError();
+    }
+}
+
+function renderPageContent() {
+    renderStats(state.content.stats);
+    renderSkills(state.content.skills);
+    renderFeaturedProject(state.content.featuredProject);
+    renderProjectFilters(state.content.projects);
+    renderProjects();
+    renderNotes();
+    renderNow(state.content.now);
+    renderTimeline(state.content.timeline);
+    renderEducation(state.content.education);
+    renderSimpleCards("#achievements-grid", state.content.achievements, "feature-card");
+    renderTestimonials(state.content.testimonials);
+    bindFilters();
+}
+
+function renderStats(stats) {
+    const grid = document.querySelector("#stats-grid");
+    grid.innerHTML = stats.map(item => `
+        <article class="stat-card reveal">
+            <span class="stat-number">${escapeHTML(item.value)}</span>
+            <span class="stat-label">${escapeHTML(item.label)}</span>
+        </article>
+    `).join("");
+}
+
+function renderSkills(groups) {
+    const grid = document.querySelector("#skills-grid");
+    grid.innerHTML = groups.map(group => `
+        <article class="skill-card reveal">
+            <h3>${escapeHTML(group.category)}</h3>
+            <div class="skill-list">
+                ${group.items.map(skill => `
+                    <div class="skill-row">
+                        <div class="skill-meta">
+                            <span class="skill-name">${escapeHTML(skill.name)}</span>
+                            <span>${Number(skill.level)}%</span>
+                        </div>
+                        <div class="skill-track" aria-hidden="true">
+                            <span class="skill-fill" style="--level: ${Number(skill.level)}%"></span>
+                        </div>
+                    </div>
+                `).join("")}
+            </div>
+        </article>
+    `).join("");
+}
+
+function renderFeaturedProject(project) {
+    const container = document.querySelector("#featured-project");
+    container.innerHTML = `
+        <div class="spotlight-media">
+            <img src="${escapeAttribute(project.image)}" alt="${escapeAttribute(project.title)} project preview">
+        </div>
+        <div class="spotlight-copy">
+            <p class="eyebrow">Featured Project</p>
+            <h3>${escapeHTML(project.title)}</h3>
+            <p>${escapeHTML(project.summary)}</p>
+            ${renderTags(project.tags)}
+            ${renderLinks(project.links)}
+        </div>
+    `;
+}
+
+function renderProjectFilters(projects) {
+    const filterRoot = document.querySelector("#project-filters");
+    const categories = ["All", ...new Set(projects.map(project => project.category))];
+    filterRoot.innerHTML = categories.map(category => `
+        <button class="chip ${category === state.projectFilter ? "active" : ""}" type="button" data-filter="${escapeAttribute(category)}">
+            ${escapeHTML(category)}
+        </button>
+    `).join("");
+}
+
+function renderProjects() {
+    const grid = document.querySelector("#projects-grid");
+    const empty = document.querySelector("#projects-empty");
+    const query = state.projectSearch.trim().toLowerCase();
+
+    const projects = state.content.projects.filter(project => {
+        const matchesFilter = state.projectFilter === "All" || project.category === state.projectFilter;
+        const haystack = `${project.title} ${project.summary} ${project.category} ${project.tags.join(" ")}`.toLowerCase();
+        return matchesFilter && haystack.includes(query);
+    });
+
+    grid.innerHTML = projects.map(project => `
+        <article class="project-card reveal">
+            <img src="${escapeAttribute(project.image)}" alt="${escapeAttribute(project.title)} project preview">
+            <div class="project-body">
+                <span class="project-meta">${escapeHTML(project.category)}</span>
+                <h3>${escapeHTML(project.title)}</h3>
+                <p>${escapeHTML(project.summary)}</p>
+                ${renderTags(project.tags)}
+                ${renderLinks(project.links)}
+            </div>
+        </article>
+    `).join("");
+
+    empty.hidden = projects.length > 0;
+    setupRevealAnimations();
+}
+
+function renderNotes() {
+    const grid = document.querySelector("#notes-grid");
+    const empty = document.querySelector("#notes-empty");
+    const query = state.notesSearch.trim().toLowerCase();
+
+    const notes = state.content.notes.filter(note => {
+        const haystack = `${note.title} ${note.summary} ${note.tags.join(" ")}`.toLowerCase();
+        return haystack.includes(query);
+    });
+
+    grid.innerHTML = notes.map(note => `
+        <article class="note-card reveal">
+            <time datetime="${escapeAttribute(note.date)}">${formatDate(note.date)}</time>
+            <h3>${escapeHTML(note.title)}</h3>
+            <p>${escapeHTML(note.summary)}</p>
+            ${renderTags(note.tags)}
+        </article>
+    `).join("");
+
+    empty.hidden = notes.length > 0;
+    setupRevealAnimations();
+}
+
+function renderNow(items) {
+    const grid = document.querySelector("#now-grid");
+    grid.innerHTML = items.map(item => `
+        <article class="now-card">
+            <h3>${escapeHTML(item.title)}</h3>
+            <p>${escapeHTML(item.summary)}</p>
+        </article>
+    `).join("");
+}
+
+function renderTimeline(items) {
+    const timeline = document.querySelector("#timeline");
+    timeline.innerHTML = items.map(item => `
+        <article class="timeline-item reveal">
+            <span class="timeline-date">${escapeHTML(item.date)}</span>
+            <h3>${escapeHTML(item.title)}</h3>
+            <p>${escapeHTML(item.summary)}</p>
+        </article>
+    `).join("");
+}
+
+function renderEducation(items) {
+    const grid = document.querySelector("#education-grid");
+    grid.innerHTML = items.map(item => `
+        <article class="education-card reveal">
+            <span class="project-meta">${escapeHTML(item.duration)}</span>
+            <h3>${escapeHTML(item.title)}</h3>
+            <p><strong>${escapeHTML(item.institution)}</strong></p>
+            <p>${escapeHTML(item.summary)}</p>
+            ${item.coursework ? renderTags(item.coursework) : ""}
+            ${item.results ? renderAdmissionTable(item.results) : ""}
+        </article>
+    `).join("");
+}
+
+function renderSimpleCards(selector, items, className) {
+    const grid = document.querySelector(selector);
+    grid.innerHTML = items.map(item => `
+        <article class="${className} reveal">
+            <h3>${escapeHTML(item.title)}</h3>
+            <p>${escapeHTML(item.summary)}</p>
+        </article>
+    `).join("");
+}
+
+function renderTestimonials(items) {
+    const grid = document.querySelector("#testimonials-grid");
+    grid.innerHTML = items.map(item => `
+        <article class="testimonial-card reveal">
+            <p>"${escapeHTML(item.quote)}"</p>
+            <h3>${escapeHTML(item.name)}</h3>
+            <p>${escapeHTML(item.role)}</p>
+        </article>
+    `).join("");
+}
+
+function renderTags(tags = []) {
+    return `
+        <div class="tag-list">
+            ${tags.map(tag => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}
+        </div>
+    `;
+}
+
+function renderLinks(links = []) {
+    if (!links.length) return "";
+
+    return `
+        <div class="link-row">
+            ${links.map(link => `
+                <a class="text-link" href="${escapeAttribute(link.url)}" target="_blank" rel="noreferrer">
+                    ${escapeHTML(link.label)} →
+                </a>
+            `).join("")}
+        </div>
+    `;
+}
+
+function renderAdmissionTable(results) {
+    return `
+        <table class="admission-table">
+            <thead>
+                <tr>
+                    <th>University</th>
+                    <th>Marks</th>
+                    <th>Merit</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${results.map(result => `
+                    <tr>
+                        <td>${escapeHTML(result.university)}</td>
+                        <td>${escapeHTML(result.marks)}</td>
+                        <td>${escapeHTML(result.merit)}</td>
+                    </tr>
+                `).join("")}
+            </tbody>
+        </table>
+    `;
+}
+
+function bindFilters() {
+    document.querySelector("#project-search").oninput = event => {
+        state.projectSearch = event.target.value;
+        renderProjects();
+    };
+
+    document.querySelector("#notes-search").oninput = event => {
+        state.notesSearch = event.target.value;
+        renderNotes();
+    };
+
+    document.querySelector("#project-filters").onclick = event => {
+        const button = event.target.closest("[data-filter]");
+        if (!button) return;
+
+        state.projectFilter = button.dataset.filter;
+        renderProjectFilters(state.content.projects);
+        bindFilters();
+        renderProjects();
+    };
+}
 
 function initTheme() {
-    // Check for saved theme preference or default to light mode
-    const savedTheme = localStorage.getItem('theme') || 'light-mode';
-    document.body.classList.add(savedTheme);
-    updateThemeIcon();
+    const savedTheme = localStorage.getItem("portfolio-theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const shouldUseDark = savedTheme ? savedTheme === "dark" : prefersDark;
+
+    document.body.classList.toggle("dark", shouldUseDark);
+    updateThemeToggle();
 }
 
-function toggleTheme() {
-    document.body.classList.toggle('dark-mode');
-    const isDarkMode = document.body.classList.contains('dark-mode');
-    localStorage.setItem('theme', isDarkMode ? 'dark-mode' : 'light-mode');
-    updateThemeIcon();
+function updateThemeToggle() {
+    const isDark = document.body.classList.contains("dark");
+    selectors.themeToggle.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
+    selectors.themeToggle.innerHTML = `<span aria-hidden="true">${isDark ? "☀" : "◐"}</span>`;
 }
 
-function updateThemeIcon() {
-    const isDarkMode = document.body.classList.contains('dark-mode');
-    themeToggle.textContent = isDarkMode ? '☀️' : '🌙';
-}
+function bindNavigation() {
+    selectors.themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+        localStorage.setItem("portfolio-theme", document.body.classList.contains("dark") ? "dark" : "light");
+        updateThemeToggle();
+    });
 
-// ==========================================
-// NAVIGATION
-// ==========================================
+    selectors.menuToggle.addEventListener("click", () => {
+        const isOpen = selectors.navPanel.classList.toggle("open");
+        selectors.menuToggle.classList.toggle("active", isOpen);
+        selectors.menuToggle.setAttribute("aria-expanded", String(isOpen));
+        selectors.menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+        document.body.classList.toggle("menu-open", isOpen);
+    });
 
-function setupEventListeners() {
-    // Hamburger menu toggle
-    hamburger.addEventListener('click', toggleMobileMenu);
+    selectors.navLinks.forEach(link => {
+        link.addEventListener("click", event => {
+            const targetId = link.getAttribute("href");
+            closeMenu();
 
-    // Navigation links
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            // Don't close menu for theme toggle button
-            if (e.target.closest('.theme-toggle')) {
-                toggleTheme();
-                return;
-            }
-            closeMobileMenu();
-            updateActiveNav(e.target);
+            if (!targetId.startsWith("#")) return;
+            const target = document.querySelector(targetId);
+            if (!target) return;
+
+            event.preventDefault();
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+            history.pushState(null, "", targetId);
         });
     });
 
-    // Theme toggle
-    themeToggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        toggleTheme();
-    });
-
-    // Back to top button
-    backToTopBtn.addEventListener('click', scrollToTop);
-
-    // Contact form
-    if (contactForm) {
-        contactForm.addEventListener('submit', handleFormSubmit);
-    }
-
-    // Scroll events
-    window.addEventListener('scroll', () => {
-        handleNavbarOnScroll();
-        showBackToTopButton();
-        handleScrollAnimations();
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape") closeMenu();
     });
 }
 
-function toggleMobileMenu() {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-}
-
-function closeMobileMenu() {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
-}
-
-// ==========================================
-// ACTIVE NAVIGATION
-// ==========================================
-
-function updateActiveNav(element) {
-    // Remove active class from all links
-    navLinks.forEach(link => link.classList.remove('active'));
-
-    // Add active class to clicked link
-    if (element.classList.contains('nav-link')) {
-        element.classList.add('active');
-    }
-}
-
-// Update active nav based on scroll position
-function updateActiveNavOnScroll() {
-    const sections = document.querySelectorAll('section');
-    let currentSection = '';
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-
-        if (window.pageYOffset >= sectionTop - 200) {
-            currentSection = section.getAttribute('id');
-        }
+function bindScrollUI() {
+    window.addEventListener("scroll", updateScrollUI, { passive: true });
+    selectors.backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${currentSection}`) {
-            link.classList.add('active');
-        }
-    });
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const id = entry.target.id;
+            selectors.navLinks.forEach(link => {
+                link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
+            });
+        });
+    }, { rootMargin: "-35% 0px -55% 0px", threshold: 0 });
+
+    document.querySelectorAll("main section[id]").forEach(section => observer.observe(section));
 }
 
-// ==========================================
-// NAVBAR EFFECTS
-// ==========================================
-
-let lastScrollY = 0;
-
-function handleNavbarOnScroll() {
-    const scrollY = window.pageYOffset;
-
-    // Add shadow on scroll
-    if (scrollY > 10) {
-        navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
-    } else {
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
-    }
-
-    // Update active navigation
-    updateActiveNavOnScroll();
-
-    lastScrollY = scrollY;
+function updateScrollUI() {
+    const isScrolled = window.scrollY > 16;
+    selectors.header.classList.toggle("scrolled", isScrolled);
+    selectors.backToTop.classList.toggle("show", window.scrollY > 500);
 }
 
-// ==========================================
-// BACK TO TOP BUTTON
-// ==========================================
-
-function showBackToTopButton() {
-    if (window.pageYOffset > 300) {
-        backToTopBtn.classList.add('show');
-    } else {
-        backToTopBtn.classList.remove('show');
-    }
+function closeMenu() {
+    selectors.navPanel.classList.remove("open");
+    selectors.menuToggle.classList.remove("active");
+    selectors.menuToggle.setAttribute("aria-expanded", "false");
+    selectors.menuToggle.setAttribute("aria-label", "Open navigation");
+    document.body.classList.remove("menu-open");
 }
 
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-}
+function setupRevealAnimations() {
+    const elements = [...document.querySelectorAll(".reveal:not(.visible):not([data-observed])")];
 
-// ==========================================
-// FORM HANDLING
-// ==========================================
+    if (!elements.length) return;
 
-function handleFormSubmit(e) {
-    e.preventDefault();
-
-    const formData = {
-        name: document.getElementById('name').value.trim(),
-        email: document.getElementById('email').value.trim(),
-        subject: document.getElementById('subject').value.trim(),
-        message: document.getElementById('message').value.trim()
-    };
-
-    // Validate form data
-    if (!validateForm(formData)) {
-        showFormMessage('Please fill in all fields correctly.', 'error');
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        elements.forEach(element => element.classList.add("visible"));
         return;
     }
 
-    // Simulate form submission
-    const submitBtn = contactForm.querySelector('.btn-submit');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Sending...';
-    submitBtn.disabled = true;
-
-    // Simulate API call
-    setTimeout(() => {
-        showFormMessage(
-            'Thank you! Your message has been received. I\'ll get back to you soon.',
-            'success'
-        );
-        contactForm.reset();
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-    }, 1500);
-}
-
-function validateForm(data) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    return (
-        data.name.length > 0 &&
-        data.email.length > 0 &&
-        emailRegex.test(data.email) &&
-        data.subject.length > 0 &&
-        data.message.length > 0
-    );
-}
-
-function showFormMessage(message, type) {
-    // Remove existing message if present
-    const existingMessage = contactForm.querySelector('.form-message');
-    if (existingMessage) {
-        existingMessage.remove();
-    }
-
-    const messageDiv = document.createElement('div');
-    messageDiv.className = `form-message form-message-${type}`;
-    messageDiv.textContent = message;
-    messageDiv.style.cssText = `
-        padding: 12px 16px;
-        border-radius: 6px;
-        margin-bottom: 16px;
-        font-weight: 500;
-        ${type === 'success'
-            ? 'background-color: rgba(34, 197, 94, 0.1); color: #22c55e; border: 1px solid #22c55e;'
-            : 'background-color: rgba(239, 68, 68, 0.1); color: #ef4444; border: 1px solid #ef4444;'
-        }
-    `;
-
-    contactForm.insertBefore(messageDiv, contactForm.firstChild);
-
-    // Remove message after 5 seconds
-    setTimeout(() => {
-        messageDiv.remove();
-    }, 5000);
-}
-
-// ==========================================
-// SCROLL ANIMATIONS
-// ==========================================
-
-function setupScrollAnimations() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
+    const revealObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('scroll-animate');
-                observer.unobserve(entry.target);
-            }
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
         });
-    }, observerOptions);
+    }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" });
 
-    // Observe elements that should animate on scroll
-    const animateOnScroll = document.querySelectorAll(
-        '.skill-category, .project-card, .achievement-card, .timeline-item, .stat-card'
-    );
-
-    animateOnScroll.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(30px)';
-        observer.observe(element);
+    elements.forEach(element => {
+        element.dataset.observed = "true";
+        revealObserver.observe(element);
     });
 }
 
-function handleScrollAnimations() {
-    // Additional scroll animation logic can be added here
-}
+function bindContactForm() {
+    selectors.contactForm.addEventListener("submit", async event => {
+        event.preventDefault();
 
-// ==========================================
-// SMOOTH SCROLLING FOR ANCHOR LINKS
-// ==========================================
+        const formData = new FormData(selectors.contactForm);
+        const payload = Object.fromEntries(formData.entries());
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-
-        // Skip if it's the theme toggle or hamburger
-        if (this.closest('.theme-toggle') || this.closest('.hamburger')) {
+        if (!isValidMessage(payload)) {
+            showFormStatus("Please complete every field with a valid email and message.", "error");
             return;
         }
 
-        // Skip if href is just '#'
-        if (href === '#') {
-            return;
-        }
+        const submitButton = selectors.contactForm.querySelector("button[type='submit']");
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
 
-        e.preventDefault();
-
-        const target = document.querySelector(href);
-        if (target) {
-            const offsetTop = target.offsetTop - 70; // Account for navbar height
-
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
+        try {
+            const response = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
             });
 
-            // Update active nav if it's a section link
-            if (target.tagName === 'SECTION') {
-                const navLink = document.querySelector(`a[href="${href}"]`);
-                if (navLink) {
-                    updateActiveNav(navLink);
-                }
+            if (!response.ok) {
+                throw new Error("API unavailable");
             }
+
+            selectors.contactForm.reset();
+            showFormStatus("Thanks! Your message was submitted successfully.", "success");
+        } catch (error) {
+            openMailFallback(payload);
+            showFormStatus("The static fallback opened your email app with the message prepared.", "success");
+        } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = "Send Message";
         }
     });
-});
-
-// ==========================================
-// UTILITY FUNCTIONS
-// ==========================================
-
-/**
- * Debounce function to limit function calls
- * @param {Function} func - The function to debounce
- * @param {number} wait - The debounce delay in milliseconds
- * @returns {Function} The debounced function
- */
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
 }
 
-/**
- * Throttle function to limit function calls
- * @param {Function} func - The function to throttle
- * @param {number} limit - The throttle limit in milliseconds
- * @returns {Function} The throttled function
- */
-function throttle(func, limit) {
-    let inThrottle;
-    return function(...args) {
-        if (!inThrottle) {
-            func.apply(this, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
+function isValidMessage(data) {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return (
+        !data.website &&
+        data.name?.trim().length >= 2 &&
+        emailPattern.test(data.email || "") &&
+        data.subject?.trim().length >= 3 &&
+        data.message?.trim().length >= 10
+    );
+}
+
+function showFormStatus(message, type) {
+    selectors.formStatus.textContent = message;
+    selectors.formStatus.className = `form-status show ${type}`;
+}
+
+function openMailFallback(data) {
+    const subject = encodeURIComponent(`[Portfolio] ${data.subject}`);
+    const body = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\n\n${data.message}`);
+    window.location.href = `mailto:mdshourov735@gmail.com?subject=${subject}&body=${body}`;
+}
+
+function renderContentError() {
+    const targets = ["#projects-grid", "#skills-grid", "#notes-grid"];
+    targets.forEach(selector => {
+        const element = document.querySelector(selector);
+        if (element) {
+            element.innerHTML = `<p class="empty-state">Content could not load. Run the site from a local server or deploy it to GitHub Pages/Vercel.</p>`;
         }
-    };
-}
-
-// ==========================================
-// KEYBOARD NAVIGATION
-// ==========================================
-
-document.addEventListener('keydown', (e) => {
-    // Close mobile menu on Escape
-    if (e.key === 'Escape') {
-        closeMobileMenu();
-    }
-
-    // Back to top on Control + Home
-    if (e.ctrlKey && e.key === 'Home') {
-        scrollToTop();
-    }
-});
-
-// ==========================================
-// RESPONSIVE BEHAVIOR
-// ==========================================
-
-// Close mobile menu on window resize if screen becomes larger
-let resizeTimer;
-window.addEventListener('resize', debounce(() => {
-    if (window.innerWidth > 768) {
-        closeMobileMenu();
-    }
-}, 250));
-
-// ==========================================
-// PREFERS REDUCED MOTION
-// ==========================================
-
-// Respect user's motion preferences
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-if (prefersReducedMotion) {
-    // Apply reduced motion styles
-    document.querySelectorAll('*').forEach(el => {
-        el.style.animationDuration = '0.01ms !important';
-        el.style.transitionDuration = '0.01ms !important';
     });
 }
 
-// ==========================================
-// PERFORMANCE MONITORING
-// ==========================================
-
-// Log performance metrics (optional, for debugging)
-if (window.performance && window.performance.timing) {
-    window.addEventListener('load', () => {
-        const perfData = window.performance.timing;
-        const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
-        console.log(`Page loaded in ${pageLoadTime}ms`);
-    });
+function formatDate(value) {
+    return new Intl.DateTimeFormat("en", {
+        month: "short",
+        day: "numeric",
+        year: "numeric"
+    }).format(new Date(value));
 }
 
-// ==========================================
-// SERVICE WORKER REGISTRATION (Optional for PWA)
-// ==========================================
+function escapeHTML(value = "") {
+    return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+}
 
-// Uncomment to enable service worker for offline support
-// if ('serviceWorker' in navigator) {
-//     navigator.serviceWorker.register('/sw.js').catch(err => {
-//         console.log('Service Worker registration failed:', err);
-//     });
-// }
+function escapeAttribute(value = "") {
+    return escapeHTML(value).replaceAll("`", "&#096;");
+}

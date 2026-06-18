@@ -3,546 +3,297 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Md. Shourov - Software Engineering Student Portfolio">
-    <meta name="keywords" content="Software Engineer, Student, Programmer, Competitive Programming">
+    <meta name="description" content="Md. Shourov is a Software Engineering student at the University of Dhaka building algorithmic projects, C/C++ systems, and practical web tools.">
+    <meta name="keywords" content="Md. Shourov, Shourov735, Software Engineering Student, University of Dhaka, C++, JavaScript, Competitive Programming, Portfolio">
     <meta name="author" content="Md. Shourov">
-    
-    <title>Md. Shourov - Software Engineering Student</title>
+    <meta name="theme-color" content="#0f766e">
+    <meta property="og:title" content="Md. Shourov - Software Engineering Student">
+    <meta property="og:description" content="Developer portfolio featuring projects, competitive programming, learning notes, roadmap, and contact options.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/images/profile.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Md. Shourov - Developer Portfolio">
+    <meta name="twitter:description" content="Projects, notes, skills, and learning journey from a Software Engineering student.">
+
+    <title>Md. Shourov | Software Engineering Student</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f766e'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Arial' font-size='30' font-weight='700'%3ES%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-text">Shourov</span>
-            </div>
-            
-            <!-- Hamburger Menu -->
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            
-            <!-- Navigation Links -->
-            <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#skills" class="nav-link">Skills</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#projects" class="nav-link">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#education" class="nav-link">Education</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#achievements" class="nav-link">Achievements</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-                        <span class="icon">🌙</span>
-                    </button>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">Hi, I'm Md. Shourov</h1>
-                <p class="hero-subtitle">Software Engineering Student</p>
-                <p class="hero-university">University of Dhaka</p>
-                <p class="hero-description">
-                    Passionate about building elegant solutions to complex problems. 
-                    I love competitive programming, and exploring new technologies.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                    <a href="#projects" class="btn btn-secondary">View My Work</a>
+    <header class="site-header" id="site-header">
+        <nav class="navbar" aria-label="Primary navigation">
+            <a class="brand" href="#home" aria-label="Md. Shourov home">
+                <span class="brand-mark" aria-hidden="true">S</span>
+                <span>Shourov</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="nav-panel" id="nav-menu">
+                <a class="nav-link" href="#about">About</a>
+                <a class="nav-link" href="#skills">Skills</a>
+                <a class="nav-link" href="#projects">Projects</a>
+                <a class="nav-link" href="#notes">Notes</a>
+                <a class="nav-link" href="#journey">Journey</a>
+                <a class="nav-link" href="#contact">Contact</a>
+                <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch color theme">
+                    <span aria-hidden="true">◐</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main">
+        <section class="hero section" id="home">
+            <div class="hero-inner">
+                <div class="hero-copy reveal">
+                    <p class="eyebrow">Software Engineering Student · University of Dhaka</p>
+                    <h1>Building practical software with algorithms, systems thinking, and curiosity.</h1>
+                    <p class="hero-text">
+                        Hi, I am Md. Shourov. I enjoy competitive programming, C/C++ projects,
+                        clean frontend experiences, and turning difficult ideas into working software.
+                    </p>
+                    <div class="hero-actions" aria-label="Primary actions">
+                        <a class="btn btn-primary" href="#projects">View Projects</a>
+                        <a class="btn btn-secondary" href="#contact">Contact Me</a>
+                        <a class="btn btn-ghost" href="assets/resume/Md-Shourov-Resume.txt" download>Download Resume</a>
+                    </div>
+                    <div class="social-strip" aria-label="Social profiles">
+                        <a href="https://github.com/Shourov735" target="_blank" rel="noreferrer">GitHub</a>
+                        <a href="https://linkedin.com/in/md-shourov-89125a337" target="_blank" rel="noreferrer">LinkedIn</a>
+                        <a href="https://codeforces.com/profile/Shourov735" target="_blank" rel="noreferrer">Codeforces</a>
+                        <a href="https://www.facebook.com/mdshourov.738" target="_blank" rel="noreferrer">Facebook</a>
+                    </div>
                 </div>
-                <div class="hero-social">
-                    <a href="https://github.com/Shourov735" class="social-icon" title="GitHub" target="_blank">
-                        <span>🐙</span>
-                    </a>
-                    <a href="https://linkedin.com/in/md-shourov-89125a337" class="social-icon" title="LinkedIn" target="_blank">
-                        <span>💼</span>
-                    </a>
-                    <a href="https://codeforces.com/profile/Shourov735" class="social-icon" title="Codeforces" target="_blank">
-                        <span>💻</span>
-                    </a>
-                    <a href="https://www.facebook.com/mdshourov.738" class="social-icon" title="Facebook" target="_blank">
-                        <span>📘</span>
-                    </a>
+
+                <div class="hero-visual reveal">
+                    <img src="assets/images/profile.jpg" alt="Portrait of Md. Shourov" class="profile-photo">
                 </div>
             </div>
-            <div class="hero-image">
-                <img src="assets/images/profile.jpg" alt="Md. Shourov">
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
+        <section class="section about" id="about">
+            <div class="container split-layout">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">About</p>
+                    <h2>Focused on fundamentals, execution, and steady growth.</h2>
+                </div>
+                <div class="about-panel reveal">
                     <p>
-                        I'm a Software Engineering student at the University of Dhaka with a passion for solving 
-                        complex problems through elegant code. With a strong foundation in data structures, algorithms
-                        , I'm constantly learning and growing as a developer.
+                        I am a Software Engineering student at the University of Dhaka with a strong interest in data
+                        structures, algorithms, database design, and building projects that sharpen real engineering skill.
                     </p>
                     <p>
-                        I believe in writing clean, maintainable code and follow best practices in every project I work on. 
-                        My journey in competitive programming has sharpened my problem-solving skills and taught me to think 
-                        algorithmically about challenges.
+                        Competitive programming has trained me to reason under constraints. Project work helps me turn that
+                        reasoning into usable software, from console games to solution archives and web experiments.
                     </p>
-                    <h3>Career Goals</h3>
-                    <ul class="goals-list">
-                        <li>Build scalable and efficient software solutions</li>
-                        <li>Contribute to open-source projects</li>
-                        <li>Work on impactful projects that make a difference</li>
+                    <ul class="focus-list">
+                        <li>Build scalable and maintainable software solutions.</li>
+                        <li>Contribute to open-source and collaborative projects.</li>
+                        <li>Keep learning backend, JavaScript, and systems fundamentals.</li>
                     </ul>
                 </div>
-                <div class="about-stats">
-                    <div class="stat-card">
-                        <div class="stat-number">10+</div>
-                        <div class="stat-label">Projects Completed</div>
+            </div>
+        </section>
+
+        <section class="section stats-band" aria-labelledby="stats-title">
+            <div class="container">
+                <div class="section-heading reveal compact-heading">
+                    <p class="eyebrow">Snapshot</p>
+                    <h2 id="stats-title">Numbers that show the current trajectory.</h2>
+                </div>
+                <div class="stats-grid" id="stats-grid" aria-live="polite"></div>
+            </div>
+        </section>
+
+        <section class="section skills" id="skills">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">Skills</p>
+                    <h2>Technology stack with clear learning levels.</h2>
+                </div>
+                <div class="skills-grid" id="skills-grid"></div>
+            </div>
+        </section>
+
+        <section class="section spotlight" id="spotlight">
+            <div class="container">
+                <div class="spotlight-panel reveal" id="featured-project"></div>
+            </div>
+        </section>
+
+        <section class="section projects" id="projects">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">Projects</p>
+                    <h2>Selected work and learning repositories.</h2>
+                </div>
+
+                <div class="filter-bar reveal" role="search">
+                    <label class="search-field" for="project-search">
+                        <span>Search projects</span>
+                        <input id="project-search" type="search" placeholder="Try C++, algorithms, game..." autocomplete="off">
+                    </label>
+                    <div class="filter-chips" id="project-filters" aria-label="Project filters"></div>
+                </div>
+
+                <div class="projects-grid" id="projects-grid" aria-live="polite"></div>
+                <p class="empty-state" id="projects-empty" hidden>No projects match that filter yet.</p>
+            </div>
+        </section>
+
+        <section class="section notes" id="notes">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">Blog & Notes</p>
+                    <h2>Short learning notes</h2>
+                </div>
+
+                <div class="filter-bar reveal" role="search">
+                    <label class="search-field" for="notes-search">
+                        <span>Search notes</span>
+                        <input id="notes-search" type="search" placeholder="Try database, C, backend..." autocomplete="off">
+                    </label>
+                </div>
+
+                <div class="notes-grid" id="notes-grid" aria-live="polite"></div>
+                <p class="empty-state" id="notes-empty" hidden>No notes match that search.</p>
+            </div>
+        </section>
+
+        <section class="section now-learning" id="now">
+            <div class="container split-layout">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">Now</p>
+                    <h2>Currently learning and building.</h2>
+                </div>
+                <div class="now-grid reveal" id="now-grid"></div>
+            </div>
+        </section>
+
+        <section class="section journey" id="journey">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">Roadmap</p>
+                    <h2>Learning journey and academic milestones.</h2>
+                </div>
+                <div class="timeline" id="timeline"></div>
+            </div>
+        </section>
+
+        <section class="section education" id="education">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">Education</p>
+                    <h2>Academic background.</h2>
+                </div>
+                <div class="education-grid" id="education-grid"></div>
+            </div>
+        </section>
+
+        <section class="section achievements" id="achievements">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">Achievements</p>
+                    <h2>Highlights worth building on.</h2>
+                </div>
+                <div class="feature-grid" id="achievements-grid"></div>
+            </div>
+        </section>
+
+        <section class="section testimonials" id="testimonials">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">Recommendations</p>
+                    <h2>Space for future testimonials.</h2>
+                </div>
+                <div class="testimonial-grid" id="testimonials-grid"></div>
+            </div>
+        </section>
+
+        <section class="section resume-cta" id="resume">
+            <div class="container">
+                <div class="cta-panel reveal">
+                    <div>
+                        <p class="eyebrow">Resume</p>
+                        <h2>Want the quick version?</h2>
+                        <p>Download a lightweight resume draft and replace it later with your polished PDF.</p>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-number">5+</div>
-                        <div class="stat-label">Programming Languages</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">150+</div>
-                        <div class="stat-label">Competitive Problems Solved</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label">Dedication</div>
-                    </div>
+                    <a class="btn btn-primary" href="assets/resume/Md-Shourov-Resume.txt" download>Download Resume</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Skills Section -->
-    <section class="skills" id="skills">
-        <div class="container">
-            <h2 class="section-title">Skills & Technologies</h2>
-            <div class="skills-grid">
-                <!-- Programming Languages -->
-                <div class="skill-category">
-                    <h3 class="category-title">Programming Languages</h3>
-                    <div class="skill-badges">
-                        <span class="skill-badge">C++</span>
-                        <span class="skill-badge">C</span>
-                        <span class="skill-badge">Java</span>
-                        <span class="skill-badge">SQL</span>
-                        <span class="skill-badge">HTML/CSS</span>
-                    </div>
-                </div>
-
-                <!-- Databases -->
-                <div class="skill-category">
-                    <h3 class="category-title">Databases</h3>
-                    <div class="skill-badges">
-                        <span class="skill-badge">MySQL</span>
-                        <span class="skill-badge">Oracle</span>
-                        <span class="skill-badge">Firebase</span>
-                        <span class="skill-badge">PostgreSQL</span>
-                    </div>
-                </div>
-
-                <!-- Tools & Technologies -->
-                <div class="skill-category">
-                    <h3 class="category-title">Tools & Technologies</h3>
-                    <div class="skill-badges">
-                        <span class="skill-badge">Git & GitHub</span>
-                        <span class="skill-badge">VS Code</span>
-                        <span class="skill-badge">Linux</span>
-                        <span class="skill-badge">Windows</span>
-                        <span class="skill-badge">Shell Scripting</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="projects" id="projects">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/images/project-1.jpg" alt="Project 1" class="project-img">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Codeforces Solutions</h3>
-                        <p class="project-description">
-                            A collection of optimized solutions to codeforces problems.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">C++</span>
-                            <span class="tag">C</span>
-                            <span class="tag">Java</span>
-                            <span class="tag">Algorithms</span>
-                            <span class="tag">Number Theory</span>
-                        </div>
-                        <a href="https://github.com/Shourov735/Codeforces" class="project-link" target="_blank">
-                            View on GitHub →
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/images/project-2.jpg" alt="Project 2" class="project-img">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Leetcode Solutions</h3>
-                        <p class="project-description">
-                            A collection of optimized solutions to leetcode problems.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">C++</span>
-                            <span class="tag">Algorithms</span>
-                            <span class="tag">Data Structures</span>
-                        </div>
-                        <a href="https://github.com/Shourov735/LeetCode" class="project-link" target="_blank">
-                            View on GitHub →
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/images/project-3.jpg" alt="Project 3" class="project-img">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">TetriC</h3>
-                        <p class="project-description">
-                            A console based Tetris game implemented in C with features like socket programming for multiplayer support, different game modes,
-                            high score tracking, and smooth gameplay, showcasing my skills in C programming and game development.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">C</span>
-                            <span class="tag">Game Development</span>
-                            <span class="tag">Multiplayer</span>
-                        </div>
-                        <a href="https://github.com/Shourov735/TetriC" class="project-link" target="_blank">
-                            View on GitHub →
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section class="education" id="education">
-        <div class="container">
-            <h2 class="section-title">Education</h2>
-            <div class="education-timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-body">
-                            <h3>Bachelor of Science in Software Engineering</h3>
-                            <p class="institution">University of Dhaka</p>
-                            <p class="duration">2024 - Present</p>
-                            <p class="description">
-                                Studying core concepts in software engineering, including data structures, 
-                                algorithms, database design, and software development practices.
-                            </p>
-                            <ul class="coursework">
-                                <li>Data Structures & Algorithms</li>
-                                <li>Database Management Systems</li>
-                                <li>Operating Systems</li>
-                                <li>Software Requirement Analysis and Specification</li>
-                                <li>Software Engineering Principles</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-body">
-                            <h3>University Admission</h3>
-                            <p class="institution">Science Background</p>
-                            <p class="duration">2024</p>
-                            <p class="description">
-                                Successfully passed the university admission test with a strong performance in mathematics and physics, securing a place in the prestigious University of Dhaka.
-                            </p>
-                            <div class="admission-results">
-                                <table border="1" align="center">
-                                    <caption><h4>My admission test results</h4></caption>
-                                    <tr align="center">
-                                        <th>University</th>
-                                        <th>Marks/out of</th>
-                                        <th>Merit</th>
-                                    </tr>
-                                    <tr align="center">
-                                        <td>University of Dhaka</td>
-                                        <td>89.5/120</td>
-                                        <td><b>735</b></td>
-                                    </tr>
-                                    <tr align="center">
-                                        <td>Rajshahi University</td>
-                                        <td>92.5/100</td>
-                                        <td><b>3</b>(c-1)</td>
-                                    </tr>
-                                    <tr align="center">
-                                        <td>University of Chittagong</td>
-                                        <td>105/120</td>
-                                        <td><b>56</b></td>
-                                    </tr>
-                                    <tr align="center">
-                                        <td>Jahangirnagar University</td>
-                                        <td>80.8/100</td>
-                                        <td><b>245</b>(boys)</td>
-                                    </tr>
-                                    <tr align="center">
-                                        <td>CUET-KUET-RUET</td>
-                                        <td>N/A</td>
-                                        <td><b>2851</b></td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-body">
-                            <h3>Higher Secondary Certificate (HSC)</h3>
-                            <p class="institution">Science Background</p>
-                            <p class="duration">2020 - 2022</p>
-                            <p class="description">
-                                Completed HSC with focus on mathematics and Physics, which has been instrumental in developing my problem-solving skills and basic understanding of programming.
-                            </p>
-                            <ul class="coursework">
-                                <li>Mathematics</li>
-                                <li>Physics</li>
-                                <li>Computer Science</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-body">
-                            <h3>Secondary School Certificate (SSC)</h3>
-                            <p class="institution">Science Background</p>
-                            <p class="duration">2018 - 2021</p>
-                            <p class="description">
-                                Completed SSC with focus on Science stream, providing a strong foundation 
-                                in mathematics.
-                            </p>
-                            <ul class="coursework">
-                                <li>Mathematics</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Achievements Section -->
-    <section class="achievements" id="achievements">
-        <div class="container">
-            <h2 class="section-title">Achievements & Certifications</h2>
-            <div class="achievements-grid">
-                <div class="achievement-card">
-                    <div class="achievement-icon">🏆</div>
-                    <h3>Competitive Programming</h3>
+        <section class="section contact" id="contact">
+            <div class="container contact-layout">
+                <div class="contact-copy reveal">
+                    <p class="eyebrow">Contact</p>
+                    <h2>Have an idea, opportunity, or collaboration?</h2>
                     <p>
-                        Solved 150+ problems on Codeforces and participated in multiple online programming contests.
+                        Send a message through the form. On Vercel it can forward to a webhook-backed endpoint;
+                        on GitHub Pages it gracefully falls back to email.
                     </p>
-                </div>
-
-                <div class="achievement-card">
-                    <div class="achievement-icon">🎮</div>
-                    <h3>Game Development</h3>
-                    <p>
-                        Developed a console based Tetris game in C with features like socket programming for multiplayer support, different game modes, high score tracking, and smooth gameplay.
-                    </p>
-                </div>
-
-                <div class="achievement-card">
-                    <div class="achievement-icon">🎓</div>
-                    <h3>Academic Excellence</h3>
-                    <p>
-                        Maintained strong academic performance with focus on practical implementation and learning.
-                    </p>
-                </div>
-
-                <div class="achievement-card">
-                    <div class="achievement-icon">🚀</div>
-                    <h3>Open Source Contributions</h3>
-                    <p>
-                        Contributed to open-source projects and participated in community development.
-                    </p>
-                </div>
-
-                <div class="achievement-card">
-                    <div class="achievement-icon">💡</div>
-                    <h3>Problem Solving</h3>
-                    <p>
-                        Strong analytical and problem-solving skills developed through rigorous coding practice.
-                    </p>
-                </div>
-
-                <div class="achievement-card">
-                    <div class="achievement-icon">⭐</div>
-                    <h3>Leadership & Teamwork</h3>
-                    <p>
-                        Active participant in team projects and collaborative software development efforts.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Let's Connect</h3>
-                    <p>
-                        I'm always open to new opportunities, collaborations, and interesting conversations. 
-                        Feel free to reach out through any of the channels below!
-                    </p>
-
-                    <div class="contact-methods">
-                        <a href="mailto:mdshourov735@gmail.com" class="contact-method">
-                            <span class="icon">✉️</span>
-                            <div>
-                                <p class="method-title">Email</p>
-                                <p class="method-value">mdshourov735@gmail.com</p>
-                            </div>
-                        </a>
-
-                        <a href="https://github.com/Shourov735" target="_blank" class="contact-method">
-                            <span class="icon">🐙</span>
-                            <div>
-                                <p class="method-title">GitHub</p>
-                                <p class="method-value">github.com/Shourov735</p>
-                            </div>
-                        </a>
-
-                        <a href="https://linkedin.com/in/md-shourov-89125a337" target="_blank" class="contact-method">
-                            <span class="icon">💼</span>
-                            <div>
-                                <p class="method-title">LinkedIn</p>
-                                <p class="method-value">linkedin.com/in/md-shourov-89125a337</p>
-                            </div>
-                        </a>
-
-                        <a href="https://codeforces.com/profile/Shourov735" target="_blank" class="contact-method">
-                            <span class="icon">💻</span>
-                            <div>
-                                <p class="method-title">Codeforces</p>
-                                <p class="method-value">codeforces.com/profile/Shourov735</p>
-                            </div>
-                        </a>
+                    <div class="contact-links">
+                        <a href="mailto:mdshourov735@gmail.com">mdshourov735@gmail.com</a>
+                        <a href="https://github.com/Shourov735" target="_blank" rel="noreferrer">github.com/Shourov735</a>
+                        <a href="https://linkedin.com/in/md-shourov-89125a337" target="_blank" rel="noreferrer">LinkedIn profile</a>
                     </div>
                 </div>
 
-                <form class="contact-form" id="contact-form">
-                    <div class="form-group">
-                        <input 
-                            type="text" 
-                            id="name" 
-                            placeholder="Your Name" 
-                            required
-                            aria-label="Your Name"
-                        >
-                    </div>
-                    
-                    <div class="form-group">
-                        <input 
-                            type="email" 
-                            id="email" 
-                            placeholder="Your Email" 
-                            required
-                            aria-label="Your Email"
-                        >
-                    </div>
-                    
-                    <div class="form-group">
-                        <input 
-                            type="text" 
-                            id="subject" 
-                            placeholder="Subject" 
-                            required
-                            aria-label="Subject"
-                        >
-                    </div>
-                    
-                    <div class="form-group">
-                        <textarea 
-                            id="message" 
-                            placeholder="Your Message" 
-                            rows="6" 
-                            required
-                            aria-label="Your Message"
-                        ></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary btn-submit">
-                        Send Message
-                    </button>
-                    <p class="form-note">Note: This is a demo form. In production, it needs to be connected to a backend service.</p>
+                <form class="contact-form reveal" id="contact-form">
+                    <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+                    <label>
+                        <span>Name</span>
+                        <input type="text" name="name" autocomplete="name" required minlength="2">
+                    </label>
+                    <label>
+                        <span>Email</span>
+                        <input type="email" name="email" autocomplete="email" required>
+                    </label>
+                    <label>
+                        <span>Subject</span>
+                        <input type="text" name="subject" required minlength="3">
+                    </label>
+                    <label>
+                        <span>Message</span>
+                        <textarea name="message" rows="6" required minlength="10"></textarea>
+                    </label>
+                    <label class="honeypot" aria-hidden="true">
+                        <span>Leave this empty</span>
+                        <input type="text" name="website" tabindex="-1" autocomplete="off">
+                    </label>
+                    <button class="btn btn-primary" type="submit">Send Message</button>
+                    <p class="form-note">Powered by `/api/contact` on Vercel, with an email fallback for static hosting.</p>
                 </form>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2026 Md. Shourov. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="#home">Back to Top</a>
-                    <a href="https://github.com/Shourov735/" target="_blank">GitHub</a>
-                    <a href="https://linkedin.com/in/md-shourov-89125a337" target="_blank">LinkedIn</a>
-                </div>
+        <div class="container footer-grid">
+            <div>
+                <a class="brand footer-brand" href="#home">
+                    <span class="brand-mark" aria-hidden="true">S</span>
+                    <span>Md. Shourov</span>
+                </a>
+                <p>Software Engineering student building a stronger portfolio one iteration at a time.</p>
+            </div>
+            <div class="footer-links" aria-label="Footer links">
+                <a href="#projects">Projects</a>
+                <a href="#notes">Notes</a>
+                <a href="#resume">Resume</a>
+                <a href="#contact">Contact</a>
             </div>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
-        ↑
-    </button>
-
-    <script src="script.js"></script>
+    <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">↑</button>
+    <script src="script.js" defer></script>
 </body>
 </html>

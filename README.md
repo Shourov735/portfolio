@@ -79,13 +79,15 @@ The frontend first tries to submit to:
 
 On GitHub Pages, that endpoint does not exist, so the form opens a prepared email using `mailto:`.
 
-On Vercel, `api/contact.js` can forward submissions to any JSON webhook. Set this environment variable in Vercel:
+On Vercel, `api/contact.js` can forward submissions to a Discord webhook or a general JSON webhook. Set this environment variable in Vercel:
 
 ```text
 CONTACT_WEBHOOK_URL=https://your-webhook-url.example
 ```
 
-Good simple webhook options include a Discord webhook, Slack incoming webhook, Make/Zapier webhook, or a small Google Apps Script endpoint.
+For Discord, create a private channel, open Channel Settings > Integrations > Webhooks, create a webhook, then paste the copied Discord webhook URL as the value. Keep that URL private because anyone with it can post to the channel.
+
+Good simple webhook options include a Discord webhook, Make/Zapier webhook, or a small Google Apps Script endpoint.
 
 ## Deploy to GitHub Pages
 

@@ -27,17 +27,12 @@ module.exports = async function handler(request, response) {
       });
     }
 
+    const webhookPayload = buildWebhookPayload(webhookUrl, message);
+
     const webhookResponse = await fetch(webhookUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        source: "portfolio-contact-form",
-        submittedAt: new Date().toISOString(),
-        name: message.name,
-        email: message.email,
-        subject: message.subject,
-        message: message.message
-      })
+      body: JSON.stringify(webhookPayload)
     });
 
     if (!webhookResponse.ok) {
@@ -74,4 +69,35 @@ function isValidMessage(data) {
     data.subject.length >= 3 &&
     data.message.length >= 10
   );
+}
+
+function buildWebhookPayload(webhookUrl, message) {
+  const submittedAt = new Date().toISOString();
+
+  if (isDiscordWebhook(webhookUrl)) {
+    return {
+      content: [
+        "**New portfolio contact message**",
+        `**Name:** ${message.name}`,
+        `**Email:** ${message.email}`,
+        `**Subject:** ${message.subject}`,
+        `**Submitted:** ${submittedAt}`,
+        "",
+        message.message
+      ].join("\n").slice(0, 1900)
+    };
+  }
+
+  return {
+    source: "portfolio-contact-form",
+    submittedAt,
+    name: message.name,
+    email: message.email,
+    subject: message.subject,
+    message: message.message
+  };
+}
+
+function isDiscordWebhook(webhookUrl) {
+  return /discord(?:app)?\.com\/api\/webhooks\//.test(webhookUrl);
 }

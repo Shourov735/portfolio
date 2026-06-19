@@ -14,7 +14,7 @@
     },
     {
       "value": "2024",
-      "label": "BSc Software Engineering"
+      "label": "BSc in Software Engineering"
     }
   ],
   "skills": [
@@ -23,15 +23,15 @@
       "items": [
         {
           "name": "C++",
-          "level": 82
+          "level": 75
         },
         {
           "name": "C",
-          "level": 76
+          "level": 92
         },
         {
           "name": "Java",
-          "level": 58
+          "level": 71
         },
         {
           "name": "JavaScript",
@@ -48,15 +48,15 @@
         },
         {
           "name": "Vanilla JS",
-          "level": 58
+          "level": 37
         },
         {
           "name": "REST APIs",
-          "level": 44
+          "level": 21
         },
         {
           "name": "Serverless Basics",
-          "level": 38
+          "level": 17
         }
       ]
     },
@@ -68,12 +68,12 @@
           "level": 70
         },
         {
-          "name": "MySQL",
+          "name": "Oracle DB",
           "level": 60
         },
         {
           "name": "Linux/Shell",
-          "level": 56
+          "level": 80
         },
         {
           "name": "PostgreSQL",
@@ -147,7 +147,7 @@
       "links": [
         {
           "label": "GitHub",
-          "url": "https://github.com/Shourov735"
+          "url": "https://github.com/Shourov735/portfolio"
         }
       ]
     }
@@ -187,11 +187,6 @@
     }
   ],
   "timeline": [
-    {
-      "date": "2026",
-      "title": "Portfolio becomes content-driven",
-      "summary": "Refactored the site into reusable JavaScript-rendered sections backed by JSON data."
-    },
     {
       "date": "2024 - Present",
       "title": "BSc in Software Engineering",

@@ -35,7 +35,7 @@
         },
         {
           "name": "JavaScript",
-          "level": 52
+          "level": 32
         }
       ]
     },
@@ -47,16 +47,12 @@
           "level": 74
         },
         {
-          "name": "Vanilla JS",
-          "level": 37
+          "name": "Node.js",
+          "level": 25
         },
         {
-          "name": "REST APIs",
-          "level": 21
-        },
-        {
-          "name": "Serverless Basics",
-          "level": 17
+          "name": "Oracle DB",
+          "level": 70
         }
       ]
     },
@@ -68,16 +64,12 @@
           "level": 70
         },
         {
-          "name": "Oracle DB",
-          "level": 60
-        },
-        {
           "name": "Linux/Shell",
           "level": 80
         },
         {
-          "name": "PostgreSQL",
-          "level": 42
+          "name": "Socket Programming",
+          "level": 80
         }
       ]
     }
@@ -156,34 +148,39 @@
     {
       "title": "How I approach competitive programming practice",
       "date": "2026-06-18",
-      "summary": "A future note about turning solved problems into patterns I can remember during contests.",
-      "tags": ["Algorithms", "Practice", "Codeforces"]
+      "summary": "Take the Input, Read the question carefully, Think and try running different solutions repeatedly until getting accepted.",
+      "tags": ["Brute Force", "Greedy", "Codeforces"]
     },
     {
       "title": "What I learned while building TetriC",
       "date": "2026-06-18",
-      "summary": "A placeholder post for lessons from terminal rendering, game loops, and socket programming in C.",
-      "tags": ["C", "Game Development", "Sockets"]
+      "summary": "How to send packets and retrieve data from them using socket programming in C.",
+      "tags": ["C", "Game Development", "Socket Programming"]
     },
     {
-      "title": "Backend basics from a contact form",
-      "date": "2026-06-18",
-      "summary": "A learning note about validation, serverless functions, environment variables, and graceful static fallbacks.",
-      "tags": ["Backend", "JavaScript", "Vercel"]
+      "title": "Tried Learing Rust",
+      "date": "2026-06-23",
+      "summary": "Watched a 3 hour tutorial from Youtube.Thought that I have learned a lot.Then noticed that he didn't taught Input handling.Tried to learn that.Understood, maybe Rust is not for me.",
+      "tags": ["Rust", "IO Handling", "Codeforces"]
     }
+
   ],
   "now": [
     {
-      "title": "Backend fundamentals",
-      "summary": "Practicing request validation, APIs, deployment, and serverless workflows."
+      "title": "Requirements specification and analysis",
+      "summary": "Studying software requirements, analysis techniques, and documentation practices."
     },
     {
-      "title": "JavaScript depth",
-      "summary": "Improving DOM patterns, async fetch flows, state handling, and accessibility."
+      "title": "Operating systems",
+      "summary": "Studying OS concepts including processes, threads, scheduling, and memory management."
     },
     {
       "title": "Competitive programming",
       "summary": "Continuing algorithm practice with a focus on number theory and data structures."
+    },
+    {
+      "title": "Design Patterns",
+      "summary": "Learning and applying common design patterns for robust and maintainable code."
     }
   ],
   "timeline": [

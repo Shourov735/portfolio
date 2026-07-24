@@ -69,12 +69,20 @@ export function Projects() {
                 href={`/projects/${slugify(project.title)}`}
                 className="block border border-[var(--color-line)] rounded-lg bg-[var(--color-surface)] shadow-sm overflow-hidden hover:-translate-y-1 hover:border-[var(--color-primary)]/55 hover:shadow-lg transition-all duration-180"
               >
-                <img
-                  src={project.image}
-                  alt={`${project.title} project preview`}
-                  className="w-full aspect-[16/10] object-cover bg-[var(--color-surface-muted)]"
-                  loading="lazy"
-                />
+                {project.image ? (
+                  <img
+                    src={project.image}
+                    alt={`${project.title} project preview`}
+                    className="w-full aspect-[16/10] object-cover bg-[var(--color-surface-muted)]"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="w-full aspect-[16/10] flex items-center justify-center bg-[var(--color-surface-muted)]">
+                    <span className="text-2xl font-bold tracking-widest text-[var(--color-muted)] opacity-40">
+                      {project.title.split(" ").map((w) => w[0]).join("").toUpperCase().slice(0, 3)}
+                    </span>
+                  </div>
+                )}
                 <div className="p-[22px]">
                   <span className="text-[var(--color-accent)] text-xs font-extrabold tracking-[0.08em] uppercase">
                     {project.category}

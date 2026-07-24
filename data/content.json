@@ -132,14 +132,42 @@
     },
     {
       "title": "Portfolio Website",
-      "summary": "This content-driven portfolio using plain HTML, CSS, JavaScript, JSON data, and a Vercel-ready contact endpoint.",
+      "summary": "An interactive portfolio built with Next.js, TypeScript, and Tailwind CSS, featuring a contact API, SSG project pages, dark/light theme, and automated sitemap generation.",
       "image": "assets/images/profile.jpg",
       "category": "Web",
-      "tags": ["HTML", "CSS", "JavaScript", "Serverless"],
+      "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Serverless", "Vercel"],
       "links": [
         {
           "label": "GitHub",
           "url": "https://github.com/Shourov735/portfolio"
+        },
+        {
+          "label": "Live",
+          "url": "https://portfolio-lemon-eight-22.vercel.app"
+        }
+      ]
+    },
+    {
+      "title": "Mosque Library Management",
+      "summary": "A full-stack web application for managing mosque libraries — browse an Islamic book catalog, manage members, and organize committee roles with multilingual (EN/BN) support.",
+      "category": "Web",
+      "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Full-Stack", "Prisma"],
+      "links": [
+        {
+          "label": "Live Demo",
+          "url": "https://mosque-library-management.vercel.app"
+        }
+      ]
+    },
+    {
+      "title": "image-comparison",
+      "summary": "Contributed to an open-source Java library on Maven Central that compares two images and highlights visual differences with rectangles. Used for automation QA testing.",
+      "category": "Open Source",
+      "tags": ["Java", "Open Source", "Image Processing", "Testing", "Maven"],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/Shourov735/image-comparison"
         }
       ]
     }
@@ -162,6 +190,12 @@
       "date": "2026-06-23",
       "summary": "Watched a 3-hour tutorial and explored Rust's ownership model, borrowing, and type system. Built a small CLI tool to practice input handling before shifting focus back to C++ and systems programming.",
       "tags": ["Rust", "Systems Programming", "Learning"]
+    },
+    {
+      "title": "Contributing to open-source image-comparison",
+      "date": "2026-06-26",
+      "summary": "Forked and contributed to romankh3/image-comparison, a Java library on Maven Central that performs pixel-level image comparison for QA automation. Explored the codebase and submitted improvements.",
+      "tags": ["Java", "Open Source", "Image Processing", "Testing"]
     }
 
   ],
@@ -264,7 +298,11 @@
     },
     {
       "title": "Open Source",
-      "summary": "Maintain 3+ public repositories with clean documentation, contributing to the developer community."
+      "summary": "Contributed to romankh3/image-comparison, a Maven Central published Java library for automated image QA testing. Maintain 5+ public repositories."
+    },
+    {
+      "title": "Full-Stack Development",
+      "summary": "Built Mosque Library Management — a bilingual (EN/BN) full-stack app with catalog browsing, member management, and committee organization."
     },
     {
       "title": "Problem Solving",

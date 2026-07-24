@@ -21,11 +21,19 @@ export const metadata: Metadata = {
     "Software Engineering",
     "University of Dhaka",
     "C++",
-    "JavaScript",
+    "Python",
+    "TypeScript",
+    "React",
+    "Next.js",
     "Competitive Programming",
+    "Open Source",
     "Portfolio",
   ],
   authors: [{ name: "Md. Shourov" }],
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+  },
   openGraph: {
     title: "Md. Shourov - Software Engineering Student",
     description:

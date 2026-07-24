@@ -34,21 +34,62 @@
           "level": 71
         },
         {
+          "name": "Python",
+          "level": 45
+        },
+        {
+          "name": "TypeScript",
+          "level": 60
+        },
+        {
           "name": "JavaScript",
-          "level": 32
+          "level": 55
         }
       ]
     },
     {
-      "category": "Web & Backend",
+      "category": "Frontend",
       "items": [
+        {
+          "name": "React",
+          "level": 60
+        },
+        {
+          "name": "Next.js",
+          "level": 65
+        },
         {
           "name": "HTML/CSS",
           "level": 74
         },
         {
-          "name": "Node.js",
+          "name": "Tailwind CSS",
+          "level": 65
+        },
+        {
+          "name": "Flutter",
           "level": 25
+        }
+      ]
+    },
+    {
+      "category": "Backend & Database",
+      "items": [
+        {
+          "name": "Node.js",
+          "level": 40
+        },
+        {
+          "name": "PostgreSQL",
+          "level": 40
+        },
+        {
+          "name": "MySQL",
+          "level": 50
+        },
+        {
+          "name": "Firebase",
+          "level": 40
         },
         {
           "name": "Oracle DB",
@@ -57,15 +98,23 @@
       ]
     },
     {
-      "category": "Tools & Data",
+      "category": "DevOps & Tools",
       "items": [
         {
           "name": "Git & GitHub",
-          "level": 70
+          "level": 75
         },
         {
           "name": "Linux/Shell",
           "level": 80
+        },
+        {
+          "name": "VSCode",
+          "level": 85
+        },
+        {
+          "name": "Vercel",
+          "level": 60
         },
         {
           "name": "Socket Programming",
@@ -77,7 +126,7 @@
   "featuredProject": {
     "title": "TetriC",
     "summary": "A console-based Tetris game implemented in C with multiplayer support, game modes, high score tracking, and smooth terminal gameplay.",
-    "image": "assets/images/project-3.jpg",
+    "image": "/assets/images/project-3.jpg",
     "tags": ["C", "Game Development", "Sockets", "Terminal UI"],
     "links": [
       {
@@ -90,7 +139,7 @@
     {
       "title": "Codeforces Solutions",
       "summary": "A growing archive of optimized Codeforces solutions focused on algorithms, number theory, and contest practice.",
-      "image": "assets/images/project-1.jpg",
+      "image": "/assets/images/project-1.jpg",
       "category": "Algorithms",
       "tags": ["C++", "C", "Java", "Algorithms", "Number Theory"],
       "links": [
@@ -107,7 +156,7 @@
     {
       "title": "LeetCode Solutions",
       "summary": "Clean solutions for common interview-style problems, with emphasis on data structures and reusable patterns.",
-      "image": "assets/images/project-2.jpg",
+      "image": "/assets/images/project-2.jpg",
       "category": "Algorithms",
       "tags": ["C++", "Algorithms", "Data Structures"],
       "links": [
@@ -120,7 +169,7 @@
     {
       "title": "TetriC",
       "summary": "A C-based terminal Tetris game with multiplayer experiments, score tracking, and multiple game modes.",
-      "image": "assets/images/project-3.jpg",
+      "image": "/assets/images/project-3.jpg",
       "category": "Systems",
       "tags": ["C", "Game Development", "Multiplayer", "Sockets"],
       "links": [
@@ -133,7 +182,7 @@
     {
       "title": "Portfolio Website",
       "summary": "An interactive portfolio built with Next.js, TypeScript, and Tailwind CSS, featuring a contact API, SSG project pages, dark/light theme, and automated sitemap generation.",
-      "image": "assets/images/profile.jpg",
+      "image": "/assets/images/profile.jpg",
       "category": "Web",
       "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Serverless", "Vercel"],
       "links": [
@@ -150,6 +199,7 @@
     {
       "title": "Mosque Library Management",
       "summary": "A full-stack web application for managing mosque libraries — browse an Islamic book catalog, manage members, and organize committee roles with multilingual (EN/BN) support.",
+      "image": "/assets/images/project-1.jpg",
       "category": "Web",
       "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Full-Stack", "Prisma"],
       "links": [
@@ -162,6 +212,7 @@
     {
       "title": "image-comparison",
       "summary": "Contributed to an open-source Java library on Maven Central that compares two images and highlights visual differences with rectangles. Used for automation QA testing.",
+      "image": "/assets/images/project-2.jpg",
       "category": "Open Source",
       "tags": ["Java", "Open Source", "Image Processing", "Testing", "Maven"],
       "links": [

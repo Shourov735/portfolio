@@ -27,6 +27,7 @@ export function Hero() {
               {[
                 { label: "GitHub", href: "https://github.com/Shourov735" },
                 { label: "LinkedIn", href: "https://linkedin.com/in/md-shourov-89125a337" },
+                { label: "X / Twitter", href: "https://x.com/@Shourov735" },
                 { label: "Codeforces", href: "https://codeforces.com/profile/Shourov735" },
                 { label: "Facebook", href: "https://www.facebook.com/mdshourov.738" },
               ].map((s) => (

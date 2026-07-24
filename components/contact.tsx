@@ -58,6 +58,18 @@ export function Contact() {
               <a href="https://linkedin.com/in/md-shourov-89125a337" target="_blank" rel="noreferrer" className="text-[var(--color-muted)] font-bold hover:text-[var(--color-primary-strong)] transition-colors">
                 LinkedIn profile
               </a>
+              <a href="https://x.com/@Shourov735" target="_blank" rel="noreferrer" className="text-[var(--color-muted)] font-bold hover:text-[var(--color-primary-strong)] transition-colors">
+                X / Twitter
+              </a>
+              <a href="https://t.me/Shourov735" target="_blank" rel="noreferrer" className="text-[var(--color-muted)] font-bold hover:text-[var(--color-primary-strong)] transition-colors">
+                Telegram
+              </a>
+              <a href="https://www.youtube.com/@mdshourovgaming" target="_blank" rel="noreferrer" className="text-[var(--color-muted)] font-bold hover:text-[var(--color-primary-strong)] transition-colors">
+                YouTube
+              </a>
+              <a href="https://medium.com/@Shourov735" target="_blank" rel="noreferrer" className="text-[var(--color-muted)] font-bold hover:text-[var(--color-primary-strong)] transition-colors">
+                Medium
+              </a>
             </div>
           </div>
         </ScrollReveal>

@@ -1,6 +1,9 @@
 # Dependencies
 node_modules/
 
+# Next.js
+.next/
+
 # Lock files (keep package-lock.json in version control)
 # package-lock.json is intentionally not ignored
 

@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://shourov735.github.io/portfolio/sitemap.xml

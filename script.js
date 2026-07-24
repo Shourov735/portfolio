@@ -55,7 +55,6 @@ function renderPageContent() {
     renderTimeline(state.content.timeline);
     renderEducation(state.content.education);
     renderSimpleCards("#achievements-grid", state.content.achievements, "feature-card");
-    renderTestimonials(state.content.testimonials);
     bindFilters();
 }
 
@@ -95,7 +94,7 @@ function renderFeaturedProject(project) {
     const container = document.querySelector("#featured-project");
     container.innerHTML = `
         <div class="spotlight-media">
-            <img src="${escapeAttribute(project.image)}" alt="${escapeAttribute(project.title)} project preview">
+            <img src="${escapeAttribute(project.image)}" alt="${escapeAttribute(project.title)} project preview" loading="lazy">
         </div>
         <div class="spotlight-copy">
             <p class="eyebrow">Featured Project</p>
@@ -130,7 +129,7 @@ function renderProjects() {
 
     grid.innerHTML = projects.map(project => `
         <article class="project-card reveal">
-            <img src="${escapeAttribute(project.image)}" alt="${escapeAttribute(project.title)} project preview">
+            <img src="${escapeAttribute(project.image)}" alt="${escapeAttribute(project.title)} project preview" loading="lazy">
             <div class="project-body">
                 <span class="project-meta">${escapeHTML(project.category)}</span>
                 <h3>${escapeHTML(project.title)}</h3>
@@ -213,16 +212,7 @@ function renderSimpleCards(selector, items, className) {
     `).join("");
 }
 
-function renderTestimonials(items) {
-    const grid = document.querySelector("#testimonials-grid");
-    grid.innerHTML = items.map(item => `
-        <article class="testimonial-card reveal">
-            <p>"${escapeHTML(item.quote)}"</p>
-            <h3>${escapeHTML(item.name)}</h3>
-            <p>${escapeHTML(item.role)}</p>
-        </article>
-    `).join("");
-}
+
 
 function renderTags(tags = []) {
     return `

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md. Shourov - Resume</title>
+    <style>
+        :root {
+            --primary: #0f766e;
+            --primary-dark: #0d5e56;
+            --accent: #c2410c;
+            --text: #1a1a1a;
+            --muted: #555;
+            --line: #ddd;
+            --bg: #fff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', 'Segoe UI', -apple-system, system-ui, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.5;
+            font-size: 10.5pt;
+            padding: 0;
+        }
+        .page {
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 28px 32px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 16px;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 24pt;
+            color: var(--primary-dark);
+            letter-spacing: -0.5px;
+        }
+        .header .subtitle {
+            font-size: 11pt;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 18px;
+            font-size: 9pt;
+            color: var(--muted);
+            margin-top: 6px;
+        }
+        .contact-row a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .contact-row a:hover {
+            text-decoration: underline;
+        }
+        .right-col {
+            text-align: right;
+            font-size: 9pt;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+        .right-col a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .section {
+            margin-bottom: 16px;
+        }
+        .section-title {
+            font-size: 11pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--primary-dark);
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 4px;
+            margin-bottom: 10px;
+        }
+        .entry {
+            margin-bottom: 12px;
+        }
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        .entry-title {
+            font-weight: 700;
+            font-size: 10.5pt;
+        }
+        .entry-sub {
+            font-weight: 600;
+            color: var(--muted);
+            font-size: 10pt;
+        }
+        .entry-date {
+            color: var(--accent);
+            font-size: 9pt;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .entry-body {
+            margin-top: 4px;
+            font-size: 9.5pt;
+            color: var(--text);
+        }
+        .entry-body ul {
+            list-style: disc;
+            padding-left: 18px;
+            margin-top: 3px;
+        }
+        .entry-body ul li {
+            margin-bottom: 2px;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+        }
+        .skill-cat {
+            font-weight: 700;
+            font-size: 9.5pt;
+            margin-bottom: 3px;
+            color: var(--primary-dark);
+        }
+        .skill-items {
+            font-size: 9pt;
+            color: var(--text);
+            line-height: 1.5;
+        }
+        .project-links {
+            font-size: 9pt;
+            margin-top: 2px;
+        }
+        .project-links a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .project-links a:hover {
+            text-decoration: underline;
+        }
+        @media print {
+            body { font-size: 10pt; }
+            .page { padding: 20px 24px; }
+            .right-col a { color: var(--muted); }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <div>
+                <h1>Md. Shourov</h1>
+                <div class="subtitle">Software Engineering Student</div>
+                <div class="contact-row">
+                    <span>mdshourov735@gmail.com</span>
+                    <a href="https://github.com/Shourov735">github.com/Shourov735</a>
+                    <a href="https://linkedin.com/in/md-shourov-89125a337">linkedin.com/in/md-shourov-89125a337</a>
+                    <a href="https://codeforces.com/profile/Shourov735">codeforces.com/profile/Shourov735</a>
+                </div>
+            </div>
+            <div class="right-col">
+                University of Dhaka<br>
+                BSc, Software Engineering<br>
+                2024 – Present
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Summary</div>
+            <p style="font-size:9.5pt; color:var(--text);">
+                Software Engineering student at the University of Dhaka with a strong foundation in
+                algorithms, data structures, and C/C++ systems programming. Passionate about building
+                practical software, competitive programming, and continuous learning. Seeking internship
+                opportunities to apply engineering skills in real-world projects.
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Education</div>
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Bachelor of Science in Software Engineering</span>
+                    <span class="entry-date">2024 – Present</span>
+                </div>
+                <div class="entry-sub">University of Dhaka</div>
+                <div class="entry-body">
+                    Coursework: Data Structures &amp; Algorithms, Database Management Systems,
+                    Operating Systems, Software Requirements Analysis, Design Patterns
+                </div>
+            </div>
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Higher Secondary Certificate (Science)</span>
+                    <span class="entry-date">2020 – 2022</span>
+                </div>
+                <div class="entry-sub">Science Background</div>
+                <div class="entry-body">
+                    Strong foundation in mathematics, physics, and computing fundamentals.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Projects</div>
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">TetriC</span>
+                    <span class="entry-date">2025</span>
+                </div>
+                <div class="entry-body">
+                    Console-based Tetris game implemented in C with multiplayer support via socket
+                    programming, multiple game modes, high score tracking, and terminal UI.
+                    <div class="project-links">
+                        <a href="https://github.com/Shourov735/TetriC">github.com/Shourov735/TetriC</a>
+                    </div>
+                </div>
+            </div>
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Portfolio Website</span>
+                    <span class="entry-date">2025</span>
+                </div>
+                <div class="entry-body">
+                    Content-driven developer portfolio with JSON-driven architecture, dark/light theme,
+                    responsive design, and a Vercel serverless contact endpoint.
+                    <div class="project-links">
+                        <a href="https://github.com/Shourov735/portfolio">github.com/Shourov735/portfolio</a>
+                    </div>
+                </div>
+            </div>
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Codeforces Solutions Archive</span>
+                    <span class="entry-date">2024 – Present</span>
+                </div>
+                <div class="entry-body">
+                    Collection of optimized solutions to competitive programming problems
+                    on Codeforces, with a focus on algorithms and number theory.
+                    <div class="project-links">
+                        <a href="https://github.com/Shourov735/Codeforces">github.com/Shourov735/Codeforces</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Skills</div>
+            <div class="skills-grid">
+                <div>
+                    <div class="skill-cat">Languages</div>
+                    <div class="skill-items">C, C++, Java, JavaScript, HTML/CSS</div>
+                </div>
+                <div>
+                    <div class="skill-cat">Tools &amp; Platforms</div>
+                    <div class="skill-items">Git, GitHub, Linux/Shell, VS Code, Vercel</div>
+                </div>
+                <div>
+                    <div class="skill-cat">Concepts</div>
+                    <div class="skill-items">Data Structures, Algorithms, OOP, Socket Programming, Database Design</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Achievements</div>
+            <div class="entry-body">
+                <ul>
+                    <li>Solved 150+ competitive programming problems on Codeforces and LeetCode</li>
+                    <li>Secured merit position 735 in University of Dhaka admission test</li>
+                    <li>Developed TetriC — a multiplayer terminal-based Tetris game in C using socket programming</li>
+                    <li>Maintained multiple open-source solution repositories on GitHub</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Currently Learning</div>
+            <div class="entry-body" style="font-size:9.5pt;">
+                Operating systems, design patterns, backend fundamentals, and competitive programming
+                with a focus on number theory and data structures.
+            </div>
+        </div>
+    </div>
+</body>
+</html>

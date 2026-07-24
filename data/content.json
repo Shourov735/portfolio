@@ -158,10 +158,10 @@
       "tags": ["C", "Game Development", "Socket Programming"]
     },
     {
-      "title": "Tried Learing Rust",
+      "title": "Tried Learning Rust",
       "date": "2026-06-23",
-      "summary": "Watched a 3 hour tutorial from Youtube.Thought that I have learned a lot.Then noticed that he didn't taught Input handling.Tried to learn that.Understood, maybe Rust is not for me.",
-      "tags": ["Rust", "IO Handling", "Codeforces"]
+      "summary": "Watched a 3-hour tutorial and explored Rust's ownership model, borrowing, and type system. Built a small CLI tool to practice input handling before shifting focus back to C++ and systems programming.",
+      "tags": ["Rust", "Systems Programming", "Learning"]
     }
 
   ],
@@ -252,44 +252,24 @@
   "achievements": [
     {
       "title": "Competitive Programming",
-      "summary": "Solved 150+ problems and actively practice online contests."
+      "summary": "Solved 150+ problems on Codeforces and LeetCode with active contest participation."
     },
     {
       "title": "Game Development",
-      "summary": "Developed a console-based C Tetris project with gameplay modes and multiplayer experiments."
+      "summary": "Built TetriC, a C-based terminal Tetris game with multiplayer socket programming and high score tracking."
     },
     {
-      "title": "Academic Growth",
-      "summary": "Maintaining focus on practical implementation and software engineering fundamentals."
+      "title": "University Admission",
+      "summary": "Secured merit position 735 at University of Dhaka and top-3 merit at Rajshahi University admission test."
+    },
+    {
+      "title": "Open Source",
+      "summary": "Maintain 3+ public repositories with clean documentation, contributing to the developer community."
     },
     {
       "title": "Problem Solving",
-      "summary": "Growing analytical skill through rigorous coding practice and project-based learning."
-    },
-    {
-      "title": "Open Source Mindset",
-      "summary": "Preparing projects and repositories so they are easier for others to inspect, use, and extend."
-    },
-    {
-      "title": "Teamwork",
-      "summary": "Interested in collaborative software development and building useful tools with peers."
+      "summary": "Growing analytical skill through daily coding practice across multiple platforms and languages."
     }
   ],
-  "testimonials": [
-    {
-      "name": "Recommendation coming soon",
-      "role": "Teacher, teammate, or mentor",
-      "quote": "This section is ready for future testimonials once you collect real recommendations."
-    },
-    {
-      "name": "Project feedback placeholder",
-      "role": "Collaborator",
-      "quote": "Use this card for feedback from a teammate, hackathon partner, or open-source maintainer."
-    },
-    {
-      "name": "Academic reference placeholder",
-      "role": "Instructor",
-      "quote": "Replace this placeholder with a short, specific endorsement when available."
-    }
-  ]
+  "testimonials": []
 }

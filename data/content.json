@@ -199,7 +199,7 @@
     {
       "title": "Mosque Library Management",
       "summary": "A full-stack web application for managing mosque libraries — browse an Islamic book catalog, manage members, and organize committee roles with multilingual (EN/BN) support.",
-      "image": "/assets/images/project-1.jpg",
+      "image": "/assets/images/mosque-library.jpg",
       "category": "Web",
       "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Full-Stack", "Prisma"],
       "links": [
@@ -212,7 +212,7 @@
     {
       "title": "image-comparison",
       "summary": "Contributed to an open-source Java library on Maven Central that compares two images and highlights visual differences with rectangles. Used for automation QA testing.",
-      "image": "/assets/images/project-2.jpg",
+      "image": "/assets/images/image-comparison.jpg",
       "category": "Open Source",
       "tags": ["Java", "Open Source", "Image Processing", "Testing", "Maven"],
       "links": [

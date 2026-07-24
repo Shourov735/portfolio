@@ -6,9 +6,10 @@ export function generateStaticParams() {
   return getContent().projects.map((p) => ({ slug: slugify(p.title) }))
 }
 
-export default function ProjectPage({ params }: { params: { slug: string } }) {
-  const projects = getContent().projects
-  const project = projects.find((p) => slugify(p.title) === params.slug)
+export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+
+  const project = getContent().projects.find((p) => slugify(p.title) === slug)
 
   if (!project) {
     notFound()

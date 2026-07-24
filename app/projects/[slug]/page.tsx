@@ -1,14 +1,18 @@
 import { notFound } from "next/navigation"
 import Link from "next/link"
-import { getProject, getAllProjectSlugs } from "@/lib/content"
+import { getContent, slugify } from "@/lib/content"
 
 export function generateStaticParams() {
-  return getAllProjectSlugs()
+  return getContent().projects.map((p) => ({ slug: slugify(p.title) }))
 }
 
 export default function ProjectPage({ params }: { params: { slug: string } }) {
-  const project = getProject(params.slug)
-  if (!project) notFound()
+  const projects = getContent().projects
+  const project = projects.find((p) => slugify(p.title) === params.slug)
+
+  if (!project) {
+    notFound()
+  }
 
   return (
     <div className="section">

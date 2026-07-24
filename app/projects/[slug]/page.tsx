@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation"
 import Link from "next/link"
-import { getProject, getContent, slugify } from "@/lib/content"
+import { getProject, getAllProjectSlugs } from "@/lib/content"
 
 export function generateStaticParams() {
-  return getContent().projects.map((p) => ({ slug: slugify(p.title) }))
+  return getAllProjectSlugs()
 }
 
 export default function ProjectPage({ params }: { params: { slug: string } }) {

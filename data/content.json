@@ -123,18 +123,36 @@
       ]
     }
   ],
-  "featuredProject": {
-    "title": "TetriC",
-    "summary": "A console-based Tetris game implemented in C with multiplayer support, game modes, high score tracking, and smooth terminal gameplay.",
-    "image": "/assets/images/project-3.jpg",
-    "tags": ["C", "Game Development", "Sockets", "Terminal UI"],
-    "links": [
-      {
-        "label": "View on GitHub",
-        "url": "https://github.com/Shourov735/TetriC"
-      }
-    ]
-  },
+  "featuredProject": [
+    {
+      "title": "Mosque Library Management",
+      "summary": "A full-stack web application for managing mosque libraries — browse an Islamic book catalog, manage members, and organize committee roles with multilingual (EN/BN) support.",
+      "image": "/assets/images/mosque-library.jpg",
+      "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Full-Stack", "Prisma"],
+      "links": [
+        {
+          "label": "Live Demo",
+          "url": "https://mosque-library-management.vercel.app"
+        }
+      ]
+    },
+    {
+      "title": "Nabodigonto",
+      "summary": "Nabodigonto Social Welfare Organization — a web presence for a social welfare organization.",
+      "image": "/assets/images/nabodigonto600x400.jpg",
+      "tags": ["Next.js", "TypeScript", "Prisma"],
+      "links": [
+        {
+          "label": "Live Demo",
+          "url": "https://nabodigonto.vercel.app/"
+        },
+        {
+          "label": "Live Demo 2",
+          "url": "https://nabodigonto-sandy.vercel.app/"
+        }
+      ]
+    }
+  ],
   "projects": [
     {
       "title": "Codeforces Solutions",
@@ -206,6 +224,23 @@
         {
           "label": "Live Demo",
           "url": "https://mosque-library-management.vercel.app"
+        }
+      ]
+    },
+    {
+      "title": "Nabodigonto",
+      "summary": "Nabodigonto Social Welfare Organization — a web presence for a social welfare organization.",
+      "image": "/assets/images/nabodigonto600x400.jpg",
+      "category": "Web",
+      "tags": ["Next.js", "TypeScript", "Prisma"],
+      "links": [
+        {
+          "label": "Live Demo",
+          "url": "https://nabodigonto.vercel.app/"
+        },
+        {
+          "label": "Live Demo 2",
+          "url": "https://nabodigonto-sandy.vercel.app/"
         }
       ]
     },

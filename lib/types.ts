@@ -74,7 +74,7 @@ export interface Achievement {
 export interface PortfolioContent {
   stats: Stat[]
   skills: SkillGroup[]
-  featuredProject: Project
+  featuredProject: Project[]
   projects: Project[]
   notes: Note[]
   now: NowItem[]

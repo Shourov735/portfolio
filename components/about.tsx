@@ -14,12 +14,13 @@ export function About() {
           <div className="border border-[var(--color-line)] rounded-lg bg-[var(--color-surface)] shadow-sm p-7">
             <p className="text-[var(--color-muted)] mb-4">
               I am a Software Engineering student at the University of Dhaka, based in Gazipur, Bangladesh,
-              with a strong interest in data structures, algorithms, database design,
-              and building projects that sharpen real engineering skill.
+              with a strong interest in data structures, algorithms, database design, and building projects
+              that sharpen real engineering skill.
             </p>
             <p className="text-[var(--color-muted)] mb-4">
-              Competitive programming has trained me to reason under constraints. Project work helps me turn that
-              reasoning into usable software, from console games to solution archives and full-stack web apps.
+              Competitive programming has trained me to reason under constraints. Project work helps me turn
+              that reasoning into usable software, from console games to solution archives and full-stack web
+              apps.
             </p>
             <ul className="grid gap-2.5 mt-5 list-none p-0">
               {[

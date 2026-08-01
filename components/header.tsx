@@ -55,8 +55,15 @@ export function Header() {
         scrolled ? "border-[var(--color-line)] shadow-sm" : ""
       }`}
     >
-      <nav className="container-main flex h-[72px] items-center justify-between gap-5" aria-label="Primary navigation">
-        <a href="#home" className="inline-flex items-center gap-2.5 font-extrabold text-[var(--color-text)]" aria-label="Md. Shourov home">
+      <nav
+        className="container-main flex h-[72px] items-center justify-between gap-5"
+        aria-label="Primary navigation"
+      >
+        <a
+          href="#home"
+          className="inline-flex items-center gap-2.5 font-extrabold text-[var(--color-text)]"
+          aria-label="Md. Shourov home"
+        >
           <span className="inline-grid h-9 w-9 place-items-center rounded-md bg-[var(--color-primary)] text-white font-black">
             S
           </span>
@@ -71,9 +78,15 @@ export function Header() {
           aria-controls="nav-menu"
           aria-label={menuOpen ? "Close navigation" : "Open navigation"}
         >
-          <span className={`block h-0.5 w-6 rounded-full bg-[var(--color-text)] transition-all duration-180 ${menuOpen ? "translate-y-[7px] rotate-45" : ""}`} />
-          <span className={`block h-0.5 w-6 rounded-full bg-[var(--color-text)] transition-all duration-180 my-[5px] ${menuOpen ? "opacity-0" : ""}`} />
-          <span className={`block h-0.5 w-6 rounded-full bg-[var(--color-text)] transition-all duration-180 ${menuOpen ? "-translate-y-[7px] -rotate-45" : ""}`} />
+          <span
+            className={`block h-0.5 w-6 rounded-full bg-[var(--color-text)] transition-all duration-180 ${menuOpen ? "translate-y-[7px] rotate-45" : ""}`}
+          />
+          <span
+            className={`block h-0.5 w-6 rounded-full bg-[var(--color-text)] transition-all duration-180 my-[5px] ${menuOpen ? "opacity-0" : ""}`}
+          />
+          <span
+            className={`block h-0.5 w-6 rounded-full bg-[var(--color-text)] transition-all duration-180 ${menuOpen ? "-translate-y-[7px] -rotate-45" : ""}`}
+          />
         </button>
 
         <div

@@ -3,7 +3,10 @@ export function Footer() {
     <footer className="border-t border-[var(--color-line)] bg-[var(--color-surface)]">
       <div className="container-main flex items-center justify-between gap-7 py-8 max-md:flex-col max-md:items-stretch">
         <div>
-          <a href="#home" className="inline-flex items-center gap-2.5 font-extrabold text-[var(--color-text)]">
+          <a
+            href="#home"
+            className="inline-flex items-center gap-2.5 font-extrabold text-[var(--color-text)]"
+          >
             <span className="inline-grid h-9 w-9 place-items-center rounded-md bg-[var(--color-primary)] text-white font-black">
               S
             </span>
@@ -26,7 +29,10 @@ export function Footer() {
 
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <a href={href} className="text-[var(--color-muted)] font-bold text-sm hover:text-[var(--color-primary-strong)] transition-colors">
+    <a
+      href={href}
+      className="text-[var(--color-muted)] font-bold text-sm hover:text-[var(--color-primary-strong)] transition-colors"
+    >
       {children}
     </a>
   )

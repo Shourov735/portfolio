@@ -52,8 +52,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Md. Shourov - Developer Portfolio",
-    description:
-      "Projects, notes, skills, and learning journey from a Software Engineering student.",
+    description: "Projects, notes, skills, and learning journey from a Software Engineering student.",
   },
   robots: {
     index: true,
@@ -76,6 +75,44 @@ export default function RootLayout({
           <BackToTop />
           <Analytics />
         </ThemeProvider>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Md. Shourov",
+              jobTitle: "Software Engineering Student",
+              url: "https://shourov735.github.io/portfolio/",
+              image: "https://shourov735.github.io/portfolio/assets/images/profile.jpg",
+              alumniOf: {
+                "@type": "CollegeOrUniversity",
+                name: "University of Dhaka",
+              },
+              knowsAbout: [
+                "Competitive Programming",
+                "C++",
+                "C",
+                "Java",
+                "Python",
+                "TypeScript",
+                "React",
+                "Next.js",
+                "Web Development",
+                "Open Source",
+              ],
+              sameAs: [
+                "https://github.com/Shourov735",
+                "https://linkedin.com/in/md-shourov-89125a337",
+                "https://x.com/@Shourov735",
+                "https://t.me/Shourov735",
+                "https://www.youtube.com/@mdshourovgaming",
+                "https://medium.com/@Shourov735",
+                "https://codeforces.com/profile/Shourov735",
+              ],
+            }),
+          }}
+        />
       </body>
     </html>
   )

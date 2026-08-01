@@ -27,7 +27,10 @@ export function Skills() {
                         <span className="text-[var(--color-text)]">{skill.name}</span>
                         <span>{skill.level}%</span>
                       </div>
-                      <div className="h-2 rounded-full bg-[var(--color-surface-muted)] overflow-hidden" aria-hidden="true">
+                      <div
+                        className="h-2 rounded-full bg-[var(--color-surface-muted)] overflow-hidden"
+                        aria-hidden="true"
+                      >
                         <span
                           className="block h-full rounded-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-accent)]"
                           style={{ width: `${skill.level}%` }}

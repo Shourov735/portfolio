@@ -16,7 +16,10 @@ export function Timeline() {
           </div>
         </ScrollReveal>
         <div className="relative grid gap-4 max-w-[840px]">
-          <div className="absolute left-[18px] top-2.5 bottom-2.5 w-[2px] bg-[var(--color-line)]" aria-hidden="true" />
+          <div
+            className="absolute left-[18px] top-2.5 bottom-2.5 w-[2px] bg-[var(--color-line)]"
+            aria-hidden="true"
+          />
           {items.map((item) => (
             <ScrollReveal key={item.title}>
               <article className="relative ml-[54px] border border-[var(--color-line)] rounded-lg bg-[var(--color-surface)] shadow-sm p-[22px]">

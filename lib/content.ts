@@ -8,19 +8,18 @@ export function getContent(): PortfolioContent {
 }
 
 export function getProject(slug: string) {
-  return content.projects.find(
-    (p) => slugify(p.title) === slug
-  )
+  return content.projects.find((p) => slugify(p.title) === slug)
 }
 
 export function getNote(slug: string) {
-  return content.notes.find(
-    (n) => slugify(n.title) === slug
-  )
+  return content.notes.find((n) => slugify(n.title) === slug)
 }
 
 export function slugify(text: string) {
-  return text.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "")
+  return text
+    .toLowerCase()
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9-]/g, "")
 }
 
 export function getAllProjectSlugs() {

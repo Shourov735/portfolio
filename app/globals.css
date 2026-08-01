@@ -29,7 +29,9 @@ body {
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-sans);
-  transition: background-color 180ms ease, color 180ms ease;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
 }
 
 .dark body {
@@ -88,7 +90,10 @@ html {
   background: var(--color-primary);
   color: #ffffff;
   box-shadow: 0 12px 24px rgba(15, 118, 110, 0.25);
-  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
 }
 
 .btn-primary:hover {
@@ -111,7 +116,9 @@ html {
   line-height: 1;
   background: var(--color-surface);
   color: var(--color-text);
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .btn-secondary:hover {
@@ -160,7 +167,9 @@ html {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;

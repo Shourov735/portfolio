@@ -2,7 +2,13 @@
 
 import { useRef, useEffect } from "react"
 
-export function ScrollReveal({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+export function ScrollReveal({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode
+  className?: string
+}) {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -34,7 +40,11 @@ export function ScrollReveal({ children, className = "" }: { children: React.Rea
     <div
       ref={ref}
       className={className}
-      style={{ opacity: 0, transform: "translateY(18px)", transition: "opacity 520ms ease, transform 520ms ease" }}
+      style={{
+        opacity: 0,
+        transform: "translateY(18px)",
+        transition: "opacity 520ms ease, transform 520ms ease",
+      }}
     >
       {children}
     </div>

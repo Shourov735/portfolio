@@ -25,7 +25,10 @@ export function Spotlight() {
               <p className="text-[var(--color-muted)] mt-3">{project.summary}</p>
               <div className="flex flex-wrap gap-2 mt-[18px]">
                 {project.tags.map((tag) => (
-                  <span key={tag} className="inline-flex items-center min-h-7 px-2.5 py-1 rounded-full text-xs font-bold bg-[var(--color-surface-muted)] text-[var(--color-muted)]">
+                  <span
+                    key={tag}
+                    className="inline-flex items-center min-h-7 px-2.5 py-1 rounded-full text-xs font-bold bg-[var(--color-surface-muted)] text-[var(--color-muted)]"
+                  >
                     {tag}
                   </span>
                 ))}

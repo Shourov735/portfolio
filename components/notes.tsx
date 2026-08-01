@@ -54,7 +54,9 @@ export function Notes() {
           {filtered.map((note) => (
             <ScrollReveal key={note.title}>
               <article className="border border-[var(--color-line)] rounded-lg bg-[var(--color-surface)] shadow-sm p-[22px] hover:-translate-y-1 hover:border-[var(--color-primary)]/55 hover:shadow-lg transition-all duration-180">
-                <time className="text-[var(--color-accent)] text-xs font-extrabold">{formatDate(note.date)}</time>
+                <time className="text-[var(--color-accent)] text-xs font-extrabold">
+                  {formatDate(note.date)}
+                </time>
                 <h3 className="text-[var(--color-text)] font-bold mt-1">{note.title}</h3>
                 <p className="text-[var(--color-muted)] mt-3 text-sm">{note.summary}</p>
                 <div className="flex flex-wrap gap-2 mt-[18px]">

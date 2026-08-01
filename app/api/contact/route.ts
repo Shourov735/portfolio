@@ -18,10 +18,7 @@ export async function POST(request: NextRequest) {
     const webhookUrl = process.env.CONTACT_WEBHOOK_URL
 
     if (!webhookUrl) {
-      return NextResponse.json(
-        { ok: false, error: "CONTACT_WEBHOOK_URL is not configured" },
-        { status: 503 }
-      )
+      return NextResponse.json({ ok: false, error: "CONTACT_WEBHOOK_URL is not configured" }, { status: 503 })
     }
 
     const webhookPayload = buildWebhookPayload(webhookUrl, message)
@@ -53,7 +50,9 @@ function normalizeMessage(body: Record<string, unknown>) {
 }
 
 function clean(value: unknown) {
-  return String(value ?? "").trim().slice(0, MAX_FIELD_LENGTH)
+  return String(value ?? "")
+    .trim()
+    .slice(0, MAX_FIELD_LENGTH)
 }
 
 function isValidMessage(data: {
@@ -85,7 +84,9 @@ function buildWebhookPayload(webhookUrl: string, message: Record<string, string>
         `**Submitted:** ${submittedAt}`,
         "",
         message.message,
-      ].join("\n").slice(0, 1900),
+      ]
+        .join("\n")
+        .slice(0, 1900),
     }
   }
 

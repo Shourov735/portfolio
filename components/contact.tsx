@@ -30,14 +30,20 @@ export function Contact() {
       setStatus({ type: "success", message: "Thanks! Your message was submitted successfully." })
     } catch {
       openMailFallback(payload)
-      setStatus({ type: "success", message: "The email fallback opened your email app with the message prepared." })
+      setStatus({
+        type: "success",
+        message: "The email fallback opened your email app with the message prepared.",
+      })
     } finally {
       setSending(false)
     }
   }
 
   return (
-    <section className="section bg-gradient-to-br from-[var(--color-surface-muted)]/82 to-[var(--color-bg)]" id="contact">
+    <section
+      className="section bg-gradient-to-br from-[var(--color-surface-muted)]/82 to-[var(--color-bg)]"
+      id="contact"
+    >
       <div className="container-main grid grid-cols-[0.85fr_1fr] gap-[42px] items-start max-md:grid-cols-1">
         <ScrollReveal>
           <div>
@@ -49,25 +55,58 @@ export function Contact() {
               Send a message through the form and I will get back to you as soon as possible.
             </p>
             <div className="grid gap-3 mt-6">
-              <a href="mailto:mdshourov735@gmail.com" className="text-[var(--color-muted)] font-bold hover:text-[var(--color-primary-strong)] transition-colors">
+              <a
+                href="mailto:mdshourov735@gmail.com"
+                className="text-[var(--color-muted)] font-bold hover:text-[var(--color-primary-strong)] transition-colors"
+              >
                 mdshourov735@gmail.com
               </a>
-              <a href="https://github.com/Shourov735" target="_blank" rel="noreferrer" className="text-[var(--color-muted)] font-bold hover:text-[var(--color-primary-strong)] transition-colors">
+              <a
+                href="https://github.com/Shourov735"
+                target="_blank"
+                rel="noreferrer"
+                className="text-[var(--color-muted)] font-bold hover:text-[var(--color-primary-strong)] transition-colors"
+              >
                 github.com/Shourov735
               </a>
-              <a href="https://linkedin.com/in/md-shourov-89125a337" target="_blank" rel="noreferrer" className="text-[var(--color-muted)] font-bold hover:text-[var(--color-primary-strong)] transition-colors">
+              <a
+                href="https://linkedin.com/in/md-shourov-89125a337"
+                target="_blank"
+                rel="noreferrer"
+                className="text-[var(--color-muted)] font-bold hover:text-[var(--color-primary-strong)] transition-colors"
+              >
                 LinkedIn profile
               </a>
-              <a href="https://x.com/@Shourov735" target="_blank" rel="noreferrer" className="text-[var(--color-muted)] font-bold hover:text-[var(--color-primary-strong)] transition-colors">
+              <a
+                href="https://x.com/@Shourov735"
+                target="_blank"
+                rel="noreferrer"
+                className="text-[var(--color-muted)] font-bold hover:text-[var(--color-primary-strong)] transition-colors"
+              >
                 X / Twitter
               </a>
-              <a href="https://t.me/Shourov735" target="_blank" rel="noreferrer" className="text-[var(--color-muted)] font-bold hover:text-[var(--color-primary-strong)] transition-colors">
+              <a
+                href="https://t.me/Shourov735"
+                target="_blank"
+                rel="noreferrer"
+                className="text-[var(--color-muted)] font-bold hover:text-[var(--color-primary-strong)] transition-colors"
+              >
                 Telegram
               </a>
-              <a href="https://www.youtube.com/@mdshourovgaming" target="_blank" rel="noreferrer" className="text-[var(--color-muted)] font-bold hover:text-[var(--color-primary-strong)] transition-colors">
+              <a
+                href="https://www.youtube.com/@mdshourovgaming"
+                target="_blank"
+                rel="noreferrer"
+                className="text-[var(--color-muted)] font-bold hover:text-[var(--color-primary-strong)] transition-colors"
+              >
                 YouTube
               </a>
-              <a href="https://medium.com/@Shourov735" target="_blank" rel="noreferrer" className="text-[var(--color-muted)] font-bold hover:text-[var(--color-primary-strong)] transition-colors">
+              <a
+                href="https://medium.com/@Shourov735"
+                target="_blank"
+                rel="noreferrer"
+                className="text-[var(--color-muted)] font-bold hover:text-[var(--color-primary-strong)] transition-colors"
+              >
                 Medium
               </a>
             </div>
@@ -143,11 +182,7 @@ export function Contact() {
               <input type="text" name="website" tabIndex={-1} autoComplete="off" />
             </label>
 
-            <button
-              type="submit"
-              disabled={sending}
-              className="btn-primary disabled:opacity-60"
-            >
+            <button type="submit" disabled={sending} className="btn-primary disabled:opacity-60">
               {sending ? "Sending..." : "Send Message"}
             </button>
           </form>
@@ -161,10 +196,14 @@ function isValid(data: Record<string, unknown>) {
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
   return (
     !data.website &&
-    typeof data.name === "string" && data.name.trim().length >= 2 &&
-    typeof data.email === "string" && emailPattern.test(data.email) &&
-    typeof data.subject === "string" && data.subject.trim().length >= 3 &&
-    typeof data.message === "string" && data.message.trim().length >= 10
+    typeof data.name === "string" &&
+    data.name.trim().length >= 2 &&
+    typeof data.email === "string" &&
+    emailPattern.test(data.email) &&
+    typeof data.subject === "string" &&
+    data.subject.trim().length >= 3 &&
+    typeof data.message === "string" &&
+    data.message.trim().length >= 10
   )
 }
 

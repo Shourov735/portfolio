@@ -13,12 +13,16 @@ export function Hero() {
               Building practical software with algorithms, systems thinking, and curiosity.
             </h1>
             <p className="text-[clamp(1.05rem,2vw,1.28rem)] text-[var(--color-muted)] max-w-[660px] mt-6">
-              Hi, I am Md. Shourov. I enjoy competitive programming, C/C++ projects,
-              clean frontend experiences, and turning difficult ideas into working software.
+              Hi, I am Md. Shourov. I enjoy competitive programming, C/C++ projects, clean frontend
+              experiences, and turning difficult ideas into working software.
             </p>
             <div className="flex flex-wrap gap-3 mt-7 max-md:flex-col">
-              <a href="#projects" className="btn-primary">View Projects</a>
-              <a href="#contact" className="btn-secondary">Contact Me</a>
+              <a href="#projects" className="btn-primary">
+                View Projects
+              </a>
+              <a href="#contact" className="btn-secondary">
+                Contact Me
+              </a>
               <a href="/assets/resume/Md-Shourov-Resume.pdf" download className="btn-ghost">
                 Download Resume
               </a>

@@ -28,7 +28,10 @@ export function Education() {
                 {item.coursework && (
                   <div className="flex flex-wrap gap-2 mt-[18px]">
                     {item.coursework.map((c) => (
-                      <span key={c} className="inline-flex items-center min-h-7 px-2.5 py-1 rounded-full text-xs font-bold bg-[var(--color-surface-muted)] text-[var(--color-muted)]">
+                      <span
+                        key={c}
+                        className="inline-flex items-center min-h-7 px-2.5 py-1 rounded-full text-xs font-bold bg-[var(--color-surface-muted)] text-[var(--color-muted)]"
+                      >
                         {c}
                       </span>
                     ))}
@@ -39,7 +42,9 @@ export function Education() {
                     <table className="w-full text-sm border-collapse">
                       <thead>
                         <tr className="border-b border-[var(--color-line)]">
-                          <th className="text-left py-2 pr-2 text-[var(--color-text)] font-bold">University</th>
+                          <th className="text-left py-2 pr-2 text-[var(--color-text)] font-bold">
+                            University
+                          </th>
                           <th className="text-left py-2 px-2 text-[var(--color-text)] font-bold">Marks</th>
                           <th className="text-left py-2 pl-2 text-[var(--color-text)] font-bold">Merit</th>
                         </tr>

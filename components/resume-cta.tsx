@@ -15,11 +15,7 @@ export function ResumeCTA() {
                 Download my resume for a summary of skills, projects, and background.
               </p>
             </div>
-            <a
-              href="/assets/resume/Md-Shourov-Resume.pdf"
-              download
-              className="btn-primary shrink-0"
-            >
+            <a href="/assets/resume/Md-Shourov-Resume.pdf" download className="btn-primary shrink-0">
               Download Resume
             </a>
           </div>

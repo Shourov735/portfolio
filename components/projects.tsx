@@ -79,7 +79,12 @@ export function Projects() {
                 ) : (
                   <div className="w-full aspect-[16/10] flex items-center justify-center bg-[var(--color-surface-muted)]">
                     <span className="text-2xl font-bold tracking-widest text-[var(--color-muted)] opacity-40">
-                      {project.title.split(" ").map((w) => w[0]).join("").toUpperCase().slice(0, 3)}
+                      {project.title
+                        .split(" ")
+                        .map((w) => w[0])
+                        .join("")
+                        .toUpperCase()
+                        .slice(0, 3)}
                     </span>
                   </div>
                 )}

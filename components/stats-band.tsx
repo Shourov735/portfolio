@@ -22,9 +22,7 @@ export function StatsBand() {
                 <span className="block text-[clamp(1.8rem,4vw,2.8rem)] font-black leading-none text-[var(--color-primary-strong)]">
                   {stat.value}
                 </span>
-                <span className="block mt-2.5 font-bold text-[var(--color-muted)]">
-                  {stat.label}
-                </span>
+                <span className="block mt-2.5 font-bold text-[var(--color-muted)]">{stat.label}</span>
               </article>
             </ScrollReveal>
           ))}

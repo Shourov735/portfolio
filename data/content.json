@@ -248,7 +248,6 @@
       "summary": "Forked and contributed to romankh3/image-comparison, a Java library on Maven Central that performs pixel-level image comparison for QA automation. Explored the codebase and submitted improvements.",
       "tags": ["Java", "Open Source", "Image Processing", "Testing"]
     }
-
   ],
   "now": [
     {
@@ -291,7 +290,13 @@
       "institution": "University of Dhaka",
       "duration": "2024 - Present",
       "summary": "Studying core software engineering concepts including data structures, algorithms, database design, software requirements, and development practices.",
-      "coursework": ["Data Structures & Algorithms", "Database Management Systems", "Operating Systems", "Software Requirement Analysis", "Software Engineering Principles"]
+      "coursework": [
+        "Data Structures & Algorithms",
+        "Database Management Systems",
+        "Operating Systems",
+        "Software Requirement Analysis",
+        "Software Engineering Principles"
+      ]
     },
     {
       "title": "University Admission",

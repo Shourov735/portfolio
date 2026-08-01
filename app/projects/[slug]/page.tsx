@@ -18,7 +18,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   return (
     <div className="section">
       <div className="container-main max-w-[840px]">
-        <Link href="/#projects" className="text-[var(--color-muted)] font-bold hover:text-[var(--color-primary-strong)] transition-colors mb-6 inline-block">
+        <Link
+          href="/#projects"
+          className="text-[var(--color-muted)] font-bold hover:text-[var(--color-primary-strong)] transition-colors mb-6 inline-block"
+        >
           ← Back to projects
         </Link>
 
@@ -39,7 +42,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
             <div className="flex flex-wrap gap-2 mt-6">
               {project.tags.map((tag) => (
-                <span key={tag} className="inline-flex items-center min-h-7 px-3 py-1 rounded-full text-sm font-bold bg-[var(--color-surface-muted)] text-[var(--color-muted)]">
+                <span
+                  key={tag}
+                  className="inline-flex items-center min-h-7 px-3 py-1 rounded-full text-sm font-bold bg-[var(--color-surface-muted)] text-[var(--color-muted)]"
+                >
                   {tag}
                 </span>
               ))}
@@ -53,13 +59,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
             <div className="flex flex-wrap gap-4 mt-8">
               {project.links.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn-primary"
-                >
+                <a key={link.label} href={link.url} target="_blank" rel="noreferrer" className="btn-primary">
                   {link.label} →
                 </a>
               ))}

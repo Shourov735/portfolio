@@ -4,12 +4,13 @@ import { useState, useEffect } from "react"
 import { useTheme } from "@/components/theme-provider"
 
 const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
-  { href: "#projects", label: "Projects" },
-  { href: "#notes", label: "Notes" },
-  { href: "#journey", label: "Journey" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#spotlight", label: "Featured", id: "spotlight" },
+  { href: "/#projects", label: "Projects", id: "projects" },
+  { href: "/#skills", label: "Skills", id: "skills" },
+  { href: "/#about", label: "About", id: "about" },
+  { href: "/#journey", label: "Journey", id: "journey" },
+  { href: "/#notes", label: "Notes", id: "notes" },
+  { href: "/#contact", label: "Contact", id: "contact" },
 ]
 
 export function Header() {
@@ -100,17 +101,18 @@ export function Header() {
               key={link.href}
               href={link.href}
               className={`min-h-10 rounded-md px-2.5 py-2 text-sm font-bold transition-colors duration-160 max-md:w-full max-md:justify-start max-md:px-3 ${
-                activeSection === link.href.slice(1)
+                activeSection === link.id
                   ? "text-[var(--color-primary-strong)] bg-[var(--color-surface-muted)]"
                   : "text-[var(--color-muted)] hover:text-[var(--color-primary-strong)] hover:bg-[var(--color-surface-muted)]"
               }`}
               onClick={(e) => {
                 closeMenu()
-                const target = document.querySelector(link.href)
+                const hash = `#${link.id}`
+                const target = document.querySelector(hash)
                 if (target) {
                   e.preventDefault()
                   target.scrollIntoView({ behavior: "smooth", block: "start" })
-                  history.pushState(null, "", link.href)
+                  history.pushState(null, "", hash)
                 }
               }}
             >

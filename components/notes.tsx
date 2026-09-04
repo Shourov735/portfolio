@@ -30,40 +30,42 @@ export function Notes() {
       <div className="container-main">
         <ScrollReveal>
           <div className="section-heading">
-            <p className="eyebrow">Blog & Notes</p>
-            <h2>Short learning notes.</h2>
+            <p className="eyebrow">Engineering Writings</p>
+            <h2>Technical notes, architecture logs & takeaways.</h2>
+            <p className="text-[var(--color-muted)] max-w-[620px] mt-2 text-base">
+              Brief write-ups documenting software engineering challenges, systems insights, and practical learnings.
+            </p>
           </div>
         </ScrollReveal>
 
         <ScrollReveal>
-          <div className="flex items-end justify-between gap-4 mb-[22px] max-md:flex-col max-md:items-stretch">
-            <label className="grid gap-2 w-full max-w-[430px] text-sm font-bold text-[var(--color-muted)]">
-              <span>Search notes</span>
-              <input
-                type="search"
-                placeholder="Try database, C, backend..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="w-full border border-[var(--color-line)] rounded-md bg-[var(--color-surface)] text-[var(--color-text)] px-3 py-3 transition-[border-color,box-shadow] duration-160 focus:border-[var(--color-primary)] focus:shadow-[0_0_0_4px_var(--color-primary)/18] focus:outline-0"
-              />
-            </label>
+          <div className="mb-8 max-w-[380px]">
+            <input
+              type="search"
+              placeholder="Search notes by keyword or tag..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="w-full border border-[var(--color-line)] rounded-lg bg-[var(--color-surface)] text-[var(--color-text)] px-4 py-2.5 text-sm transition-[border-color,box-shadow] duration-160 focus:border-[var(--color-primary)] focus:shadow-[0_0_0_3px_var(--color-primary)/15] focus:outline-0"
+            />
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-3 gap-[18px] max-md:grid-cols-2 max-sm:grid-cols-1">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((note) => (
             <ScrollReveal key={note.title}>
-              <article className="border border-[var(--color-line)] rounded-lg bg-[var(--color-surface)] shadow-sm p-[22px] hover:-translate-y-1 hover:border-[var(--color-primary)]/55 hover:shadow-lg transition-all duration-180">
-                <time className="text-[var(--color-accent)] text-xs font-extrabold">
-                  {formatDate(note.date)}
-                </time>
-                <h3 className="text-[var(--color-text)] font-bold mt-1">{note.title}</h3>
-                <p className="text-[var(--color-muted)] mt-3 text-sm">{note.summary}</p>
-                <div className="flex flex-wrap gap-2 mt-[18px]">
+              <article className="h-full flex flex-col justify-between border border-[var(--color-line)] rounded-xl bg-[var(--color-surface)] shadow-sm p-6 hover:-translate-y-1 hover:border-[var(--color-primary)]/50 hover:shadow-lg transition-all duration-200">
+                <div>
+                  <time className="text-[var(--color-accent)] text-xs font-extrabold uppercase tracking-wider">
+                    {formatDate(note.date)}
+                  </time>
+                  <h3 className="text-lg font-bold text-[var(--color-text)] mt-2">{note.title}</h3>
+                  <p className="text-[var(--color-muted)] mt-2.5 text-sm leading-relaxed">{note.summary}</p>
+                </div>
+                <div className="flex flex-wrap gap-1.5 mt-5 pt-4 border-t border-[var(--color-line)]/60">
                   {note.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="inline-flex items-center min-h-7 px-2.5 py-1 rounded-full text-xs font-bold bg-[var(--color-surface-muted)] text-[var(--color-muted)]"
+                      className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-[var(--color-surface-muted)] text-[var(--color-muted)] border border-[var(--color-line)]/50"
                     >
                       {tag}
                     </span>
@@ -75,11 +77,20 @@ export function Notes() {
         </div>
 
         {filtered.length === 0 && (
-          <p className="p-6 border border-dashed border-[var(--color-line)] rounded-lg text-center text-[var(--color-muted)]">
-            No notes match that search.
-          </p>
+          <div className="p-12 border border-dashed border-[var(--color-line)] rounded-xl text-center bg-[var(--color-surface)] mt-6">
+            <p className="text-[var(--color-muted)] font-medium">
+              No notes found matching &ldquo;{search}&rdquo;.
+            </p>
+            <button
+              onClick={() => setSearch("")}
+              className="mt-3 text-xs font-bold text-[var(--color-primary-strong)] hover:underline"
+            >
+              Reset search
+            </button>
+          </div>
         )}
       </div>
     </section>
   )
 }
+

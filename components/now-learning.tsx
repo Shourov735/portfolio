@@ -8,19 +8,28 @@ export function NowLearning() {
 
   return (
     <section className="section" id="now">
-      <div className="container-main grid grid-cols-[minmax(260px,0.72fr)_1fr] gap-12 items-start max-md:grid-cols-1">
+      <div className="container-main">
         <ScrollReveal>
           <div className="section-heading">
-            <p className="eyebrow">Now</p>
-            <h2>Currently learning and building.</h2>
+            <p className="eyebrow">Active Focus</p>
+            <h2>Currently learning, exploring, and building.</h2>
+            <p className="text-[var(--color-muted)] max-w-[620px] mt-2 text-base">
+              Deep dives and technical investigations I am pursuing outside daily coursework and production systems.
+            </p>
           </div>
         </ScrollReveal>
-        <div className="grid grid-cols-3 gap-[18px] max-md:grid-cols-2 max-sm:grid-cols-1">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {items.map((item) => (
             <ScrollReveal key={item.title}>
-              <article className="border border-[var(--color-line)] rounded-lg bg-[var(--color-surface)] shadow-sm p-[22px] hover:-translate-y-1 hover:border-[var(--color-primary)]/55 hover:shadow-lg transition-all duration-180">
-                <h3 className="text-[var(--color-text)] font-bold">{item.title}</h3>
-                <p className="text-[var(--color-muted)] mt-3 text-sm">{item.summary}</p>
+              <article className="h-full border border-[var(--color-line)] rounded-xl bg-[var(--color-surface)] shadow-sm p-6 hover:-translate-y-1 hover:border-[var(--color-primary)]/50 hover:shadow-md transition-all duration-200">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="text-[11px] font-extrabold uppercase tracking-wider text-[var(--color-primary-strong)]">
+                    In Progress
+                  </span>
+                </div>
+                <h3 className="text-base font-bold text-[var(--color-text)]">{item.title}</h3>
+                <p className="text-[var(--color-muted)] mt-2.5 text-sm leading-relaxed">{item.summary}</p>
               </article>
             </ScrollReveal>
           ))}
@@ -29,3 +38,4 @@ export function NowLearning() {
     </section>
   )
 }
+

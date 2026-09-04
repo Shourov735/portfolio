@@ -1,15 +1,15 @@
 {
   "stats": [
     {
-      "value": "10+",
-      "label": "Projects and practice builds"
+      "value": "12+",
+      "label": "Projects and builds"
     },
     {
       "value": "150+",
       "label": "Competitive problems solved"
     },
     {
-      "value": "5+",
+      "value": "6+",
       "label": "Languages explored"
     },
     {
@@ -23,7 +23,7 @@
       "items": [
         {
           "name": "C++",
-          "level": 75
+          "level": 80
         },
         {
           "name": "C",
@@ -31,44 +31,48 @@
         },
         {
           "name": "Java",
-          "level": 71
-        },
-        {
-          "name": "Python",
-          "level": 45
+          "level": 82
         },
         {
           "name": "TypeScript",
-          "level": 60
+          "level": 75
         },
         {
           "name": "JavaScript",
+          "level": 70
+        },
+        {
+          "name": "Python",
           "level": 55
         }
       ]
     },
     {
-      "category": "Frontend",
+      "category": "Frontend & Mobile",
       "items": [
         {
-          "name": "React",
-          "level": 60
-        },
-        {
           "name": "Next.js",
-          "level": 65
+          "level": 85
         },
         {
-          "name": "HTML/CSS",
-          "level": 74
+          "name": "React",
+          "level": 80
+        },
+        {
+          "name": "React Native / Expo",
+          "level": 75
         },
         {
           "name": "Tailwind CSS",
-          "level": 65
+          "level": 85
         },
         {
-          "name": "Flutter",
-          "level": 25
+          "name": "HTML/CSS",
+          "level": 85
+        },
+        {
+          "name": "JavaFX",
+          "level": 75
         }
       ]
     },
@@ -77,132 +81,321 @@
       "items": [
         {
           "name": "Node.js",
-          "level": 40
+          "level": 65
         },
         {
-          "name": "PostgreSQL",
-          "level": 40
+          "name": "Prisma",
+          "level": 80
+        },
+        {
+          "name": "Drizzle ORM",
+          "level": 75
+        },
+        {
+          "name": "PostgreSQL / Neon",
+          "level": 75
+        },
+        {
+          "name": "SQLite",
+          "level": 85
+        },
+        {
+          "name": "Cloudflare D1",
+          "level": 70
         },
         {
           "name": "MySQL",
-          "level": 50
+          "level": 65
         },
         {
           "name": "Firebase",
-          "level": 40
-        },
-        {
-          "name": "Oracle DB",
-          "level": 70
+          "level": 50
         }
       ]
     },
     {
-      "category": "DevOps & Tools",
+      "category": "DevOps, Cloud & Systems",
       "items": [
         {
-          "name": "Git & GitHub",
-          "level": 75
-        },
-        {
-          "name": "Linux/Shell",
+          "name": "Cloudflare Workers & R2",
           "level": 80
         },
         {
-          "name": "VSCode",
+          "name": "Git & GitHub",
           "level": 85
         },
         {
-          "name": "Vercel",
-          "level": 60
+          "name": "Linux / Bash",
+          "level": 82
         },
         {
           "name": "Socket Programming",
           "level": 80
+        },
+        {
+          "name": "Vercel",
+          "level": 75
+        },
+        {
+          "name": "VSCode",
+          "level": 90
+        },
+        {
+          "name": "Maven & JUnit 5",
+          "level": 75
         }
       ]
     }
   ],
   "featuredProject": [
     {
+      "title": "Nabodigonto",
+      "summary": "Flagship community and financial management platform for Nabodigonto Social Welfare Organization. Features blind audit double-signed treasury verification, dynamic 3D flip digital member ID cards with QR verification, dues tracking, and transparent financial reporting.",
+      "image": "/assets/images/nabodigonto.jpg",
+      "category": "Web",
+      "tags": ["Next.js 16", "Cloudflare Workers", "Prisma", "Neon Postgres", "Clerk Auth", "Tailwind CSS"],
+      "links": [
+        {
+          "label": "Live Demo",
+          "url": "https://nabodigonto.conversora-tech.workers.dev"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/Shourov735/nabodigonto"
+        }
+      ],
+      "highlights": [
+        "Blind Audit Protocol & Double-Signed Verification masking treasury totals until dual officer sign-off",
+        "Dynamic 3D flip member ID cards with public verification QR codes and bulk PVC print layouts",
+        "Dues tracking portal with instant receipt generation and SHA-256 verified PDF audit reports",
+        "Serverless deployment on Cloudflare Workers via OpenNext with Neon PostgreSQL and Clerk v7"
+      ]
+    },
+    {
+      "title": "InsideJibon",
+      "summary": "A scalable, bilingual (EN/BN) EdTech web platform built for Tanvir Hasan Jibon to power modern course management, student enrollments, interactive online exams, and cloud-hosted learning resources.",
+      "image": "/assets/images/insidejibon.jpg",
+      "category": "Web",
+      "tags": [
+        "Next.js 16",
+        "Cloudflare Workers",
+        "Drizzle ORM",
+        "Neon Postgres",
+        "Cloudflare R2",
+        "Clerk Auth"
+      ],
+      "links": [
+        {
+          "label": "Live Demo",
+          "url": "https://insidejibon.insidejibon.workers.dev"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/Shourov735/InsideJibon"
+        }
+      ],
+      "highlights": [
+        "Full learning lifecycle supporting course catalog, enrollments, lessons, and exam workflows",
+        "Bilingual parity (EN/BN) across administrative portals and student learning interfaces",
+        "Cloudflare R2 integration for lecture resources and Neon Serverless Postgres with Drizzle ORM",
+        "Ultra-fast edge rendering deployed globally via Cloudflare Workers"
+      ]
+    },
+    {
+      "title": "Quiz Management & Examination System",
+      "summary": "Desktop examination application developed in Java and JavaFX for the Design Patterns Lab Final Project (Mini-SPL) at IIT, University of Dhaka. Implements rigorous GoF patterns, role-based workflows, and SQLite relational persistence.",
+      "image": "/assets/images/quiz-system.jpg",
+      "category": "Systems",
+      "tags": ["Java 17", "JavaFX 21", "SQLite", "Design Patterns", "JUnit 5", "Maven"],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/Shourov735/Quiz-Management-and-Examination-System"
+        }
+      ],
+      "highlights": [
+        "Implementation of GoF patterns: Strategy (scoring), State (quiz lifecycle), Factory (questions), Observer (timer/events)",
+        "Role-based dashboards for Teachers (quiz authoring, question bank, analytics) and Students (exam taking, result review)",
+        "Support for 4 question types: MCQ, True/False, Fill-in-the-Blank, and Multiple Answer",
+        "Full SQLite persistence via JDBC with automated schema migration and database seeder"
+      ]
+    },
+    {
       "title": "Mosque Library Management",
-      "summary": "A full-stack web application for managing mosque libraries — browse an Islamic book catalog, manage members, and organize committee roles with multilingual (EN/BN) support.",
+      "summary": "A full-stack web application for managing mosque libraries — Islamic book catalog browsing, member issue/return tracking, and committee role assignments with bilingual (EN/BN) support.",
       "image": "/assets/images/mosque-library.jpg",
-      "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Full-Stack", "Prisma"],
+      "category": "Web",
+      "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Full-Stack", "Prisma", "PostgreSQL"],
       "links": [
         {
           "label": "Live Demo",
           "url": "https://mosque-library-management.vercel.app"
         }
-      ]
-    },
-    {
-      "title": "Nabodigonto",
-      "summary": "Nabodigonto Social Welfare Organization — a web presence for a social welfare organization.",
-      "image": "/assets/images/nabodigonto600x400.jpg",
-      "tags": ["Next.js", "TypeScript", "Prisma"],
-      "links": [
-        {
-          "label": "Live Demo",
-          "url": "https://nabodigonto.vercel.app/"
-        },
-        {
-          "label": "Live Demo 2",
-          "url": "https://nabodigonto-sandy.vercel.app/"
-        }
+      ],
+      "highlights": [
+        "Comprehensive Islamic book catalog with search, categorization, and availability tracking",
+        "Member borrowing lifecycle with due dates, loan renewals, and overdue alerts",
+        "Bilingual English and Bengali localization for seamless community accessibility"
       ]
     }
   ],
   "projects": [
     {
-      "title": "Codeforces Solutions",
-      "summary": "A growing archive of optimized Codeforces solutions focused on algorithms, number theory, and contest practice.",
-      "image": "/assets/images/project-1.jpg",
-      "category": "Algorithms",
-      "tags": ["C++", "C", "Java", "Algorithms", "Number Theory"],
+      "title": "Nabodigonto",
+      "summary": "Flagship community and financial management platform for Nabodigonto Social Welfare Organization. Features blind audit double-signed treasury verification, dynamic 3D flip digital member ID cards with QR verification, dues tracking, and transparent financial reporting.",
+      "image": "/assets/images/nabodigonto.jpg",
+      "category": "Web",
+      "tags": ["Next.js 16", "Cloudflare Workers", "Prisma", "Neon Postgres", "Clerk Auth", "Tailwind CSS"],
       "links": [
         {
-          "label": "GitHub",
-          "url": "https://github.com/Shourov735/Codeforces"
+          "label": "Live Demo",
+          "url": "https://nabodigonto.conversora-tech.workers.dev"
         },
         {
-          "label": "Profile",
-          "url": "https://codeforces.com/profile/Shourov735"
+          "label": "GitHub",
+          "url": "https://github.com/Shourov735/nabodigonto"
         }
+      ],
+      "highlights": [
+        "Appointed as IT Secretary of the organization after designing and deploying this system",
+        "Blind Audit Protocol & Double-Signed Verification masking treasury totals until dual officer sign-off",
+        "Dynamic 3D flip member ID cards with public verification QR codes and bulk PVC print layouts",
+        "Dues tracking portal with instant receipt generation and SHA-256 verified PDF audit reports",
+        "Serverless deployment on Cloudflare Workers via OpenNext with Neon PostgreSQL and Clerk v7"
       ]
     },
     {
-      "title": "LeetCode Solutions",
-      "summary": "Clean solutions for common interview-style problems, with emphasis on data structures and reusable patterns.",
-      "image": "/assets/images/project-2.jpg",
-      "category": "Algorithms",
-      "tags": ["C++", "Algorithms", "Data Structures"],
+      "title": "InsideJibon",
+      "summary": "A scalable, bilingual (EN/BN) EdTech web platform built for Tanvir Hasan Jibon to power modern course management, student enrollments, interactive online exams, and cloud-hosted learning resources.",
+      "image": "/assets/images/insidejibon.jpg",
+      "category": "Web",
+      "tags": [
+        "Next.js 16",
+        "Cloudflare Workers",
+        "Drizzle ORM",
+        "Neon Postgres",
+        "Cloudflare R2",
+        "Clerk Auth"
+      ],
+      "links": [
+        {
+          "label": "Live Demo",
+          "url": "https://insidejibon.insidejibon.workers.dev"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/Shourov735/InsideJibon"
+        }
+      ],
+      "highlights": [
+        "Full learning lifecycle supporting course catalog, enrollments, lessons, and exam workflows",
+        "Bilingual parity (EN/BN) across administrative portals and student learning interfaces",
+        "Cloudflare R2 integration for lecture resources and Neon Serverless Postgres with Drizzle ORM",
+        "Ultra-fast edge rendering deployed globally via Cloudflare Workers"
+      ]
+    },
+    {
+      "title": "Quiz Management & Examination System",
+      "summary": "Desktop examination application developed in Java and JavaFX for the Design Patterns Lab Final Project (Mini-SPL) at IIT, University of Dhaka. Implements rigorous GoF patterns, role-based workflows, and SQLite relational persistence.",
+      "image": "/assets/images/quiz-system.jpg",
+      "category": "Systems",
+      "tags": ["Java 17", "JavaFX 21", "SQLite", "Design Patterns", "JUnit 5", "Maven"],
       "links": [
         {
           "label": "GitHub",
-          "url": "https://github.com/Shourov735/LeetCode"
+          "url": "https://github.com/Shourov735/Quiz-Management-and-Examination-System"
         }
+      ],
+      "highlights": [
+        "Implementation of GoF patterns: Strategy (scoring), State (quiz lifecycle), Factory (questions), Observer (timer/events)",
+        "Role-based dashboards for Teachers (quiz authoring, question bank, analytics) and Students (exam taking, result review)",
+        "Support for 4 question types: MCQ, True/False, Fill-in-the-Blank, and Multiple Answer",
+        "Full SQLite persistence via JDBC with automated schema migration and database seeder"
+      ]
+    },
+    {
+      "title": "Quran Reading Tracker",
+      "summary": "An offline-first Android mobile application built with React Native and Expo to cultivate and track daily Quran reading habits with complete privacy and local data persistence.",
+      "image": "/assets/images/quran-tracker.jpg",
+      "category": "Mobile",
+      "tags": ["React Native", "Expo", "TypeScript", "Mobile", "Offline-First", "AsyncStorage"],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/Shourov735/QuranReadingTracker"
+        }
+      ],
+      "highlights": [
+        "Dual independent tracking pipelines: Arabic recitation (Surah + Ruku) and Bangla translation (Surah + Ayat)",
+        "100% offline-first privacy with zero trackers, zero cloud dependencies, and local AsyncStorage persistence",
+        "Daily streak calculators, reading target meters, and smooth dark-mode UI with Islamic aesthetics",
+        "Automated build workflow via Expo EAS for Android APK distribution"
+      ]
+    },
+    {
+      "title": "Mosque Library Management",
+      "summary": "A full-stack web application for managing mosque libraries — Islamic book catalog browsing, member issue/return tracking, and committee role assignments with bilingual (EN/BN) support.",
+      "image": "/assets/images/mosque-library.jpg",
+      "category": "Web",
+      "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Full-Stack", "Prisma", "PostgreSQL"],
+      "links": [
+        {
+          "label": "Live Demo",
+          "url": "https://mosque-library-management.vercel.app"
+        }
+      ],
+      "highlights": [
+        "Comprehensive Islamic book catalog with search, categorization, and availability tracking",
+        "Member borrowing lifecycle with due dates, loan renewals, and overdue alerts",
+        "Bilingual English and Bengali localization for seamless community accessibility"
+      ]
+    },
+    {
+      "title": "image-comparison",
+      "summary": "Contributed to romankh3/image-comparison, an open-source Java visual QA testing library on Maven Central, as a University Software Engineering assignment (PR #255). Refactored recursive region traversal to iterative ArrayDeque and optimized coordinate checks.",
+      "image": "/assets/images/image-comparison.jpg",
+      "category": "Open Source",
+      "tags": ["Java", "Open Source", "Image Processing", "JUnit 5", "Algorithms", "Maven"],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/Shourov735/image-comparison"
+        },
+        {
+          "label": "PR #255",
+          "url": "https://github.com/romankh3/image-comparison/pull/255"
+        }
+      ],
+      "highlights": [
+        "Replaced recursive difference grouping with iterative ArrayDeque BFS, eliminating StackOverflowError on high-resolution diffs",
+        "Optimized memory allocation by replacing per-pixel Point objects with primitive coordinate evaluation",
+        "Maintained 100% test suite pass rate (66/66 JUnit tests) with zero PMD/CPD quality violations"
       ]
     },
     {
       "title": "TetriC",
-      "summary": "A C-based terminal Tetris game with multiplayer experiments, score tracking, and multiple game modes.",
-      "image": "/assets/images/project-3.jpg",
+      "summary": "A modular, console-based multiplayer Tetris game built in C for a university Software Engineering project. Features single-player, local two-player, and socket-based network multiplayer.",
+      "image": "/assets/images/tetric.jpg",
       "category": "Systems",
-      "tags": ["C", "Game Development", "Multiplayer", "Sockets"],
+      "tags": ["C", "Socket Programming", "Game Development", "Multiplayer", "Algorithms"],
       "links": [
         {
           "label": "GitHub",
           "url": "https://github.com/Shourov735/TetriC"
         }
+      ],
+      "highlights": [
+        "Console-based Tetris implemented in pure C with matrix rotation and collision algorithms",
+        "Local two-player and socket-based network multiplayer over TCP",
+        "Dynamic score progression, levels, and persistent high score leaderboards"
       ]
     },
     {
       "title": "Portfolio Website",
-      "summary": "An interactive portfolio built with Next.js, TypeScript, and Tailwind CSS, featuring a contact API, SSG project pages, dark/light theme, and automated sitemap generation.",
+      "summary": "An interactive, content-driven developer portfolio built with Next.js 16 (App Router), TypeScript, and Tailwind CSS v4, featuring SSG project detail routes and automated sitemap generation.",
       "image": "/assets/images/profile.jpg",
       "category": "Web",
-      "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Serverless", "Vercel"],
+      "tags": ["Next.js 16", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
       "links": [
         {
           "label": "GitHub",
@@ -212,132 +405,151 @@
           "label": "Live",
           "url": "https://portfolio-lemon-eight-22.vercel.app"
         }
+      ],
+      "highlights": [
+        "Content-driven architecture with single JSON source of truth and SSG project routes",
+        "ScrollReveal motion animations, dark/light theme persistence, and automated sitemap generation"
       ]
     },
     {
-      "title": "Mosque Library Management",
-      "summary": "A full-stack web application for managing mosque libraries — browse an Islamic book catalog, manage members, and organize committee roles with multilingual (EN/BN) support.",
-      "image": "/assets/images/mosque-library.jpg",
-      "category": "Web",
-      "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Full-Stack", "Prisma"],
-      "links": [
-        {
-          "label": "Live Demo",
-          "url": "https://mosque-library-management.vercel.app"
-        }
-      ]
-    },
-    {
-      "title": "Nabodigonto",
-      "summary": "Nabodigonto Social Welfare Organization — a web presence for a social welfare organization.",
-      "image": "/assets/images/nabodigonto600x400.jpg",
-      "category": "Web",
-      "tags": ["Next.js", "TypeScript", "Prisma"],
-      "links": [
-        {
-          "label": "Live Demo",
-          "url": "https://nabodigonto.vercel.app/"
-        },
-        {
-          "label": "Live Demo 2",
-          "url": "https://nabodigonto-sandy.vercel.app/"
-        }
-      ]
-    },
-    {
-      "title": "image-comparison",
-      "summary": "Contributed to an open-source Java library on Maven Central that compares two images and highlights visual differences with rectangles. Used for automation QA testing.",
-      "image": "/assets/images/image-comparison.jpg",
-      "category": "Open Source",
-      "tags": ["Java", "Open Source", "Image Processing", "Testing", "Maven"],
+      "title": "Codeforces Solutions",
+      "summary": "A growing archive of optimized Codeforces solutions focused on graph algorithms, number theory, greedy techniques, and contest practice.",
+      "image": "/assets/images/codeforces.jpg",
+      "category": "Algorithms",
+      "tags": ["C++", "C", "Algorithms", "Data Structures", "Competitive Programming"],
       "links": [
         {
           "label": "GitHub",
-          "url": "https://github.com/Shourov735/image-comparison"
+          "url": "https://github.com/Shourov735/Codeforces"
+        },
+        {
+          "label": "Profile",
+          "url": "https://codeforces.com/profile/Shourov735"
         }
+      ],
+      "highlights": [
+        "150+ competitive programming solutions covering graphs, number theory, greedy, and dynamic programming"
+      ]
+    },
+    {
+      "title": "LeetCode Solutions",
+      "summary": "Clean solutions for common interview-style problems, with emphasis on data structures, dynamic programming, and reusable problem-solving patterns.",
+      "image": "/assets/images/leetcode.jpg",
+      "category": "Algorithms",
+      "tags": ["C++", "Algorithms", "Data Structures", "Problem Solving"],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/Shourov735/LeetCode"
+        },
+        {
+          "label": "Profile",
+          "url": "https://leetcode.com/u/Shourov735/"
+        }
+      ],
+      "highlights": [
+        "Optimized implementations focusing on reusable patterns, time/space trade-offs, and clean OOP structure"
       ]
     }
   ],
   "notes": [
     {
-      "title": "How I approach competitive programming practice",
-      "date": "2026-06-18",
-      "summary": "Take the Input, Read the question carefully, Think and try running different solutions repeatedly until getting accepted.",
-      "tags": ["Brute Force", "Greedy", "Codeforces"]
+      "title": "Designing the Blind Audit Protocol for Nabodigonto",
+      "date": "2026-08-15",
+      "summary": "How I implemented a double-signed verification protocol in Next.js and Prisma so treasury balances stay masked until both Finance and Admin confirm physical cash and bank statements.",
+      "tags": ["Next.js", "Prisma", "Fintech", "Security"]
+    },
+    {
+      "title": "Building Offline-First Habits with Quran Reading Tracker",
+      "date": "2026-08-01",
+      "summary": "Why I chose React Native, Expo, and AsyncStorage to track Arabic recitation and Bangla translation independently without accounts, third-party analytics, or cloud dependencies.",
+      "tags": ["React Native", "Expo", "Offline-First", "Mobile"]
+    },
+    {
+      "title": "Applying GoF Design Patterns in a JavaFX Examination System",
+      "date": "2026-07-20",
+      "summary": "Using Strategy for scoring algorithms, State for quiz lifecycles, and Factory for polymorphic question rendering in our Mini-SPL project at IIT, DU.",
+      "tags": ["Java", "JavaFX", "Design Patterns", "OOP"]
+    },
+    {
+      "title": "Contributing to open-source image-comparison (PR #255)",
+      "date": "2026-06-26",
+      "summary": "Forked and contributed to romankh3/image-comparison on Maven Central as a university assignment. Refactored recursive flood-fill to iterative ArrayDeque traversal and eliminated GC pressure.",
+      "tags": ["Java", "Open Source", "Image Processing", "Testing"]
     },
     {
       "title": "What I learned while building TetriC",
       "date": "2026-06-18",
-      "summary": "How to send packets and retrieve data from them using socket programming in C.",
+      "summary": "How to send packets and synchronize game frames using socket programming and non-blocking I/O in C.",
       "tags": ["C", "Game Development", "Socket Programming"]
     },
     {
-      "title": "Tried Learning Rust",
-      "date": "2026-06-23",
-      "summary": "Watched a 3-hour tutorial and explored Rust's ownership model, borrowing, and type system. Built a small CLI tool to practice input handling before shifting focus back to C++ and systems programming.",
-      "tags": ["Rust", "Systems Programming", "Learning"]
-    },
-    {
-      "title": "Contributing to open-source image-comparison",
-      "date": "2026-06-26",
-      "summary": "Forked and contributed to romankh3/image-comparison, a Java library on Maven Central that performs pixel-level image comparison for QA automation. Explored the codebase and submitted improvements.",
-      "tags": ["Java", "Open Source", "Image Processing", "Testing"]
+      "title": "How I approach competitive programming practice",
+      "date": "2026-06-18",
+      "summary": "Understand problem constraints, identify optimal data structures, implement edge cases cleanly, and iterate until accepted.",
+      "tags": ["C++", "Codeforces", "Algorithms"]
     }
   ],
   "now": [
     {
-      "title": "Requirements specification and analysis",
-      "summary": "Studying software requirements, analysis techniques, and documentation practices."
+      "title": "Quiz Management & Examination System (Mini-SPL)",
+      "summary": "Finalizing the desktop examination system in JavaFX with SQLite and GoF design patterns."
     },
     {
-      "title": "Operating systems",
-      "summary": "Studying OS concepts including processes, threads, scheduling, and memory management."
+      "title": "Operating systems & Systems Programming",
+      "summary": "Studying core OS concepts including process scheduling, threads, virtual memory, and socket communications."
+    },
+    {
+      "title": "Enterprise Cloud Architecture",
+      "summary": "Deploying full-stack applications on Cloudflare Workers, Neon PostgreSQL, Drizzle, and Prisma."
     },
     {
       "title": "Competitive programming",
-      "summary": "Continuing algorithm practice with a focus on number theory and data structures."
-    },
-    {
-      "title": "Design Patterns",
-      "summary": "Learning and applying common design patterns for robust and maintainable code."
+      "summary": "Continuing algorithm practice with emphasis on graph algorithms and number theory."
     }
   ],
   "timeline": [
     {
+      "date": "2026 - Present",
+      "title": "IT Secretary — Nabodigonto Social Welfare Organization",
+      "summary": "Appointed IT Secretary after architecting and launching the organization official web and financial audit platform."
+    },
+    {
       "date": "2024 - Present",
       "title": "BSc in Software Engineering",
-      "summary": "Studying software engineering at the University of Dhaka with coursework in algorithms, databases, requirements, and systems."
+      "summary": "Studying software engineering at the Institute of Information Technology (IIT), University of Dhaka."
     },
     {
       "date": "2024",
-      "title": "University admission milestone",
-      "summary": "Secured admission to the University of Dhaka after strong admission test performance."
+      "title": "University Admission Milestone",
+      "summary": "Secured merit position 735 at University of Dhaka and merit 3 at Rajshahi University admission tests."
     },
     {
       "date": "2020 - 2022",
       "title": "Higher Secondary Certificate",
-      "summary": "Built a strong foundation in mathematics, physics, and early computing concepts."
+      "summary": "Built a solid foundation in mathematics, physics, and computer science principles."
     }
   ],
   "education": [
     {
       "title": "Bachelor of Science in Software Engineering",
-      "institution": "University of Dhaka",
+      "institution": "Institute of Information Technology (IIT), University of Dhaka",
       "duration": "2024 - Present",
-      "summary": "Studying core software engineering concepts including data structures, algorithms, database design, software requirements, and development practices.",
+      "summary": "Studying core software engineering concepts including data structures, algorithms, database systems, object-oriented design patterns, software requirements, and architecture.",
       "coursework": [
         "Data Structures & Algorithms",
+        "Design Patterns & Software Architecture",
         "Database Management Systems",
         "Operating Systems",
         "Software Requirement Analysis",
-        "Software Engineering Principles"
+        "Object-Oriented Programming (C++, Java)"
       ]
     },
     {
       "title": "University Admission",
       "institution": "Science Background",
       "duration": "2024",
-      "summary": "Admission test results across several universities.",
+      "summary": "Admission test results across several top universities in Bangladesh.",
       "results": [
         {
           "university": "University of Dhaka",
@@ -376,28 +588,36 @@
   ],
   "achievements": [
     {
+      "title": "IT Secretary Appointment",
+      "summary": "Appointed IT Secretary at Nabodigonto Social Welfare Organization after engineering and deploying their digital platform and financial audit system."
+    },
+    {
+      "title": "Open Source Contribution",
+      "summary": "Contributed algorithmic refactoring and memory optimizations to romankh3/image-comparison (Maven Central Java library) for an academic SE assignment (PR #255)."
+    },
+    {
+      "title": "Full-Stack & Cloud Systems",
+      "summary": "Engineered production web applications with Next.js 16, Cloudflare Workers, Neon PostgreSQL, Prisma, Drizzle, and Clerk authentication (Nabodigonto & InsideJibon)."
+    },
+    {
+      "title": "Desktop & Design Patterns (Mini-SPL)",
+      "summary": "Architected Quiz Management & Examination System in Java/JavaFX utilizing GoF design patterns (Strategy, State, Factory, Observer) and SQLite."
+    },
+    {
+      "title": "Offline-First Mobile App",
+      "summary": "Built Quran Reading Tracker in React Native and Expo with independent dual-pipeline tracking and zero cloud dependencies."
+    },
+    {
       "title": "Competitive Programming",
-      "summary": "Solved 150+ problems on Codeforces and LeetCode with active contest participation."
+      "summary": "Solved 150+ algorithmic problems on Codeforces and LeetCode with active contest participation."
     },
     {
-      "title": "Game Development",
-      "summary": "Built TetriC, a C-based terminal Tetris game with multiplayer socket programming and high score tracking."
+      "title": "Game Development & Networking",
+      "summary": "Built TetriC, a modular terminal Tetris game in pure C with socket-based multiplayer and collision physics."
     },
     {
-      "title": "University Admission",
-      "summary": "Secured merit position 735 at University of Dhaka and top-3 merit at Rajshahi University admission test."
-    },
-    {
-      "title": "Open Source",
-      "summary": "Contributed to romankh3/image-comparison, a Maven Central published Java library for automated image QA testing. Maintain 5+ public repositories."
-    },
-    {
-      "title": "Full-Stack Development",
-      "summary": "Built Mosque Library Management — a bilingual (EN/BN) full-stack app with catalog browsing, member management, and committee organization."
-    },
-    {
-      "title": "Problem Solving",
-      "summary": "Growing analytical skill through daily coding practice across multiple platforms and languages."
+      "title": "University Admission Merit",
+      "summary": "Achieved merit position 735 at University of Dhaka and merit 3 at Rajshahi University admission tests."
     }
   ],
   "testimonials": []

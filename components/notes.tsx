@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useMemo } from "react"
-import { getContent, slugify } from "@/lib/content"
+import { getContent } from "@/lib/content"
 import { ScrollReveal } from "@/components/scroll-reveal"
 
 export function Notes() {

@@ -51,11 +51,30 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               ))}
             </div>
 
-            <div className="mt-8 p-6 border border-[var(--color-line)] rounded-lg bg-[var(--color-surface-muted)]/50">
-              <p className="text-[var(--color-muted)] italic">
-                Full case study coming soon. For now, check out the code and links below.
-              </p>
-            </div>
+            {project.highlights && project.highlights.length > 0 ? (
+              <div className="mt-8 p-6 border border-[var(--color-line)] rounded-lg bg-[var(--color-surface-muted)]/50">
+                <h2 className="text-lg font-bold text-[var(--color-text)] mb-3">
+                  Key Highlights & Architecture
+                </h2>
+                <ul className="grid gap-2.5">
+                  {project.highlights.map((item, idx) => (
+                    <li
+                      key={idx}
+                      className="flex items-start gap-2.5 text-sm text-[var(--color-muted)] leading-relaxed"
+                    >
+                      <span className="text-[var(--color-primary-strong)] font-bold mt-0.5">✓</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : (
+              <div className="mt-8 p-6 border border-[var(--color-line)] rounded-lg bg-[var(--color-surface-muted)]/50">
+                <p className="text-[var(--color-muted)] italic">
+                  Full case study coming soon. For now, check out the code and links below.
+                </p>
+              </div>
+            )}
 
             <div className="flex flex-wrap gap-4 mt-8">
               {project.links.map((link) => (

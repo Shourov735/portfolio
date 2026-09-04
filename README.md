@@ -100,20 +100,25 @@ Everything is driven by `data/content.json`. Edit it to update:
 
 | Project | Description | Links |
 | ------- | ----------- | ----- |
-| **Mosque Library Management** | Full-stack app for managing mosque libraries — Islamic book catalog, member management, committee roles, multilingual (EN/BN). | [Live Demo](https://mosque-library-management.vercel.app) |
-| **Nabodigonto** | Web presence for the Nabodigonto Social Welfare Organization. | [Live](https://nabodigonto.vercel.app/) · [Mirror](https://nabodigonto-sandy.vercel.app/) |
+| **Nabodigonto** | Flagship platform for Nabodigonto Social Welfare Organization. Features blind audit double-signed treasury protocol, 3D flip member ID cards with QR verification, and dues tracking. Promoted to IT Secretary following deployment. | [Live Demo](https://nabodigonto.conversora-tech.workers.dev) · [GitHub](https://github.com/Shourov735/nabodigonto) |
+| **InsideJibon** | Scalable bilingual (EN/BN) EdTech platform built for Tanvir Hasan Jibon. Course catalogs, enrollments, exams, and Cloudflare R2 resource storage. | [Live Demo](https://insidejibon.insidejibon.workers.dev) · [GitHub](https://github.com/Shourov735/InsideJibon) |
+| **Quiz Management & Examination System** | Desktop examination application in Java/JavaFX for Mini-SPL at IIT, University of Dhaka. Implements GoF patterns (Strategy, State, Factory, Observer) and SQLite persistence. | [GitHub](https://github.com/Shourov735/Quiz-Management-and-Examination-System) |
+| **Mosque Library Management** | Full-stack app for mosque libraries — Islamic book catalog, member management, committee roles, and multilingual (EN/BN) support. | [Live Demo](https://mosque-library-management.vercel.app) |
 
 ### All Projects
 
-| Project | Description | Links |
-| ------- | ----------- | ----- |
-| **Mosque Library Management** | Mosque library catalog, members, and committee management with EN/BN support. | [Live Demo](https://mosque-library-management.vercel.app) |
-| **Nabodigonto** | Social welfare organization website. | [Live](https://nabodigonto.vercel.app/) · [Mirror](https://nabodigonto-sandy.vercel.app/) |
-| **Portfolio Website** | This very site — a data-driven Next.js portfolio. | [GitHub](https://github.com/Shourov735/portfolio) · [Live](https://portfolio-lemon-eight-22.vercel.app) |
-| **TetriC** | Console-based Tetris in C with multiplayer, game modes, and high scores. | [GitHub](https://github.com/Shourov735/TetriC) |
-| **Codeforces Solutions** | Competitive programming solutions. | [GitHub](https://github.com/Shourov735/Codeforces) · [Profile](https://codeforces.com/profile/Shourov735) |
-| **LeetCode Solutions** | Data structures & algorithms solutions. | [GitHub](https://github.com/Shourov735/LeetCode) |
-| **image-comparison** | Interactive image comparison tool. | [GitHub](https://github.com/Shourov735/image-comparison) |
+| Project | Category | Description | Links |
+| ------- | -------- | ----------- | ----- |
+| **Nabodigonto** | Web | Community & financial audit platform with 3D member ID cards and double-signed treasury balances. | [Live Demo](https://nabodigonto.conversora-tech.workers.dev) · [GitHub](https://github.com/Shourov735/nabodigonto) |
+| **InsideJibon** | Web | Modern bilingual EdTech learning management system on Cloudflare Workers and Neon PostgreSQL. | [Live Demo](https://insidejibon.insidejibon.workers.dev) · [GitHub](https://github.com/Shourov735/InsideJibon) |
+| **Quiz Management & Examination System** | Systems | Desktop quiz application in JavaFX with GoF design patterns, question banks, and SQLite storage. | [GitHub](https://github.com/Shourov735/Quiz-Management-and-Examination-System) |
+| **Quran Reading Tracker** | Mobile | Offline-first Android app in React Native & Expo with dual recitation/translation pipelines and zero cloud dependencies. | [GitHub](https://github.com/Shourov735/QuranReadingTracker) |
+| **Mosque Library Management** | Web | Mosque library catalog, members, and committee management with EN/BN support. | [Live Demo](https://mosque-library-management.vercel.app) |
+| **image-comparison** | Open Source | Open-source Java library on Maven Central for visual QA diffing. Contributed algorithmic refactor (PR #255) for University SE assignment. | [GitHub Fork](https://github.com/Shourov735/image-comparison) · [PR #255](https://github.com/romankh3/image-comparison/pull/255) |
+| **TetriC** | Systems | Console-based Tetris in C with socket-based multiplayer, game modes, and high scores. | [GitHub](https://github.com/Shourov735/TetriC) |
+| **Portfolio Website** | Web | This very site — content-driven Next.js 16 portfolio with static project pages and automated sitemap. | [GitHub](https://github.com/Shourov735/portfolio) · [Live](https://portfolio-lemon-eight-22.vercel.app) |
+| **Codeforces Solutions** | Algorithms | Competitive programming archive covering graph theory, number theory, and contest algorithms. | [GitHub](https://github.com/Shourov735/Codeforces) · [Profile](https://codeforces.com/profile/Shourov735) |
+| **LeetCode Solutions** | Algorithms | Data structures & algorithm problem solutions focusing on clean patterns and optimal time/space complexity. | [GitHub](https://github.com/Shourov735/LeetCode) · [Profile](https://leetcode.com/u/Shourov735/) |
 
 > Tip: run `npm run build` after editing `data/content.json` to keep the sitemap and generated pages in sync.
 

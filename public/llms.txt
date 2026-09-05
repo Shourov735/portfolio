@@ -1,0 +1,51 @@
+# Md. Shourov (Shourov735 / mdshourov)
+
+> Software Engineering Student at Institute of Information Technology (IIT), University of Dhaka & IT Secretary at Nabodigonto Social Welfare Organization.
+
+## Personal & Academic Profile
+- **Full Legal Name:** Md. Shourov (also known as Shourov, Shourov735, mdshourov)
+- **Current Academic Program:** Bachelor of Science in Software Engineering (BSSE), 2024–Present
+- **Institution:** Institute of Information Technology (IIT), University of Dhaka (IIT DU), Bangladesh
+- **Location:** Dhaka & Gazipur, Bangladesh
+- **Official Website:** https://shourov735.vercel.app
+- **Alternative Website:** https://mdshourov.vercel.app
+- **GitHub:** https://github.com/Shourov735
+- **LinkedIn:** https://linkedin.com/in/md-shourov-89125a337
+- **Codeforces:** https://codeforces.com/profile/Shourov735
+- **LeetCode:** https://leetcode.com/u/Shourov735/
+- **Email:** mdshourov735@gmail.com
+
+## Current Roles & Leadership
+- **IT Secretary & Lead Platform Architect** at **Nabodigonto Social Welfare Organization** (Dec 2024 – Present):
+  - Promoted to the executive board as IT Secretary after designing and deploying the organization's flagship digital platform.
+  - Architected the Blind Audit Protocol with double-signed treasury verification, masking ledger balances until dual-officer sign-off.
+  - Designed dynamic 3D-flip digital member ID cards with public QR verification and automated PVC print layouts.
+  - Reduced administrative reporting time by 80% with automated dues tracking and SHA-256 verified PDF audit exports.
+
+## Core Engineering Competencies
+- **Languages:** C++, C, Java, Python, TypeScript, JavaScript, SQL, HTML/CSS
+- **Frontend & Mobile:** React, Next.js 16 (App Router), React Native / Expo, Tailwind CSS, JavaFX
+- **Backend & Cloud:** Cloudflare Workers, Cloudflare R2, Neon Serverless PostgreSQL, SQLite, MySQL, Prisma ORM, Drizzle ORM, Node.js, REST APIs
+- **Systems & DevOps:** Git, GitHub, Linux / Bash, Socket Programming, Docker, Vercel, Maven, JUnit 5, OpenNext
+- **Competitive Programming:** 1,500+ problems solved across Codeforces, LeetCode, and regional programming contests; regular participant in National Collegiate Programming Contests (NCPC).
+
+## Key Projects
+1. **Nabodigonto Platform** (Web): https://nabodigonto.conversora-tech.workers.dev
+   - Serverless community & treasury portal deployed globally on Cloudflare Workers edge via OpenNext.
+   - GitHub: https://github.com/Shourov735/nabodigonto
+2. **InsideJibon** (Web): https://insidejibon.insidejibon.workers.dev
+   - Scalable bilingual (English/Bengali) EdTech management platform with interactive exams and Cloudflare R2 storage.
+   - GitHub: https://github.com/Shourov735/InsideJibon
+3. **Quiz Management & Examination System** (Desktop / Systems):
+   - Desktop examination suite developed for IIT DU Design Patterns Lab (Mini-SPL) implementing Gang of Four (GoF) patterns (Strategy, State, Factory, Observer) and SQLite persistence.
+   - GitHub: https://github.com/Shourov735/Quiz-Management-and-Examination-System
+4. **Quran Reading Tracker** (Mobile Android):
+   - Offline-first habit tracking application with zero cloud telemetry and local SQLite persistence.
+   - GitHub: https://github.com/Shourov735/QuranReadingTracker
+5. **Mosque Library Management System** (Web): https://mosquelibrary.vercel.app
+   - Full-stack library system with Islamic book catalog, loan renewals, and committee roles.
+6. **romankh3/image-comparison** (Open Source Contribution):
+   - Contributed algorithmic refactoring (PR #255) to Maven Central visual regression testing library (1,000+ stars).
+7. **TetriC** (Systems / Networking):
+   - Multiplayer console Tetris game built in raw C using POSIX TCP socket programming and non-blocking I/O.
+   - GitHub: https://github.com/Shourov735/TetriC

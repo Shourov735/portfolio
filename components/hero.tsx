@@ -17,9 +17,7 @@ export function Hero() {
               Architecting high-impact web platforms, offline mobile systems & clean code.
             </h1>
             <p className="text-[clamp(1.05rem,1.8vw,1.25rem)] text-[var(--color-muted)] max-w-[660px] mt-6 leading-relaxed">
-              Hi, I am Md. Shourov. I engineer resilient full-stack applications with Next.js 16, Cloudflare Workers,
-              and PostgreSQL, build offline-first mobile experiences in React Native, and practice rigorous software
-              architecture & competitive programming.
+              Hi, I am <strong className="text-[var(--color-text)]">Md. Shourov</strong> (@Shourov735 / mdshourov). I study Software Engineering (BSSE) at the <strong className="text-[var(--color-text)]">Institute of Information Technology (IIT), University of Dhaka (IIT DU)</strong> and serve as <strong className="text-[var(--color-text)]">IT Secretary</strong> at Nabodigonto. I engineer resilient edge-native web platforms with Next.js 16, Cloudflare Workers, and PostgreSQL, build offline-first mobile applications in React Native, and practice algorithmic problem solving.
             </p>
             <div className="flex flex-wrap gap-3 mt-7 max-md:flex-col">
               <a href="#spotlight" className="btn-primary">

@@ -16,7 +16,7 @@ export function About() {
         <ScrollReveal>
           <div className="border border-[var(--color-line)] rounded-2xl bg-[var(--color-surface)] shadow-sm p-7 md:p-8">
             <p className="text-[var(--color-muted)] text-base leading-relaxed mb-4">
-              I am a Software Engineering student at the <strong className="text-[var(--color-text)]">Institute of Information Technology (IIT), University of Dhaka</strong>, based in Gazipur, Bangladesh. My work centers on distributed web systems, offline-first mobile applications, database architecture, and resilient edge deployments.
+              I am an undergraduate reading for my Bachelor of Science in Software Engineering (BSSE) at the <strong className="text-[var(--color-text)]">Institute of Information Technology (IIT), University of Dhaka (IIT DU)</strong>, based in Gazipur &amp; Dhaka, Bangladesh. Known across developer platforms as <strong className="text-[var(--color-text)]">Shourov735</strong> and <strong className="text-[var(--color-text)]">mdshourov</strong>, my engineering focus centers on distributed edge systems, offline-first mobile architecture, database modeling, and resilient full-stack platforms.
             </p>
             <p className="text-[var(--color-muted)] text-base leading-relaxed mb-6">
               Over 1,500 problems solved in competitive programming have trained me to reason deeply under strict performance and memory constraints. I channel that rigor into engineering real-world software—such as architecting the flagship double-signed treasury system for <strong className="text-[var(--color-text)]">Nabodigonto</strong>, where I was subsequently appointed as <strong className="text-[var(--color-text)]">IT Secretary</strong>.

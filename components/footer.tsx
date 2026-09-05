@@ -1,3 +1,5 @@
+import { Logo } from "@/components/logo"
+
 export function Footer() {
   return (
     <footer className="border-t border-[var(--color-line)] bg-[var(--color-surface)]">
@@ -5,15 +7,18 @@ export function Footer() {
         <div>
           <a
             href="#home"
-            className="inline-flex items-center gap-2.5 font-extrabold text-[var(--color-text)]"
+            className="inline-flex items-center"
+            aria-label="Md. Shourov home"
           >
-            <span className="inline-grid h-9 w-9 place-items-center rounded-md bg-[var(--color-primary)] text-white font-black">
-              S
-            </span>
-            <span>Md. Shourov</span>
+            <Logo
+              size={40}
+              text="Md. Shourov"
+              badge="BSSE @ IIT DU"
+              subtitle="Software Engineer & IT Secretary"
+            />
           </a>
           <p className="max-w-[460px] mt-3 text-[var(--color-muted)] text-sm">
-            Software Engineering student building a stronger portfolio one iteration at a time.
+            Building high-impact web platforms, offline-first mobile apps, and scalable systems.
           </p>
         </div>
         <div className="flex flex-wrap justify-end gap-4 max-md:justify-start">

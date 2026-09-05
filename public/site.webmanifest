@@ -1,0 +1,21 @@
+{
+  "name": "Md. Shourov (Shourov735) Portfolio",
+  "short_name": "Shourov",
+  "description": "Software Engineering Student at IIT DU & IT Secretary at Nabodigonto",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#0d9488",
+  "background_color": "#0a0f1d",
+  "display": "standalone",
+  "start_url": "/"
+}

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { useTheme } from "@/components/theme-provider"
+import { Logo } from "@/components/logo"
 
 const navLinks = [
   { href: "/#spotlight", label: "Featured", id: "spotlight" },
@@ -62,13 +63,10 @@ export function Header() {
       >
         <a
           href="#home"
-          className="inline-flex items-center gap-2.5 font-extrabold text-[var(--color-text)]"
+          className="inline-flex items-center"
           aria-label="Md. Shourov home"
         >
-          <span className="inline-grid h-9 w-9 place-items-center rounded-md bg-[var(--color-primary)] text-white font-black">
-            S
-          </span>
-          <span>Shourov</span>
+          <Logo size={36} text="Shourov" badge="BSSE" />
         </a>
 
         <button

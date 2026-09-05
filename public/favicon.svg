@@ -1,4 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="6" fill="#0f766e"/>
-  <text x="16" y="21.5" text-anchor="middle" fill="white" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800">MS</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="shourov-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d"/>
+      <stop offset="50%" stop-color="#0b162c"/>
+      <stop offset="100%" stop-color="#032024"/>
+    </linearGradient>
+    <linearGradient id="shourov-top" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#2dd4bf"/>
+    </linearGradient>
+    <linearGradient id="shourov-bot" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14b8a6"/>
+      <stop offset="100%" stop-color="#0ea5e9"/>
+    </linearGradient>
+    <linearGradient id="shourov-border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.55"/>
+      <stop offset="50%" stop-color="#2dd4bf" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#0d9488" stop-opacity="0.45"/>
+    </linearGradient>
+    <filter id="shourov-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#06b6d4" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <rect x="24" y="24" width="464" height="464" rx="116" fill="url(#shourov-bg)"/>
+  <rect x="24" y="24" width="464" height="464" rx="116" fill="none" stroke="url(#shourov-border)" stroke-width="4"/>
+  <circle cx="256" cy="256" r="140" fill="#0d9488" opacity="0.12"/>
+
+  <g filter="url(#shourov-glow)">
+    <path d="M 344 140 L 204 140 C 172 140 146 166 146 198 L 146 210 C 146 238 168 262 196 268 L 306 288" 
+          stroke="url(#shourov-top)" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M 206 224 L 316 244 C 344 250 366 274 366 302 L 366 314 C 366 346 340 372 308 372 L 168 372" 
+          stroke="url(#shourov-bot)" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
 </svg>

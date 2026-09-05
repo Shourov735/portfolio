@@ -113,8 +113,8 @@ Architected with **Next.js 16 (App Router)**, **React 19**, **TypeScript**, and 
 
 ---
 
-#### 4. [Mosque Library Management](https://mosque-library-management.vercel.app/) — Community Library Web App
-[![Live Demo](https://img.shields.io/badge/Live_Demo-Mosque_Library-0070f3?style=flat-square&logo=vercel&logoColor=white)](https://mosque-library-management.vercel.app/)
+#### 4. [Mosque Library Management](https://mosquelibrary.vercel.app/) — Community Library Web App
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Mosque_Library-0070f3?style=flat-square&logo=vercel&logoColor=white)](https://mosquelibrary.vercel.app/)
 [![Stack](https://img.shields.io/badge/Stack-Next.js_%7C_TypeScript_%7C_Tailwind_%7C_Prisma_%7C_PostgreSQL-black?style=flat-square)](#)
 
 - **Islamic Literature Catalog:** Categorized directory for Quran, Hadith, Tafsir, Fiqh, and Islamic History with live borrowing availability status.
@@ -130,7 +130,7 @@ Architected with **Next.js 16 (App Router)**, **React 19**, **TypeScript**, and 
 | **InsideJibon** | Web | Next.js 16, Drizzle ORM, Neon Postgres, Cloudflare R2 | Scalable bilingual EdTech management platform with interactive exams and cloud learning materials. | [Live Demo](https://insidejibon.insidejibon.workers.dev) · [GitHub](https://github.com/Shourov735/InsideJibon) |
 | **Quiz Management System** | Systems | Java 17, JavaFX 21, SQLite, GoF Patterns | Desktop examination software developed for IIT DU Mini-SPL implementing 5 GoF patterns and SQLite. | [GitHub](https://github.com/Shourov735/Quiz-Management-and-Examination-System) |
 | **Quran Reading Tracker** | Mobile | React Native, Expo, TypeScript, AsyncStorage | Offline-first Android mobile app with dual independent pipelines for Arabic recitation and Bangla translation. | [GitHub](https://github.com/Shourov735/QuranReadingTracker) |
-| **Mosque Library Management** | Web | Next.js, TypeScript, Tailwind, Prisma, PostgreSQL | Full-stack mosque library system with Islamic catalog, borrowing tracking, and committee roles. | [Live Demo](https://mosque-library-management.vercel.app) |
+| **Mosque Library Management** | Web | Next.js, TypeScript, Tailwind, Prisma, PostgreSQL | Full-stack mosque library system with Islamic catalog, borrowing tracking, and committee roles. | [Live Demo](https://mosquelibrary.vercel.app) |
 | **image-comparison** | Open Source | Java, Algorithms, JUnit 5, Maven Central | Contributed algorithmic refactor (PR #255) to Maven Central library, replacing recursive grouping with iterative `ArrayDeque`. | [GitHub Fork](https://github.com/Shourov735/image-comparison) · [PR #255](https://github.com/romankh3/image-comparison/pull/255) |
 | **TetriC** | Systems | C, Sockets, Game Development, Non-blocking I/O | Console-based Tetris in C featuring matrix rotation, local 2-player, and TCP network multiplayer gameplay. | [GitHub](https://github.com/Shourov735/TetriC) |
 | **Portfolio Website** | Web | Next.js 16, TypeScript, Tailwind CSS v4, Framer | This responsive, content-driven portfolio site with SSG project routing and automated sitemaps. | [GitHub](https://github.com/Shourov735/portfolio) · [Live](https://shourov735.vercel.app) |

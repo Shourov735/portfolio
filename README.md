@@ -2,7 +2,7 @@
 
 # 🌐 Md. Shourov — Developer Portfolio
 
-[![Live Site](https://img.shields.io/badge/Live_Site-portfolio--lemon--eight--22.vercel.app-FF5722?style=for-the-badge&logo=vercel&logoColor=white)](https://portfolio-lemon-eight-22.vercel.app/)
+[![Live Site](https://img.shields.io/badge/Live_Site-shourov735.vercel.app-FF5722?style=for-the-badge&logo=vercel&logoColor=white)](https://shourov735.vercel.app/)
 [![Next.js](https://img.shields.io/badge/Next.js_16-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_CSS_v4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
@@ -10,7 +10,7 @@
 
 <br/>
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&pause=1000&color=6366F1&center=true&vCenter=true&width=700&lines=Modern+Content-Driven+Portfolio;Static+Site+Generation+(SSG)+with+Next.js+16+App+Router;Single+JSON+Source+of+Truth+for+Effortless+Updates;Dark%2FLight+Mode+%E2%80%A2+Fluid+Motion+%E2%80%A2+SEO+Optimized)](https://portfolio-lemon-eight-22.vercel.app/)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&pause=1000&color=6366F1&center=true&vCenter=true&width=700&lines=Modern+Content-Driven+Portfolio;Static+Site+Generation+(SSG)+with+Next.js+16+App+Router;Single+JSON+Source+of+Truth+for+Effortless+Updates;Dark%2FLight+Mode+%E2%80%A2+Fluid+Motion+%E2%80%A2+SEO+Optimized)](https://shourov735.vercel.app/)
 
 <p align="center">
   <a href="#-features">Features</a> •
@@ -32,7 +32,7 @@ This repository powers the personal portfolio of **Md. Shourov**, a Software Eng
 
 Architected with **Next.js 16 (App Router)**, **React 19**, **TypeScript**, and **Tailwind CSS v4**, this portfolio is strictly **content-driven**. All domain content—projects, featured spotlights, skill proficiency levels, timeline milestones, academic achievements, reading notes, and contact details—is decoupled from React presentation logic and centrally defined within [`data/content.json`](data/content.json). Adding, modifying, or categorizing projects requires **zero component modifications**.
 
-🔗 **Production Deployment:** [portfolio-lemon-eight-22.vercel.app](https://portfolio-lemon-eight-22.vercel.app)
+🔗 **Production Deployment:** [shourov735.vercel.app](https://shourov735.vercel.app)
 
 ---
 
@@ -133,7 +133,7 @@ Architected with **Next.js 16 (App Router)**, **React 19**, **TypeScript**, and 
 | **Mosque Library Management** | Web | Next.js, TypeScript, Tailwind, Prisma, PostgreSQL | Full-stack mosque library system with Islamic catalog, borrowing tracking, and committee roles. | [Live Demo](https://mosque-library-management.vercel.app) |
 | **image-comparison** | Open Source | Java, Algorithms, JUnit 5, Maven Central | Contributed algorithmic refactor (PR #255) to Maven Central library, replacing recursive grouping with iterative `ArrayDeque`. | [GitHub Fork](https://github.com/Shourov735/image-comparison) · [PR #255](https://github.com/romankh3/image-comparison/pull/255) |
 | **TetriC** | Systems | C, Sockets, Game Development, Non-blocking I/O | Console-based Tetris in C featuring matrix rotation, local 2-player, and TCP network multiplayer gameplay. | [GitHub](https://github.com/Shourov735/TetriC) |
-| **Portfolio Website** | Web | Next.js 16, TypeScript, Tailwind CSS v4, Framer | This responsive, content-driven portfolio site with SSG project routing and automated sitemaps. | [GitHub](https://github.com/Shourov735/portfolio) · [Live](https://portfolio-lemon-eight-22.vercel.app) |
+| **Portfolio Website** | Web | Next.js 16, TypeScript, Tailwind CSS v4, Framer | This responsive, content-driven portfolio site with SSG project routing and automated sitemaps. | [GitHub](https://github.com/Shourov735/portfolio) · [Live](https://shourov735.vercel.app) |
 | **Codeforces Solutions** | Algorithms | C++, C, Graph Theory, Number Theory | Archive of 150+ competitive programming contest solutions with time and space complexity optimizations. | [GitHub](https://github.com/Shourov735/Codeforces) · [Profile](https://codeforces.com/profile/Shourov735) |
 | **LeetCode Solutions** | Algorithms | C++, Data Structures, Dynamic Programming | Clean, idiomatic solutions focusing on reusable DSA patterns, trees, graphs, and dynamic programming. | [GitHub](https://github.com/Shourov735/LeetCode) · [Profile](https://leetcode.com/u/Shourov735/) |
 
@@ -300,7 +300,7 @@ The project is zero-configuration ready for deployment on **Vercel**:
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/md-shourov-89125a337)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/Shourov735)
-[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=flat-square&logo=googlechrome&logoColor=white)](https://portfolio-lemon-eight-22.vercel.app/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=flat-square&logo=googlechrome&logoColor=white)](https://shourov735.vercel.app/)
 [![Email](https://img.shields.io/badge/Email-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:mdshourov735@gmail.com)
 [![X / Twitter](https://img.shields.io/badge/X-000000?style=flat-square&logo=x&logoColor=white)](https://x.com/Shourov735)
 [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=flat-square&logo=telegram&logoColor=white)](https://t.me/Shourov735)

@@ -13,7 +13,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://portfolio-lemon-eight-22.vercel.app"),
+  metadataBase: new URL("https://shourov735.vercel.app"),
   title: "Md. Shourov — Software Engineer & IT Secretary",
   description:
     "Software Engineering undergraduate at IIT, University of Dhaka & IT Secretary at Nabodigonto Social Welfare Organization. Building full-stack web applications, offline-first mobile apps, and systems.",
@@ -41,10 +41,10 @@ export const metadata: Metadata = {
     description:
       "Software Engineering student at IIT, University of Dhaka & IT Secretary at Nabodigonto. Explore full-stack web platforms, offline-first mobile systems, and open-source projects.",
     type: "website",
-    url: "https://portfolio-lemon-eight-22.vercel.app/",
+    url: "https://shourov735.vercel.app/",
     images: [
       {
-        url: "https://portfolio-lemon-eight-22.vercel.app/assets/images/profile.jpg",
+        url: "https://shourov735.vercel.app/assets/images/profile.jpg",
         width: 300,
         height: 300,
         alt: "Md. Shourov",

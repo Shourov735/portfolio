@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { ScrollReveal } from "@/components/scroll-reveal"
 
 export function Hero() {
@@ -10,14 +11,25 @@ export function Hero() {
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span>Available for Full-Stack & Mobile Engineering</span>
             </div>
-            <p className="text-[var(--color-accent)] text-[0.82rem] font-extrabold tracking-[0.12em] uppercase mb-3">
+            <p className="text-[var(--color-accent)] text-[0.82rem] font-extrabold tracking-[0.12em] uppercase mb-2">
               Software Engineering @ IIT, University of Dhaka · IT Secretary @ Nabodigonto
             </p>
-            <h1 className="text-[clamp(2.4rem,5.2vw,4.75rem)] font-extrabold leading-[1.1] text-[var(--color-text)] m-0 max-w-[780px]">
-              Architecting high-impact web platforms, offline mobile systems & clean code.
+            <h1 className="text-[clamp(2.4rem,5.2vw,4.5rem)] font-extrabold leading-[1.08] text-[var(--color-text)] m-0 max-w-[780px]">
+              Md Shourov
             </h1>
-            <p className="text-[clamp(1.05rem,1.8vw,1.25rem)] text-[var(--color-muted)] max-w-[660px] mt-6 leading-relaxed">
-              Hi, I am <strong className="text-[var(--color-text)]">Md. Shourov</strong> (@Shourov735 / mdshourov). I study Software Engineering (BSSE) at the <strong className="text-[var(--color-text)]">Institute of Information Technology (IIT), University of Dhaka (IIT DU)</strong> and serve as <strong className="text-[var(--color-text)]">IT Secretary</strong> at Nabodigonto. I engineer resilient edge-native web platforms with Next.js 16, Cloudflare Workers, and PostgreSQL, build offline-first mobile applications in React Native, and practice algorithmic problem solving.
+            <p className="text-[clamp(1.2rem,2.2vw,1.75rem)] font-bold text-[var(--color-primary-strong)] mt-2">
+              Software Engineering Student &amp; Developer
+            </p>
+            <p className="text-[clamp(1rem,1.6vw,1.15rem)] text-[var(--color-muted)] max-w-[660px] mt-4 leading-relaxed">
+              Undergraduate reading Software Engineering (BSSE) at the{" "}
+              <strong className="text-[var(--color-text)]">
+                Institute of Information Technology (IIT), University of Dhaka (IIT DU)
+              </strong>{" "}
+              and serving as <strong className="text-[var(--color-text)]">IT Secretary</strong> at
+              Nabodigonto. Known online as <strong className="text-[var(--color-text)]">Shourov735</strong>{" "}
+              and <strong className="text-[var(--color-text)]">mdshourov</strong>, architecting edge-native
+              web platforms with Next.js, Cloudflare Workers, and PostgreSQL, building offline-first mobile
+              apps in React Native, and practicing algorithmic problem solving.
             </p>
             <div className="flex flex-wrap gap-3 mt-7 max-md:flex-col">
               <a href="#spotlight" className="btn-primary">
@@ -56,9 +68,12 @@ export function Hero() {
           <ScrollReveal>
             <div className="relative group">
               <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-tr from-[var(--color-primary)] to-[var(--color-accent)] opacity-35 blur-md group-hover:opacity-60 transition duration-300" />
-              <img
+              <Image
                 src="/assets/images/profile.jpg"
-                alt="Portrait of Md. Shourov"
+                alt="Md Shourov - Software Engineering Student at IIT, University of Dhaka"
+                width={370}
+                height={370}
+                priority
                 className="relative w-[min(370px,82vw)] aspect-square object-cover rounded-xl border border-[var(--color-line)] shadow-xl"
               />
             </div>

@@ -1,6 +1,8 @@
 "use client"
 
 import { useState, useMemo } from "react"
+import Image from "next/image"
+import Link from "next/link"
 import { getContent, slugify } from "@/lib/content"
 import { ScrollReveal } from "@/components/scroll-reveal"
 
@@ -96,13 +98,14 @@ export function Projects() {
               <ScrollReveal key={project.title}>
                 <article className="group flex flex-col h-full border border-[var(--color-line)] rounded-xl bg-[var(--color-surface)] shadow-sm overflow-hidden hover:-translate-y-1 hover:border-[var(--color-primary)]/50 hover:shadow-lg transition-all duration-200">
                   {/* Visual Header */}
-                  <a href={`/projects/${slug}`} className="block relative aspect-[16/10] overflow-hidden bg-[var(--color-surface-muted)]">
+                  <Link href={`/projects/${slug}`} className="block relative aspect-[16/10] overflow-hidden bg-[var(--color-surface-muted)]">
                     {project.image ? (
-                      <img
+                      <Image
                         src={project.image}
-                        alt={`${project.title} project preview`}
+                        alt={`${project.title} - Engineering Case Study by Md Shourov`}
+                        width={400}
+                        height={250}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                        loading="lazy"
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center bg-gradient-to-tr from-[var(--color-surface-muted)] to-[var(--color-surface)]">
@@ -114,15 +117,15 @@ export function Projects() {
                     <span className="absolute top-3 left-3 text-[var(--color-accent)] text-[10px] font-extrabold tracking-[0.1em] uppercase px-2.5 py-1 rounded-full bg-[var(--color-surface)]/90 backdrop-blur-xs border border-[var(--color-line)] shadow-xs">
                       {project.category}
                     </span>
-                  </a>
+                  </Link>
 
                   {/* Body */}
                   <div className="p-5 flex flex-col flex-grow justify-between">
                     <div>
                       <h3 className="text-lg font-bold text-[var(--color-text)] group-hover:text-[var(--color-primary-strong)] transition-colors">
-                        <a href={`/projects/${slug}`}>
+                        <Link href={`/projects/${slug}`}>
                           {project.title}
-                        </a>
+                        </Link>
                       </h3>
 
                       <p className="text-[var(--color-muted)] mt-2 text-xs md:text-sm leading-relaxed line-clamp-3">
@@ -149,13 +152,13 @@ export function Projects() {
 
                     {/* Footer Actions */}
                     <div className="flex items-center justify-between gap-2 pt-4 mt-4 border-t border-[var(--color-line)]/60 text-xs">
-                      <a
+                      <Link
                         href={`/projects/${slug}`}
                         className="font-bold text-[var(--color-primary-strong)] hover:underline inline-flex items-center gap-1"
                       >
                         <span>Case Study</span>
                         <span>→</span>
-                      </a>
+                      </Link>
 
                       <div className="flex items-center gap-2">
                         {project.links.map((link) => (

@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation"
 import Link from "next/link"
+import Image from "next/image"
 import type { Metadata } from "next"
 import { getContent, slugify } from "@/lib/content"
 
@@ -7,11 +8,7 @@ export function generateStaticParams() {
   return getContent().projects.map((p) => ({ slug: slugify(p.title) }))
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
   const project = getContent().projects.find((p) => slugify(p.title) === slug)
 
@@ -19,13 +16,32 @@ export async function generateMetadata({
     return { title: "Project Not Found" }
   }
 
+  const title = `${project.title} — Case Study | Md Shourov`
+  const description = project.summary
+  const pageUrl = `https://mdshourov.vercel.app/projects/${slug}`
+  const images = project.image
+    ? [{ url: project.image, alt: `${project.title} Case Study Preview` }]
+    : [{ url: "https://mdshourov.vercel.app/assets/images/profile.jpg", alt: "Md Shourov" }]
+
   return {
-    title: `${project.title} | Case Study | Md. Shourov`,
-    description: project.summary,
+    title,
+    description,
+    alternates: {
+      canonical: `/projects/${slug}`,
+    },
     openGraph: {
-      title: `${project.title} | Case Study | Md. Shourov`,
-      description: project.summary,
-      images: project.image ? [{ url: project.image }] : [],
+      title,
+      description,
+      url: pageUrl,
+      type: "article",
+      images,
+      siteName: "Md Shourov Portfolio",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: project.image ? [project.image] : ["https://mdshourov.vercel.app/assets/images/profile.jpg"],
     },
   }
 }
@@ -43,11 +59,39 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const prevProject = currentIndex > 0 ? projects[currentIndex - 1] : null
   const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    headline: `${project.title} — Case Study`,
+    description: project.summary,
+    image: project.image
+      ? project.image.startsWith("http")
+        ? project.image
+        : `https://mdshourov.vercel.app${project.image.startsWith("/") ? "" : "/"}${project.image}`
+      : undefined,
+    url: `https://mdshourov.vercel.app/projects/${slug}`,
+    author: {
+      "@type": "Person",
+      name: "Md Shourov",
+      url: "https://mdshourov.vercel.app",
+    },
+    publisher: {
+      "@type": "Person",
+      name: "Md Shourov",
+      url: "https://mdshourov.vercel.app",
+    },
+    keywords: project.tags.join(", "),
+  }
+
   return (
     <div className="section">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="container-main max-w-[960px]">
         {/* Breadcrumb Navigation */}
-        <nav className="flex items-center gap-2 text-xs font-semibold text-[var(--color-muted)] mb-8" aria-label="Breadcrumb">
+        <nav
+          className="flex items-center gap-2 text-xs font-semibold text-[var(--color-muted)] mb-8"
+          aria-label="Breadcrumb"
+        >
           <Link href="/" className="hover:text-[var(--color-primary-strong)] transition-colors">
             Home
           </Link>
@@ -56,9 +100,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             Projects
           </Link>
           <span>/</span>
-          <span className="text-[var(--color-text)] font-bold truncate max-w-[280px]">
-            {project.title}
-          </span>
+          <span className="text-[var(--color-text)] font-bold truncate max-w-[280px]">{project.title}</span>
         </nav>
 
         {/* Case Study Card */}
@@ -66,9 +108,12 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           {/* Cover Media */}
           {project.image && (
             <div className="relative aspect-[16/9] w-full overflow-hidden bg-[var(--color-surface-muted)] border-b border-[var(--color-line)]">
-              <img
+              <Image
                 src={project.image}
-                alt={`${project.title} preview`}
+                alt={`${project.title} - Engineering Case Study by Md Shourov`}
+                width={960}
+                height={540}
+                priority
                 className="w-full h-full object-cover"
               />
             </div>
@@ -223,4 +268,3 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
     </div>
   )
 }
-

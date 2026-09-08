@@ -13,17 +13,18 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://shourov735.vercel.app"),
+  metadataBase: new URL("https://mdshourov.vercel.app"),
   title: {
-    default: "Md. Shourov (Shourov735) — Software Engineer | IIT, University of Dhaka",
-    template: "%s | Md. Shourov (Shourov735)",
+    default: "Md Shourov | Software Engineering Student & Developer",
+    template: "%s | Md Shourov",
   },
   description:
-    "Md. Shourov (Shourov735 / mdshourov) — Software Engineering undergraduate at IIT, University of Dhaka (BSSE) & IT Secretary at Nabodigonto. Building high-impact web platforms, offline-first mobile apps, and systems.",
+    "Md Shourov is a Software Engineering student at IIT, University of Dhaka (BSSE) & IT Secretary at Nabodigonto. Building high-impact web platforms, offline-first mobile apps, and scalable systems.",
   keywords: [
+    "Md Shourov",
     "Md. Shourov",
     "Shourov",
-    "shourov735",
+    "Shourov735",
     "mdshourov",
     "shourov IIT DU",
     "shourov DU",
@@ -32,6 +33,7 @@ export const metadata: Metadata = {
     "Institute of Information Technology University of Dhaka",
     "IIT University of Dhaka",
     "Software Engineer",
+    "Full-Stack Developer",
     "Nabodigonto IT Secretary",
     "Competitive Programming",
     "Codeforces Shourov735",
@@ -44,11 +46,14 @@ export const metadata: Metadata = {
     "C++",
     "Open Source",
   ],
-  authors: [{ name: "Md. Shourov", url: "https://shourov735.vercel.app" }],
-  creator: "Md. Shourov (Shourov735)",
-  publisher: "Md. Shourov",
+  authors: [{ name: "Md Shourov", url: "https://mdshourov.vercel.app" }],
+  creator: "Md Shourov (Shourov735)",
+  publisher: "Md Shourov",
   alternates: {
-    canonical: "https://shourov735.vercel.app",
+    canonical: "/",
+  },
+  verification: {
+    google: "v3XPZwQ6lEgCyIggfIFikaOiATNJRhbPlYa9RTVKrGg",
   },
   icons: {
     icon: [
@@ -58,25 +63,23 @@ export const metadata: Metadata = {
       { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
     ],
     shortcut: "/favicon.ico",
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   manifest: "/site.webmanifest",
   openGraph: {
-    title: "Md. Shourov (Shourov735) — Software Engineer & IT Secretary",
+    title: "Md Shourov | Software Engineering Student & Developer",
     description:
       "Software Engineering student at IIT, University of Dhaka (BSSE) & IT Secretary at Nabodigonto. Explore full-stack web platforms, offline mobile apps, and systems projects.",
     type: "profile",
     locale: "en_US",
-    siteName: "Md. Shourov (Shourov735) Portfolio",
-    url: "https://shourov735.vercel.app/",
+    siteName: "Md Shourov Portfolio",
+    url: "https://mdshourov.vercel.app/",
     images: [
       {
-        url: "https://shourov735.vercel.app/assets/images/profile.jpg",
+        url: "https://mdshourov.vercel.app/assets/images/profile.jpg",
         width: 300,
         height: 300,
-        alt: "Md. Shourov — Software Engineer (IIT DU)",
+        alt: "Md Shourov — Software Engineer (IIT DU)",
       },
     ],
   },
@@ -84,9 +87,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@Shourov735",
     creator: "@Shourov735",
-    title: "Md. Shourov (Shourov735) — Software Engineer & IT Secretary",
+    title: "Md Shourov | Software Engineering Student & Developer",
     description:
-      "Explore full-stack web platforms, offline mobile apps, and competitive programming archives by Md. Shourov (IIT, University of Dhaka).",
+      "Explore full-stack web platforms, offline mobile apps, and competitive programming archives by Md Shourov (IIT, University of Dhaka).",
+    images: ["https://mdshourov.vercel.app/assets/images/profile.jpg"],
   },
   other: {
     "geo.region": "BD-C",
@@ -130,29 +134,29 @@ export default function RootLayout({
               "@graph": [
                 {
                   "@type": "ProfilePage",
-                  "@id": "https://shourov735.vercel.app/#profilepage",
-                  url: "https://shourov735.vercel.app/",
-                  name: "Md. Shourov (Shourov735) — Software Engineer & IT Secretary",
-                  isPartOf: { "@id": "https://shourov735.vercel.app/#website" },
-                  mainEntity: { "@id": "https://shourov735.vercel.app/#person" },
+                  "@id": "https://mdshourov.vercel.app/#profilepage",
+                  url: "https://mdshourov.vercel.app/",
+                  name: "Md Shourov — Software Engineering Student & Full-Stack Developer",
+                  isPartOf: { "@id": "https://mdshourov.vercel.app/#website" },
+                  mainEntity: { "@id": "https://mdshourov.vercel.app/#person" },
                 },
                 {
                   "@type": "Person",
-                  "@id": "https://shourov735.vercel.app/#person",
-                  name: "Md. Shourov",
+                  "@id": "https://mdshourov.vercel.app/#person",
+                  name: "Md Shourov",
                   alternateName: [
+                    "Md. Shourov",
                     "Shourov",
                     "Shourov735",
                     "mdshourov",
-                    "Md Shourov",
                     "Shourov IIT DU",
                     "Md. Shourov IIT DU",
                   ],
-                  jobTitle: "Software Engineer & IT Secretary",
+                  jobTitle: "Software Engineering Student & Full-Stack Developer",
                   description:
-                    "Software Engineering undergraduate at the Institute of Information Technology (IIT), University of Dhaka (BSSE program), and IT Secretary at Nabodigonto Social Welfare Organization.",
-                  url: "https://shourov735.vercel.app/",
-                  image: "https://shourov735.vercel.app/assets/images/profile.jpg",
+                    "Software Engineering student at the Institute of Information Technology (IIT), University of Dhaka (BSSE program), and IT Secretary at Nabodigonto Social Welfare Organization.",
+                  url: "https://mdshourov.vercel.app/",
+                  image: "https://mdshourov.vercel.app/assets/images/profile.jpg",
                   email: "mailto:mdshourov735@gmail.com",
                   homeLocation: {
                     "@type": "Place",
@@ -204,18 +208,18 @@ export default function RootLayout({
                     "https://x.com/Shourov735",
                     "https://t.me/Shourov735",
                     "https://medium.com/@Shourov735",
-                    "https://shourov735.vercel.app",
                     "https://mdshourov.vercel.app",
+                    "https://shourov735.vercel.app",
                   ],
                 },
                 {
                   "@type": "WebSite",
-                  "@id": "https://shourov735.vercel.app/#website",
-                  url: "https://shourov735.vercel.app/",
-                  name: "Md. Shourov (Shourov735) Portfolio",
+                  "@id": "https://mdshourov.vercel.app/#website",
+                  url: "https://mdshourov.vercel.app/",
+                  name: "Md Shourov Portfolio",
                   description:
-                    "Official engineering portfolio of Md. Shourov (Shourov735 / mdshourov), Software Engineering student at IIT, University of Dhaka.",
-                  publisher: { "@id": "https://shourov735.vercel.app/#person" },
+                    "Official engineering portfolio of Md Shourov (Shourov735 / mdshourov), Software Engineering student at IIT, University of Dhaka.",
+                  publisher: { "@id": "https://mdshourov.vercel.app/#person" },
                   inLanguage: "en-US",
                 },
               ],

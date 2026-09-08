@@ -9,6 +9,21 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "shourov735.vercel.app",
+          },
+        ],
+        destination: "https://mdshourov.vercel.app/:path*",
+        permanent: true,
+      },
+    ]
+  },
 }
 
 export default nextConfig

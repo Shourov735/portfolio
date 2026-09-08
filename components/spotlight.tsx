@@ -1,5 +1,7 @@
 "use client"
 
+import Image from "next/image"
+import Link from "next/link"
 import { getContent, slugify } from "@/lib/content"
 import { ScrollReveal } from "@/components/scroll-reveal"
 
@@ -34,14 +36,15 @@ export function Spotlight() {
                   >
                     {/* Visual Media Column */}
                     <div className="lg:col-span-6 relative overflow-hidden rounded-xl border border-[var(--color-line)] bg-[var(--color-surface-muted)] group-hover:border-[var(--color-primary)]/40 transition-colors">
-                      <a href={`/projects/${slug}`} className="block overflow-hidden">
-                        <img
+                      <Link href={`/projects/${slug}`} className="block overflow-hidden">
+                        <Image
                           src={project.image}
-                          alt={`${project.title} project preview`}
+                          alt={`${project.title} - Engineering Case Study by Md Shourov`}
+                          width={640}
+                          height={400}
                           className="w-full aspect-[16/10] object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                          loading="lazy"
                         />
-                      </a>
+                      </Link>
                     </div>
 
                     {/* Content Column */}
@@ -57,9 +60,9 @@ export function Spotlight() {
                         </div>
 
                         <h3 className="text-2xl md:text-3xl font-extrabold text-[var(--color-text)] tracking-tight">
-                          <a href={`/projects/${slug}`} className="hover:text-[var(--color-primary-strong)] transition-colors">
+                          <Link href={`/projects/${slug}`} className="hover:text-[var(--color-primary-strong)] transition-colors">
                             {project.title}
-                          </a>
+                          </Link>
                         </h3>
 
                         <p className="text-[var(--color-muted)] mt-3 leading-relaxed text-sm md:text-base">
@@ -101,12 +104,12 @@ export function Spotlight() {
 
                       {/* Action Links */}
                       <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-[var(--color-line)]/70">
-                        <a
+                        <Link
                           href={`/projects/${slug}`}
                           className="btn-primary text-xs px-4 py-2"
                         >
                           Case Study →
-                        </a>
+                        </Link>
 
                         {project.links.map((link) => (
                           <a

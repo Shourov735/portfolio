@@ -3,7 +3,7 @@ import { getContent, slugify } from "@/lib/content"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const content = getContent()
-  const base = "https://shourov735.vercel.app"
+  const base = "https://mdshourov.vercel.app"
 
   const projectPages = content.projects.map((p) => ({
     url: `${base}/projects/${slugify(p.title)}`,
@@ -22,4 +22,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...projectPages,
   ]
 }
-

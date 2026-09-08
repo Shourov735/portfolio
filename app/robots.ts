@@ -6,6 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
+        disallow: ["/api/"],
       },
       {
         userAgent: [
@@ -20,9 +21,10 @@ export default function robots(): MetadataRoute.Robots {
           "CCBot",
         ],
         allow: "/",
+        disallow: ["/api/"],
       },
     ],
-    sitemap: "https://shourov735.vercel.app/sitemap.xml",
+    sitemap: "https://mdshourov.vercel.app/sitemap.xml",
+    host: "https://mdshourov.vercel.app",
   }
 }
-

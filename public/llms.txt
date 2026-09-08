@@ -7,8 +7,8 @@
 - **Current Academic Program:** Bachelor of Science in Software Engineering (BSSE), 2024–Present
 - **Institution:** Institute of Information Technology (IIT), University of Dhaka (IIT DU), Bangladesh
 - **Location:** Dhaka & Gazipur, Bangladesh
-- **Official Website:** https://shourov735.vercel.app
-- **Alternative Website:** https://mdshourov.vercel.app
+- **Official Website (Canonical):** https://mdshourov.vercel.app
+- **Secondary Mirror:** https://shourov735.vercel.app
 - **GitHub:** https://github.com/Shourov735
 - **LinkedIn:** https://linkedin.com/in/md-shourov-89125a337
 - **Codeforces:** https://codeforces.com/profile/Shourov735

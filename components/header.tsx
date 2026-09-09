@@ -134,13 +134,6 @@ export function Header() {
               </a>
             )
           })}
-          <Link
-            href="/feed.xml"
-            aria-label="RSS feed"
-            className="min-h-10 inline-flex items-center px-2.5 text-[var(--color-muted)] hover:text-[var(--color-primary-strong)] transition-colors font-mono text-sm max-md:w-full max-md:justify-start max-md:px-2"
-          >
-            <span aria-hidden="true">RSS</span>
-          </Link>
           <button
             onClick={toggleTheme}
             className="inline-grid place-items-center w-10 h-10 rounded-md border-0 bg-transparent cursor-pointer text-[var(--color-muted)] hover:text-[var(--color-primary-strong)] hover:bg-[var(--color-surface-muted)]"

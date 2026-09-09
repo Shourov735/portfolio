@@ -21,13 +21,13 @@ export function Hero() {
               Md Shourov.
             </h1>
 
-            <p className="text-[clamp(1.25rem,2.4vw,1.875rem)] font-display italic text-[var(--color-primary-strong)] mt-4 max-w-[640px] text-balance">
+            <p className="text-[clamp(1.25rem,2.4vw,1.875rem)] font-display text-[var(--color-primary-strong)] mt-4 max-w-[640px] text-balance">
               Building edge-native web platforms, offline-first mobile apps, and systems that ship.
             </p>
 
             <p className="text-[clamp(1rem,1.4vw,1.0625rem)] text-[var(--color-muted)] max-w-[600px] mt-6 leading-relaxed">
               Software Engineering undergraduate (BSSE) at the Institute of Information Technology, University
-              of Dhaka. IT Secretary at Nabodigonto. 1,500+ problems solved across Codeforces and LeetCode.
+              of Dhaka. IT Secretary at Nabodigonto. 150+ problems solved across Codeforces and LeetCode.
               Known online as <span className="text-[var(--color-text)] font-medium">Shourov735</span>.
             </p>
 

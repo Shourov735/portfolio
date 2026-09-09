@@ -93,12 +93,14 @@ export function Footer() {
               </a>
             </li>
             <li>
-              <Link
-                href="/feed.xml"
+              <a
+                href="https://x.com/Shourov735"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-[var(--color-muted)] hover:text-[var(--color-primary-strong)]"
               >
-                RSS
-              </Link>
+                X (Twitter)
+              </a>
             </li>
           </ul>
         </nav>

@@ -27,7 +27,7 @@
 - **Frontend & Mobile:** React, Next.js 16 (App Router), React Native / Expo, Tailwind CSS, JavaFX
 - **Backend & Cloud:** Cloudflare Workers, Cloudflare R2, Neon Serverless PostgreSQL, SQLite, MySQL, Prisma ORM, Drizzle ORM, Node.js, REST APIs
 - **Systems & DevOps:** Git, GitHub, Linux / Bash, Socket Programming, Docker, Vercel, Maven, JUnit 5, OpenNext
-- **Competitive Programming:** 1,500+ problems solved across Codeforces, LeetCode, and regional programming contests; regular participant in National Collegiate Programming Contests (NCPC).
+- **Competitive Programming:** 150+ problems solved across Codeforces and LeetCode; regular participant in National Collegiate Programming Contests (NCPC).
 
 ## Key Projects
 1. **Nabodigonto Platform** (Web): https://nabodigonto.conversora-tech.workers.dev

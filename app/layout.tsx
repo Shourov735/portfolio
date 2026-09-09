@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next"
-import { Inter, Instrument_Serif, JetBrains_Mono } from "next/font/google"
+import { Inter, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Header } from "@/components/header"
@@ -12,14 +12,6 @@ import { SITE_URL, SITE_NAME, AUTHOR_NAME, AUTHOR_ALIASES, absoluteUrl } from "@
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
-  display: "swap",
-})
-
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-  variable: "--font-display",
   display: "swap",
 })
 
@@ -90,9 +82,6 @@ export const metadata: Metadata = {
   classification: "Portfolio, Engineering Blog",
   alternates: {
     canonical: "/",
-    types: {
-      "application/rss+xml": [{ url: "/feed.xml", title: "Md Shourov — Engineering Blog" }],
-    },
   },
   verification: {
     google: "v3XPZwQ6lEgCyIggfIFikaOiATNJRhbPlYa9RTVKrGg",
@@ -174,17 +163,9 @@ export default function RootLayout({
     <html
       lang="en"
       dir="ltr"
-      className={`${inter.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} scroll-smooth`}
+      className={`${inter.variable} ${jetbrainsMono.variable} scroll-smooth`}
       suppressHydrationWarning
     >
-      <head>
-        <link
-          rel="alternate"
-          type="application/rss+xml"
-          href="/feed.xml"
-          title="Md Shourov — Engineering Blog"
-        />
-      </head>
       <body className="min-h-screen antialiased">
         <SkipLink />
         <ThemeProvider>

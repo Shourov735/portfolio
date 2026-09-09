@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import Link from "next/link"
 import { Breadcrumbs } from "@/components/breadcrumbs"
 import { BlogList } from "@/components/blog/blog-list"
 import { PostCard } from "@/components/blog/post-card"
@@ -13,9 +12,6 @@ export const metadata: Metadata = {
     "Long-form writing on software engineering, edge systems, and student engineering practice by Md Shourov (Shourov735), IIT, University of Dhaka.",
   alternates: {
     canonical: "/blog",
-    types: {
-      "application/rss+xml": [{ url: "/feed.xml", title: "Md Shourov — Engineering Blog" }],
-    },
   },
   openGraph: {
     title: "Engineering Notes — Md Shourov",
@@ -72,16 +68,13 @@ export default async function BlogIndex() {
               discipline of shipping code that survives its second author. Updated as I learn.
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-3">
-              <Link href="/feed.xml" className="btn-secondary">
-                Subscribe via RSS
-              </Link>
               <a
                 href="https://medium.com/@Shourov735"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-ghost"
+                className="btn-secondary"
               >
-                Medium mirror ↗
+                Read on Medium ↗
               </a>
             </div>
           </header>
@@ -110,11 +103,7 @@ export default async function BlogIndex() {
           <ScrollReveal>
             <div className="divider-fade my-20" />
             <p className="text-center text-sm text-[var(--color-muted)] font-mono">
-              Subscribe:{" "}
-              <Link href="/feed.xml" className="link-underline">
-                RSS
-              </Link>
-              {" · "}
+              Also published on{" "}
               <a
                 href="https://medium.com/@Shourov735"
                 target="_blank"

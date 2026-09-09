@@ -1,5 +1,8 @@
 import { PortfolioContent } from "./types"
 import raw from "@/data/content.json"
+import { slugify } from "./blog-utils"
+
+export { slugify }
 
 const content = raw as unknown as PortfolioContent
 
@@ -13,13 +16,6 @@ export function getProject(slug: string) {
 
 export function getNote(slug: string) {
   return content.notes.find((n) => slugify(n.title) === slug)
-}
-
-export function slugify(text: string) {
-  return text
-    .toLowerCase()
-    .replace(/\s+/g, "-")
-    .replace(/[^a-z0-9-]/g, "")
 }
 
 export function getAllProjectSlugs() {

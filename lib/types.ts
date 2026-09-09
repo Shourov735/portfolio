@@ -1,3 +1,24 @@
+export interface BlogFrontmatter {
+  title: string
+  description: string
+  date: string
+  updated?: string
+  tags: string[]
+  cover?: string
+  draft?: boolean
+  canonical?: string
+}
+
+export interface BlogPostSummary extends BlogFrontmatter {
+  slug: string
+  readingTime: number
+}
+
+export interface BlogPost extends BlogPostSummary {
+  content: string
+  wordCount: number
+}
+
 export interface Stat {
   value: string
   label: string

@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Link from "next/link"
 import { useTheme } from "@/components/theme-provider"
 import { Logo } from "@/components/logo"
 
@@ -10,7 +11,7 @@ const navLinks = [
   { href: "/#skills", label: "Skills", id: "skills" },
   { href: "/#about", label: "About", id: "about" },
   { href: "/#journey", label: "Journey", id: "journey" },
-  { href: "/#notes", label: "Notes", id: "notes" },
+  { href: "/blog", label: "Writing", id: "blog" },
   { href: "/#contact", label: "Contact", id: "contact" },
 ]
 
@@ -29,11 +30,10 @@ export function Header() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id)
-          }
-        })
+        const visible = entries.filter((e) => e.isIntersecting)
+        if (visible.length > 0) {
+          setActiveSection(visible[visible.length - 1].target.id)
+        }
       },
       { rootMargin: "-35% 0px -55% 0px", threshold: 0 }
     )
@@ -53,21 +53,17 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b border-transparent bg-[var(--color-bg)]/86 backdrop-blur-lg transition-[border-color,box-shadow] duration-180 ${
+      className={`sticky top-0 z-50 border-b border-transparent bg-[var(--color-bg)]/80 backdrop-blur-lg transition-[border-color,box-shadow] duration-180 ${
         scrolled ? "border-[var(--color-line)] shadow-sm" : ""
       }`}
     >
       <nav
-        className="container-main flex h-[72px] items-center justify-between gap-5"
+        className="container-main flex h-[68px] items-center justify-between gap-5"
         aria-label="Primary navigation"
       >
-        <a
-          href="#home"
-          className="inline-flex items-center"
-          aria-label="Md. Shourov home"
-        >
+        <Link href="/" className="inline-flex items-center group" aria-label="Md Shourov home">
           <Logo size={36} text="Shourov" badge="BSSE" />
-        </a>
+        </Link>
 
         <button
           className="menu-toggle md:hidden flex flex-col justify-center w-11 h-11 p-2.5 border-0 bg-transparent cursor-pointer"
@@ -90,36 +86,64 @@ export function Header() {
 
         <div
           id="nav-menu"
-          className={`flex items-center gap-1.5 max-md:fixed max-md:inset-x-0 max-md:top-[72px] max-md:grid max-md:p-3.5 max-md:border-b max-md:border-[var(--color-line)] max-md:bg-[var(--color-surface)] max-md:shadow-lg max-md:transition-transform max-md:duration-200 ${
+          className={`flex items-center gap-1 max-md:fixed max-md:inset-x-0 max-md:top-[68px] max-md:grid max-md:p-5 max-md:border-b max-md:border-[var(--color-line)] max-md:bg-[var(--color-surface)] max-md:shadow-lg max-md:transition-transform max-md:duration-200 ${
             menuOpen ? "max-md:translate-y-0" : "max-md:-translate-y-[120%]"
           }`}
         >
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={`min-h-10 rounded-md px-2.5 py-2 text-sm font-bold transition-colors duration-160 max-md:w-full max-md:justify-start max-md:px-3 ${
-                activeSection === link.id
-                  ? "text-[var(--color-primary-strong)] bg-[var(--color-surface-muted)]"
-                  : "text-[var(--color-muted)] hover:text-[var(--color-primary-strong)] hover:bg-[var(--color-surface-muted)]"
-              }`}
-              onClick={(e) => {
-                closeMenu()
-                const hash = `#${link.id}`
-                const target = document.querySelector(hash)
-                if (target) {
-                  e.preventDefault()
-                  target.scrollIntoView({ behavior: "smooth", block: "start" })
-                  history.pushState(null, "", hash)
-                }
-              }}
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isExternalPage = link.href.startsWith("/blog") || link.href.startsWith("/projects")
+            const className = `min-h-10 rounded-md px-3 py-2 text-[13px] font-mono uppercase tracking-wider transition-colors duration-160 max-md:w-full max-md:justify-start max-md:px-2 ${
+              !isExternalPage && activeSection === link.id
+                ? "text-[var(--color-primary-strong)] bg-[var(--color-surface-muted)]"
+                : "text-[var(--color-muted)] hover:text-[var(--color-primary-strong)] hover:bg-[var(--color-surface-muted)]"
+            }`
+            const ariaCurrent = !isExternalPage && activeSection === link.id ? "page" : undefined
+            if (isExternalPage) {
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={ariaCurrent}
+                  className={className}
+                  onClick={closeMenu}
+                >
+                  {link.label}
+                </Link>
+              )
+            }
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                aria-current={ariaCurrent}
+                className={className}
+                onClick={(e) => {
+                  closeMenu()
+                  if (link.href.includes("#")) {
+                    const hash = `#${link.id}`
+                    const target = document.querySelector(hash)
+                    if (target) {
+                      e.preventDefault()
+                      target.scrollIntoView({ behavior: "smooth", block: "start" })
+                      history.pushState(null, "", hash)
+                    }
+                  }
+                }}
+              >
+                {link.label}
+              </a>
+            )
+          })}
+          <Link
+            href="/feed.xml"
+            aria-label="RSS feed"
+            className="min-h-10 inline-flex items-center px-2.5 text-[var(--color-muted)] hover:text-[var(--color-primary-strong)] transition-colors font-mono text-sm max-md:w-full max-md:justify-start max-md:px-2"
+          >
+            <span aria-hidden="true">RSS</span>
+          </Link>
           <button
             onClick={toggleTheme}
-            className="inline-grid place-items-center w-10 h-10 rounded-md border-0 bg-transparent cursor-pointer text-[var(--color-muted)] hover:text-[var(--color-primary-strong)] hover:bg-[var(--color-surface-muted)] max-md:w-full max-md:justify-start max-md:px-3"
+            className="inline-grid place-items-center w-10 h-10 rounded-md border-0 bg-transparent cursor-pointer text-[var(--color-muted)] hover:text-[var(--color-primary-strong)] hover:bg-[var(--color-surface-muted)]"
             type="button"
             aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
           >

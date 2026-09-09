@@ -1,25 +1,52 @@
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import type { Metadata, Viewport } from "next"
+import { Inter, Instrument_Serif, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { BackToTop } from "@/components/back-to-top"
+import { SkipLink } from "@/components/skip-link"
 import { Analytics } from "@vercel/analytics/react"
+import { SITE_URL, SITE_NAME, AUTHOR_NAME, AUTHOR_ALIASES, absoluteUrl } from "@/lib/site"
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
+  display: "swap",
 })
 
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-display",
+  display: "swap",
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+})
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f8faf9" },
+    { media: "(prefers-color-scheme: dark)", color: "#0d1515" },
+  ],
+  colorScheme: "light dark",
+}
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mdshourov.vercel.app"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Md Shourov | Software Engineering Student & Developer",
-    template: "%s | Md Shourov",
+    default: "Md Shourov — Software Engineering Student & Full-Stack Developer",
+    template: "%s · Md Shourov",
   },
   description:
-    "Md Shourov is a Software Engineering student at IIT, University of Dhaka (BSSE) & IT Secretary at Nabodigonto. Building high-impact web platforms, offline-first mobile apps, and scalable systems.",
+    "Md Shourov (Shourov735 / mdshourov) is a Software Engineering student at IIT, University of Dhaka (BSSE) and IT Secretary at Nabodigonto. Writing on Next.js, edge systems, and engineering practice.",
   keywords: [
     "Md Shourov",
     "Md. Shourov",
@@ -45,12 +72,27 @@ export const metadata: Metadata = {
     "Java",
     "C++",
     "Open Source",
+    "engineering blog",
+    "software engineering portfolio",
   ],
-  authors: [{ name: "Md Shourov", url: "https://mdshourov.vercel.app" }],
-  creator: "Md Shourov (Shourov735)",
-  publisher: "Md Shourov",
+  authors: [{ name: AUTHOR_NAME, url: SITE_URL }],
+  creator: AUTHOR_NAME,
+  publisher: AUTHOR_NAME,
+  formatDetection: {
+    telephone: false,
+    email: false,
+    address: false,
+  },
+  applicationName: SITE_NAME,
+  generator: "Next.js",
+  referrer: "origin-when-cross-origin",
+  category: "Technology",
+  classification: "Portfolio, Engineering Blog",
   alternates: {
     canonical: "/",
+    types: {
+      "application/rss+xml": [{ url: "/feed.xml", title: "Md Shourov — Engineering Blog" }],
+    },
   },
   verification: {
     google: "v3XPZwQ6lEgCyIggfIFikaOiATNJRhbPlYa9RTVKrGg",
@@ -66,20 +108,25 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   manifest: "/site.webmanifest",
+  appleWebApp: {
+    capable: true,
+    title: "Shourov",
+    statusBarStyle: "black-translucent",
+  },
   openGraph: {
-    title: "Md Shourov | Software Engineering Student & Developer",
+    title: "Md Shourov — Software Engineering Student & Developer",
     description:
-      "Software Engineering student at IIT, University of Dhaka (BSSE) & IT Secretary at Nabodigonto. Explore full-stack web platforms, offline mobile apps, and systems projects.",
-    type: "profile",
+      "Undergraduate at IIT, University of Dhaka (BSSE) and IT Secretary at Nabodigonto. Engineering notes, project case studies, and systems writing.",
+    type: "website",
     locale: "en_US",
     siteName: "Md Shourov Portfolio",
-    url: "https://mdshourov.vercel.app/",
+    url: SITE_URL,
     images: [
       {
-        url: "https://mdshourov.vercel.app/assets/images/profile.jpg",
-        width: 300,
-        height: 300,
-        alt: "Md Shourov — Software Engineer (IIT DU)",
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Md Shourov — Software Engineering Student & Full-Stack Developer",
       },
     ],
   },
@@ -87,20 +134,27 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@Shourov735",
     creator: "@Shourov735",
-    title: "Md Shourov | Software Engineering Student & Developer",
+    title: "Md Shourov — Software Engineering Student & Developer",
     description:
-      "Explore full-stack web platforms, offline mobile apps, and competitive programming archives by Md Shourov (IIT, University of Dhaka).",
-    images: ["https://mdshourov.vercel.app/assets/images/profile.jpg"],
+      "Engineering notes, project case studies, and systems writing by Md Shourov (IIT, University of Dhaka).",
+    images: [
+      {
+        url: "/opengraph-image",
+        alt: "Md Shourov — Software Engineering Student & Full-Stack Developer",
+      },
+    ],
   },
   other: {
     "geo.region": "BD-C",
     "geo.placename": "Dhaka, Bangladesh",
     "geo.position": "23.8103;90.4125",
     ICBM: "23.8103, 90.4125",
+    "theme-color": "#0f766e",
   },
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
@@ -117,11 +171,27 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} scroll-smooth`} suppressHydrationWarning>
+    <html
+      lang="en"
+      dir="ltr"
+      className={`${inter.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} scroll-smooth`}
+      suppressHydrationWarning
+    >
+      <head>
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          href="/feed.xml"
+          title="Md Shourov — Engineering Blog"
+        />
+      </head>
       <body className="min-h-screen antialiased">
+        <SkipLink />
         <ThemeProvider>
           <Header />
-          <main id="main">{children}</main>
+          <main id="main-content" tabIndex={-1}>
+            {children}
+          </main>
           <Footer />
           <BackToTop />
           <Analytics />
@@ -133,30 +203,15 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@graph": [
                 {
-                  "@type": "ProfilePage",
-                  "@id": "https://mdshourov.vercel.app/#profilepage",
-                  url: "https://mdshourov.vercel.app/",
-                  name: "Md Shourov — Software Engineering Student & Full-Stack Developer",
-                  isPartOf: { "@id": "https://mdshourov.vercel.app/#website" },
-                  mainEntity: { "@id": "https://mdshourov.vercel.app/#person" },
-                },
-                {
-                  "@type": "Person",
-                  "@id": "https://mdshourov.vercel.app/#person",
-                  name: "Md Shourov",
-                  alternateName: [
-                    "Md. Shourov",
-                    "Shourov",
-                    "Shourov735",
-                    "mdshourov",
-                    "Shourov IIT DU",
-                    "Md. Shourov IIT DU",
-                  ],
+                  "@type": ["Person", "WebPage"],
+                  "@id": `${SITE_URL}/#person`,
+                  name: AUTHOR_NAME,
+                  alternateName: AUTHOR_ALIASES,
                   jobTitle: "Software Engineering Student & Full-Stack Developer",
                   description:
                     "Software Engineering student at the Institute of Information Technology (IIT), University of Dhaka (BSSE program), and IT Secretary at Nabodigonto Social Welfare Organization.",
-                  url: "https://mdshourov.vercel.app/",
-                  image: "https://mdshourov.vercel.app/assets/images/profile.jpg",
+                  url: SITE_URL,
+                  image: absoluteUrl("/assets/images/profile.jpg"),
                   email: "mailto:mdshourov735@gmail.com",
                   homeLocation: {
                     "@type": "Place",
@@ -187,18 +242,19 @@ export default function RootLayout({
                   },
                   knowsAbout: [
                     "Full-Stack Web Development",
-                    "Next.js 16",
+                    "Next.js",
+                    "React Server Components",
                     "React Native",
                     "Cloudflare Workers",
+                    "Cloudflare R2",
                     "Gang of Four (GoF) Design Patterns",
                     "Competitive Programming",
-                    "C++",
-                    "C",
-                    "Java",
                     "TypeScript",
                     "PostgreSQL",
                     "SQLite",
                     "Open Source Software",
+                    "Edge Computing",
+                    "Engineering Blog",
                   ],
                   sameAs: [
                     "https://github.com/Shourov735",
@@ -214,13 +270,37 @@ export default function RootLayout({
                 },
                 {
                   "@type": "WebSite",
-                  "@id": "https://mdshourov.vercel.app/#website",
-                  url: "https://mdshourov.vercel.app/",
-                  name: "Md Shourov Portfolio",
+                  "@id": `${SITE_URL}/#website`,
+                  url: SITE_URL,
+                  name: SITE_NAME,
                   description:
-                    "Official engineering portfolio of Md Shourov (Shourov735 / mdshourov), Software Engineering student at IIT, University of Dhaka.",
-                  publisher: { "@id": "https://mdshourov.vercel.app/#person" },
+                    "Portfolio and engineering blog of Md Shourov (Shourov735 / mdshourov), Software Engineering student at IIT, University of Dhaka.",
+                  publisher: { "@id": `${SITE_URL}/#person` },
                   inLanguage: "en-US",
+                  copyrightYear: new Date().getFullYear(),
+                  potentialAction: {
+                    "@type": "ReadAction",
+                    target: `${SITE_URL}/blog`,
+                  },
+                },
+                {
+                  "@type": "ProfilePage",
+                  "@id": `${SITE_URL}/#profilepage`,
+                  url: SITE_URL,
+                  name: `${AUTHOR_NAME} — Engineering Portfolio & Blog`,
+                  isPartOf: { "@id": `${SITE_URL}/#website` },
+                  mainEntity: { "@id": `${SITE_URL}/#person` },
+                },
+                {
+                  "@type": "Blog",
+                  "@id": `${SITE_URL}/blog/#blog`,
+                  url: `${SITE_URL}/blog`,
+                  name: "Engineering Notes by Md Shourov",
+                  description:
+                    "Long-form writing on software engineering, edge systems, and student engineering practice.",
+                  publisher: { "@id": `${SITE_URL}/#person` },
+                  inLanguage: "en-US",
+                  isPartOf: { "@id": `${SITE_URL}/#website` },
                 },
               ],
             }),

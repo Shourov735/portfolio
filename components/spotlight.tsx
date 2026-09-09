@@ -16,7 +16,8 @@ export function Spotlight() {
             <p className="eyebrow">Featured Work</p>
             <h2>Flagship engineering projects & production systems.</h2>
             <p className="text-[var(--color-muted)] max-w-[640px] mt-2 text-base">
-              A curated selection of high-impact platforms, from double-signed treasury protocols to bilingual EdTech and systems software.
+              A curated selection of high-impact platforms, from double-signed treasury protocols to bilingual
+              EdTech and systems software.
             </p>
           </div>
         </ScrollReveal>
@@ -28,61 +29,66 @@ export function Spotlight() {
 
             return (
               <ScrollReveal key={project.title}>
-                <article className="group border border-[var(--color-line)] rounded-2xl bg-[var(--color-surface)] shadow-md overflow-hidden hover:border-[var(--color-primary)]/50 hover:shadow-xl transition-all duration-300">
+                <article className="group border border-[var(--color-line)] rounded-2xl bg-[var(--color-surface)] overflow-hidden hover:border-[var(--color-primary)] transition-colors duration-200">
                   <div
                     className={`grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-6 md:p-8 ${
                       isReversed ? "lg:[&>*:first-child]:order-2" : ""
                     }`}
                   >
-                    {/* Visual Media Column */}
-                    <div className="lg:col-span-6 relative overflow-hidden rounded-xl border border-[var(--color-line)] bg-[var(--color-surface-muted)] group-hover:border-[var(--color-primary)]/40 transition-colors">
+                    <div className="lg:col-span-6 relative overflow-hidden rounded-xl border border-[var(--color-line)] bg-[var(--color-surface-muted)]">
                       <Link href={`/projects/${slug}`} className="block overflow-hidden">
                         <Image
                           src={project.image}
-                          alt={`${project.title} - Engineering Case Study by Md Shourov`}
+                          alt={`${project.title} — Engineering Case Study by Md Shourov`}
                           width={640}
                           height={400}
-                          className="w-full aspect-[16/10] object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                          className="w-full aspect-[16/10] object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                         />
                       </Link>
                     </div>
 
-                    {/* Content Column */}
                     <div className="lg:col-span-6 flex flex-col justify-between space-y-4">
                       <div>
-                        <div className="flex flex-wrap items-center gap-2 mb-2.5">
-                          <span className="text-[var(--color-accent)] text-xs font-extrabold tracking-[0.1em] uppercase px-2.5 py-0.5 rounded-full bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/20">
+                        <div className="flex flex-wrap items-center gap-2.5 mb-3">
+                          <span className="text-[var(--color-accent)] text-[11px] font-mono uppercase tracking-[0.16em] font-medium">
                             {project.category}
                           </span>
-                          <span className="text-xs font-bold text-[var(--color-primary-strong)] px-2.5 py-0.5 rounded-full bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/20">
-                            Featured Project
+                          <span aria-hidden="true" className="text-[var(--color-line)]">
+                            ·
+                          </span>
+                          <span className="text-[11px] font-mono uppercase tracking-[0.16em] text-[var(--color-muted)]">
+                            Featured
                           </span>
                         </div>
 
-                        <h3 className="text-2xl md:text-3xl font-extrabold text-[var(--color-text)] tracking-tight">
-                          <Link href={`/projects/${slug}`} className="hover:text-[var(--color-primary-strong)] transition-colors">
+                        <h3 className="font-display text-3xl md:text-4xl text-[var(--color-text)] tracking-tight leading-[1.05] text-balance">
+                          <Link href={`/projects/${slug}`} className="link-underline">
                             {project.title}
                           </Link>
                         </h3>
 
-                        <p className="text-[var(--color-muted)] mt-3 leading-relaxed text-sm md:text-base">
+                        <p className="text-[var(--color-muted)] mt-4 leading-relaxed text-base max-w-[60ch]">
                           {project.summary}
                         </p>
                       </div>
 
-                      {/* Architecture & Key Highlights */}
                       {project.highlights && project.highlights.length > 0 && (
                         <div className="pt-2">
-                          <p className="text-xs font-extrabold uppercase tracking-wider text-[var(--color-text)] mb-2">
-                            Key Highlights:
+                          <p className="text-[11px] font-mono uppercase tracking-[0.16em] text-[var(--color-muted)] mb-3">
+                            Key highlights
                           </p>
-                          <ul className="grid gap-2">
+                          <ul className="grid gap-2.5">
                             {project.highlights.slice(0, 3).map((item, idx) => (
                               <li
                                 key={idx}
-                                className="flex items-start gap-2.5 text-xs md:text-sm text-[var(--color-muted)] leading-normal"
+                                className="flex items-start gap-2.5 text-sm text-[var(--color-muted)] leading-relaxed"
                               >
-                                <span className="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
+                                <span
+                                  aria-hidden="true"
+                                  className="text-[var(--color-primary)] shrink-0 mt-0.5"
+                                >
+                                  ▸
+                                </span>
                                 <span>{item}</span>
                               </li>
                             ))}
@@ -90,37 +96,31 @@ export function Spotlight() {
                         </div>
                       )}
 
-                      {/* Tech Tags */}
-                      <div className="flex flex-wrap gap-2 pt-2">
-                        {project.tags.map((tag) => (
+                      <div className="flex flex-wrap gap-1.5 pt-2">
+                        {project.tags.slice(0, 5).map((tag) => (
                           <span
                             key={tag}
-                            className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-bold bg-[var(--color-surface-muted)] text-[var(--color-text)] border border-[var(--color-line)]"
+                            className="inline-flex items-center px-2.5 py-0.5 rounded-md text-[11px] font-mono bg-[var(--color-surface-muted)] text-[var(--color-muted)] border border-[var(--color-line)]"
                           >
                             {tag}
                           </span>
                         ))}
                       </div>
 
-                      {/* Action Links */}
                       <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-[var(--color-line)]/70">
-                        <Link
-                          href={`/projects/${slug}`}
-                          className="btn-primary text-xs px-4 py-2"
-                        >
-                          Case Study →
+                        <Link href={`/projects/${slug}`} className="btn-primary">
+                          Read case study →
                         </Link>
 
-                        {project.links.map((link) => (
+                        {project.links.slice(0, 1).map((link) => (
                           <a
                             key={link.label}
                             href={link.url}
                             target="_blank"
-                            rel="noreferrer"
-                            className="btn-secondary text-xs px-3.5 py-2 inline-flex items-center gap-1.5"
+                            rel="noopener noreferrer"
+                            className="btn-ghost"
                           >
-                            <span>{link.label}</span>
-                            <span className="text-xs">↗</span>
+                            {link.label} ↗
                           </a>
                         ))}
                       </div>
@@ -135,4 +135,3 @@ export function Spotlight() {
     </section>
   )
 }
-

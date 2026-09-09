@@ -58,14 +58,7 @@ export function Logo({
           </defs>
 
           {/* Squircle Background Container */}
-          <rect
-            x="24"
-            y="24"
-            width="464"
-            height="464"
-            rx="116"
-            fill="url(#logo-bg-grad)"
-          />
+          <rect x="24" y="24" width="464" height="464" rx="116" fill="url(#logo-bg-grad)" />
           <rect
             x="24"
             y="24"
@@ -118,9 +111,7 @@ export function Logo({
             )}
           </div>
           {subtitle && (
-            <span className="text-[0.75rem] text-[var(--color-muted)] font-medium -mt-0.5">
-              {subtitle}
-            </span>
+            <span className="text-[0.75rem] text-[var(--color-muted)] font-medium -mt-0.5">{subtitle}</span>
           )}
         </div>
       )}

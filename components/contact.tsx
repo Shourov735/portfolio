@@ -48,16 +48,16 @@ export function Contact() {
         <ScrollReveal>
           <div>
             <p className="eyebrow">Contact</p>
-            <h2 className="text-[clamp(2rem,4vw,3.1rem)] font-bold leading-[1.08] text-[var(--color-text)]">
+            <h2 className="font-display text-[clamp(2rem,4.2vw,3.25rem)] leading-[1.04] tracking-tight text-[var(--color-text)] text-balance">
               Have an idea, opportunity, or collaboration?
             </h2>
-            <p className="text-[var(--color-muted)] mt-2">
+            <p className="text-[var(--color-muted)] mt-3 max-w-[44ch]">
               Send a message through the form and I will get back to you as soon as possible.
             </p>
-            <div className="grid gap-3 mt-6">
+            <div className="grid gap-2.5 mt-6 font-mono text-sm">
               <a
                 href="mailto:mdshourov735@gmail.com"
-                className="text-[var(--color-muted)] font-bold hover:text-[var(--color-primary-strong)] transition-colors"
+                className="text-[var(--color-muted)] hover:text-[var(--color-primary-strong)] transition-colors"
               >
                 mdshourov735@gmail.com
               </a>
@@ -65,7 +65,7 @@ export function Contact() {
                 href="https://github.com/Shourov735"
                 target="_blank"
                 rel="noreferrer"
-                className="text-[var(--color-muted)] font-bold hover:text-[var(--color-primary-strong)] transition-colors"
+                className="text-[var(--color-muted)] hover:text-[var(--color-primary-strong)] transition-colors"
               >
                 github.com/Shourov735
               </a>
@@ -73,41 +73,33 @@ export function Contact() {
                 href="https://linkedin.com/in/md-shourov-613934358"
                 target="_blank"
                 rel="noreferrer"
-                className="text-[var(--color-muted)] font-bold hover:text-[var(--color-primary-strong)] transition-colors"
+                className="text-[var(--color-muted)] hover:text-[var(--color-primary-strong)] transition-colors"
               >
-                LinkedIn profile
+                linkedin.com/in/md-shourov-613934358
               </a>
               <a
-                href="https://x.com/@Shourov735"
+                href="https://x.com/Shourov735"
                 target="_blank"
                 rel="noreferrer"
-                className="text-[var(--color-muted)] font-bold hover:text-[var(--color-primary-strong)] transition-colors"
+                className="text-[var(--color-muted)] hover:text-[var(--color-primary-strong)] transition-colors"
               >
-                X / Twitter
+                x.com/Shourov735
               </a>
               <a
                 href="https://t.me/Shourov735"
                 target="_blank"
                 rel="noreferrer"
-                className="text-[var(--color-muted)] font-bold hover:text-[var(--color-primary-strong)] transition-colors"
+                className="text-[var(--color-muted)] hover:text-[var(--color-primary-strong)] transition-colors"
               >
-                Telegram
-              </a>
-              <a
-                href="https://www.youtube.com/@mdshourovgaming"
-                target="_blank"
-                rel="noreferrer"
-                className="text-[var(--color-muted)] font-bold hover:text-[var(--color-primary-strong)] transition-colors"
-              >
-                YouTube
+                t.me/Shourov735
               </a>
               <a
                 href="https://medium.com/@Shourov735"
                 target="_blank"
                 rel="noreferrer"
-                className="text-[var(--color-muted)] font-bold hover:text-[var(--color-primary-strong)] transition-colors"
+                className="text-[var(--color-muted)] hover:text-[var(--color-primary-strong)] transition-colors"
               >
-                Medium
+                medium.com/@Shourov735
               </a>
             </div>
           </div>
@@ -116,14 +108,17 @@ export function Contact() {
         <ScrollReveal>
           <form
             onSubmit={handleSubmit}
-            className="grid gap-4 border border-[var(--color-line)] rounded-lg bg-[var(--color-surface)] shadow-sm p-[26px]"
+            noValidate
+            aria-describedby={status ? "form-status" : undefined}
+            className="grid gap-4 border border-[var(--color-line)] rounded-xl bg-[var(--color-surface)] p-6 md:p-8"
           >
             {status && (
               <div
-                className={`rounded-md px-3 py-3 font-bold text-sm ${
+                id="form-status"
+                className={`rounded-md px-4 py-3 font-medium text-sm border ${
                   status.type === "success"
-                    ? "bg-[var(--color-primary)]/12 text-green-700 dark:text-green-300"
-                    : "bg-red-100 text-red-700 dark:text-red-300"
+                    ? "bg-[var(--color-primary)]/10 border-[var(--color-primary)]/30 text-[var(--color-primary-strong)]"
+                    : "bg-red-50 border-red-200 text-red-700 dark:bg-red-950/30 dark:border-red-900 dark:text-red-300"
                 }`}
                 role="status"
                 aria-live="polite"
@@ -132,57 +127,81 @@ export function Contact() {
               </div>
             )}
 
-            <label className="grid gap-[7px] text-sm font-bold text-[var(--color-muted)]">
-              <span>Name</span>
+            <div className="grid gap-2">
+              <label
+                htmlFor="contact-name"
+                className="text-[11px] font-mono uppercase tracking-wider text-[var(--color-muted)]"
+              >
+                Name
+              </label>
               <input
+                id="contact-name"
                 type="text"
                 name="name"
                 autoComplete="name"
                 required
                 minLength={2}
-                className="w-full border border-[var(--color-line)] rounded-md bg-[var(--color-surface)] text-[var(--color-text)] px-3 py-3 transition-[border-color,box-shadow] duration-160 focus:border-[var(--color-primary)] focus:shadow-[0_0_0_4px_var(--color-primary)/18] focus:outline-0"
+                className="w-full border border-[var(--color-line)] rounded-md bg-[var(--color-surface)] text-[var(--color-text)] px-3 py-2.5 text-sm focus:border-[var(--color-primary)] focus:outline-2 focus:outline-[var(--color-primary)]/40 transition-[border-color] duration-160"
               />
-            </label>
+            </div>
 
-            <label className="grid gap-[7px] text-sm font-bold text-[var(--color-muted)]">
-              <span>Email</span>
+            <div className="grid gap-2">
+              <label
+                htmlFor="contact-email"
+                className="text-[11px] font-mono uppercase tracking-wider text-[var(--color-muted)]"
+              >
+                Email
+              </label>
               <input
+                id="contact-email"
                 type="email"
                 name="email"
                 autoComplete="email"
                 required
-                className="w-full border border-[var(--color-line)] rounded-md bg-[var(--color-surface)] text-[var(--color-text)] px-3 py-3 transition-[border-color,box-shadow] duration-160 focus:border-[var(--color-primary)] focus:shadow-[0_0_0_4px_var(--color-primary)/18] focus:outline-0"
+                className="w-full border border-[var(--color-line)] rounded-md bg-[var(--color-surface)] text-[var(--color-text)] px-3 py-2.5 text-sm focus:border-[var(--color-primary)] focus:outline-2 focus:outline-[var(--color-primary)]/40 transition-[border-color] duration-160"
               />
-            </label>
+            </div>
 
-            <label className="grid gap-[7px] text-sm font-bold text-[var(--color-muted)]">
-              <span>Subject</span>
+            <div className="grid gap-2">
+              <label
+                htmlFor="contact-subject"
+                className="text-[11px] font-mono uppercase tracking-wider text-[var(--color-muted)]"
+              >
+                Subject
+              </label>
               <input
+                id="contact-subject"
                 type="text"
                 name="subject"
                 required
                 minLength={3}
-                className="w-full border border-[var(--color-line)] rounded-md bg-[var(--color-surface)] text-[var(--color-text)] px-3 py-3 transition-[border-color,box-shadow] duration-160 focus:border-[var(--color-primary)] focus:shadow-[0_0_0_4px_var(--color-primary)/18] focus:outline-0"
+                className="w-full border border-[var(--color-line)] rounded-md bg-[var(--color-surface)] text-[var(--color-text)] px-3 py-2.5 text-sm focus:border-[var(--color-primary)] focus:outline-2 focus:outline-[var(--color-primary)]/40 transition-[border-color] duration-160"
               />
-            </label>
+            </div>
 
-            <label className="grid gap-[7px] text-sm font-bold text-[var(--color-muted)]">
-              <span>Message</span>
+            <div className="grid gap-2">
+              <label
+                htmlFor="contact-message"
+                className="text-[11px] font-mono uppercase tracking-wider text-[var(--color-muted)]"
+              >
+                Message
+              </label>
               <textarea
+                id="contact-message"
                 name="message"
                 rows={6}
                 required
                 minLength={10}
-                className="w-full border border-[var(--color-line)] rounded-md bg-[var(--color-surface)] text-[var(--color-text)] px-3 py-3 transition-[border-color,box-shadow] duration-160 focus:border-[var(--color-primary)] focus:shadow-[0_0_0_4px_var(--color-primary)/18] focus:outline-0 resize-y"
+                className="w-full border border-[var(--color-line)] rounded-md bg-[var(--color-surface)] text-[var(--color-text)] px-3 py-2.5 text-sm focus:border-[var(--color-primary)] focus:outline-2 focus:outline-[var(--color-primary)]/40 transition-[border-color] duration-160 resize-y"
               />
-            </label>
+            </div>
 
             <label className="absolute left-[-9999px]" aria-hidden="true">
               <span>Leave this empty</span>
               <input type="text" name="website" tabIndex={-1} autoComplete="off" />
             </label>
 
-            <button type="submit" disabled={sending} className="btn-primary disabled:opacity-60">
+            <button type="submit" disabled={sending} className="btn-primary disabled:opacity-60 mt-1">
               {sending ? "Sending..." : "Send Message"}
             </button>
           </form>

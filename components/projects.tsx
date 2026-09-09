@@ -38,7 +38,8 @@ export function Projects() {
             <p className="eyebrow">Projects Directory</p>
             <h2>Selected engineering repositories & software work.</h2>
             <p className="text-[var(--color-muted)] max-w-[620px] mt-2 text-base">
-              Filter by domain, explore technical architectures, or jump straight into the GitHub source code and live deployments.
+              Filter by domain, explore technical architectures, or jump straight into the GitHub source code
+              and live deployments.
             </p>
           </div>
         </ScrollReveal>
@@ -46,39 +47,44 @@ export function Projects() {
         <ScrollReveal>
           <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-8">
             <div className="relative w-full md:max-w-[380px]">
+              <label htmlFor="project-search" className="sr-only">
+                Search projects
+              </label>
               <input
+                id="project-search"
                 type="search"
                 placeholder="Search by tech, name, or keyword..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full border border-[var(--color-line)] rounded-lg bg-[var(--color-surface)] text-[var(--color-text)] px-4 py-2.5 text-sm transition-[border-color,box-shadow] duration-160 focus:border-[var(--color-primary)] focus:shadow-[0_0_0_3px_var(--color-primary)/15] focus:outline-0"
+                className="w-full border border-[var(--color-line)] rounded-lg bg-[var(--color-surface)] text-[var(--color-text)] px-4 py-2.5 text-sm focus:border-[var(--color-primary)] focus:outline-2 focus:outline-[var(--color-primary)]/40 transition-[border-color] duration-160"
               />
               {search && (
                 <button
                   onClick={() => setSearch("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold text-[var(--color-muted)] hover:text-[var(--color-text)]"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-mono uppercase tracking-wider text-[var(--color-muted)] hover:text-[var(--color-text)]"
                 >
                   Clear
                 </button>
               )}
             </div>
 
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by category">
               {categories.map((cat) => (
                 <button
                   key={cat.name}
                   onClick={() => setFilter(cat.name)}
-                  className={`min-h-[36px] border rounded-full px-3.5 py-1.5 text-xs font-bold transition-all duration-160 cursor-pointer inline-flex items-center gap-1.5 ${
+                  aria-pressed={filter === cat.name}
+                  className={`min-h-[36px] border rounded-full px-3.5 py-1.5 text-[11px] font-mono uppercase tracking-wider transition-all duration-160 cursor-pointer inline-flex items-center gap-1.5 ${
                     filter === cat.name
-                      ? "border-[var(--color-primary)] bg-[var(--color-primary)]/15 text-[var(--color-primary-strong)] shadow-xs"
+                      ? "border-[var(--color-primary)] bg-[var(--color-primary)] text-[var(--color-bg)]"
                       : "border-[var(--color-line)] bg-[var(--color-surface)] text-[var(--color-muted)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary-strong)]"
                   }`}
                 >
                   <span>{cat.name}</span>
                   <span
-                    className={`text-[10px] px-1.5 py-0.5 rounded-full ${
+                    className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full ${
                       filter === cat.name
-                        ? "bg-[var(--color-primary)] text-white"
+                        ? "bg-[var(--color-bg)] text-[var(--color-primary)]"
                         : "bg-[var(--color-surface-muted)] text-[var(--color-muted)]"
                     }`}
                   >
@@ -88,6 +94,14 @@ export function Projects() {
               ))}
             </div>
           </div>
+          <p
+            className="text-xs font-mono text-[var(--color-muted)] uppercase tracking-wider mt-3"
+            aria-live="polite"
+          >
+            {filtered.length} {filtered.length === 1 ? "project" : "projects"}
+            {filter !== "All" ? ` in ${filter}` : ""}
+            {search ? ` matching "${search}"` : ""}
+          </p>
         </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -98,7 +112,10 @@ export function Projects() {
               <ScrollReveal key={project.title}>
                 <article className="group flex flex-col h-full border border-[var(--color-line)] rounded-xl bg-[var(--color-surface)] shadow-sm overflow-hidden hover:-translate-y-1 hover:border-[var(--color-primary)]/50 hover:shadow-lg transition-all duration-200">
                   {/* Visual Header */}
-                  <Link href={`/projects/${slug}`} className="block relative aspect-[16/10] overflow-hidden bg-[var(--color-surface-muted)]">
+                  <Link
+                    href={`/projects/${slug}`}
+                    className="block relative aspect-[16/10] overflow-hidden bg-[var(--color-surface-muted)]"
+                  >
                     {project.image ? (
                       <Image
                         src={project.image}
@@ -122,55 +139,53 @@ export function Projects() {
                   {/* Body */}
                   <div className="p-5 flex flex-col flex-grow justify-between">
                     <div>
-                      <h3 className="text-lg font-bold text-[var(--color-text)] group-hover:text-[var(--color-primary-strong)] transition-colors">
-                        <Link href={`/projects/${slug}`}>
+                      <h3 className="font-display text-xl text-[var(--color-text)] tracking-tight leading-snug">
+                        <Link href={`/projects/${slug}`} className="link-underline">
                           {project.title}
                         </Link>
                       </h3>
 
-                      <p className="text-[var(--color-muted)] mt-2 text-xs md:text-sm leading-relaxed line-clamp-3">
+                      <p className="text-[var(--color-muted)] mt-2.5 text-sm leading-relaxed line-clamp-3">
                         {project.summary}
                       </p>
 
-                      {/* Tech Tags */}
                       <div className="flex flex-wrap gap-1.5 mt-4">
                         {project.tags.slice(0, 4).map((tag) => (
                           <span
                             key={tag}
-                            className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-[var(--color-surface-muted)] text-[var(--color-muted)] border border-[var(--color-line)]/50"
+                            className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-mono bg-[var(--color-surface-muted)] text-[var(--color-muted)] border border-[var(--color-line)]"
                           >
                             {tag}
                           </span>
                         ))}
                         {project.tags.length > 4 && (
-                          <span className="text-[10px] font-bold text-[var(--color-muted)] self-center">
+                          <span className="text-[10px] font-mono text-[var(--color-muted)] self-center">
                             +{project.tags.length - 4}
                           </span>
                         )}
                       </div>
                     </div>
 
-                    {/* Footer Actions */}
-                    <div className="flex items-center justify-between gap-2 pt-4 mt-4 border-t border-[var(--color-line)]/60 text-xs">
+                    <div className="flex items-center justify-between gap-2 pt-4 mt-4 border-t border-[var(--color-line)] text-xs">
                       <Link
                         href={`/projects/${slug}`}
-                        className="font-bold text-[var(--color-primary-strong)] hover:underline inline-flex items-center gap-1"
+                        className="font-mono uppercase tracking-wider text-[var(--color-primary-strong)] hover:opacity-80 inline-flex items-center gap-1"
                       >
                         <span>Case Study</span>
-                        <span>→</span>
+                        <span aria-hidden="true">→</span>
                       </Link>
 
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-3">
                         {project.links.map((link) => (
                           <a
                             key={link.label}
                             href={link.url}
                             target="_blank"
-                            rel="noreferrer"
-                            className="font-semibold text-[var(--color-muted)] hover:text-[var(--color-text)] hover:underline inline-flex items-center gap-0.5"
+                            rel="noopener noreferrer"
+                            className="font-mono uppercase tracking-wider text-[var(--color-muted)] hover:text-[var(--color-text)] inline-flex items-center gap-0.5"
                           >
                             <span>{link.label === "Live Demo" ? "Live" : link.label}</span>
-                            <span className="text-[10px]">↗</span>
+                            <span aria-hidden="true">↗</span>
                           </a>
                         ))}
                       </div>
@@ -202,4 +217,3 @@ export function Projects() {
     </section>
   )
 }
-

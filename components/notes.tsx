@@ -33,7 +33,8 @@ export function Notes() {
             <p className="eyebrow">Engineering Writings</p>
             <h2>Technical notes, architecture logs & takeaways.</h2>
             <p className="text-[var(--color-muted)] max-w-[620px] mt-2 text-base">
-              Brief write-ups documenting software engineering challenges, systems insights, and practical learnings.
+              Brief write-ups documenting software engineering challenges, systems insights, and practical
+              learnings.
             </p>
           </div>
         </ScrollReveal>
@@ -93,4 +94,3 @@ export function Notes() {
     </section>
   )
 }
-

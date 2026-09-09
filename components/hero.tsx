@@ -1,62 +1,63 @@
 import Image from "next/image"
+import Link from "next/link"
 import { ScrollReveal } from "@/components/scroll-reveal"
 
 export function Hero() {
   return (
-    <section className="section" id="home">
-      <div className="container-main grid grid-cols-[1.1fr_minmax(320px,0.9fr)] gap-12 items-center max-md:grid-cols-1 max-md:pt-11">
+    <section className="section pt-12 md:pt-16" id="home">
+      <div className="container-main grid grid-cols-[1.15fr_minmax(320px,0.85fr)] gap-14 items-center max-md:grid-cols-1 max-md:pt-4">
         <div>
           <ScrollReveal>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[var(--color-primary)]/25 bg-[var(--color-primary)]/8 text-[var(--color-primary-strong)] text-xs font-bold mb-4">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Available for Full-Stack & Mobile Engineering</span>
+            <div className="inline-flex items-center gap-2.5 mb-7">
+              <span className="w-2 h-2 rounded-full bg-[var(--color-primary)] animate-pulse" />
+              <span className="text-[11px] font-mono uppercase tracking-[0.18em] text-[var(--color-primary-strong)]">
+                Available · Open to engineering roles
+              </span>
             </div>
-            <p className="text-[var(--color-accent)] text-[0.82rem] font-extrabold tracking-[0.12em] uppercase mb-2">
-              Software Engineering @ IIT, University of Dhaka · IT Secretary @ Nabodigonto
-            </p>
-            <h1 className="text-[clamp(2.4rem,5.2vw,4.5rem)] font-extrabold leading-[1.08] text-[var(--color-text)] m-0 max-w-[780px]">
-              Md Shourov
+
+            <p className="eyebrow">Software Engineering @ IIT, University of Dhaka</p>
+
+            <h1 className="font-display text-[clamp(2.75rem,6.4vw,5.5rem)] leading-[0.98] tracking-[-0.025em] text-[var(--color-text)] m-0 max-w-[820px] text-balance">
+              Md Shourov.
             </h1>
-            <p className="text-[clamp(1.2rem,2.2vw,1.75rem)] font-bold text-[var(--color-primary-strong)] mt-2">
-              Software Engineering Student &amp; Developer
+
+            <p className="text-[clamp(1.25rem,2.4vw,1.875rem)] font-display italic text-[var(--color-primary-strong)] mt-4 max-w-[640px] text-balance">
+              Building edge-native web platforms, offline-first mobile apps, and systems that ship.
             </p>
-            <p className="text-[clamp(1rem,1.6vw,1.15rem)] text-[var(--color-muted)] max-w-[660px] mt-4 leading-relaxed">
-              Undergraduate reading Software Engineering (BSSE) at the{" "}
-              <strong className="text-[var(--color-text)]">
-                Institute of Information Technology (IIT), University of Dhaka (IIT DU)
-              </strong>{" "}
-              and serving as <strong className="text-[var(--color-text)]">IT Secretary</strong> at
-              Nabodigonto. Known online as <strong className="text-[var(--color-text)]">Shourov735</strong>{" "}
-              and <strong className="text-[var(--color-text)]">mdshourov</strong>, architecting edge-native
-              web platforms with Next.js, Cloudflare Workers, and PostgreSQL, building offline-first mobile
-              apps in React Native, and practicing algorithmic problem solving.
+
+            <p className="text-[clamp(1rem,1.4vw,1.0625rem)] text-[var(--color-muted)] max-w-[600px] mt-6 leading-relaxed">
+              Software Engineering undergraduate (BSSE) at the Institute of Information Technology, University
+              of Dhaka. IT Secretary at Nabodigonto. 1,500+ problems solved across Codeforces and LeetCode.
+              Known online as <span className="text-[var(--color-text)] font-medium">Shourov735</span>.
             </p>
-            <div className="flex flex-wrap gap-3 mt-7 max-md:flex-col">
-              <a href="#spotlight" className="btn-primary">
-                Featured Work →
-              </a>
-              <a href="#projects" className="btn-secondary">
-                All Projects
-              </a>
+
+            <div className="flex flex-wrap gap-3 mt-9 max-md:flex-col">
+              <Link href="/#projects" className="btn-primary">
+                See the work
+                <span aria-hidden="true">→</span>
+              </Link>
+              <Link href="/blog" className="btn-secondary">
+                Read the blog
+              </Link>
               <a href="/assets/resume/Md-Shourov-Resume.pdf" download className="btn-ghost">
-                Download Resume ↓
+                Resume ↓
               </a>
             </div>
-            <div className="flex flex-wrap gap-3 mt-7">
+
+            <div className="flex flex-wrap gap-x-5 gap-y-2 mt-10 text-[12px] font-mono uppercase tracking-wider text-[var(--color-muted)]">
               {[
                 { label: "GitHub", href: "https://github.com/Shourov735" },
                 { label: "LinkedIn", href: "https://linkedin.com/in/md-shourov-613934358" },
                 { label: "Codeforces", href: "https://codeforces.com/profile/Shourov735" },
                 { label: "LeetCode", href: "https://leetcode.com/u/Shourov735/" },
-                { label: "X / Twitter", href: "https://x.com/Shourov735" },
                 { label: "Email", href: "mailto:mdshourov735@gmail.com" },
               ].map((s) => (
                 <a
                   key={s.label}
                   href={s.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-xs font-bold text-[var(--color-muted)] px-3 py-1.5 rounded-md border border-[var(--color-line)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary-strong)] hover:bg-[var(--color-surface-muted)] transition-all shadow-xs"
+                  target={s.href.startsWith("http") ? "_blank" : undefined}
+                  rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="link-underline hover:text-[var(--color-text)]"
                 >
                   {s.label}
                 </a>
@@ -64,18 +65,28 @@ export function Hero() {
             </div>
           </ScrollReveal>
         </div>
-        <div className="relative min-h-[430px] grid place-items-center max-md:min-h-[360px] max-md:order-first">
+
+        <div className="relative grid place-items-center max-md:min-h-[340px] max-md:order-first">
           <ScrollReveal>
             <div className="relative group">
-              <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-tr from-[var(--color-primary)] to-[var(--color-accent)] opacity-35 blur-md group-hover:opacity-60 transition duration-300" />
+              <div
+                aria-hidden="true"
+                className="absolute -inset-2 rounded-2xl opacity-40 blur-md group-hover:opacity-70 transition duration-300"
+                style={{
+                  background: "linear-gradient(135deg, var(--color-primary), var(--color-accent))",
+                }}
+              />
               <Image
                 src="/assets/images/profile.jpg"
-                alt="Md Shourov - Software Engineering Student at IIT, University of Dhaka"
-                width={370}
-                height={370}
+                alt="Md Shourov — Software Engineering Student, IIT University of Dhaka"
+                width={400}
+                height={400}
                 priority
-                className="relative w-[min(370px,82vw)] aspect-square object-cover rounded-xl border border-[var(--color-line)] shadow-xl"
+                className="relative w-[min(400px,82vw)] aspect-square object-cover rounded-xl border border-[var(--color-line)] shadow-2xl"
               />
+              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 px-3.5 py-1.5 rounded-full bg-[var(--color-text)] text-[var(--color-bg)] text-[11px] font-mono uppercase tracking-wider whitespace-nowrap shadow-lg">
+                Shourov735 · BSSE · IIT DU
+              </div>
             </div>
           </ScrollReveal>
         </div>

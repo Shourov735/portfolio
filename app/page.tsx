@@ -7,10 +7,10 @@ import { About } from "@/components/about"
 import { Timeline } from "@/components/timeline"
 import { Education } from "@/components/education"
 import { Achievements } from "@/components/achievements"
-import { Notes } from "@/components/notes"
 import { NowLearning } from "@/components/now-learning"
 import { ResumeCTA } from "@/components/resume-cta"
 import { Contact } from "@/components/contact"
+import { LatestPosts } from "@/components/blog/latest-posts"
 
 export default function Home() {
   return (
@@ -24,11 +24,10 @@ export default function Home() {
       <Timeline />
       <Education />
       <Achievements />
-      <Notes />
       <NowLearning />
+      <LatestPosts />
       <ResumeCTA />
       <Contact />
     </>
   )
 }
-

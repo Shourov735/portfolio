@@ -202,7 +202,7 @@ export default function RootLayout({
                   ],
                   sameAs: [
                     "https://github.com/Shourov735",
-                    "https://linkedin.com/in/md-shourov-89125a337",
+                    "https://linkedin.com/in/md-shourov-613934358",
                     "https://codeforces.com/profile/Shourov735",
                     "https://leetcode.com/u/Shourov735/",
                     "https://x.com/Shourov735",

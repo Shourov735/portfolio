@@ -70,7 +70,7 @@ export function Contact() {
                 github.com/Shourov735
               </a>
               <a
-                href="https://linkedin.com/in/md-shourov-89125a337"
+                href="https://linkedin.com/in/md-shourov-613934358"
                 target="_blank"
                 rel="noreferrer"
                 className="text-[var(--color-muted)] font-bold hover:text-[var(--color-primary-strong)] transition-colors"

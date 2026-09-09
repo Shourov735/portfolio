@@ -45,7 +45,7 @@ export function Hero() {
             <div className="flex flex-wrap gap-3 mt-7">
               {[
                 { label: "GitHub", href: "https://github.com/Shourov735" },
-                { label: "LinkedIn", href: "https://linkedin.com/in/md-shourov-89125a337" },
+                { label: "LinkedIn", href: "https://linkedin.com/in/md-shourov-613934358" },
                 { label: "Codeforces", href: "https://codeforces.com/profile/Shourov735" },
                 { label: "LeetCode", href: "https://leetcode.com/u/Shourov735/" },
                 { label: "X / Twitter", href: "https://x.com/Shourov735" },

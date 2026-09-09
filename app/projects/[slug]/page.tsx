@@ -3,6 +3,9 @@ import Link from "next/link"
 import Image from "next/image"
 import type { Metadata } from "next"
 import { getContent, slugify } from "@/lib/content"
+import { Breadcrumbs } from "@/components/breadcrumbs"
+import { SITE_URL, absoluteUrl } from "@/lib/site"
+import { AUTHOR_JSONLD, PUBLISHER_JSONLD, buildWebPageSchema } from "@/lib/jsonld"
 
 export function generateStaticParams() {
   return getContent().projects.map((p) => ({ slug: slugify(p.title) }))
@@ -16,16 +19,22 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return { title: "Project Not Found" }
   }
 
-  const title = `${project.title} — Case Study | Md Shourov`
+  const title = `${project.title} — Engineering Case Study`
   const description = project.summary
-  const pageUrl = `https://mdshourov.vercel.app/projects/${slug}`
-  const images = project.image
-    ? [{ url: project.image, alt: `${project.title} Case Study Preview` }]
-    : [{ url: "https://mdshourov.vercel.app/assets/images/profile.jpg", alt: "Md Shourov" }]
+  const pageUrl = absoluteUrl(`/projects/${slug}`)
+  const imageUrl = absoluteUrl(project.image ?? "/opengraph-image")
+  const images = [
+    {
+      url: imageUrl,
+      alt: `${project.title} — Case Study Preview by Md Shourov`,
+    },
+  ]
 
   return {
     title,
     description,
+    keywords: project.tags,
+    authors: [{ name: "Md Shourov", url: SITE_URL }],
     alternates: {
       canonical: `/projects/${slug}`,
     },
@@ -34,14 +43,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description,
       url: pageUrl,
       type: "article",
-      images,
       siteName: "Md Shourov Portfolio",
+      locale: "en_US",
+      images,
+      authors: [SITE_URL],
+      tags: project.tags,
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: project.image ? [project.image] : ["https://mdshourov.vercel.app/assets/images/profile.jpg"],
+      images: images.map((i) => i.url),
     },
   }
 }
@@ -59,49 +71,56 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const prevProject = currentIndex > 0 ? projects[currentIndex - 1] : null
   const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null
 
-  const jsonLd = {
+  const imageUrl = absoluteUrl(project.image ?? "/opengraph-image")
+
+  const techArticleSchema = {
     "@context": "https://schema.org",
     "@type": "TechArticle",
     headline: `${project.title} — Case Study`,
     description: project.summary,
-    image: project.image
-      ? project.image.startsWith("http")
-        ? project.image
-        : `https://mdshourov.vercel.app${project.image.startsWith("/") ? "" : "/"}${project.image}`
-      : undefined,
-    url: `https://mdshourov.vercel.app/projects/${slug}`,
-    author: {
-      "@type": "Person",
-      name: "Md Shourov",
-      url: "https://mdshourov.vercel.app",
-    },
-    publisher: {
-      "@type": "Person",
-      name: "Md Shourov",
-      url: "https://mdshourov.vercel.app",
-    },
+    image: imageUrl,
+    url: absoluteUrl(`/projects/${slug}`),
+    datePublished: "2024-01-01",
+    dateModified: new Date().toISOString(),
+    author: AUTHOR_JSONLD,
+    publisher: PUBLISHER_JSONLD,
     keywords: project.tags.join(", "),
+    articleSection: project.category,
+    inLanguage: "en-US",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": absoluteUrl(`/projects/${slug}`),
+    },
+    about: project.tags,
   }
+
+  const webPageSchema = buildWebPageSchema({
+    path: `/projects/${slug}`,
+    name: `${project.title} — Engineering Case Study`,
+    description: project.summary,
+    primaryImage: imageUrl,
+  })
 
   return (
     <div className="section">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(techArticleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
       <div className="container-main max-w-[960px]">
-        {/* Breadcrumb Navigation */}
-        <nav
-          className="flex items-center gap-2 text-xs font-semibold text-[var(--color-muted)] mb-8"
-          aria-label="Breadcrumb"
-        >
-          <Link href="/" className="hover:text-[var(--color-primary-strong)] transition-colors">
-            Home
-          </Link>
-          <span>/</span>
-          <Link href="/#projects" className="hover:text-[var(--color-primary-strong)] transition-colors">
-            Projects
-          </Link>
-          <span>/</span>
-          <span className="text-[var(--color-text)] font-bold truncate max-w-[280px]">{project.title}</span>
-        </nav>
+        <div className="mb-8">
+          <Breadcrumbs
+            items={[
+              { name: "Md Shourov", href: "/" },
+              { name: "Projects", href: "/#projects" },
+              { name: project.title },
+            ]}
+          />
+        </div>
 
         {/* Case Study Card */}
         <article className="border border-[var(--color-line)] rounded-2xl bg-[var(--color-surface)] shadow-md overflow-hidden">
@@ -120,99 +139,102 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           )}
 
           <div className="p-6 md:p-10">
-            {/* Header */}
-            <div className="flex flex-wrap items-center gap-2.5 mb-3">
-              <span className="text-[var(--color-accent)] text-xs font-extrabold tracking-[0.1em] uppercase px-3 py-1 rounded-full bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/20">
+            <div className="flex flex-wrap items-center gap-3 mb-6">
+              <span className="text-[var(--color-accent)] text-[11px] font-mono uppercase tracking-[0.16em] font-medium">
                 {project.category}
               </span>
-              <span className="text-xs font-bold text-[var(--color-primary-strong)] px-3 py-1 rounded-full bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/20">
-                Engineering Case Study
+              <span aria-hidden="true" className="text-[var(--color-line)]">
+                ·
+              </span>
+              <span className="text-[11px] font-mono uppercase tracking-[0.16em] text-[var(--color-muted)]">
+                Case Study
               </span>
             </div>
 
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[var(--color-text)] tracking-tight">
+            <h1 className="font-display text-4xl md:text-5xl lg:text-[3.5rem] text-[var(--color-text)] tracking-tight text-balance">
               {project.title}
             </h1>
 
-            <p className="text-base md:text-lg text-[var(--color-muted)] mt-4 leading-relaxed max-w-[800px]">
+            <p className="text-lg md:text-xl text-[var(--color-muted)] mt-5 leading-relaxed max-w-[60ch] text-balance">
               {project.summary}
             </p>
 
-            {/* Quick Meta Strip */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 my-8 p-5 rounded-xl bg-[var(--color-surface-muted)]/60 border border-[var(--color-line)] text-xs">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-5 my-10 py-6 border-y border-[var(--color-line)]">
               <div>
-                <span className="block text-[var(--color-muted)] font-bold uppercase tracking-wider mb-1">
+                <p className="text-[11px] font-mono uppercase tracking-wider text-[var(--color-muted)] mb-1.5">
                   Category
-                </span>
-                <span className="text-[var(--color-text)] font-extrabold">{project.category}</span>
+                </p>
+                <p className="text-[var(--color-text)] font-semibold">{project.category}</p>
               </div>
               <div>
-                <span className="block text-[var(--color-muted)] font-bold uppercase tracking-wider mb-1">
-                  Role / Scope
-                </span>
-                <span className="text-[var(--color-text)] font-extrabold">Full-Stack Architect</span>
+                <p className="text-[11px] font-mono uppercase tracking-wider text-[var(--color-muted)] mb-1.5">
+                  Role
+                </p>
+                <p className="text-[var(--color-text)] font-semibold">Full-Stack Architect</p>
               </div>
               <div>
-                <span className="block text-[var(--color-muted)] font-bold uppercase tracking-wider mb-1">
+                <p className="text-[11px] font-mono uppercase tracking-wider text-[var(--color-muted)] mb-1.5">
                   Primary Stack
-                </span>
-                <span className="text-[var(--color-text)] font-extrabold truncate block">
+                </p>
+                <p className="text-[var(--color-text)] font-semibold truncate">
                   {project.tags.slice(0, 2).join(", ")}
-                </span>
+                </p>
               </div>
               <div>
-                <span className="block text-[var(--color-muted)] font-bold uppercase tracking-wider mb-1">
-                  Availability
-                </span>
-                <span className="text-emerald-500 font-extrabold flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <p className="text-[11px] font-mono uppercase tracking-wider text-[var(--color-muted)] mb-1.5">
+                  Status
+                </p>
+                <p className="text-[var(--color-primary-strong)] font-semibold flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] animate-pulse" />
                   Deployed / Public
-                </span>
+                </p>
               </div>
             </div>
 
-            {/* Architecture Highlights */}
             {project.highlights && project.highlights.length > 0 && (
-              <div className="my-8 p-6 md:p-8 rounded-xl border border-[var(--color-line)] bg-gradient-to-br from-[var(--color-surface)] to-[var(--color-surface-muted)]/50">
-                <div className="flex items-center gap-2.5 mb-4">
-                  <span className="text-lg">⚡</span>
-                  <h2 className="text-lg md:text-xl font-bold text-[var(--color-text)]">
-                    System Architecture & Key Technical Highlights
-                  </h2>
-                </div>
+              <section className="my-10" aria-labelledby="architecture-heading">
+                <h2
+                  id="architecture-heading"
+                  className="font-display text-2xl md:text-3xl text-[var(--color-text)] mb-5 tracking-tight"
+                >
+                  Architecture & Highlights
+                </h2>
                 <ul className="grid gap-3">
                   {project.highlights.map((item, idx) => (
                     <li
                       key={idx}
-                      className="flex items-start gap-3 text-sm md:text-base text-[var(--color-muted)] leading-relaxed"
+                      className="flex items-start gap-3 text-[0.95rem] md:text-base text-[var(--color-muted)] leading-relaxed"
                     >
-                      <span className="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
+                      <span aria-hidden="true" className="text-[var(--color-primary)] mt-1.5 shrink-0">
+                        ▸
+                      </span>
                       <span>{item}</span>
                     </li>
                   ))}
                 </ul>
-              </div>
+              </section>
             )}
 
-            {/* Tech Stack Pills */}
-            <div className="my-8">
-              <h3 className="text-xs font-extrabold uppercase tracking-wider text-[var(--color-text)] mb-3">
-                Technologies & Tools Used
+            <section className="my-10" aria-labelledby="stack-heading">
+              <h3
+                id="stack-heading"
+                className="text-[11px] font-mono uppercase tracking-[0.16em] text-[var(--color-muted)] mb-3 font-medium"
+              >
+                Stack
               </h3>
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-bold bg-[var(--color-surface-muted)] text-[var(--color-text)] border border-[var(--color-line)]"
+                    className="inline-flex items-center px-3 py-1.5 rounded-md text-xs font-medium bg-[var(--color-surface-muted)] text-[var(--color-text)] border border-[var(--color-line)] font-mono"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
-            </div>
+            </section>
 
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-6 border-t border-[var(--color-line)]">
+            <div className="flex flex-wrap items-center gap-3 pt-6 border-t border-[var(--color-line)]">
               {project.links.map((link) => (
                 <a
                   key={link.label}
@@ -222,7 +244,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                   className={link.label === "Live Demo" ? "btn-primary" : "btn-secondary"}
                 >
                   <span>{link.label}</span>
-                  <span className="text-sm">↗</span>
+                  <span aria-hidden="true">↗</span>
                 </a>
               ))}
               <Link href="/#projects" className="btn-ghost">
@@ -233,16 +255,16 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </article>
 
         {/* Previous / Next Project Navigation */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+        <nav aria-label="Project navigation" className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
           {prevProject ? (
             <Link
               href={`/projects/${slugify(prevProject.title)}`}
-              className="p-5 rounded-xl border border-[var(--color-line)] bg-[var(--color-surface)] hover:border-[var(--color-primary)]/50 hover:shadow-md transition-all text-left group"
+              className="p-5 rounded-xl border border-[var(--color-line)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] transition-all text-left group"
             >
-              <span className="text-[11px] font-bold text-[var(--color-muted)] group-hover:text-[var(--color-primary-strong)] uppercase tracking-wider block mb-1">
-                ← Previous Project
+              <span className="text-[11px] font-mono uppercase tracking-wider text-[var(--color-muted)] group-hover:text-[var(--color-primary-strong)] block mb-1.5">
+                ← Previous
               </span>
-              <span className="text-sm md:text-base font-bold text-[var(--color-text)] line-clamp-1">
+              <span className="text-sm md:text-base font-semibold text-[var(--color-text)] line-clamp-1">
                 {prevProject.title}
               </span>
             </Link>
@@ -253,17 +275,17 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           {nextProject ? (
             <Link
               href={`/projects/${slugify(nextProject.title)}`}
-              className="p-5 rounded-xl border border-[var(--color-line)] bg-[var(--color-surface)] hover:border-[var(--color-primary)]/50 hover:shadow-md transition-all text-right group sm:col-start-2"
+              className="p-5 rounded-xl border border-[var(--color-line)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] transition-all text-right group sm:col-start-2"
             >
-              <span className="text-[11px] font-bold text-[var(--color-muted)] group-hover:text-[var(--color-primary-strong)] uppercase tracking-wider block mb-1">
-                Next Project →
+              <span className="text-[11px] font-mono uppercase tracking-wider text-[var(--color-muted)] group-hover:text-[var(--color-primary-strong)] block mb-1.5">
+                Next →
               </span>
-              <span className="text-sm md:text-base font-bold text-[var(--color-text)] line-clamp-1">
+              <span className="text-sm md:text-base font-semibold text-[var(--color-text)] line-clamp-1">
                 {nextProject.title}
               </span>
             </Link>
           ) : null}
-        </div>
+        </nav>
       </div>
     </div>
   )

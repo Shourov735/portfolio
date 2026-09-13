@@ -22,6 +22,7 @@ Thumbs.db
 dist/
 build/
 .cache/
+*.tsbuildinfo
 
 # Environment files
 .env

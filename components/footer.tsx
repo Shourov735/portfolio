@@ -102,6 +102,16 @@ export function Footer() {
                 X (Twitter)
               </a>
             </li>
+            <li>
+              <a
+                href="https://www.youtube.com/@MD._SHOUROV_"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[var(--color-muted)] hover:text-[var(--color-primary-strong)]"
+              >
+                YouTube
+              </a>
+            </li>
           </ul>
         </nav>
 

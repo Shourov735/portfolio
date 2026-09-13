@@ -48,6 +48,7 @@ export function Hero() {
               {[
                 { label: "GitHub", href: "https://github.com/Shourov735" },
                 { label: "LinkedIn", href: "https://linkedin.com/in/md-shourov-613934358" },
+                { label: "YouTube", href: "https://www.youtube.com/@MD._SHOUROV_" },
                 { label: "Codeforces", href: "https://codeforces.com/profile/Shourov735" },
                 { label: "LeetCode", href: "https://leetcode.com/u/Shourov735/" },
                 { label: "Email", href: "mailto:mdshourov735@gmail.com" },

@@ -245,6 +245,7 @@ export default function RootLayout({
                     "https://x.com/Shourov735",
                     "https://t.me/Shourov735",
                     "https://medium.com/@Shourov735",
+                    "https://www.youtube.com/@MD._SHOUROV_",
                     "https://mdshourov.vercel.app",
                     "https://shourov735.vercel.app",
                   ],

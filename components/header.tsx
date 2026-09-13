@@ -62,7 +62,7 @@ export function Header() {
         aria-label="Primary navigation"
       >
         <Link href="/" className="inline-flex items-center group" aria-label="Md Shourov home">
-          <Logo size={36} text="Shourov" badge="BSSE" />
+          <Logo size={36} text="Shourov" />
         </Link>
 
         <button

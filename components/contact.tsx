@@ -101,6 +101,14 @@ export function Contact() {
               >
                 medium.com/@Shourov735
               </a>
+              <a
+                href="https://www.youtube.com/@MD._SHOUROV_"
+                target="_blank"
+                rel="noreferrer"
+                className="text-[var(--color-muted)] hover:text-[var(--color-primary-strong)] transition-colors"
+              >
+                youtube.com/@MD._SHOUROV_
+              </a>
             </div>
           </div>
         </ScrollReveal>

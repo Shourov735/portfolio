@@ -33,7 +33,6 @@ export default async function BlogIndex() {
   const [posts, tagCounts] = await Promise.all([getAllPosts(), getAllTags()])
   const tags = tagCounts.map((t) => t.tag)
   const featured = posts[0]
-  const rest = posts.slice(1)
 
   const itemListSchema = {
     "@context": "https://schema.org",
@@ -96,7 +95,7 @@ export default async function BlogIndex() {
               All posts
             </h2>
             <div className="mt-8">
-              <BlogList posts={rest} tags={tags} />
+              <BlogList posts={posts} tags={tags} />
             </div>
           </section>
 

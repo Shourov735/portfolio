@@ -72,7 +72,7 @@ export function Hero() {
             <div className="relative group">
               <div
                 aria-hidden="true"
-                className="absolute -inset-2 rounded-2xl opacity-40 blur-md group-hover:opacity-70 transition duration-300"
+                className="absolute -inset-2 rounded-full opacity-40 blur-md group-hover:opacity-70 transition duration-300"
                 style={{
                   background: "linear-gradient(135deg, var(--color-primary), var(--color-accent))",
                 }}
@@ -83,7 +83,7 @@ export function Hero() {
                 width={400}
                 height={400}
                 priority
-                className="relative w-[min(400px,82vw)] aspect-square object-cover rounded-xl border border-[var(--color-line)] shadow-2xl"
+                className="relative w-[min(400px,82vw)] aspect-square object-cover rounded-full border border-[var(--color-line)] shadow-2xl"
               />
               <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 px-3.5 py-1.5 rounded-full bg-[var(--color-text)] text-[var(--color-bg)] text-[11px] font-mono uppercase tracking-wider whitespace-nowrap shadow-lg">
                 Shourov735 · BSSE · IIT DU

@@ -150,13 +150,13 @@ export function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-[var(--color-line)]">
-        <div className="container-main py-5 flex flex-wrap items-center justify-between gap-4">
+        <div className="container-main py-5 flex items-center justify-between gap-4 flex-wrap">
           <p className="text-xs text-[var(--color-muted)] font-mono">
-            © {year} Md Shourov · Crafting software with purpose.
+            © {year} Md. Shourov. All rights reserved.
           </p>
 
-          {/* Icon row — bottom bar */}
-          <div className="flex items-center gap-2">
+          {/* Social icon row */}
+          <div className="flex items-center gap-3">
             {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
               <a
                 key={label}
@@ -166,15 +166,10 @@ export function Footer() {
                 rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                 className="text-[var(--color-muted)] hover:text-[var(--color-primary-strong)] transition-colors duration-150"
               >
-                <Icon size={14} />
+                <Icon size={15} />
               </a>
             ))}
           </div>
-
-          <p className="flex items-center gap-1.5 text-xs text-[var(--color-muted)] font-mono">
-            <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] animate-pulse" />
-            All systems operational
-          </p>
         </div>
       </div>
     </footer>

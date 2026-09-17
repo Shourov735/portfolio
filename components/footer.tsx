@@ -52,43 +52,22 @@ export function Footer() {
 
   return (
     <footer className="border-t border-[var(--color-line)] bg-[var(--color-surface)]">
-      <div className="container-main py-14 grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr] max-md:grid-cols-1">
+      <div className="container-main py-12 grid gap-10 md:grid-cols-[1.8fr_1fr_1fr] max-md:grid-cols-1">
         {/* Brand column */}
         <div>
           <Link href="/" aria-label="Md Shourov home" className="inline-flex items-center">
             <Logo size={36} text="Md. Shourov" />
           </Link>
-          <p className="mt-4 max-w-[420px] text-sm text-[var(--color-muted)] leading-relaxed">
+          <p className="mt-4 max-w-[440px] text-sm text-[var(--color-muted)] leading-relaxed">
             Software Engineering student at IIT, University of Dhaka, and IT Secretary at Nabodigonto.
             Building edge-native web platforms, offline-first mobile apps, and writing about the work.
           </p>
-
-          {/* Social icon row */}
-          <div className="flex flex-wrap gap-3 mt-6">
-            {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
-              <a
-                key={label}
-                href={href}
-                aria-label={label}
-                target={href.startsWith("http") ? "_blank" : undefined}
-                rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="
-                  w-8 h-8 rounded-lg flex items-center justify-center
-                  text-[var(--color-muted)] bg-[var(--color-line)]
-                  hover:text-[var(--color-primary-strong)] hover:bg-[var(--color-primary)]/10
-                  transition-colors duration-150
-                "
-              >
-                <Icon size={15} />
-              </a>
-            ))}
-          </div>
         </div>
 
-        {/* Site nav */}
-        <nav aria-label="Site sections">
+        {/* Site navigation */}
+        <nav aria-label="Site navigation">
           <h2 className="text-[11px] font-mono uppercase tracking-[0.16em] text-[var(--color-muted)] mb-4">
-            Site
+            Navigation
           </h2>
           <ul className="grid gap-2 text-sm">
             {[
@@ -109,29 +88,7 @@ export function Footer() {
           </ul>
         </nav>
 
-        {/* Elsewhere nav */}
-        <nav aria-label="Elsewhere">
-          <h2 className="text-[11px] font-mono uppercase tracking-[0.16em] text-[var(--color-muted)] mb-4">
-            Elsewhere
-          </h2>
-          <ul className="grid gap-2 text-sm">
-            {SOCIAL_LINKS.slice(0, 5).map(({ label, href, icon: Icon }) => (
-              <li key={label}>
-                <a
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-[var(--color-muted)] hover:text-[var(--color-primary-strong)] transition-colors"
-                >
-                  <Icon size={13} />
-                  {label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        {/* Contact */}
+        {/* Contact column */}
         <div>
           <h2 className="text-[11px] font-mono uppercase tracking-[0.16em] text-[var(--color-muted)] mb-4">
             Get in touch
@@ -143,20 +100,20 @@ export function Footer() {
             mdshourov735@gmail.com
           </a>
           <p className="mt-4 text-xs text-[var(--color-muted)] leading-relaxed">
-            Best for collaborations, opportunities, or technical correspondence.
+            Available for software engineering roles, technical correspondence, and open-source collaboration.
           </p>
         </div>
       </div>
 
-      {/* Bottom bar */}
+      {/* Bottom bar: Copyright left, Social icons right */}
       <div className="border-t border-[var(--color-line)]">
         <div className="container-main py-5 flex items-center justify-between gap-4 flex-wrap">
           <p className="text-xs text-[var(--color-muted)] font-mono">
             © {year} Md. Shourov. All rights reserved.
           </p>
 
-          {/* Social icon row */}
-          <div className="flex items-center gap-3">
+          {/* Social media icons — single dedicated location in footer */}
+          <div className="flex items-center gap-3.5">
             {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
               <a
                 key={label}
@@ -166,7 +123,7 @@ export function Footer() {
                 rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                 className="text-[var(--color-muted)] hover:text-[var(--color-primary-strong)] transition-colors duration-150"
               >
-                <Icon size={15} />
+                <Icon size={16} />
               </a>
             ))}
           </div>

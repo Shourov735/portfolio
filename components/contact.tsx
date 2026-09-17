@@ -2,6 +2,47 @@
 
 import { useState } from "react"
 import { ScrollReveal } from "@/components/scroll-reveal"
+import { SiYoutube, SiX, SiMedium, SiTelegram } from "react-icons/si"
+import { FaGithub, FaLinkedin } from "react-icons/fa6"
+import { MdEmail } from "react-icons/md"
+
+const CONTACT_LINKS = [
+  {
+    label: "Email",
+    href: "mailto:mdshourov735@gmail.com",
+    icon: MdEmail,
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/Shourov735",
+    icon: FaGithub,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://linkedin.com/in/md-shourov-613934358",
+    icon: FaLinkedin,
+  },
+  {
+    label: "X",
+    href: "https://x.com/Shourov735",
+    icon: SiX,
+  },
+  {
+    label: "Telegram",
+    href: "https://t.me/Shourov735",
+    icon: SiTelegram,
+  },
+  {
+    label: "Medium",
+    href: "https://medium.com/@Shourov735",
+    icon: SiMedium,
+  },
+  {
+    label: "YouTube",
+    href: "https://www.youtube.com/@MD._SHOUROV_",
+    icon: SiYoutube,
+  },
+]
 
 export function Contact() {
   const [status, setStatus] = useState<{ type: "success" | "error"; message: string } | null>(null)
@@ -54,61 +95,19 @@ export function Contact() {
             <p className="text-[var(--color-muted)] mt-3 max-w-[44ch]">
               Send a message through the form and I will get back to you as soon as possible.
             </p>
-            <div className="grid gap-2.5 mt-6 font-mono text-sm">
-              <a
-                href="mailto:mdshourov735@gmail.com"
-                className="text-[var(--color-muted)] hover:text-[var(--color-primary-strong)] transition-colors"
-              >
-                mdshourov735@gmail.com
-              </a>
-              <a
-                href="https://github.com/Shourov735"
-                target="_blank"
-                rel="noreferrer"
-                className="text-[var(--color-muted)] hover:text-[var(--color-primary-strong)] transition-colors"
-              >
-                github.com/Shourov735
-              </a>
-              <a
-                href="https://linkedin.com/in/md-shourov-613934358"
-                target="_blank"
-                rel="noreferrer"
-                className="text-[var(--color-muted)] hover:text-[var(--color-primary-strong)] transition-colors"
-              >
-                linkedin.com/in/md-shourov-613934358
-              </a>
-              <a
-                href="https://x.com/Shourov735"
-                target="_blank"
-                rel="noreferrer"
-                className="text-[var(--color-muted)] hover:text-[var(--color-primary-strong)] transition-colors"
-              >
-                x.com/Shourov735
-              </a>
-              <a
-                href="https://t.me/Shourov735"
-                target="_blank"
-                rel="noreferrer"
-                className="text-[var(--color-muted)] hover:text-[var(--color-primary-strong)] transition-colors"
-              >
-                t.me/Shourov735
-              </a>
-              <a
-                href="https://medium.com/@Shourov735"
-                target="_blank"
-                rel="noreferrer"
-                className="text-[var(--color-muted)] hover:text-[var(--color-primary-strong)] transition-colors"
-              >
-                medium.com/@Shourov735
-              </a>
-              <a
-                href="https://www.youtube.com/@MD._SHOUROV_"
-                target="_blank"
-                rel="noreferrer"
-                className="text-[var(--color-muted)] hover:text-[var(--color-primary-strong)] transition-colors"
-              >
-                youtube.com/@MD._SHOUROV_
-              </a>
+            <div className="flex flex-wrap gap-3 mt-8">
+              {CONTACT_LINKS.map(({ label, href, icon: Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noreferrer" : undefined}
+                  className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] text-sm font-medium text-[var(--color-text)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary-strong)] hover:bg-[var(--color-surface-hover)] transition-all duration-200 group shadow-sm"
+                >
+                  <Icon className="text-[var(--color-primary)] text-base shrink-0 transition-transform duration-200 group-hover:scale-110" />
+                  <span>{label}</span>
+                </a>
+              ))}
             </div>
           </div>
         </ScrollReveal>

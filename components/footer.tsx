@@ -9,7 +9,7 @@ export function Footer() {
       <div className="container-main py-14 grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr] max-md:grid-cols-1">
         <div>
           <Link href="/" aria-label="Md Shourov home" className="inline-flex items-center">
-            <Logo size={36} text="Md. Shourov" badge="BSSE @ IIT DU" />
+            <Logo size={36} text="Md. Shourov" />
           </Link>
           <p className="mt-4 max-w-[420px] text-sm text-[var(--color-muted)] leading-relaxed">
             Software Engineering student at IIT, University of Dhaka, and IT Secretary at Nabodigonto.

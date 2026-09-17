@@ -78,16 +78,13 @@ export function Hero() {
                 }}
               />
               <Image
-                src="/assets/images/profile.jpg"
+                src="/assets/images/profile.png"
                 alt="Md Shourov — Software Engineering Student, IIT University of Dhaka"
                 width={400}
                 height={400}
                 priority
-                className="relative w-[min(400px,82vw)] aspect-square object-cover rounded-full border border-[var(--color-line)] shadow-2xl"
+                className="relative w-[min(400px,82vw)] aspect-square object-cover rounded-full shadow-2xl"
               />
-              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 px-3.5 py-1.5 rounded-full bg-[var(--color-text)] text-[var(--color-bg)] text-[11px] font-mono uppercase tracking-wider whitespace-nowrap shadow-lg">
-                Shourov735 · BSSE · IIT DU
-              </div>
             </div>
           </ScrollReveal>
         </div>

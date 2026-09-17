@@ -187,7 +187,7 @@
       "links": [
         {
           "label": "Live Demo",
-          "url": "https://insidejibon.insidejibon.workers.dev"
+          "url": "https://insidejibon.shourov.workers.dev"
         },
         {
           "label": "GitHub",
@@ -280,7 +280,7 @@
       "links": [
         {
           "label": "Live Demo",
-          "url": "https://insidejibon.insidejibon.workers.dev"
+          "url": "https://insidejibon.shourov.workers.dev"
         },
         {
           "label": "GitHub",
@@ -292,6 +292,37 @@
         "Bilingual parity (EN/BN) across administrative portals and student learning interfaces",
         "Cloudflare R2 integration for lecture resources and Neon Serverless Postgres with Drizzle ORM",
         "Ultra-fast edge rendering deployed globally via Cloudflare Workers"
+      ]
+    },
+    {
+      "title": "ARVAANA",
+      "summary": "A modern luxury fragrance e-commerce platform crafted for artisanal alcohol-free attars and inspired perfumes in Bangladesh. Features zero-FOUC dual themes, multi-tier bottle volume pricing, and a zero-friction WhatsApp concierge checkout flow.",
+      "image": "/assets/images/arvaana.jpg",
+      "category": "Web",
+      "tags": [
+        "Next.js 16",
+        "React 19",
+        "TypeScript",
+        "Tailwind CSS",
+        "DaisyUI",
+        "E-Commerce",
+        "Vercel"
+      ],
+      "links": [
+        {
+          "label": "Live Demo",
+          "url": "https://arvaanabd.vercel.app/"
+        },
+        {
+          "label": "WhatsApp",
+          "url": "https://wa.me/8801609902528"
+        }
+      ],
+      "highlights": [
+        "Zero-friction WhatsApp Concierge Checkout converting high-intent local shoppers across all 64 districts in Bangladesh with automated BDT price and variant encoding",
+        "Dynamic multi-size variant engine (6ML, 15ML, 30ML, 50ML) with real-time client-side price computation and discount badges",
+        "Custom luxury dark emerald (#051811) and minimalist pearl white theme system with zero flash of unstyled content (FOUC)",
+        "Full JSON-LD Schema.org @graph implementation establishing verified brand entity and creator attribution"
       ]
     },
     {
@@ -388,27 +419,6 @@
         "Console-based Tetris implemented in pure C with matrix rotation and collision algorithms",
         "Local two-player and socket-based network multiplayer over TCP",
         "Dynamic score progression, levels, and persistent high score leaderboards"
-      ]
-    },
-    {
-      "title": "Portfolio Website",
-      "summary": "An interactive, content-driven developer portfolio built with Next.js 16 (App Router), TypeScript, and Tailwind CSS v4, featuring SSG project detail routes and automated sitemap generation.",
-      "image": "/assets/images/profile.jpg",
-      "category": "Web",
-      "tags": ["Next.js 16", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
-      "links": [
-        {
-          "label": "GitHub",
-          "url": "https://github.com/Shourov735/portfolio"
-        },
-        {
-          "label": "Live",
-          "url": "https://shourov735.vercel.app"
-        }
-      ],
-      "highlights": [
-        "Content-driven architecture with single JSON source of truth and SSG project routes",
-        "ScrollReveal motion animations, dark/light theme persistence, and automated sitemap generation"
       ]
     },
     {

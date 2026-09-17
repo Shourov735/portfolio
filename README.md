@@ -91,8 +91,8 @@ Architected with **Next.js 16 (App Router)**, **React 19**, **TypeScript**, and 
 
 ---
 
-#### 2. [InsideJibon](https://insidejibon.insidejibon.workers.dev/) — Next-Gen EdTech Web Platform
-[![Live Demo](https://img.shields.io/badge/Live_Demo-insidejibon.insidejibon.workers.dev-f38020?style=flat-square&logo=cloudflare&logoColor=white)](https://insidejibon.insidejibon.workers.dev/)
+#### 2. [InsideJibon](https://insidejibon.shourov.workers.dev/) — Next-Gen EdTech Web Platform
+[![Live Demo](https://img.shields.io/badge/Live_Demo-insidejibon.shourov.workers.dev-f38020?style=flat-square&logo=cloudflare&logoColor=white)](https://insidejibon.shourov.workers.dev/)
 [![Repository](https://img.shields.io/badge/Repo-InsideJibon-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/Shourov735/InsideJibon)
 [![Stack](https://img.shields.io/badge/Stack-Next.js_16_%7C_Drizzle_ORM_%7C_Neon_Postgres_%7C_Cloudflare_R2-black?style=flat-square)](#)
 
@@ -127,13 +127,13 @@ Architected with **Next.js 16 (App Router)**, **React 19**, **TypeScript**, and 
 | Project | Category | Tech Stack | Description | Links |
 | :--- | :--- | :--- | :--- | :--- |
 | **Nabodigonto** | Web | Next.js 16, Cloudflare Workers, Prisma, Clerk | Community & financial audit platform with 3D member ID cards and double-signed treasury ledger. | [Live Demo](https://nabodigonto.conversora-tech.workers.dev) · [GitHub](https://github.com/Shourov735/nabodigonto) |
-| **InsideJibon** | Web | Next.js 16, Drizzle ORM, Neon Postgres, Cloudflare R2 | Scalable bilingual EdTech management platform with interactive exams and cloud learning materials. | [Live Demo](https://insidejibon.insidejibon.workers.dev) · [GitHub](https://github.com/Shourov735/InsideJibon) |
+| **InsideJibon** | Web | Next.js 16, Drizzle ORM, Neon Postgres, Cloudflare R2 | Scalable bilingual EdTech management platform with interactive exams and cloud learning materials. | [Live Demo](https://insidejibon.shourov.workers.dev) · [GitHub](https://github.com/Shourov735/InsideJibon) |
+| **ARVAANA** | Web | Next.js 16, React 19, TypeScript, Tailwind, DaisyUI | Luxury fragrance e-commerce with zero-FOUC dual themes, multi-tier bottle pricing, and WhatsApp checkout. | [Live Demo](https://arvaanabd.vercel.app/) |
 | **Quiz Management System** | Systems | Java 17, JavaFX 21, SQLite, GoF Patterns | Desktop examination software developed for IIT DU Mini-SPL implementing 5 GoF patterns and SQLite. | [GitHub](https://github.com/Shourov735/Quiz-Management-and-Examination-System) |
 | **Quran Reading Tracker** | Mobile | React Native, Expo, TypeScript, AsyncStorage | Offline-first Android mobile app with dual independent pipelines for Arabic recitation and Bangla translation. | [GitHub](https://github.com/Shourov735/QuranReadingTracker) |
 | **Mosque Library Management** | Web | Next.js, TypeScript, Tailwind, Prisma, PostgreSQL | Full-stack mosque library system with Islamic catalog, borrowing tracking, and committee roles. | [Live Demo](https://mosquelibrary.vercel.app) |
 | **image-comparison** | Open Source | Java, Algorithms, JUnit 5, Maven Central | Contributed algorithmic refactor (PR #255) to Maven Central library, replacing recursive grouping with iterative `ArrayDeque`. | [GitHub Fork](https://github.com/Shourov735/image-comparison) · [PR #255](https://github.com/romankh3/image-comparison/pull/255) |
 | **TetriC** | Systems | C, Sockets, Game Development, Non-blocking I/O | Console-based Tetris in C featuring matrix rotation, local 2-player, and TCP network multiplayer gameplay. | [GitHub](https://github.com/Shourov735/TetriC) |
-| **Portfolio Website** | Web | Next.js 16, TypeScript, Tailwind CSS v4, Framer | This responsive, content-driven portfolio site with SSG project routing and automated sitemaps. | [GitHub](https://github.com/Shourov735/portfolio) · [Live](https://mdshourov.vercel.app) |
 | **Codeforces Solutions** | Algorithms | C++, C, Graph Theory, Number Theory | Archive of 150+ competitive programming contest solutions with time and space complexity optimizations. | [GitHub](https://github.com/Shourov735/Codeforces) · [Profile](https://codeforces.com/profile/Shourov735) |
 | **LeetCode Solutions** | Algorithms | C++, Data Structures, Dynamic Programming | Clean, idiomatic solutions focusing on reusable DSA patterns, trees, graphs, and dynamic programming. | [GitHub](https://github.com/Shourov735/LeetCode) · [Profile](https://leetcode.com/u/Shourov735/) |
 

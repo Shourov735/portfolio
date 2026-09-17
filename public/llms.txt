@@ -34,19 +34,21 @@
 1. **Nabodigonto Platform** (Web): https://nabodigonto.conversora-tech.workers.dev
    - Serverless community & treasury portal deployed globally on Cloudflare Workers edge via OpenNext.
    - GitHub: https://github.com/Shourov735/nabodigonto
-2. **InsideJibon** (Web): https://insidejibon.insidejibon.workers.dev
+2. **InsideJibon** (Web): https://insidejibon.shourov.workers.dev
    - Scalable bilingual (English/Bengali) EdTech management platform with interactive exams and Cloudflare R2 storage.
    - GitHub: https://github.com/Shourov735/InsideJibon
-3. **Quiz Management & Examination System** (Desktop / Systems):
+3. **ARVAANA Fragrances** (Web E-Commerce): https://arvaanabd.vercel.app
+   - Luxury fragrance e-commerce platform for artisanal alcohol-free attars and inspired perfumes in Bangladesh with zero-FOUC dual themes, multi-tier variant pricing, and WhatsApp concierge checkout.
+4. **Quiz Management & Examination System** (Desktop / Systems):
    - Desktop examination suite developed for IIT DU Design Patterns Lab (Mini-SPL) implementing Gang of Four (GoF) patterns (Strategy, State, Factory, Observer) and SQLite persistence.
    - GitHub: https://github.com/Shourov735/Quiz-Management-and-Examination-System
-4. **Quran Reading Tracker** (Mobile Android):
+5. **Quran Reading Tracker** (Mobile Android):
    - Offline-first habit tracking application with zero cloud telemetry and local SQLite persistence.
    - GitHub: https://github.com/Shourov735/QuranReadingTracker
-5. **Mosque Library Management System** (Web): https://mosquelibrary.vercel.app
+6. **Mosque Library Management System** (Web): https://mosquelibrary.vercel.app
    - Full-stack library system with Islamic book catalog, loan renewals, and committee roles.
-6. **romankh3/image-comparison** (Open Source Contribution):
+7. **romankh3/image-comparison** (Open Source Contribution):
    - Contributed algorithmic refactoring (PR #255) to Maven Central visual regression testing library (1,000+ stars).
-7. **TetriC** (Systems / Networking):
+8. **TetriC** (Systems / Networking):
    - Multiplayer console Tetris game built in raw C using POSIX TCP socket programming and non-blocking I/O.
    - GitHub: https://github.com/Shourov735/TetriC

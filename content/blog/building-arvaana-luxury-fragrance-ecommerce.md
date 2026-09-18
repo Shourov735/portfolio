@@ -3,11 +3,10 @@ title: "Building ARVAANA: Engineering a Luxury Fragrance Platform for Bangladesh
 description: "How I architected ARVAANA — a Next.js 16 fragrance e-commerce platform with zero-FOUC dual themes, reactive multi-size pricing, and a WhatsApp concierge checkout designed for local emerging market realities."
 date: "2026-09-18"
 tags:
+  - Projects
+  - Architecture
   - Next.js
   - E-Commerce
-  - React
-  - TypeScript
-  - Architecture
   - Engineering
 draft: false
 ---
@@ -63,7 +62,7 @@ I built ARVAANA on the **Next.js App Router**:
 └─────────────────────────────────────────────────────────────┘
 ```
 
-By decoupling catalog rendering from user state, the browser paints the complete catalog in under 600ms on mobile devices, even before React has finished hydrating.
+By decoupling catalog rendering from user state, the browser paints the complete catalog with rapid initial load times on mobile devices, even before React has finished hydrating.
 
 ---
 

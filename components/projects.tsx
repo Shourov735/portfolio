@@ -144,8 +144,13 @@ export function Projects() {
                           {project.title}
                         </Link>
                       </h3>
+                      {project.role && (
+                        <p className="text-[11px] font-mono uppercase tracking-wider text-[var(--color-primary-strong)] mt-1">
+                          {project.role}
+                        </p>
+                      )}
 
-                      <p className="text-[var(--color-muted)] mt-2.5 text-sm leading-relaxed line-clamp-3">
+                      <p className="text-[var(--color-muted)] mt-2 text-sm leading-relaxed line-clamp-3">
                         {project.summary}
                       </p>
 

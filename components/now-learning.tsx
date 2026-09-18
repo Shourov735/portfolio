@@ -5,34 +5,33 @@ export function NowLearning() {
   const items = getContent().now
 
   return (
-    <section className="section bg-[var(--color-surface-muted)]/72" id="now">
+    <section className="section py-10 md:py-14 bg-[var(--color-surface-muted)]/72" id="now">
       <div className="container-main">
         <ScrollReveal>
           <div className="section-heading">
-            <p className="eyebrow">Active Focus</p>
-            <h2>Currently learning, exploring, and building.</h2>
-            <p className="text-[var(--color-muted)] max-w-[60ch] mt-3 text-base">
-              Deep dives and technical investigations I am pursuing outside coursework and production work.
+            <p className="eyebrow">Now</p>
+            <h2>Current technical focus.</h2>
+            <p className="text-[var(--color-muted)] max-w-[60ch] mt-2 text-sm md:text-base">
+              Active areas of deep study, software practice, and engineering growth.
             </p>
           </div>
         </ScrollReveal>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-[860px]">
           {items.map((item) => (
             <ScrollReveal key={item.title}>
-              <article className="h-full border border-[var(--color-line)] rounded-xl bg-[var(--color-surface)] p-6 hover:border-[var(--color-primary)] transition-colors">
-                <div className="flex items-center gap-2 mb-4">
+              <article className="border border-[var(--color-line)] rounded-xl bg-[var(--color-surface)] p-5 hover:border-[var(--color-primary)]/50 transition-colors">
+                <div className="flex items-center gap-2 mb-2">
                   <span
                     aria-hidden="true"
                     className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] animate-pulse"
                   />
-                  <span className="text-[11px] font-mono uppercase tracking-[0.16em] text-[var(--color-primary-strong)]">
-                    In progress
-                  </span>
+                  <h3 className="font-display text-base font-semibold text-[var(--color-text)] tracking-tight">
+                    {item.title}
+                  </h3>
                 </div>
-                <h3 className="font-display text-lg text-[var(--color-text)] tracking-tight leading-snug">
-                  {item.title}
-                </h3>
-                <p className="text-[var(--color-muted)] mt-3 text-sm leading-relaxed">{item.summary}</p>
+                <p className="text-[var(--color-muted)] text-xs md:text-sm leading-relaxed pl-3.5 border-l border-[var(--color-line)]">
+                  {item.summary}
+                </p>
               </article>
             </ScrollReveal>
           ))}

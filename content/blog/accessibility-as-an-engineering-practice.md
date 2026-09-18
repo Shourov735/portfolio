@@ -3,10 +3,10 @@ title: "Accessibility Is an Engineering Practice, Not a Checklist"
 description: "Why accessibility is a property of the codebase rather than the UI, and what to do about it on a portfolio without a design team."
 date: "2026-04-21"
 tags:
+  - Lessons Learned
+  - Frontend
   - Accessibility
   - Web Standards
-  - Engineering
-  - Frontend
 draft: false
 ---
 

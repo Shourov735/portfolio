@@ -4,10 +4,10 @@ description: "Practical lessons from rebuilding my portfolio on Next.js 16 — f
 date: "2026-01-15"
 updated: "2026-02-02"
 tags:
+  - Projects
+  - Architecture
   - Next.js
   - Performance
-  - TypeScript
-  - Engineering
 draft: false
 ---
 

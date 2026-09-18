@@ -170,7 +170,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                 <p className="text-[11px] font-mono uppercase tracking-wider text-[var(--color-muted)] mb-1.5">
                   Role
                 </p>
-                <p className="text-[var(--color-text)] font-semibold">Full-Stack Architect</p>
+                <p className="text-[var(--color-text)] font-semibold">{project.role || "Developer"}</p>
               </div>
               <div>
                 <p className="text-[11px] font-mono uppercase tracking-wider text-[var(--color-muted)] mb-1.5">
@@ -191,13 +191,92 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               </div>
             </div>
 
+            {/* Problem */}
+            {project.problem && (
+              <section className="my-10" aria-labelledby="problem-heading">
+                <h2
+                  id="problem-heading"
+                  className="font-display text-2xl md:text-3xl text-[var(--color-text)] mb-4 tracking-tight"
+                >
+                  The Problem
+                </h2>
+                <p className="text-[0.95rem] md:text-base text-[var(--color-muted)] leading-relaxed max-w-[68ch]">
+                  {project.problem}
+                </p>
+              </section>
+            )}
+
+            {/* Technical Approach */}
+            {project.technicalApproach && (
+              <section className="my-10" aria-labelledby="approach-heading">
+                <h2
+                  id="approach-heading"
+                  className="font-display text-2xl md:text-3xl text-[var(--color-text)] mb-4 tracking-tight"
+                >
+                  Technical Approach
+                </h2>
+                <p className="text-[0.95rem] md:text-base text-[var(--color-muted)] leading-relaxed max-w-[68ch]">
+                  {project.technicalApproach}
+                </p>
+              </section>
+            )}
+
+            {/* Visual Evidence / Diagram / Terminal Session */}
+            {project.visualEvidence && (
+              <section className="my-10" aria-labelledby="evidence-heading">
+                <h2
+                  id="evidence-heading"
+                  className="font-display text-2xl md:text-3xl text-[var(--color-text)] mb-4 tracking-tight"
+                >
+                  {project.visualEvidence.title}
+                </h2>
+                <div className="rounded-xl border border-[var(--color-line)] bg-[var(--color-surface-muted)] p-4 md:p-6 overflow-x-auto shadow-xs">
+                  {project.visualEvidence.type === "terminal" ? (
+                    <div className="bg-[#0b1120] text-[#38bdf8] p-4 rounded-lg shadow-inner overflow-x-auto">
+                      <div className="flex items-center gap-1.5 pb-3 mb-3 border-b border-slate-700/60 text-xs text-slate-400">
+                        <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
+                        <span className="ml-2 font-mono text-[11px] text-slate-400">
+                          tetric-network-multiplayer — posix-tcp-socket
+                        </span>
+                      </div>
+                      <pre className="text-[#38bdf8] font-mono text-xs whitespace-pre leading-snug">
+                        {project.visualEvidence.content.join("\n")}
+                      </pre>
+                    </div>
+                  ) : (
+                    <div className="space-y-3 py-1">
+                      {project.visualEvidence.content.map((step, idx) => (
+                        <div
+                          key={idx}
+                          className="flex items-start gap-3 text-xs md:text-sm font-mono text-[var(--color-text)]"
+                        >
+                          <span className="text-[var(--color-primary-strong)] font-bold shrink-0">
+                            [Step {idx + 1}]
+                          </span>
+                          <span className="leading-relaxed">{step}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                {project.visualEvidence.caption && (
+                  <p className="text-xs text-[var(--color-muted)] mt-2.5 font-mono">
+                    {project.visualEvidence.caption}
+                  </p>
+                )}
+              </section>
+            )}
+
+            {/* Architecture Highlights */}
             {project.highlights && project.highlights.length > 0 && (
               <section className="my-10" aria-labelledby="architecture-heading">
                 <h2
                   id="architecture-heading"
                   className="font-display text-2xl md:text-3xl text-[var(--color-text)] mb-5 tracking-tight"
                 >
-                  Architecture & Highlights
+                  Key Highlights & Architecture
                 </h2>
                 <ul className="grid gap-3">
                   {project.highlights.map((item, idx) => (
@@ -205,7 +284,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                       key={idx}
                       className="flex items-start gap-3 text-[0.95rem] md:text-base text-[var(--color-muted)] leading-relaxed"
                     >
-                      <span aria-hidden="true" className="text-[var(--color-primary)] mt-1.5 shrink-0">
+                      <span
+                        aria-hidden="true"
+                        className="text-[var(--color-primary)] mt-1.5 shrink-0 font-bold"
+                      >
                         ▸
                       </span>
                       <span>{item}</span>
@@ -215,12 +297,80 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               </section>
             )}
 
+            {/* Challenges */}
+            {project.challenges && project.challenges.length > 0 && (
+              <section className="my-10" aria-labelledby="challenges-heading">
+                <h2
+                  id="challenges-heading"
+                  className="font-display text-2xl md:text-3xl text-[var(--color-text)] mb-4 tracking-tight"
+                >
+                  Engineering Challenges
+                </h2>
+                <ul className="grid gap-3">
+                  {project.challenges.map((challenge, idx) => (
+                    <li
+                      key={idx}
+                      className="flex items-start gap-3 text-[0.95rem] md:text-base text-[var(--color-muted)] leading-relaxed"
+                    >
+                      <span aria-hidden="true" className="text-amber-500 mt-1 shrink-0 font-bold font-mono">
+                        !
+                      </span>
+                      <span>{challenge}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {/* Key Decisions */}
+            {project.keyDecisions && project.keyDecisions.length > 0 && (
+              <section className="my-10" aria-labelledby="decisions-heading">
+                <h2
+                  id="decisions-heading"
+                  className="font-display text-2xl md:text-3xl text-[var(--color-text)] mb-4 tracking-tight"
+                >
+                  Key Engineering Decisions
+                </h2>
+                <ul className="grid gap-3">
+                  {project.keyDecisions.map((decision, idx) => (
+                    <li
+                      key={idx}
+                      className="flex items-start gap-3 text-[0.95rem] md:text-base text-[var(--color-muted)] leading-relaxed"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="text-[var(--color-primary)] mt-1 shrink-0 font-bold font-mono"
+                      >
+                        ✓
+                      </span>
+                      <span>{decision}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {/* Result */}
+            {project.result && (
+              <section className="my-10" aria-labelledby="result-heading">
+                <h2
+                  id="result-heading"
+                  className="font-display text-2xl md:text-3xl text-[var(--color-text)] mb-4 tracking-tight"
+                >
+                  Result & Outcome
+                </h2>
+                <p className="text-[0.95rem] md:text-base text-[var(--color-muted)] leading-relaxed max-w-[68ch]">
+                  {project.result}
+                </p>
+              </section>
+            )}
+
             <section className="my-10" aria-labelledby="stack-heading">
               <h3
                 id="stack-heading"
                 className="text-[11px] font-mono uppercase tracking-[0.16em] text-[var(--color-muted)] mb-3 font-medium"
               >
-                Stack
+                Technologies & Tools
               </h3>
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (

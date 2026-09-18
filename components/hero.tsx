@@ -15,33 +15,34 @@ export function Hero() {
               </span>
             </div>
 
-            <p className="eyebrow">Software Engineering @ IIT, University of Dhaka</p>
+            <p className="eyebrow">Institute of Information Technology · University of Dhaka</p>
 
             <h1 className="font-display text-[clamp(2.75rem,6.4vw,5.5rem)] leading-[0.98] tracking-[-0.025em] text-[var(--color-text)] m-0 max-w-[820px] text-balance">
-              Md Shourov.
+              Md. Shourov
             </h1>
 
             <p className="text-[clamp(1.25rem,2.4vw,1.875rem)] font-display text-[var(--color-primary-strong)] mt-4 max-w-[640px] text-balance">
-              Building edge-native web platforms, offline-first mobile apps, and systems that ship.
+              Software Engineering student at IIT, University of Dhaka building real-world web, mobile, and
+              backend systems.
             </p>
 
             <p className="text-[clamp(1rem,1.4vw,1.0625rem)] text-[var(--color-muted)] max-w-[600px] mt-6 leading-relaxed">
-              Software Engineering undergraduate (BSSE) at the Institute of Information Technology, University
-              of Dhaka. IT Secretary at Nabodigonto. 150+ problems solved across Codeforces and LeetCode.
-              Known online as <span className="text-[var(--color-text)] font-medium">Shourov735</span>.
+              Undergraduate in Software Engineering (BSSE) at the Institute of Information Technology,
+              University of Dhaka. IT Secretary at Nabodigonto Social Welfare Organization. 150+ problems
+              solved across Codeforces and LeetCode.
             </p>
 
             <div className="flex flex-wrap gap-3 mt-9 max-md:flex-col">
               <Link href="/#projects" className="btn-primary">
-                See the work
+                View Projects
                 <span aria-hidden="true">→</span>
               </Link>
-              <Link href="/blog" className="btn-secondary">
-                Read the blog
-              </Link>
-              <a href="/assets/resume/Md-Shourov-Resume.pdf" download className="btn-ghost">
-                Resume ↓
+              <a href="/assets/resume/Md-Shourov-Resume.pdf" download className="btn-secondary">
+                Download Resume ↓
               </a>
+              <Link href="/blog" className="btn-ghost">
+                Read Blog
+              </Link>
             </div>
 
             <div className="flex flex-wrap gap-x-5 gap-y-2 mt-10 text-[12px] font-mono uppercase tracking-wider text-[var(--color-muted)]">

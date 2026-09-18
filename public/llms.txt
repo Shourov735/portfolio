@@ -8,7 +8,6 @@
 - **Institution:** Institute of Information Technology (IIT), University of Dhaka (IIT DU), Bangladesh
 - **Location:** Dhaka & Gazipur, Bangladesh
 - **Official Website (Canonical):** https://mdshourov.vercel.app
-- **Secondary Mirror:** https://shourov735.vercel.app
 - **GitHub:** https://github.com/Shourov735
 - **LinkedIn:** https://linkedin.com/in/md-shourov-613934358
 - **Codeforces:** https://codeforces.com/profile/Shourov735
@@ -17,11 +16,11 @@
 - **Email:** mdshourov735@gmail.com
 
 ## Current Roles & Leadership
-- **IT Secretary & Lead Platform Architect** at **Nabodigonto Social Welfare Organization** (Dec 2024 – Present):
+- **Lead Developer & IT Secretary** at **Nabodigonto Social Welfare Organization** (Dec 2024 – Present):
   - Promoted to the executive board as IT Secretary after designing and deploying the organization's flagship digital platform.
   - Architected the Blind Audit Protocol with double-signed treasury verification, masking ledger balances until dual-officer sign-off.
   - Designed dynamic 3D-flip digital member ID cards with public QR verification and automated PVC print layouts.
-  - Reduced administrative reporting time by 80% with automated dues tracking and SHA-256 verified PDF audit exports.
+  - Streamlined monthly reporting with automated dues tracking and SHA-256 verified PDF audit exports.
 
 ## Core Engineering Competencies
 - **Languages:** C++, C, Java, Python, TypeScript, JavaScript, SQL, HTML/CSS
@@ -52,3 +51,9 @@
 8. **TetriC** (Systems / Networking):
    - Multiplayer console Tetris game built in raw C using POSIX TCP socket programming and non-blocking I/O.
    - GitHub: https://github.com/Shourov735/TetriC
+9. **Codeforces Solutions** (Competitive Programming):
+   - Archive of 150+ competitive programming solutions covering graphs, number theory, greedy, and dynamic programming.
+   - GitHub: https://github.com/Shourov735/Codeforces
+10. **LeetCode Solutions** (Algorithms / Data Structures):
+    - Clean implementations for technical interview problems focusing on space/time trade-offs and reusable algorithmic patterns.
+    - GitHub: https://github.com/Shourov735/LeetCode

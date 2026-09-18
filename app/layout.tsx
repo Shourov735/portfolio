@@ -34,11 +34,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Md Shourov — Software Engineering Student & Full-Stack Developer",
-    template: "%s · Md Shourov",
+    default: "Md. Shourov — Software Engineering Student at IIT, University of Dhaka",
+    template: "%s · Md. Shourov",
   },
   description:
-    "Md Shourov (Shourov735 / mdshourov) is a Software Engineering student at IIT, University of Dhaka (BSSE) and IT Secretary at Nabodigonto. Writing on Next.js, edge systems, and engineering practice.",
+    "Md. Shourov (Shourov735 / mdshourov) is a Software Engineering student at IIT, University of Dhaka (BSSE) and IT Secretary at Nabodigonto, building real-world web, mobile, and backend systems.",
   keywords: [
     "Md Shourov",
     "Md. Shourov",
@@ -103,19 +103,19 @@ export const metadata: Metadata = {
     statusBarStyle: "black-translucent",
   },
   openGraph: {
-    title: "Md Shourov — Software Engineering Student & Developer",
+    title: "Md. Shourov — Software Engineering Student at IIT, University of Dhaka",
     description:
-      "Undergraduate at IIT, University of Dhaka (BSSE) and IT Secretary at Nabodigonto. Engineering notes, project case studies, and systems writing.",
+      "Software Engineering student at IIT, University of Dhaka building real-world web, mobile, and backend systems. IT Secretary at Nabodigonto.",
     type: "website",
     locale: "en_US",
-    siteName: "Md Shourov Portfolio",
+    siteName: "Md. Shourov Portfolio",
     url: SITE_URL,
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Md Shourov — Software Engineering Student & Full-Stack Developer",
+        alt: "Md. Shourov — Software Engineering Student, IIT University of Dhaka",
       },
     ],
   },
@@ -123,13 +123,13 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@Shourov735",
     creator: "@Shourov735",
-    title: "Md Shourov — Software Engineering Student & Developer",
+    title: "Md. Shourov — Software Engineering Student at IIT, University of Dhaka",
     description:
-      "Engineering notes, project case studies, and systems writing by Md Shourov (IIT, University of Dhaka).",
+      "Software Engineering student at IIT, University of Dhaka building real-world web, mobile, and backend systems. IT Secretary at Nabodigonto.",
     images: [
       {
         url: "/opengraph-image",
-        alt: "Md Shourov — Software Engineering Student & Full-Stack Developer",
+        alt: "Md. Shourov — Software Engineering Student, IIT University of Dhaka",
       },
     ],
   },
@@ -188,7 +188,7 @@ export default function RootLayout({
                   "@id": `${SITE_URL}/#person`,
                   name: AUTHOR_NAME,
                   alternateName: AUTHOR_ALIASES,
-                  jobTitle: "Software Engineering Student & Full-Stack Developer",
+                  jobTitle: "Software Engineering Student",
                   description:
                     "Software Engineering student at the Institute of Information Technology (IIT), University of Dhaka (BSSE program), and IT Secretary at Nabodigonto Social Welfare Organization.",
                   url: SITE_URL,
@@ -247,7 +247,6 @@ export default function RootLayout({
                     "https://medium.com/@Shourov735",
                     "https://www.youtube.com/@MD._SHOUROV_",
                     "https://mdshourov.vercel.app",
-                    "https://shourov735.vercel.app",
                   ],
                 },
                 {

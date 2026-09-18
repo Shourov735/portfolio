@@ -26,17 +26,25 @@ export interface Stat {
 
 export interface Skill {
   name: string
-  level: number
+  level?: number
 }
 
 export interface SkillGroup {
   category: string
+  description?: string
   items: Skill[]
 }
 
 export interface ProjectLink {
   label: string
   url: string
+}
+
+export interface VisualEvidence {
+  type: "terminal" | "diagram" | "state-machine"
+  title: string
+  caption?: string
+  content: string[]
 }
 
 export interface Project {
@@ -47,6 +55,13 @@ export interface Project {
   tags: string[]
   links: ProjectLink[]
   slug?: string
+  role?: string
+  problem?: string
+  technicalApproach?: string
+  challenges?: string[]
+  keyDecisions?: string[]
+  result?: string
+  visualEvidence?: VisualEvidence
   details?: string
   tech?: string[]
   highlights?: string[]
@@ -92,6 +107,13 @@ export interface Achievement {
   summary: string
 }
 
+export interface LookingFor {
+  badge: string
+  title: string
+  description: string
+  targetRoles: string[]
+}
+
 export interface PortfolioContent {
   stats: Stat[]
   skills: SkillGroup[]
@@ -101,8 +123,10 @@ export interface PortfolioContent {
   now: NowItem[]
   timeline: TimelineItem[]
   education: EducationItem[]
+  admissionResults?: EducationResult[]
   achievements: Achievement[]
   testimonials: string[]
+  lookingFor?: LookingFor
 }
 
 export interface GitHubData {

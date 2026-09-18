@@ -10,32 +10,45 @@ export function Skills() {
         <ScrollReveal>
           <div className="section-heading">
             <p className="eyebrow">Technical Competence</p>
-            <h2>Languages, frameworks, and engineering tools.</h2>
+            <h2>Skills categorized by practical experience.</h2>
             <p className="text-[var(--color-muted)] max-w-[60ch] mt-3 text-base">
-              A balanced breakdown across systems programming, full-stack web, mobile ecosystems, and cloud
-              infrastructure.
+              Organized by depth and frequency of use in real-world platforms and academic systems — without
+              arbitrary percentages.
             </p>
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {groups.map((group) => (
             <ScrollReveal key={group.category}>
-              <article className="h-full border border-[var(--color-line)] rounded-xl bg-[var(--color-surface)] p-6 hover:border-[var(--color-primary)] transition-colors">
-                <h3 className="font-display text-xl text-[var(--color-text)] tracking-tight mb-5">
-                  {group.category}
-                </h3>
+              <article className="h-full border border-[var(--color-line)] rounded-xl bg-[var(--color-surface)] p-6 hover:border-[var(--color-primary)] transition-colors flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <h3 className="font-display text-xl text-[var(--color-text)] tracking-tight">
+                      {group.category}
+                    </h3>
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-[var(--color-primary-strong)] bg-[var(--color-primary)]/10 px-2 py-0.5 rounded border border-[var(--color-primary)]/20">
+                      {group.items.length} techs
+                    </span>
+                  </div>
 
-                <ul className="grid gap-2 list-none p-0 m-0">
-                  {group.items.map((skill) => (
-                    <li key={skill.name} className="flex items-center justify-between text-sm">
-                      <span className="text-[var(--color-text)] font-medium">{skill.name}</span>
-                      <span className="text-[11px] font-mono text-[var(--color-muted)] tabular-nums">
-                        {skill.level}
+                  {group.description && (
+                    <p className="text-xs text-[var(--color-muted)] leading-relaxed mb-5 min-h-[32px]">
+                      {group.description}
+                    </p>
+                  )}
+
+                  <div className="flex flex-wrap gap-2 pt-2 border-t border-[var(--color-line)]">
+                    {group.items.map((skill) => (
+                      <span
+                        key={skill.name}
+                        className="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-[var(--color-surface-muted)] text-[var(--color-text)] border border-[var(--color-line)] hover:border-[var(--color-primary)]/50 transition-colors"
+                      >
+                        {skill.name}
                       </span>
-                    </li>
-                  ))}
-                </ul>
+                    ))}
+                  </div>
+                </div>
               </article>
             </ScrollReveal>
           ))}

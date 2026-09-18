@@ -61,8 +61,8 @@ export function Header() {
         className="container-main flex h-[68px] items-center justify-between gap-5"
         aria-label="Primary navigation"
       >
-        <Link href="/" className="inline-flex items-center group" aria-label="Md Shourov home">
-          <Logo size={36} text="Shourov" />
+        <Link href="/" className="inline-flex items-center group" aria-label="Md. Shourov home">
+          <Logo size={36} text="Md. Shourov" />
         </Link>
 
         <button

@@ -49,17 +49,44 @@ export function Spotlight() {
 
                     <div className="lg:col-span-6 flex flex-col justify-between space-y-4">
                       <div>
-                        <div className="flex flex-wrap items-center gap-2.5 mb-3">
+                        <div className="flex flex-wrap items-center gap-2 mb-3">
                           <span className="text-[var(--color-accent)] text-[11px] font-mono uppercase tracking-[0.16em] font-medium">
                             {project.category}
                           </span>
                           <span aria-hidden="true" className="text-[var(--color-line)]">
                             ·
                           </span>
-                          <span className="text-[11px] font-mono uppercase tracking-[0.16em] text-[var(--color-muted)]">
-                            Featured
-                          </span>
+                          {index === 0 ? (
+                            <span className="inline-flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-[0.16em] text-[var(--color-primary-strong)] font-semibold">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] animate-pulse" />
+                              Flagship Project
+                            </span>
+                          ) : (
+                            <span className="text-[11px] font-mono uppercase tracking-[0.16em] text-[var(--color-muted)]">
+                              Featured
+                            </span>
+                          )}
+                          {project.role && (
+                            <>
+                              <span aria-hidden="true" className="text-[var(--color-line)]">
+                                ·
+                              </span>
+                              <span className="text-[11px] font-mono text-[var(--color-text)] bg-[var(--color-surface-muted)] px-2 py-0.5 rounded border border-[var(--color-line)]">
+                                {project.role}
+                              </span>
+                            </>
+                          )}
                         </div>
+
+                        {index === 0 && (
+                          <div className="mb-4 inline-flex items-center gap-2 text-xs font-mono text-[var(--color-primary-strong)] bg-[var(--color-primary)]/10 px-3 py-1.5 rounded-md border border-[var(--color-primary)]/20">
+                            <span>Real Organization</span>
+                            <span aria-hidden="true">→</span>
+                            <span>Real Engineering Responsibility</span>
+                            <span aria-hidden="true">→</span>
+                            <span>Production Deployment</span>
+                          </div>
+                        )}
 
                         <h3 className="font-display text-3xl md:text-4xl text-[var(--color-text)] tracking-tight leading-[1.05] text-balance">
                           <Link href={`/projects/${slug}`} className="link-underline">

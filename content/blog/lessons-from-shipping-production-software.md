@@ -1,16 +1,16 @@
 ---
-title: "What I Learned Shipping a Serverless Platform to 1,200 Users"
-description: "Field notes from running Nabodigonto — a Cloudflare Workers platform for a Bangladeshi welfare organization — at production scale."
+title: "Lessons from Shipping a Production Serverless Platform"
+description: "Field notes from architecting and running Nabodigonto — a Cloudflare Workers platform with double-signed treasury auditing — in production."
 date: "2026-03-04"
 tags:
+  - Projects
+  - Architecture
   - Cloudflare Workers
-  - Edge
-  - Production
-  - Engineering
+  - Lessons Learned
 draft: false
 ---
 
-In December 2024, I shipped a community platform for Nabodigonto Social Welfare Organization — a small NGO in Bangladesh — and was elected IT Secretary to run it. Nine months later, the platform handles about 1,200 active members, manages a real treasury, and runs on Cloudflare Workers at the edge. This is what I learned that no tutorial could have taught me.
+In December 2024, I shipped a community and treasury platform for Nabodigonto Social Welfare Organization — a registered non-profit organization in Bangladesh — and was appointed IT Secretary by the executive board to oversee it. The platform manages active membership, tracks dues with a double-signed blind audit protocol, and runs on Cloudflare Workers at the edge. This is what I learned that no tutorial could have taught me.
 
 ## The architecture nobody recommends
 

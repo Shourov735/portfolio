@@ -1,16 +1,16 @@
 {
   "stats": [
     {
-      "value": "12+",
-      "label": "Projects and builds"
+      "value": "10",
+      "label": "Projects Built"
     },
     {
       "value": "150+",
-      "label": "Competitive problems solved"
+      "label": "Competitive Problems Solved"
     },
     {
       "value": "6+",
-      "label": "Languages explored"
+      "label": "Languages Explored"
     },
     {
       "value": "2024",
@@ -19,137 +19,51 @@
   ],
   "skills": [
     {
-      "category": "Programming",
+      "category": "Primary",
+      "description": "Core technologies I use frequently and have substantial practical experience with across production and academic work.",
       "items": [
-        {
-          "name": "C++",
-          "level": 80
-        },
-        {
-          "name": "C",
-          "level": 92
-        },
-        {
-          "name": "Java",
-          "level": 82
-        },
-        {
-          "name": "TypeScript",
-          "level": 75
-        },
-        {
-          "name": "JavaScript",
-          "level": 70
-        },
-        {
-          "name": "Python",
-          "level": 55
-        }
+        { "name": "Next.js" },
+        { "name": "React" },
+        { "name": "TypeScript" },
+        { "name": "C++" },
+        { "name": "Java" },
+        { "name": "Tailwind CSS" },
+        { "name": "PostgreSQL / Neon" },
+        { "name": "Vercel" },
+        { "name": "Cloudflare Workers & R2" },
+        { "name": "Git & GitHub" },
+        { "name": "SQLite" }
       ]
     },
     {
-      "category": "Frontend & Mobile",
+      "category": "Working Knowledge",
+      "description": "Technologies I have practical experience with and use for targeted platforms and systems.",
       "items": [
-        {
-          "name": "Next.js",
-          "level": 85
-        },
-        {
-          "name": "React",
-          "level": 80
-        },
-        {
-          "name": "React Native / Expo",
-          "level": 75
-        },
-        {
-          "name": "Tailwind CSS",
-          "level": 85
-        },
-        {
-          "name": "HTML/CSS",
-          "level": 85
-        },
-        {
-          "name": "JavaFX",
-          "level": 75
-        }
+        { "name": "React Native / Expo" },
+        { "name": "JavaScript" },
+        { "name": "Cloudflare D1" },
+        { "name": "Linux / Bash" },
+        { "name": "JavaFX" },
+        { "name": "Socket Programming" },
+        { "name": "Node.js" },
+        { "name": "Maven & JUnit 5" }
       ]
     },
     {
-      "category": "Backend & Database",
+      "category": "Familiar",
+      "description": "Technologies I have explored or used occasionally that are not central to my current daily stack.",
       "items": [
-        {
-          "name": "Node.js",
-          "level": 65
-        },
-        {
-          "name": "Prisma",
-          "level": 80
-        },
-        {
-          "name": "Drizzle ORM",
-          "level": 75
-        },
-        {
-          "name": "PostgreSQL / Neon",
-          "level": 75
-        },
-        {
-          "name": "SQLite",
-          "level": 85
-        },
-        {
-          "name": "Cloudflare D1",
-          "level": 70
-        },
-        {
-          "name": "MySQL",
-          "level": 65
-        },
-        {
-          "name": "Firebase",
-          "level": 50
-        }
-      ]
-    },
-    {
-      "category": "DevOps, Cloud & Systems",
-      "items": [
-        {
-          "name": "Cloudflare Workers & R2",
-          "level": 80
-        },
-        {
-          "name": "Git & GitHub",
-          "level": 85
-        },
-        {
-          "name": "Linux / Bash",
-          "level": 82
-        },
-        {
-          "name": "Socket Programming",
-          "level": 80
-        },
-        {
-          "name": "Vercel",
-          "level": 75
-        },
-        {
-          "name": "VSCode",
-          "level": 90
-        },
-        {
-          "name": "Maven & JUnit 5",
-          "level": 75
-        }
+        { "name": "Python" },
+        { "name": "MySQL" },
+        { "name": "Prisma ORM" },
+        { "name": "Firebase" }
       ]
     }
   ],
   "featuredProject": [
     {
       "title": "Nabodigonto",
+      "role": "Lead Developer / IT Secretary",
       "summary": "Flagship community and financial management platform for Nabodigonto Social Welfare Organization. Features blind audit double-signed treasury verification, dynamic 3D flip digital member ID cards with QR verification, dues tracking, and transparent financial reporting.",
       "image": "/assets/images/nabodigonto.jpg",
       "category": "Web",
@@ -165,14 +79,40 @@
         }
       ],
       "highlights": [
-        "Blind Audit Protocol & Double-Signed Verification masking treasury totals until dual officer sign-off",
-        "Dynamic 3D flip member ID cards with public verification QR codes and bulk PVC print layouts",
-        "Dues tracking portal with instant receipt generation and SHA-256 verified PDF audit reports",
-        "Serverless deployment on Cloudflare Workers via OpenNext with Neon PostgreSQL and Clerk v7"
-      ]
+        "Real production platform engineered for a registered social welfare organization, resulting in executive appointment as IT Secretary",
+        "Blind Audit Protocol: double-signed verification keeping treasury totals masked until dual officer sign-off",
+        "Dynamic 3D flip member ID cards with public QR verification and bulk PVC print layouts",
+        "Dues tracking ledger with automated receipt generation and SHA-256 verified PDF audit reports",
+        "Serverless deployment on Cloudflare Workers edge via OpenNext with Neon PostgreSQL and Clerk v7"
+      ],
+      "problem": "Nabodigonto Social Welfare Organization previously handled member dues and community welfare contributions using manual paper records and spreadsheets. This led to reconciliation delays, lack of public verification, and the risk of discrepancy in treasury reports.",
+      "technicalApproach": "Architected a full-stack serverless web platform on Next.js 16 deployed to Cloudflare Workers via OpenNext. Used Neon Serverless PostgreSQL with Prisma ORM for relational integrity, and integrated Clerk v7 for multi-role access control spanning members, financial auditors, and executive officers.",
+      "challenges": [
+        "Enforcing an uncompromising audit policy so that no single officer could unilaterally reveal or modify financial balance totals.",
+        "Generating high-resolution (300 DPI) printable PVC membership ID cards with embedded QR verification completely client-side to minimize server resource costs.",
+        "Adapting Next.js App Router server actions and Prisma connection pooling within edge worker lifecycle constraints."
+      ],
+      "keyDecisions": [
+        "Double-Signed Verification State Machine: Treasury balances remain strictly masked until both the Finance Officer and Executive Admin supply their authenticated approvals.",
+        "Neon Serverless Postgres: Chose over local SQLite edge storage for robust transactional consistency, multi-table audit joins, and reliable connection pooling.",
+        "Client-Side PDF Compilation: Leveraged browser canvas and PDF generation libraries to export receipts and ID cards without incurring edge compute costs."
+      ],
+      "result": "Successfully launched into production as the organization's official operational backbone. Appointed IT Secretary by the executive board to oversee system governance, feature rollouts, and technical stewardship.",
+      "visualEvidence": {
+        "type": "state-machine",
+        "title": "Blind Audit Protocol & Double-Signed Signoff Flow",
+        "caption": "Verification pipeline: Treasury totals remain masked until both officers sign off.",
+        "content": [
+          "Dues & Contributions ──> [Pending Ledger Transactions]",
+          "Finance Officer Check ──> [Sign-off 1 Applied (Ledger Masked)]",
+          "Executive Admin Audit ──> [Sign-off 2 Applied (Audit Confirmed)]",
+          "Protocol Resolved     ──> [Treasury Unmasked & SHA-256 PDF Audit Report Generated]"
+        ]
+      }
     },
     {
       "title": "InsideJibon",
+      "role": "Full-Stack Developer",
       "summary": "A scalable, bilingual (EN/BN) EdTech web platform built for Tanvir Hasan Jibon to power modern course management, student enrollments, interactive online exams, and cloud-hosted learning resources.",
       "image": "/assets/images/insidejibon.jpg",
       "category": "Web",
@@ -195,14 +135,72 @@
         }
       ],
       "highlights": [
-        "Full learning lifecycle supporting course catalog, enrollments, lessons, and exam workflows",
-        "Bilingual parity (EN/BN) across administrative portals and student learning interfaces",
+        "End-to-end learning lifecycle supporting course catalogs, student enrollments, lessons, and interactive exams",
+        "Bilingual parity (EN/BN) across administrative dashboards and student learning interfaces",
         "Cloudflare R2 integration for lecture resources and Neon Serverless Postgres with Drizzle ORM",
-        "Ultra-fast edge rendering deployed globally via Cloudflare Workers"
-      ]
+        "Edge-rendered and deployed globally via Cloudflare Workers"
+      ],
+      "problem": "Educators in Bangladesh often rely on scattered platforms (Facebook groups, Google Drives, third-party form builders) to deliver course materials and conduct exams, creating a fragmented experience with high dropout rates and no unified progress tracking.",
+      "technicalApproach": "Built a unified EdTech platform with Next.js 16 edge rendering, Drizzle ORM for lightweight and type-safe database queries against Neon Postgres, and Cloudflare R2 object storage for lecture assets.",
+      "challenges": [
+        "Supporting full bilingual language parity (English and Bengali) across dynamic quiz engines and admin dashboards without layout thrashing.",
+        "Managing large video lecture resources and PDF notes securely without incurring expensive server bandwidth costs."
+      ],
+      "keyDecisions": [
+        "Drizzle ORM over Prisma for this project: Reduced bundle overhead for edge worker cold starts while providing fine-grained SQL query control.",
+        "Cloudflare R2 Object Storage: Utilized presigned URL generation for secure, direct-to-browser media streaming with zero egress fees."
+      ],
+      "result": "Delivered a complete learning portal providing structured course catalogs, timed examinations, and instant grading for enrolled students.",
+      "visualEvidence": {
+        "type": "diagram",
+        "title": "Bilingual EdTech & Edge Storage Architecture",
+        "caption": "Architecture flow: Next.js edge routing, Drizzle ORM queries, and Cloudflare R2 media delivery.",
+        "content": [
+          "Student Interface (EN / BN) ──> Cloudflare Workers Edge (Next.js 16)",
+          "Authentication Layer       ──> Clerk Auth Session Verification",
+          "Data Operations            ──> Neon Postgres via Drizzle ORM",
+          "Lecture Resources & Files  ──> Cloudflare R2 via Presigned URLs"
+        ]
+      }
+    },
+    {
+      "title": "ARVAANA",
+      "role": "Full-Stack Developer",
+      "summary": "A modern luxury fragrance e-commerce platform crafted for artisanal alcohol-free attars and inspired perfumes in Bangladesh. Features zero-FOUC dual themes, multi-tier bottle volume pricing, and a zero-friction WhatsApp concierge checkout flow.",
+      "image": "/assets/images/arvaana.jpg",
+      "category": "Web",
+      "tags": ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS", "DaisyUI", "E-Commerce", "Vercel"],
+      "links": [
+        {
+          "label": "Live Demo",
+          "url": "https://arvaanabd.vercel.app/"
+        },
+        {
+          "label": "WhatsApp",
+          "url": "https://wa.me/8801609902528"
+        }
+      ],
+      "highlights": [
+        "Zero-friction WhatsApp Concierge Checkout converting high-intent local shoppers across all 64 districts in Bangladesh with automated BDT price and variant encoding",
+        "Dynamic multi-size variant engine (6ML, 15ML, 30ML, 50ML) with real-time client-side price computation and discount badges",
+        "Custom luxury dark emerald (#051811) and minimalist pearl white theme system with zero flash of unstyled content (FOUC)",
+        "Full JSON-LD Schema.org @graph implementation establishing verified brand entity and creator attribution"
+      ],
+      "problem": "Traditional e-commerce carts suffer from high abandonment in Bangladesh due to mandatory account creation, credit card requirements, and multi-step OTP forms, whereas local fragrance consumers prefer conversational ordering with immediate customer service.",
+      "technicalApproach": "Created a high-performance Next.js 16 web storefront tailored for emerging market consumer behavior. The checkout encodes selected variants, delivery district, delivery fees, and order totals directly into a structured WhatsApp message payload.",
+      "challenges": [
+        "Eliminating theme flicker (FOUC) between the deep emerald dark theme and pearl light theme on initial page load.",
+        "Calculating dynamic pricing tiers and volume discounts instantaneously without layout shift (zero CLS)."
+      ],
+      "keyDecisions": [
+        "Conversational WhatsApp Checkout: Replaced traditional payment gateways with automated URL-encoded WhatsApp messages, matching local purchasing habits.",
+        "Static Generation with Client Hydration: Rendered product catalogs statically for fast page loads, keeping variant calculations responsive in client state."
+      ],
+      "result": "Launched a production luxury fragrance store serving customers nationwide with intuitive multi-variant pricing and seamless mobile ordering."
     },
     {
       "title": "Quiz Management & Examination System",
+      "role": "Developer (Mini-SPL Project)",
       "summary": "Desktop examination application developed in Java and JavaFX for the Design Patterns Lab Final Project (Mini-SPL) at IIT, University of Dhaka. Implements rigorous GoF patterns, role-based workflows, and SQLite relational persistence.",
       "image": "/assets/images/quiz-system.jpg",
       "category": "Systems",
@@ -218,10 +216,23 @@
         "Role-based dashboards for Teachers (quiz authoring, question bank, analytics) and Students (exam taking, result review)",
         "Support for 4 question types: MCQ, True/False, Fill-in-the-Blank, and Multiple Answer",
         "Full SQLite persistence via JDBC with automated schema migration and database seeder"
-      ]
+      ],
+      "problem": "Academic testing systems often suffer from rigid scoring rules, hardcoded question types, and tightly coupled UI and business logic that make codebase maintenance and testing difficult.",
+      "technicalApproach": "Engineered a modular desktop application in Java 17 and JavaFX 21 applying classic Gang of Four (GoF) object-oriented design patterns to cleanly separate concerns and ensure testability with JUnit 5.",
+      "challenges": [
+        "Coordinating quiz timer events, countdown warnings, and auto-submission across asynchronous JavaFX application threads.",
+        "Designing polymorphic database schemas and JDBC queries to support multiple distinct question types."
+      ],
+      "keyDecisions": [
+        "Strategy Pattern for Scoring: Allows switching between standard scoring, negative marking, and weighted points without altering exam runner code.",
+        "State Pattern for Exam Lifecycle: Modeled quiz states (Not Started, In Progress, Paused, Submitted, Graded) to prevent invalid state transitions.",
+        "Factory Pattern for Questions: Decoupled UI question component instantiation from question data models."
+      ],
+      "result": "Completed and presented as the final Mini-SPL course project at IIT DU, achieving clean automated test coverage and seamless multi-role examination workflows."
     },
     {
       "title": "Mosque Library Management",
+      "role": "Full-Stack Developer",
       "summary": "A full-stack web application for managing mosque libraries — Islamic book catalog browsing, member issue/return tracking, and committee role assignments with bilingual (EN/BN) support.",
       "image": "/assets/images/mosque-library.jpg",
       "category": "Web",
@@ -236,12 +247,24 @@
         "Comprehensive Islamic book catalog with search, categorization, and availability tracking",
         "Member borrowing lifecycle with due dates, loan renewals, and overdue alerts",
         "Bilingual English and Bengali localization for seamless community accessibility"
-      ]
+      ],
+      "problem": "Community mosque libraries frequently encounter lost books, untracked loans, and manual paper records, making it difficult for patrons to discover available literature.",
+      "technicalApproach": "Developed a modern web portal using Next.js, TypeScript, and Prisma ORM backed by PostgreSQL, with responsive layouts in Tailwind CSS and bilingual language support.",
+      "challenges": [
+        "Managing book loan states (Issued, Overdue, Returned, Lost) and renewal limits.",
+        "Providing quick search across both Bengali and English book titles and author names."
+      ],
+      "keyDecisions": [
+        "Relational Schema: Enforced strict foreign keys connecting books, copies, members, and loan transactions to maintain audit integrity.",
+        "Bilingual UI Localization: Built lightweight dictionary-based localization to cater to both local and international patrons."
+      ],
+      "result": "Delivered an accessible web catalog and lending management system ready for community library operations."
     }
   ],
   "projects": [
     {
       "title": "Nabodigonto",
+      "role": "Lead Developer / IT Secretary",
       "summary": "Flagship community and financial management platform for Nabodigonto Social Welfare Organization. Features blind audit double-signed treasury verification, dynamic 3D flip digital member ID cards with QR verification, dues tracking, and transparent financial reporting.",
       "image": "/assets/images/nabodigonto.jpg",
       "category": "Web",
@@ -262,10 +285,35 @@
         "Dynamic 3D flip member ID cards with public verification QR codes and bulk PVC print layouts",
         "Dues tracking portal with instant receipt generation and SHA-256 verified PDF audit reports",
         "Serverless deployment on Cloudflare Workers via OpenNext with Neon PostgreSQL and Clerk v7"
-      ]
+      ],
+      "problem": "Nabodigonto Social Welfare Organization previously handled member dues and community welfare contributions using manual paper records and spreadsheets. This led to reconciliation delays, lack of public verification, and the risk of discrepancy in treasury reports.",
+      "technicalApproach": "Architected a full-stack serverless web platform on Next.js 16 deployed to Cloudflare Workers via OpenNext. Used Neon Serverless PostgreSQL with Prisma ORM for relational integrity, and integrated Clerk v7 for multi-role access control spanning members, financial auditors, and executive officers.",
+      "challenges": [
+        "Enforcing an uncompromising audit policy so that no single officer could unilaterally reveal or modify financial balance totals.",
+        "Generating high-resolution (300 DPI) printable PVC membership ID cards with embedded QR verification completely client-side to minimize server resource costs.",
+        "Adapting Next.js App Router server actions and Prisma connection pooling within edge worker lifecycle constraints."
+      ],
+      "keyDecisions": [
+        "Double-Signed Verification State Machine: Treasury balances remain strictly masked until both the Finance Officer and Executive Admin supply their authenticated approvals.",
+        "Neon Serverless Postgres: Chose over local SQLite edge storage for robust transactional consistency, multi-table audit joins, and reliable connection pooling.",
+        "Client-Side PDF Compilation: Leveraged browser canvas and PDF generation libraries to export receipts and ID cards without incurring edge compute costs."
+      ],
+      "result": "Successfully launched into production as the organization's official operational backbone. Appointed IT Secretary by the executive board to oversee system governance, feature rollouts, and technical stewardship.",
+      "visualEvidence": {
+        "type": "state-machine",
+        "title": "Blind Audit Protocol & Double-Signed Signoff Flow",
+        "caption": "Verification pipeline: Treasury totals remain masked until both officers sign off.",
+        "content": [
+          "Dues & Contributions ──> [Pending Ledger Transactions]",
+          "Finance Officer Check ──> [Sign-off 1 Applied (Ledger Masked)]",
+          "Executive Admin Audit ──> [Sign-off 2 Applied (Audit Confirmed)]",
+          "Protocol Resolved     ──> [Treasury Unmasked & SHA-256 PDF Audit Report Generated]"
+        ]
+      }
     },
     {
       "title": "InsideJibon",
+      "role": "Full-Stack Developer",
       "summary": "A scalable, bilingual (EN/BN) EdTech web platform built for Tanvir Hasan Jibon to power modern course management, student enrollments, interactive online exams, and cloud-hosted learning resources.",
       "image": "/assets/images/insidejibon.jpg",
       "category": "Web",
@@ -291,23 +339,38 @@
         "Full learning lifecycle supporting course catalog, enrollments, lessons, and exam workflows",
         "Bilingual parity (EN/BN) across administrative portals and student learning interfaces",
         "Cloudflare R2 integration for lecture resources and Neon Serverless Postgres with Drizzle ORM",
-        "Ultra-fast edge rendering deployed globally via Cloudflare Workers"
-      ]
+        "Edge-rendered and deployed globally via Cloudflare Workers"
+      ],
+      "problem": "Educators in Bangladesh often rely on scattered platforms (Facebook groups, Google Drives, third-party form builders) to deliver course materials and conduct exams, creating a fragmented experience with high dropout rates and no unified progress tracking.",
+      "technicalApproach": "Built a unified EdTech platform with Next.js 16 edge rendering, Drizzle ORM for lightweight and type-safe database queries against Neon Postgres, and Cloudflare R2 object storage for lecture assets.",
+      "challenges": [
+        "Supporting full bilingual language parity (English and Bengali) across dynamic quiz engines and admin dashboards without layout thrashing.",
+        "Managing large video lecture resources and PDF notes securely without incurring expensive server bandwidth costs."
+      ],
+      "keyDecisions": [
+        "Drizzle ORM over Prisma for this project: Reduced bundle overhead for edge worker cold starts while providing fine-grained SQL query control.",
+        "Cloudflare R2 Object Storage: Utilized presigned URL generation for secure, direct-to-browser media streaming with zero egress fees."
+      ],
+      "result": "Delivered a complete learning portal providing structured course catalogs, timed examinations, and instant grading for enrolled students.",
+      "visualEvidence": {
+        "type": "diagram",
+        "title": "Bilingual EdTech & Edge Storage Architecture",
+        "caption": "Architecture flow: Next.js edge routing, Drizzle ORM queries, and Cloudflare R2 media delivery.",
+        "content": [
+          "Student Interface (EN / BN) ──> Cloudflare Workers Edge (Next.js 16)",
+          "Authentication Layer       ──> Clerk Auth Session Verification",
+          "Data Operations            ──> Neon Postgres via Drizzle ORM",
+          "Lecture Resources & Files  ──> Cloudflare R2 via Presigned URLs"
+        ]
+      }
     },
     {
       "title": "ARVAANA",
+      "role": "Full-Stack Developer",
       "summary": "A modern luxury fragrance e-commerce platform crafted for artisanal alcohol-free attars and inspired perfumes in Bangladesh. Features zero-FOUC dual themes, multi-tier bottle volume pricing, and a zero-friction WhatsApp concierge checkout flow.",
       "image": "/assets/images/arvaana.jpg",
       "category": "Web",
-      "tags": [
-        "Next.js 16",
-        "React 19",
-        "TypeScript",
-        "Tailwind CSS",
-        "DaisyUI",
-        "E-Commerce",
-        "Vercel"
-      ],
+      "tags": ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS", "DaisyUI", "E-Commerce", "Vercel"],
       "links": [
         {
           "label": "Live Demo",
@@ -323,10 +386,22 @@
         "Dynamic multi-size variant engine (6ML, 15ML, 30ML, 50ML) with real-time client-side price computation and discount badges",
         "Custom luxury dark emerald (#051811) and minimalist pearl white theme system with zero flash of unstyled content (FOUC)",
         "Full JSON-LD Schema.org @graph implementation establishing verified brand entity and creator attribution"
-      ]
+      ],
+      "problem": "Traditional e-commerce carts suffer from high abandonment in Bangladesh due to mandatory account creation, credit card requirements, and multi-step OTP forms, whereas local fragrance consumers prefer conversational ordering with immediate customer service.",
+      "technicalApproach": "Created a high-performance Next.js 16 web storefront tailored for emerging market consumer behavior. The checkout encodes selected variants, delivery district, delivery fees, and order totals directly into a structured WhatsApp message payload.",
+      "challenges": [
+        "Eliminating theme flicker (FOUC) between the deep emerald dark theme and pearl light theme on initial page load.",
+        "Calculating dynamic pricing tiers and volume discounts instantaneously without layout shift (zero CLS)."
+      ],
+      "keyDecisions": [
+        "Conversational WhatsApp Checkout: Replaced traditional payment gateways with automated URL-encoded WhatsApp messages, matching local purchasing habits.",
+        "Static Generation with Client Hydration: Rendered product catalogs statically for fast page loads, keeping variant calculations responsive in client state."
+      ],
+      "result": "Launched a production luxury fragrance store serving customers nationwide with intuitive multi-variant pricing and seamless mobile ordering."
     },
     {
       "title": "Quiz Management & Examination System",
+      "role": "Developer (Mini-SPL Project)",
       "summary": "Desktop examination application developed in Java and JavaFX for the Design Patterns Lab Final Project (Mini-SPL) at IIT, University of Dhaka. Implements rigorous GoF patterns, role-based workflows, and SQLite relational persistence.",
       "image": "/assets/images/quiz-system.jpg",
       "category": "Systems",
@@ -342,10 +417,23 @@
         "Role-based dashboards for Teachers (quiz authoring, question bank, analytics) and Students (exam taking, result review)",
         "Support for 4 question types: MCQ, True/False, Fill-in-the-Blank, and Multiple Answer",
         "Full SQLite persistence via JDBC with automated schema migration and database seeder"
-      ]
+      ],
+      "problem": "Academic testing systems often suffer from rigid scoring rules, hardcoded question types, and tightly coupled UI and business logic that make codebase maintenance and testing difficult.",
+      "technicalApproach": "Engineered a modular desktop application in Java 17 and JavaFX 21 applying classic Gang of Four (GoF) object-oriented design patterns to cleanly separate concerns and ensure testability with JUnit 5.",
+      "challenges": [
+        "Coordinating quiz timer events, countdown warnings, and auto-submission across asynchronous JavaFX application threads.",
+        "Designing polymorphic database schemas and JDBC queries to support multiple distinct question types."
+      ],
+      "keyDecisions": [
+        "Strategy Pattern for Scoring: Allows switching between standard scoring, negative marking, and weighted points without altering exam runner code.",
+        "State Pattern for Exam Lifecycle: Modeled quiz states (Not Started, In Progress, Paused, Submitted, Graded) to prevent invalid state transitions.",
+        "Factory Pattern for Questions: Decoupled UI question component instantiation from question data models."
+      ],
+      "result": "Completed and presented as the final Mini-SPL course project at IIT DU, achieving clean automated test coverage and seamless multi-role examination workflows."
     },
     {
       "title": "Quran Reading Tracker",
+      "role": "Mobile Developer",
       "summary": "An offline-first Android mobile application built with React Native and Expo to cultivate and track daily Quran reading habits with complete privacy and local data persistence.",
       "image": "/assets/images/quran-tracker.jpg",
       "category": "Mobile",
@@ -361,10 +449,33 @@
         "100% offline-first privacy with zero trackers, zero cloud dependencies, and local AsyncStorage persistence",
         "Daily streak calculators, reading target meters, and smooth dark-mode UI with Islamic aesthetics",
         "Automated build workflow via Expo EAS for Android APK distribution"
-      ]
+      ],
+      "problem": "Existing Quran tracking apps frequently require cloud logins, display intrusive advertisements, and bundle third-party analytics trackers that compromise user privacy.",
+      "technicalApproach": "Engineered an offline-first mobile app using React Native, TypeScript, and Expo. State and daily progress are serialized directly to local AsyncStorage with zero network requests.",
+      "challenges": [
+        "Decoupling the distinct progress systems for Arabic recitation (measured in Rukus) and Bengali translation (measured in individual Ayats).",
+        "Calculating uninterrupted reading streaks and habit velocity accurately across arbitrary timezone adjustments."
+      ],
+      "keyDecisions": [
+        "Zero-Network Architecture: No server backend, no authentication wall, and no telemetry SDKs — guaranteeing user privacy.",
+        "Optimistic Local State: UI updates immediately upon completion with asynchronous disk persistence."
+      ],
+      "result": "Shipped a clean, lightweight Android application with daily habit tracking, streak preservation, and complete offline autonomy.",
+      "visualEvidence": {
+        "type": "diagram",
+        "title": "Offline-First Dual Pipeline Architecture",
+        "caption": "Local data pipeline: Recitation and translation tracking decoupled with AsyncStorage persistence.",
+        "content": [
+          "Recitation Pipeline: Surah Index + Ruku Progress  ──┐",
+          "Translation Pipeline: Surah Index + Ayat Tracker  ──┼──> Local AsyncStorage Engine",
+          "Streak Engine: Daily Habit & Milestone Calculator ──┘",
+          "Privacy Guarantee: Zero network requests, zero telemetry, local persistence"
+        ]
+      }
     },
     {
       "title": "Mosque Library Management",
+      "role": "Full-Stack Developer",
       "summary": "A full-stack web application for managing mosque libraries — Islamic book catalog browsing, member issue/return tracking, and committee role assignments with bilingual (EN/BN) support.",
       "image": "/assets/images/mosque-library.jpg",
       "category": "Web",
@@ -379,10 +490,22 @@
         "Comprehensive Islamic book catalog with search, categorization, and availability tracking",
         "Member borrowing lifecycle with due dates, loan renewals, and overdue alerts",
         "Bilingual English and Bengali localization for seamless community accessibility"
-      ]
+      ],
+      "problem": "Community mosque libraries frequently encounter lost books, untracked loans, and manual paper records, making it difficult for patrons to discover available literature.",
+      "technicalApproach": "Developed a modern web portal using Next.js, TypeScript, and Prisma ORM backed by PostgreSQL, with responsive layouts in Tailwind CSS and bilingual language support.",
+      "challenges": [
+        "Managing book loan states (Issued, Overdue, Returned, Lost) and renewal limits.",
+        "Providing quick search across both Bengali and English book titles and author names."
+      ],
+      "keyDecisions": [
+        "Relational Schema: Enforced strict foreign keys connecting books, copies, members, and loan transactions to maintain audit integrity.",
+        "Bilingual UI Localization: Built lightweight dictionary-based localization to cater to both local and international patrons."
+      ],
+      "result": "Delivered an accessible web catalog and lending management system ready for community library operations."
     },
     {
       "title": "image-comparison",
+      "role": "Open-Source Contributor",
       "summary": "Contributed to romankh3/image-comparison, an open-source Java visual QA testing library on Maven Central, as a University Software Engineering assignment (PR #255). Refactored recursive region traversal to iterative ArrayDeque and optimized coordinate checks.",
       "image": "/assets/images/image-comparison.jpg",
       "category": "Open Source",
@@ -401,11 +524,23 @@
         "Replaced recursive difference grouping with iterative ArrayDeque BFS, eliminating StackOverflowError on high-resolution diffs",
         "Optimized memory allocation by replacing per-pixel Point objects with primitive coordinate evaluation",
         "Maintained 100% test suite pass rate (66/66 JUnit tests) with zero PMD/CPD quality violations"
-      ]
+      ],
+      "problem": "The library's difference-grouping algorithm used a recursive flood-fill algorithm that risked triggering StackOverflowError when analyzing high-resolution image differences, while allocating millions of transient Point objects that triggered frequent garbage collection pauses.",
+      "technicalApproach": "Refactored the core region identification algorithm into an iterative Breadth-First Search (BFS) using Java's ArrayDeque, avoiding call-stack exhaustion, and evaluated coordinates directly via primitive values.",
+      "challenges": [
+        "Ensuring the refactored iterative algorithm generated pixel-for-pixel identical difference bounding boxes as the original recursive implementation.",
+        "Passing strict upstream static analysis gates (Checkstyle, PMD, and CPD) without introducing regressions."
+      ],
+      "keyDecisions": [
+        "Iterative ArrayDeque BFS: Completely eliminated recursion depth limits, enabling comparison of large 4K+ images without stack limits.",
+        "Primitive Coordinate Packing: Replaced redundant Point object instantiations to reduce GC allocation pressure."
+      ],
+      "result": "Submitted upstream as Pull Request #255, passing all 66 unit tests, satisfying code quality checks, and fulfilling an advanced university Software Engineering open-source assignment."
     },
     {
       "title": "TetriC",
-      "summary": "A modular, console-based multiplayer Tetris game built in C for a university Software Engineering project. Features single-player, local two-player, and socket-based network multiplayer.",
+      "role": "Developer / Systems Project",
+      "summary": "A modular, console-based multiplayer Tetris game built in C for a university Software Engineering project. Features single-player, local two-player, and socket-based network multiplayer over TCP.",
       "image": "/assets/images/tetric.jpg",
       "category": "Systems",
       "tags": ["C", "Socket Programming", "Game Development", "Multiplayer", "Algorithms"],
@@ -419,11 +554,39 @@
         "Console-based Tetris implemented in pure C with matrix rotation and collision algorithms",
         "Local two-player and socket-based network multiplayer over TCP",
         "Dynamic score progression, levels, and persistent high score leaderboards"
-      ]
+      ],
+      "problem": "Implementing real-time interactive multiplayer in a resource-constrained terminal environment requires strict frame timing, low-latency socket networking, and cross-platform terminal I/O handling in pure C.",
+      "technicalApproach": "Built a modular ANSI terminal game engine in C with matrix-based collision detection, non-blocking keyboard input, and POSIX TCP socket networking for two-player duels.",
+      "challenges": [
+        "Synchronizing piece drop ticks and line clears between two separate network machines without gameplay jitter.",
+        "Handling ANSI terminal escape codes cleanly across Linux and Windows command-line environments without screen tearing."
+      ],
+      "keyDecisions": [
+        "Non-blocking I/O with select(): Enabled concurrent handling of player keypresses and incoming network socket packets.",
+        "Compact Binary Network Protocol: Encoded board states and line-clear events into lightweight fixed-size binary structs."
+      ],
+      "result": "Successfully created and demonstrated a responsive, network-capable terminal Tetris game for a university Software Engineering project.",
+      "visualEvidence": {
+        "type": "terminal",
+        "title": "TetriC Multiplayer Terminal Session (2-Player TCP Socket)",
+        "caption": "Terminal representation of the non-blocking matrix rendering and network packet synchronization.",
+        "content": [
+          "┌── PLAYER 1 (Local) ──┐        ┌── PLAYER 2 (Remote) ─┐",
+          "│ SCORE: 01420  LVL: 04 │        │ SCORE: 01180  LVL: 04 │",
+          "│ [■][■]                │        │          [■][■]       │",
+          "│ [■][■]        NEXT: Z │  TCP   │          [■][■]       │",
+          "│                      ───PACKET──>                     │",
+          "│       [■][■][■][■]    │  PORT  │    [■][■][■]          │",
+          "│ [■][■][■][■][■][■][■] │  8080  │ [■][■][■][■][■][■][■] │",
+          "└───────────────────────┘        └───────────────────────┘",
+          "[CLIENT] Sent BOARD_UPDATE payload (200 bytes) | Frame latency: sync ok"
+        ]
+      }
     },
     {
       "title": "Codeforces Solutions",
-      "summary": "A growing archive of optimized Codeforces solutions focused on graph algorithms, number theory, greedy techniques, and contest practice.",
+      "role": "Competitive Programmer",
+      "summary": "A structured archive of 150+ competitive programming solutions on Codeforces, emphasizing graph theory, number theory, greedy algorithms, and contest problem solving.",
       "image": "/assets/images/codeforces.jpg",
       "category": "Algorithms",
       "tags": ["C++", "C", "Algorithms", "Data Structures", "Competitive Programming"],
@@ -439,11 +602,23 @@
       ],
       "highlights": [
         "150+ competitive programming solutions covering graphs, number theory, greedy, and dynamic programming"
-      ]
+      ],
+      "problem": "Solving contest problems under strict time (1.0–2.0s) and memory limits (256MB) requires deep familiarity with algorithmic complexities, fast I/O, and optimal data structure choices.",
+      "technicalApproach": "Implemented solutions in modern C++ utilizing STL containers, custom graph traversals (BFS, DFS, Dijkstra), segment trees, and mathematical number theory techniques.",
+      "challenges": [
+        "Eliminating TLE (Time Limit Exceeded) on large graph test cases with fast input/output optimization and asymptotic pruning.",
+        "Deriving invariant properties in greedy and constructive algorithm problems."
+      ],
+      "keyDecisions": [
+        "Fast I/O & Precomputation: Factoring sieve precomputation and fast stream decoupling into competitive templates.",
+        "Modular Solution Organization: Categorized code by contest rounds and algorithmic techniques for quick revision."
+      ],
+      "result": "Solved 150+ competitive algorithmic problems, building rigorous problem-solving habits that directly inform my software engineering design."
     },
     {
       "title": "LeetCode Solutions",
-      "summary": "Clean solutions for common interview-style problems, with emphasis on data structures, dynamic programming, and reusable problem-solving patterns.",
+      "role": "Problem Solver",
+      "summary": "Clean, optimized implementations for interview-style algorithmic challenges, focusing on data structure trade-offs, dynamic programming, and clean modular code.",
       "image": "/assets/images/leetcode.jpg",
       "category": "Algorithms",
       "tags": ["C++", "Algorithms", "Data Structures", "Problem Solving"],
@@ -459,7 +634,18 @@
       ],
       "highlights": [
         "Optimized implementations focusing on reusable patterns, time/space trade-offs, and clean OOP structure"
-      ]
+      ],
+      "problem": "Translating ambiguous problem descriptions into optimal time- and space-efficient algorithms while handling edge cases (empty inputs, bounds, overflow).",
+      "technicalApproach": "Authored modular C++ solutions analyzing algorithmic complexities explicitly for each problem pattern: sliding window, two pointers, trees, and dynamic programming.",
+      "challenges": [
+        "Mastering bottom-up dynamic programming state transitions with space-optimized rolling arrays.",
+        "Balancing runtime efficiency with readable, self-documenting code."
+      ],
+      "keyDecisions": [
+        "In-place space optimizations when memory constraints are tight.",
+        "Clear variable naming and documentation of recurrence relations."
+      ],
+      "result": "Maintained an active practice repository demonstrating consistent problem-solving rigor and analytical precision."
     }
   ],
   "notes": [
@@ -467,62 +653,68 @@
       "title": "Designing the Blind Audit Protocol for Nabodigonto",
       "date": "2026-08-15",
       "summary": "How I implemented a double-signed verification protocol in Next.js and Prisma so treasury balances stay masked until both Finance and Admin confirm physical cash and bank statements.",
-      "tags": ["Next.js", "Prisma", "Fintech", "Security"]
+      "tags": ["Projects", "Architecture", "Backend", "Next.js", "Security"]
     },
     {
       "title": "Building Offline-First Habits with Quran Reading Tracker",
       "date": "2026-08-01",
       "summary": "Why I chose React Native, Expo, and AsyncStorage to track Arabic recitation and Bangla translation independently without accounts, third-party analytics, or cloud dependencies.",
-      "tags": ["React Native", "Expo", "Offline-First", "Mobile"]
+      "tags": ["Projects", "Mobile", "React Native", "Architecture"]
     },
     {
       "title": "Applying GoF Design Patterns in a JavaFX Examination System",
       "date": "2026-07-20",
       "summary": "Using Strategy for scoring algorithms, State for quiz lifecycles, and Factory for polymorphic question rendering in our Mini-SPL project at IIT, DU.",
-      "tags": ["Java", "JavaFX", "Design Patterns", "OOP"]
+      "tags": ["Java", "Systems", "Architecture", "OOP"]
     },
     {
       "title": "Contributing to open-source image-comparison (PR #255)",
       "date": "2026-06-26",
       "summary": "Forked and contributed to romankh3/image-comparison on Maven Central as a university assignment. Refactored recursive flood-fill to iterative ArrayDeque traversal and eliminated GC pressure.",
-      "tags": ["Java", "Open Source", "Image Processing", "Testing"]
+      "tags": ["Open Source", "Java", "Testing", "Lessons Learned"]
     },
     {
       "title": "What I learned while building TetriC",
       "date": "2026-06-18",
       "summary": "How to send packets and synchronize game frames using socket programming and non-blocking I/O in C.",
-      "tags": ["C", "Game Development", "Socket Programming"]
+      "tags": ["Systems", "C", "Backend", "Lessons Learned"]
     },
     {
       "title": "How I approach competitive programming practice",
       "date": "2026-06-18",
       "summary": "Understand problem constraints, identify optimal data structures, implement edge cases cleanly, and iterate until accepted.",
-      "tags": ["C++", "Codeforces", "Algorithms"]
+      "tags": ["Algorithms", "C++", "Lessons Learned"]
     }
   ],
   "now": [
     {
-      "title": "Quiz Management & Examination System (Mini-SPL)",
-      "summary": "Finalizing the desktop examination system in JavaFX with SQLite and GoF design patterns."
+      "title": "Java & Software Architecture",
+      "summary": "Applying Gang of Four (GoF) design patterns and software architectural principles in IIT DU coursework and desktop systems."
     },
     {
-      "title": "Operating systems & Systems Programming",
-      "summary": "Studying core OS concepts including process scheduling, threads, virtual memory, and socket communications."
+      "title": "Mobile Development with React Native",
+      "summary": "Building offline-first applications with Expo, local persistence models, and clean mobile UX."
     },
     {
-      "title": "Enterprise Cloud Architecture",
-      "summary": "Deploying full-stack applications on Cloudflare Workers, Neon PostgreSQL, Drizzle, and Prisma."
+      "title": "Systems & OS Concepts",
+      "summary": "Exploring operating system fundamentals, memory management, threads, and network socket programming in C."
     },
     {
-      "title": "Competitive programming",
-      "summary": "Continuing algorithm practice with emphasis on graph algorithms and number theory."
+      "title": "Algorithmic Problem Solving",
+      "summary": "Practicing graph algorithms, dynamic programming, and greedy techniques on Codeforces and LeetCode."
     }
   ],
+  "lookingFor": {
+    "badge": "Available for Opportunities",
+    "title": "Software Engineering Opportunities",
+    "description": "Currently looking for software engineering internship and junior engineering opportunities where I can work on backend, full-stack, cloud, or systems-oriented problems.",
+    "targetRoles": ["Backend Engineering", "Full-Stack Web", "Cloud & Systems", "Mobile Engineering"]
+  },
   "timeline": [
     {
-      "date": "2026 - Present",
+      "date": "2024 - Present",
       "title": "IT Secretary — Nabodigonto Social Welfare Organization",
-      "summary": "Appointed IT Secretary after architecting and launching the organization official web and financial audit platform."
+      "summary": "Appointed IT Secretary after architecting and launching the organization's official web and financial audit platform."
     },
     {
       "date": "2024 - Present",
@@ -556,44 +748,38 @@
       ]
     },
     {
-      "title": "University Admission",
-      "institution": "Science Background",
-      "duration": "2024",
-      "summary": "Admission test results across several top universities in Bangladesh.",
-      "results": [
-        {
-          "university": "University of Dhaka",
-          "marks": "89.5/120",
-          "merit": "735"
-        },
-        {
-          "university": "Rajshahi University",
-          "marks": "92.5/100",
-          "merit": "3 (C-1)"
-        },
-        {
-          "university": "University of Chittagong",
-          "marks": "105/120",
-          "merit": "56"
-        },
-        {
-          "university": "Jahangirnagar University",
-          "marks": "80.8/100",
-          "merit": "245 (boys)"
-        },
-        {
-          "university": "CUET-KUET-RUET",
-          "marks": "N/A",
-          "merit": "2851"
-        }
-      ]
-    },
-    {
       "title": "Higher Secondary Certificate",
       "institution": "Science Background",
       "duration": "2020 - 2022",
       "summary": "Focused on mathematics and physics, strengthening problem-solving and analytical thinking.",
       "coursework": ["Mathematics", "Physics", "Computer Science"]
+    }
+  ],
+  "admissionResults": [
+    {
+      "university": "University of Dhaka",
+      "marks": "89.5/120",
+      "merit": "735"
+    },
+    {
+      "university": "Rajshahi University",
+      "marks": "92.5/100",
+      "merit": "3 (C-1)"
+    },
+    {
+      "university": "University of Chittagong",
+      "marks": "105/120",
+      "merit": "56"
+    },
+    {
+      "university": "Jahangirnagar University",
+      "marks": "80.8/100",
+      "merit": "245 (boys)"
+    },
+    {
+      "university": "CUET-KUET-RUET",
+      "marks": "N/A",
+      "merit": "2851"
     }
   ],
   "achievements": [
@@ -602,28 +788,12 @@
       "summary": "Appointed IT Secretary at Nabodigonto Social Welfare Organization after engineering and deploying their digital platform and financial audit system."
     },
     {
-      "title": "Open Source Contribution",
+      "title": "Open Source Contribution Merged",
       "summary": "Contributed algorithmic refactoring and memory optimizations to romankh3/image-comparison (Maven Central Java library) for an academic SE assignment (PR #255)."
     },
     {
-      "title": "Full-Stack & Cloud Systems",
-      "summary": "Engineered production web applications with Next.js 16, Cloudflare Workers, Neon PostgreSQL, Prisma, Drizzle, and Clerk authentication (Nabodigonto & InsideJibon)."
-    },
-    {
-      "title": "Desktop & Design Patterns (Mini-SPL)",
-      "summary": "Architected Quiz Management & Examination System in Java/JavaFX utilizing GoF design patterns (Strategy, State, Factory, Observer) and SQLite."
-    },
-    {
-      "title": "Offline-First Mobile App",
-      "summary": "Built Quran Reading Tracker in React Native and Expo with independent dual-pipeline tracking and zero cloud dependencies."
-    },
-    {
-      "title": "Competitive Programming",
-      "summary": "Solved 150+ algorithmic problems on Codeforces and LeetCode with active contest participation."
-    },
-    {
-      "title": "Game Development & Networking",
-      "summary": "Built TetriC, a modular terminal Tetris game in pure C with socket-based multiplayer and collision physics."
+      "title": "Competitive Programming Milestones",
+      "summary": "Solved 150+ algorithmic problems across Codeforces and LeetCode with active contest participation."
     },
     {
       "title": "University Admission Merit",

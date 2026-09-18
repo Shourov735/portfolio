@@ -26,9 +26,9 @@ export function About() {
               and resilient full-stack platforms.
             </p>
             <p className="text-[var(--color-muted)] text-base md:text-[1.0625rem] leading-relaxed">
-              Over 1,500 problems solved in competitive programming have trained me to reason deeply under
-              strict performance and memory constraints. I channel that rigor into engineering real-world
-              software — such as architecting the flagship double-signed treasury system for{" "}
+              150+ problems solved in competitive programming have trained me to reason deeply under strict
+              performance and memory constraints. I channel that rigor into engineering real-world software —
+              such as architecting the flagship double-signed treasury system for{" "}
               <strong className="text-[var(--color-text)] font-semibold">Nabodigonto</strong>, where I was
               subsequently appointed as{" "}
               <strong className="text-[var(--color-text)] font-semibold">IT Secretary</strong>.

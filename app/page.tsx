@@ -18,11 +18,11 @@ export default function Home() {
       <StatsBand />
       <Spotlight />
       <Projects />
+      <CurrentlyLooking />
       <Skills />
       <About />
       <Education />
       <LatestPosts />
-      <CurrentlyLooking />
       <NowLearning />
       <ResumeCTA />
       <Contact />

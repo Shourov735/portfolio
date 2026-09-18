@@ -121,10 +121,9 @@ export interface PortfolioContent {
   projects: Project[]
   notes: Note[]
   now: NowItem[]
-  timeline: TimelineItem[]
   education: EducationItem[]
-  admissionResults?: EducationResult[]
-  achievements: Achievement[]
+  timeline?: TimelineItem[]
+  achievements?: Achievement[]
   testimonials: string[]
   lookingFor?: LookingFor
 }

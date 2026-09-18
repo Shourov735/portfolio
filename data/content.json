@@ -56,7 +56,10 @@
         { "name": "Python" },
         { "name": "MySQL" },
         { "name": "Prisma ORM" },
-        { "name": "Firebase" }
+        { "name": "Firebase" },
+        { "name": "MongoDB" },
+        { "name": "Supabase" },
+        { "name": "SQL Indexing & Optimization" }
       ]
     }
   ],
@@ -692,12 +695,12 @@
       "summary": "Applying Gang of Four (GoF) design patterns and software architectural principles in IIT DU coursework and desktop systems."
     },
     {
-      "title": "Mobile Development with React Native",
-      "summary": "Building offline-first applications with Expo, local persistence models, and clean mobile UX."
+      "title": "Database Management Systems (DBMS)",
+      "summary": "Studying relational schema design, ACID transactions, B-Tree indexing, and query optimization strategies in IIT DU coursework."
     },
     {
-      "title": "Systems & OS Concepts",
-      "summary": "Exploring operating system fundamentals, memory management, threads, and network socket programming in C."
+      "title": "Operating Systems & Concurrency",
+      "summary": "Deepening understanding of process scheduling, synchronization primitives (mutexes, semaphores), multithreading, and memory management in C/Linux."
     },
     {
       "title": "Algorithmic Problem Solving",
@@ -710,28 +713,6 @@
     "description": "Currently looking for software engineering internship and junior engineering opportunities where I can work on backend, full-stack, cloud, or systems-oriented problems.",
     "targetRoles": ["Backend Engineering", "Full-Stack Web", "Cloud & Systems", "Mobile Engineering"]
   },
-  "timeline": [
-    {
-      "date": "2024 - Present",
-      "title": "IT Secretary — Nabodigonto Social Welfare Organization",
-      "summary": "Appointed IT Secretary after architecting and launching the organization's official web and financial audit platform."
-    },
-    {
-      "date": "2024 - Present",
-      "title": "BSc in Software Engineering",
-      "summary": "Studying software engineering at the Institute of Information Technology (IIT), University of Dhaka."
-    },
-    {
-      "date": "2024",
-      "title": "University Admission Milestone",
-      "summary": "Secured merit position 735 at University of Dhaka and merit 3 at Rajshahi University admission tests."
-    },
-    {
-      "date": "2020 - 2022",
-      "title": "Higher Secondary Certificate",
-      "summary": "Built a solid foundation in mathematics, physics, and computer science principles."
-    }
-  ],
   "education": [
     {
       "title": "Bachelor of Science in Software Engineering",
@@ -748,56 +729,44 @@
       ]
     },
     {
+      "title": "University Admission",
+      "institution": "Science Background",
+      "duration": "2024",
+      "summary": "Admission test results across several top universities in Bangladesh.",
+      "results": [
+        {
+          "university": "University of Dhaka",
+          "marks": "89.5/120",
+          "merit": "735"
+        },
+        {
+          "university": "Rajshahi University",
+          "marks": "92.5/100",
+          "merit": "3 (C-1)"
+        },
+        {
+          "university": "University of Chittagong",
+          "marks": "105/120",
+          "merit": "56"
+        },
+        {
+          "university": "Jahangirnagar University",
+          "marks": "80.8/100",
+          "merit": "245 (boys)"
+        },
+        {
+          "university": "CUET-KUET-RUET",
+          "marks": "N/A",
+          "merit": "2851"
+        }
+      ]
+    },
+    {
       "title": "Higher Secondary Certificate",
       "institution": "Science Background",
       "duration": "2020 - 2022",
       "summary": "Focused on mathematics and physics, strengthening problem-solving and analytical thinking.",
       "coursework": ["Mathematics", "Physics", "Computer Science"]
-    }
-  ],
-  "admissionResults": [
-    {
-      "university": "University of Dhaka",
-      "marks": "89.5/120",
-      "merit": "735"
-    },
-    {
-      "university": "Rajshahi University",
-      "marks": "92.5/100",
-      "merit": "3 (C-1)"
-    },
-    {
-      "university": "University of Chittagong",
-      "marks": "105/120",
-      "merit": "56"
-    },
-    {
-      "university": "Jahangirnagar University",
-      "marks": "80.8/100",
-      "merit": "245 (boys)"
-    },
-    {
-      "university": "CUET-KUET-RUET",
-      "marks": "N/A",
-      "merit": "2851"
-    }
-  ],
-  "achievements": [
-    {
-      "title": "IT Secretary Appointment",
-      "summary": "Appointed IT Secretary at Nabodigonto Social Welfare Organization after engineering and deploying their digital platform and financial audit system."
-    },
-    {
-      "title": "Open Source Contribution Merged",
-      "summary": "Contributed algorithmic refactoring and memory optimizations to romankh3/image-comparison (Maven Central Java library) for an academic SE assignment (PR #255)."
-    },
-    {
-      "title": "Competitive Programming Milestones",
-      "summary": "Solved 150+ algorithmic problems across Codeforces and LeetCode with active contest participation."
-    },
-    {
-      "title": "University Admission Merit",
-      "summary": "Achieved merit position 735 at University of Dhaka and merit 3 at Rajshahi University admission tests."
     }
   ],
   "testimonials": []

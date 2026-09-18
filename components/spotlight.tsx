@@ -66,27 +66,7 @@ export function Spotlight() {
                               Featured
                             </span>
                           )}
-                          {project.role && (
-                            <>
-                              <span aria-hidden="true" className="text-[var(--color-line)]">
-                                ·
-                              </span>
-                              <span className="text-[11px] font-mono text-[var(--color-text)] bg-[var(--color-surface-muted)] px-2 py-0.5 rounded border border-[var(--color-line)]">
-                                {project.role}
-                              </span>
-                            </>
-                          )}
                         </div>
-
-                        {index === 0 && (
-                          <div className="mb-4 inline-flex items-center gap-2 text-xs font-mono text-[var(--color-primary-strong)] bg-[var(--color-primary)]/10 px-3 py-1.5 rounded-md border border-[var(--color-primary)]/20">
-                            <span>Real Organization</span>
-                            <span aria-hidden="true">→</span>
-                            <span>Real Engineering Responsibility</span>
-                            <span aria-hidden="true">→</span>
-                            <span>Production Deployment</span>
-                          </div>
-                        )}
 
                         <h3 className="font-display text-3xl md:text-4xl text-[var(--color-text)] tracking-tight leading-[1.05] text-balance">
                           <Link href={`/projects/${slug}`} className="link-underline">

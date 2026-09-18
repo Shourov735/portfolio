@@ -14,11 +14,12 @@ export function Education() {
             <p className="eyebrow">Academic Foundation</p>
             <h2>Rigorous computer science & software engineering education.</h2>
             <p className="text-[var(--color-muted)] max-w-[620px] mt-2 text-base">
-              Formal degree coursework at the Institute of Information Technology, University of Dhaka.
+              Formal degree coursework at IIT, University of Dhaka, coupled with national admission merit
+              records.
             </p>
           </div>
         </ScrollReveal>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {items.map((item) => (
             <ScrollReveal key={item.title}>
               <article className="h-full border border-[var(--color-line)] rounded-xl bg-[var(--color-surface)] p-6 hover:border-[var(--color-primary)] transition-colors flex flex-col">

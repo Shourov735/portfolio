@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "build:resume": "google-chrome --headless=new --disable-gpu --no-pdf-header-footer --print-to-pdf=public/assets/resume/Md-Shourov-Resume.pdf file://$(pwd)/public/assets/resume/resume.html && cp public/assets/resume/Md-Shourov-Resume.pdf assets/resume/Md-Shourov-Resume.pdf"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

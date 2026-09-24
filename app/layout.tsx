@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     template: "%s · Md. Shourov",
   },
   description:
-    "Md. Shourov (Shourov735 / mdshourov) is a Software Engineering student at IIT, University of Dhaka (BSSE) and IT Secretary at Nabodigonto, building real-world web, mobile, and backend systems.",
+    "Md. Shourov (Shourov735) is a Software Engineering student at IIT, University of Dhaka (BSSE) building real-world web, mobile, and backend systems.",
   keywords: [
     "Md Shourov",
     "Md. Shourov",
@@ -144,6 +144,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
     nocache: false,
+    "max-video-preview": -1,
+    "max-image-preview": "large",
+    "max-snippet": -1,
     googleBot: {
       index: true,
       follow: true,

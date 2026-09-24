@@ -9,6 +9,7 @@
     "lint": "eslint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "indexnow": "node scripts/submit-indexnow.mjs",
     "build:resume": "google-chrome --headless=new --disable-gpu --no-pdf-header-footer --print-to-pdf=public/assets/resume/Md-Shourov-Resume.pdf file://$(pwd)/public/assets/resume/resume.html && cp public/assets/resume/Md-Shourov-Resume.pdf assets/resume/Md-Shourov-Resume.pdf"
   },
   "dependencies": {

@@ -50,6 +50,7 @@ export interface VisualEvidence {
 export interface Project {
   title: string
   summary: string
+  metaDescription?: string
   image: string
   category: string
   tags: string[]

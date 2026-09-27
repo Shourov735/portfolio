@@ -34,7 +34,7 @@
    - Serverless community & treasury portal deployed globally on Cloudflare Workers edge via OpenNext.
    - GitHub: https://github.com/Shourov735/nabodigonto
 2. **InsideJibon** (Web): https://insidejibon.shourov.workers.dev
-   - Scalable bilingual (English/Bengali) EdTech management platform with interactive exams and Cloudflare R2 storage.
+   - High-performance bilingual (English/Bengali) EdTech platform on Cloudflare Workers edge featuring Durable Objects live classrooms, Workers AI & Vectorize RAG tutoring over video captions, and gamification streaks.
    - GitHub: https://github.com/Shourov735/InsideJibon
 3. **ARVAANA Fragrances** (Web E-Commerce): https://arvaanabd.vercel.app
    - Luxury fragrance e-commerce platform for artisanal alcohol-free attars and inspired perfumes in Bangladesh with zero-FOUC dual themes, multi-tier variant pricing, and WhatsApp concierge checkout.

@@ -117,17 +117,20 @@
     {
       "title": "InsideJibon",
       "role": "Full-Stack Developer",
-      "summary": "A scalable, bilingual (EN/BN) EdTech web platform built for Tanvir Hasan Jibon to power modern course management, student enrollments, interactive online exams, and cloud-hosted learning resources.",
-      "metaDescription": "Scalable bilingual EdTech web platform for course management, secure student enrollments, interactive quizzes, and automated PDF certificates.",
+      "summary": "A high-performance, bilingual (EN/BN) EdTech platform re-engineered on Cloudflare Workers edge. Features Durable Objects live classrooms, Workers AI & Vectorize RAG tutoring over video captions, Duolingo-style study streaks, and a zero-egress YouTube streaming pipeline under a $0/mo subscription constraint.",
+      "metaDescription": "High-performance bilingual EdTech platform on Cloudflare Workers featuring Durable Objects live classrooms, Workers AI RAG tutoring, and gamification streaks.",
       "image": "/assets/images/insidejibon.jpg",
       "category": "Web",
       "tags": [
         "Next.js 16",
         "Cloudflare Workers",
+        "Durable Objects",
+        "Workers AI",
+        "Vectorize",
         "Drizzle ORM",
         "Neon Postgres",
-        "Cloudflare R2",
-        "Clerk Auth"
+        "Clerk Auth",
+        "Tailwind CSS"
       ],
       "links": [
         {
@@ -140,31 +143,36 @@
         }
       ],
       "highlights": [
-        "End-to-end learning lifecycle supporting course catalogs, student enrollments, lessons, and interactive exams",
-        "Bilingual parity (EN/BN) across administrative dashboards and student learning interfaces",
-        "Cloudflare R2 integration for lecture resources and Neon Serverless Postgres with Drizzle ORM",
-        "Edge-rendered and deployed globally via Cloudflare Workers"
+        "Real-time live classrooms powered by Cloudflare Durable Objects managing presence, moderated chat, hand-raising, and server-side attendance",
+        "$0-subscription AI tutor combining Cloudflare Workers AI with Vectorize RAG indexing video auto-captions with exact-second timestamp citations",
+        "Duolingo-grade gamification engine with an immutable XP ledger, daily study streaks with freeze protection, and weekly league cohorts",
+        "Zero-cost video architecture serving unlisted YouTube embeds via youtube-nocookie with debounced playback position resume",
+        "Edge performance hardening with Cloudflare Cache API tag invalidation and a complete SQL projection sweep eliminating SELECT * across all services",
+        "Dedicated read-only parent portal with student grade tracking, attendance monitoring, and automated transactional emails via Cloudflare Email Service"
       ],
-      "problem": "Educators in Bangladesh often rely on scattered platforms (Facebook groups, Google Drives, third-party form builders) to deliver course materials and conduct exams, creating a fragmented experience with high dropout rates and no unified progress tracking.",
-      "technicalApproach": "Built a unified EdTech platform with Next.js 16 edge rendering, Drizzle ORM for lightweight and type-safe database queries against Neon Postgres, and Cloudflare R2 object storage for lecture assets.",
+      "problem": "Traditional EdTech platforms struggle with high SaaS operational costs—video egress, transcode fees, WebSockets, and AI token pricing—making high-quality digital learning unaffordable for grassroots educators and students in Bangladesh.",
+      "technicalApproach": "Architected a $0/month subscription EdTech engine on Cloudflare Workers edge using Next.js 16 via OpenNext. Replaced expensive third-party SaaS with Cloudflare native primitives: Durable Objects for real-time classrooms, Workers AI and Vectorize for in-house RAG tutoring, Cloudflare Cache API for surrogate-tag edge caching, and unlisted YouTube streaming for zero-cost video egress.",
       "challenges": [
-        "Supporting full bilingual language parity (English and Bengali) across dynamic quiz engines and admin dashboards without layout thrashing.",
-        "Managing large video lecture resources and PDF notes securely without incurring expensive server bandwidth costs."
+        "Bundling custom Durable Objects with OpenNext, requiring a specialized post-build compiler script to export ClassroomRoom cleanly into the worker runtime.",
+        "Building a bilingual RAG retrieval pipeline across Bengali and English queries without exceeding free-tier edge memory and inference budgets.",
+        "Designing immutable Postgres indexes for sliding-window mutation deduplication where timestamptz expressions are only STABLE."
       ],
       "keyDecisions": [
-        "Drizzle ORM over Prisma for this project: Reduced bundle overhead for edge worker cold starts while providing fine-grained SQL query control.",
-        "Cloudflare R2 Object Storage: Utilized presigned URL generation for secure, direct-to-browser media streaming with zero egress fees."
+        "Durable Objects over Managed WebSockets: Colocated state, presence, and chat in isolated edge actors with SQLite persistence, zero server management, and no monthly fees.",
+        "YouTube-First Video Pipeline: Leveraged unlisted embeds and public oEmbed validation over expensive dedicated video storage, eliminating 100% of video bandwidth and transcode costs.",
+        "Explicit SQL Projections: Replaced all unbounded SELECT * queries across 13 services with narrow column projections, cutting edge payload sizes and cold starts significantly."
       ],
-      "result": "Delivered a complete learning portal providing structured course catalogs, timed examinations, and instant grading for enrolled students.",
+      "result": "Successfully remastered InsideJibon into a production-grade, masterclass platform featuring live classes, AI assistance, habit-forming gamification, and full bilingual parity at zero monthly subscription cost.",
       "visualEvidence": {
         "type": "diagram",
-        "title": "Bilingual EdTech & Edge Storage Architecture",
-        "caption": "Architecture flow: Next.js edge routing, Drizzle ORM queries, and Cloudflare R2 media delivery.",
+        "title": "$0-Cost Edge Architecture & Real-Time Classroom Pipeline",
+        "caption": "Architecture: Next.js edge routing, Durable Objects live presence, Vectorize RAG tutoring, and Neon Postgres.",
         "content": [
-          "Student Interface (EN / BN) ──> Cloudflare Workers Edge (Next.js 16)",
-          "Authentication Layer       ──> Clerk Auth Session Verification",
-          "Data Operations            ──> Neon Postgres via Drizzle ORM",
-          "Lecture Resources & Files  ──> Cloudflare R2 via Presigned URLs"
+          "Edge Gateway ─────────> Cloudflare Workers (Next.js 16 via OpenNext) + Cache API",
+          "Live Classroom Room ──> Cloudflare Durable Object (WebSockets, Presence, Chat, SQLite)",
+          "AI Tutor Pipeline   ──> Vectorize (lessons_v1) + Workers AI (@cf/m2m100 & bge)",
+          "Relational Database ──> Neon Serverless Postgres via Drizzle ORM (Explicit Projections)",
+          "Video Streaming     ──> YouTube Unlisted CDN (youtube-nocookie) + Position Sync"
         ]
       }
     },
@@ -323,17 +331,20 @@
     {
       "title": "InsideJibon",
       "role": "Full-Stack Developer",
-      "summary": "A scalable, bilingual (EN/BN) EdTech web platform built for Tanvir Hasan Jibon to power modern course management, student enrollments, interactive online exams, and cloud-hosted learning resources.",
-      "metaDescription": "Scalable bilingual EdTech web platform for course management, secure student enrollments, interactive quizzes, and automated PDF certificates.",
+      "summary": "A high-performance, bilingual (EN/BN) EdTech platform re-engineered on Cloudflare Workers edge. Features Durable Objects live classrooms, Workers AI & Vectorize RAG tutoring over video captions, Duolingo-style study streaks, and a zero-egress YouTube streaming pipeline under a $0/mo subscription constraint.",
+      "metaDescription": "High-performance bilingual EdTech platform on Cloudflare Workers featuring Durable Objects live classrooms, Workers AI RAG tutoring, and gamification streaks.",
       "image": "/assets/images/insidejibon.jpg",
       "category": "Web",
       "tags": [
         "Next.js 16",
         "Cloudflare Workers",
+        "Durable Objects",
+        "Workers AI",
+        "Vectorize",
         "Drizzle ORM",
         "Neon Postgres",
-        "Cloudflare R2",
-        "Clerk Auth"
+        "Clerk Auth",
+        "Tailwind CSS"
       ],
       "links": [
         {
@@ -346,31 +357,36 @@
         }
       ],
       "highlights": [
-        "Full learning lifecycle supporting course catalog, enrollments, lessons, and exam workflows",
-        "Bilingual parity (EN/BN) across administrative portals and student learning interfaces",
-        "Cloudflare R2 integration for lecture resources and Neon Serverless Postgres with Drizzle ORM",
-        "Edge-rendered and deployed globally via Cloudflare Workers"
+        "Real-time live classrooms powered by Cloudflare Durable Objects managing presence, moderated chat, hand-raising, and server-side attendance",
+        "$0-subscription AI tutor combining Cloudflare Workers AI with Vectorize RAG indexing video auto-captions with exact-second timestamp citations",
+        "Duolingo-grade gamification engine with an immutable XP ledger, daily study streaks with freeze protection, and weekly league cohorts",
+        "Zero-cost video architecture serving unlisted YouTube embeds via youtube-nocookie with debounced playback position resume",
+        "Edge performance hardening with Cloudflare Cache API tag invalidation and a complete SQL projection sweep eliminating SELECT * across all services",
+        "Dedicated read-only parent portal with student grade tracking, attendance monitoring, and automated transactional emails via Cloudflare Email Service"
       ],
-      "problem": "Educators in Bangladesh often rely on scattered platforms (Facebook groups, Google Drives, third-party form builders) to deliver course materials and conduct exams, creating a fragmented experience with high dropout rates and no unified progress tracking.",
-      "technicalApproach": "Built a unified EdTech platform with Next.js 16 edge rendering, Drizzle ORM for lightweight and type-safe database queries against Neon Postgres, and Cloudflare R2 object storage for lecture assets.",
+      "problem": "Traditional EdTech platforms struggle with high SaaS operational costs—video egress, transcode fees, WebSockets, and AI token pricing—making high-quality digital learning unaffordable for grassroots educators and students in Bangladesh.",
+      "technicalApproach": "Architected a $0/month subscription EdTech engine on Cloudflare Workers edge using Next.js 16 via OpenNext. Replaced expensive third-party SaaS with Cloudflare native primitives: Durable Objects for real-time classrooms, Workers AI and Vectorize for in-house RAG tutoring, Cloudflare Cache API for surrogate-tag edge caching, and unlisted YouTube streaming for zero-cost video egress.",
       "challenges": [
-        "Supporting full bilingual language parity (English and Bengali) across dynamic quiz engines and admin dashboards without layout thrashing.",
-        "Managing large video lecture resources and PDF notes securely without incurring expensive server bandwidth costs."
+        "Bundling custom Durable Objects with OpenNext, requiring a specialized post-build compiler script to export ClassroomRoom cleanly into the worker runtime.",
+        "Building a bilingual RAG retrieval pipeline across Bengali and English queries without exceeding free-tier edge memory and inference budgets.",
+        "Designing immutable Postgres indexes for sliding-window mutation deduplication where timestamptz expressions are only STABLE."
       ],
       "keyDecisions": [
-        "Drizzle ORM over Prisma for this project: Reduced bundle overhead for edge worker cold starts while providing fine-grained SQL query control.",
-        "Cloudflare R2 Object Storage: Utilized presigned URL generation for secure, direct-to-browser media streaming with zero egress fees."
+        "Durable Objects over Managed WebSockets: Colocated state, presence, and chat in isolated edge actors with SQLite persistence, zero server management, and no monthly fees.",
+        "YouTube-First Video Pipeline: Leveraged unlisted embeds and public oEmbed validation over expensive dedicated video storage, eliminating 100% of video bandwidth and transcode costs.",
+        "Explicit SQL Projections: Replaced all unbounded SELECT * queries across 13 services with narrow column projections, cutting edge payload sizes and cold starts significantly."
       ],
-      "result": "Delivered a complete learning portal providing structured course catalogs, timed examinations, and instant grading for enrolled students.",
+      "result": "Successfully remastered InsideJibon into a production-grade, masterclass platform featuring live classes, AI assistance, habit-forming gamification, and full bilingual parity at zero monthly subscription cost.",
       "visualEvidence": {
         "type": "diagram",
-        "title": "Bilingual EdTech & Edge Storage Architecture",
-        "caption": "Architecture flow: Next.js edge routing, Drizzle ORM queries, and Cloudflare R2 media delivery.",
+        "title": "$0-Cost Edge Architecture & Real-Time Classroom Pipeline",
+        "caption": "Architecture: Next.js edge routing, Durable Objects live presence, Vectorize RAG tutoring, and Neon Postgres.",
         "content": [
-          "Student Interface (EN / BN) ──> Cloudflare Workers Edge (Next.js 16)",
-          "Authentication Layer       ──> Clerk Auth Session Verification",
-          "Data Operations            ──> Neon Postgres via Drizzle ORM",
-          "Lecture Resources & Files  ──> Cloudflare R2 via Presigned URLs"
+          "Edge Gateway ─────────> Cloudflare Workers (Next.js 16 via OpenNext) + Cache API",
+          "Live Classroom Room ──> Cloudflare Durable Object (WebSockets, Presence, Chat, SQLite)",
+          "AI Tutor Pipeline   ──> Vectorize (lessons_v1) + Workers AI (@cf/m2m100 & bge)",
+          "Relational Database ──> Neon Serverless Postgres via Drizzle ORM (Explicit Projections)",
+          "Video Streaming     ──> YouTube Unlisted CDN (youtube-nocookie) + Position Sync"
         ]
       }
     },
@@ -667,6 +683,12 @@
     }
   ],
   "notes": [
+    {
+      "title": "Remastering InsideJibon: Building a $0-Subscription EdTech Engine on Cloudflare Edge",
+      "date": "2026-09-26",
+      "summary": "How I re-architected InsideJibon with Cloudflare Durable Objects for live classes, Workers AI & Vectorize for caption RAG, Duolingo-style streaks, and a zero-egress video model under a hard $0/month subscription constraint.",
+      "tags": ["Projects", "Architecture", "Cloudflare Workers", "Next.js", "AI", "Edge"]
+    },
     {
       "title": "Designing the Blind Audit Protocol for Nabodigonto",
       "date": "2026-08-15",

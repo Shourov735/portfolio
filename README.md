@@ -94,11 +94,12 @@ Architected with **Next.js 16 (App Router)**, **React 19**, **TypeScript**, and 
 #### 2. [InsideJibon](https://insidejibon.shourov.workers.dev/) — Next-Gen EdTech Web Platform
 [![Live Demo](https://img.shields.io/badge/Live_Demo-insidejibon.shourov.workers.dev-f38020?style=flat-square&logo=cloudflare&logoColor=white)](https://insidejibon.shourov.workers.dev/)
 [![Repository](https://img.shields.io/badge/Repo-InsideJibon-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/Shourov735/InsideJibon)
-[![Stack](https://img.shields.io/badge/Stack-Next.js_16_%7C_Drizzle_ORM_%7C_Neon_Postgres_%7C_Cloudflare_R2-black?style=flat-square)](#)
+[![Stack](https://img.shields.io/badge/Stack-Next.js_16_%7C_Cloudflare_Workers_%7C_Durable_Objects_%7C_Workers_AI_%7C_Neon-black?style=flat-square)](#)
 
-- **Comprehensive Course & Exam Engine:** Full learning lifecycle covering course enrollment, video lecture playlists, student submissions, and automated quizzes.
-- **Bilingual Experience:** Built-in English and Bengali internationalization (EN/BN) across student classrooms and administrative portals.
-- **High-Performance Edge Architecture:** Next.js 16, React 19, Drizzle ORM, Neon PostgreSQL, Cloudflare R2 lecture storage, deployed globally on Cloudflare Workers.
+- **Real-Time Live Classrooms:** Cloudflare Durable Objects WebSocket architecture managing student presence, moderated chat, hand-raising, and server-side attendance.
+- **In-House AI Tutor & RAG:** Zero-subscription AI tutor running on Cloudflare Workers AI + Vectorize over YouTube auto-captions with exact-second timestamp citations.
+- **Engagement & Gamification:** Duolingo-grade engagement with an immutable XP ledger, daily study streaks with freeze mechanics, and weekly league cohorts.
+- **High-Performance Edge Architecture:** Next.js 16, React 19, Drizzle ORM (neon-http), Cloudflare Cache API with tag-based purging, and zero-egress YouTube video delivery.
 
 ---
 
@@ -127,7 +128,7 @@ Architected with **Next.js 16 (App Router)**, **React 19**, **TypeScript**, and 
 | Project | Category | Tech Stack | Description | Links |
 | :--- | :--- | :--- | :--- | :--- |
 | **Nabodigonto** | Web | Next.js 16, Cloudflare Workers, Prisma, Clerk | Community & financial audit platform with 3D member ID cards and double-signed treasury ledger. | [Live Demo](https://nabodigonto.conversora-tech.workers.dev) · [GitHub](https://github.com/Shourov735/nabodigonto) |
-| **InsideJibon** | Web | Next.js 16, Drizzle ORM, Neon Postgres, Cloudflare R2 | Scalable bilingual EdTech management platform with interactive exams and cloud learning materials. | [Live Demo](https://insidejibon.shourov.workers.dev) · [GitHub](https://github.com/Shourov735/InsideJibon) |
+| **InsideJibon** | Web | Next.js 16, Cloudflare Workers, Durable Objects, Workers AI, Neon | High-performance bilingual EdTech platform with Durable Objects live classrooms, Workers AI RAG tutoring, and study streaks. | [Live Demo](https://insidejibon.shourov.workers.dev) · [GitHub](https://github.com/Shourov735/InsideJibon) |
 | **ARVAANA** | Web | Next.js 16, React 19, TypeScript, Tailwind, DaisyUI | Luxury fragrance e-commerce with zero-FOUC dual themes, multi-tier bottle pricing, and WhatsApp checkout. | [Live Demo](https://arvaanabd.vercel.app/) |
 | **Quiz Management System** | Systems | Java 17, JavaFX 21, SQLite, GoF Patterns | Desktop examination software developed for IIT DU Mini-SPL implementing 5 GoF patterns and SQLite. | [GitHub](https://github.com/Shourov735/Quiz-Management-and-Examination-System) |
 | **Quran Reading Tracker** | Mobile | React Native, Expo, TypeScript, AsyncStorage | Offline-first Android mobile app with dual independent pipelines for Arabic recitation and Bangla translation. | [GitHub](https://github.com/Shourov735/QuranReadingTracker) |

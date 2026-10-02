@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 48" fill="none">
+  <g transform="translate(0, 8) scale(0.0625)">
+    <path d="M 396 148 L 396 96 L 168 96 L 104 160 L 104 236 L 164 296 L 332 296 L 352 316 L 352 344 L 332 364 L 116 364 L 116 416 L 344 416 L 408 352 L 408 276 L 348 216 L 180 216 L 160 196 L 160 168 L 180 148 Z" fill="currentColor"/>
+  </g>
+  <text x="44" y="31" fill="currentColor" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-size="20" font-weight="700" letter-spacing="-0.03em">Shourov</text>
+</svg>

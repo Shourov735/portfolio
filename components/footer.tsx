@@ -56,7 +56,7 @@ export function Footer() {
         {/* Brand column */}
         <div>
           <Link href="/" aria-label="Md Shourov home" className="inline-flex items-center">
-            <Logo size={36} text="Md. Shourov" />
+            <Logo size={32} text="Shourov" />
           </Link>
           <p className="mt-4 max-w-[440px] text-sm text-[var(--color-muted)] leading-relaxed">
             Software Engineering student at IIT, University of Dhaka, and IT Secretary at Nabodigonto.

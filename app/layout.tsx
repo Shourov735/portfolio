@@ -8,6 +8,7 @@ import { BackToTop } from "@/components/back-to-top"
 import { SkipLink } from "@/components/skip-link"
 import { Analytics } from "@vercel/analytics/react"
 import { SITE_URL, SITE_NAME, AUTHOR_NAME, AUTHOR_ALIASES, absoluteUrl } from "@/lib/site"
+import { getContent } from "@/lib/content"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -34,11 +35,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Md. Shourov — Software Engineering Student, IIT DU",
+    default: "Md. Shourov — Software Engineer & BSSE Student, IIT DU",
     template: "%s · Md. Shourov",
   },
   description:
-    "Md. Shourov (Shourov735) is a Software Engineering student at IIT, University of Dhaka (BSSE) building real-world web, mobile, and backend systems.",
+    "Md. Shourov (Shourov735) is a Software Engineering student at IIT DU building real-world web, mobile, and backend systems. Explore projects and case studies.",
   keywords: [
     "Md Shourov",
     "Md. Shourov",
@@ -103,7 +104,7 @@ export const metadata: Metadata = {
     statusBarStyle: "black-translucent",
   },
   openGraph: {
-    title: "Md. Shourov — Software Engineering Student, IIT DU",
+    title: "Md. Shourov — Software Engineer & BSSE Student, IIT DU",
     description:
       "Software Engineering student at IIT, University of Dhaka building real-world web, mobile, and backend systems. IT Secretary at Nabodigonto.",
     type: "website",
@@ -123,7 +124,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@Shourov735",
     creator: "@Shourov735",
-    title: "Md. Shourov — Software Engineering Student, IIT DU",
+    title: "Md. Shourov — Software Engineer & BSSE Student, IIT DU",
     description:
       "Software Engineering student at IIT, University of Dhaka building real-world web, mobile, and backend systems. IT Secretary at Nabodigonto.",
     images: [
@@ -162,6 +163,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const content = getContent()
+
   return (
     <html
       lang="en"
@@ -249,7 +252,6 @@ export default function RootLayout({
                     "https://t.me/Shourov735",
                     "https://medium.com/@Shourov735",
                     "https://www.youtube.com/@MD._SHOUROV_",
-                    "https://mdshourov.vercel.app",
                   ],
                 },
                 {
@@ -258,14 +260,24 @@ export default function RootLayout({
                   url: SITE_URL,
                   name: SITE_NAME,
                   description:
-                    "Portfolio and engineering blog of Md Shourov (Shourov735 / mdshourov), Software Engineering student at IIT, University of Dhaka.",
+                    "Portfolio and engineering blog of Md. Shourov (Shourov735 / mdshourov), Software Engineering student at IIT, University of Dhaka.",
                   publisher: { "@id": `${SITE_URL}/#person` },
                   inLanguage: "en-US",
                   copyrightYear: new Date().getFullYear(),
-                  potentialAction: {
-                    "@type": "ReadAction",
-                    target: `${SITE_URL}/blog`,
-                  },
+                  potentialAction: [
+                    {
+                      "@type": "SearchAction",
+                      target: {
+                        "@type": "EntryPoint",
+                        urlTemplate: `${SITE_URL}/#projects`,
+                      },
+                      "query-input": "required name=search_term_string",
+                    },
+                    {
+                      "@type": "ReadAction",
+                      target: `${SITE_URL}/blog`,
+                    },
+                  ],
                 },
                 {
                   "@type": "ProfilePage",
@@ -279,12 +291,26 @@ export default function RootLayout({
                   "@type": "Blog",
                   "@id": `${SITE_URL}/blog/#blog`,
                   url: `${SITE_URL}/blog`,
-                  name: "Engineering Notes by Md Shourov",
+                  name: "Engineering Notes by Md. Shourov",
                   description:
                     "Long-form writing on software engineering, edge systems, and student engineering practice.",
                   publisher: { "@id": `${SITE_URL}/#person` },
                   inLanguage: "en-US",
                   isPartOf: { "@id": `${SITE_URL}/#website` },
+                },
+                {
+                  "@type": "FAQPage",
+                  "@id": `${SITE_URL}/#faq`,
+                  name: "Md. Shourov — Software Engineering & Academic FAQ",
+                  isPartOf: { "@id": `${SITE_URL}/#website` },
+                  mainEntity: (content.faq ?? []).map((item) => ({
+                    "@type": "Question",
+                    name: item.question,
+                    acceptedAnswer: {
+                      "@type": "Answer",
+                      text: item.answer,
+                    },
+                  })),
                 },
               ],
             }),

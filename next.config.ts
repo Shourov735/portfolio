@@ -26,6 +26,21 @@ const nextConfig: NextConfig = {
         destination: "https://mdshourov.vercel.app/:path*",
         permanent: true,
       },
+      {
+        source: "/projects",
+        destination: "/#projects",
+        permanent: true,
+      },
+      {
+        source: "/resume",
+        destination: "/assets/resume/Md-Shourov-Resume.pdf",
+        permanent: false,
+      },
+      {
+        source: "/cv",
+        destination: "/assets/resume/Md-Shourov-Resume.pdf",
+        permanent: false,
+      },
     ]
   },
 }

@@ -1,6 +1,9 @@
 import { ScrollReveal } from "@/components/scroll-reveal"
+import { getContent } from "@/lib/content"
 
 export function About() {
+  const content = getContent()
+
   return (
     <section className="section bg-[var(--color-surface-muted)]/72" id="about">
       <div className="container-main grid grid-cols-[minmax(260px,0.75fr)_1.25fr] gap-12 items-start max-md:grid-cols-1">
@@ -56,6 +59,35 @@ export function About() {
                 ))}
               </ul>
             </div>
+
+            {content.faq && content.faq.length > 0 && (
+              <div className="pt-6 mt-7 border-t border-[var(--color-line)]" id="faq">
+                <h3 className="text-[11px] font-mono uppercase tracking-[0.16em] text-[var(--color-muted)] mb-4 font-medium">
+                  Frequently Asked Questions
+                </h3>
+                <div className="space-y-3">
+                  {content.faq.map((item, idx) => (
+                    <details
+                      key={idx}
+                      className="group border border-[var(--color-line)] rounded-xl bg-[var(--color-surface-muted)]/50 p-4 transition-all duration-200 open:bg-[var(--color-surface)]"
+                    >
+                      <summary className="flex items-center justify-between cursor-pointer font-medium text-[0.95rem] text-[var(--color-text)] list-none gap-3 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--color-primary)] rounded">
+                        <span>{item.question}</span>
+                        <span
+                          aria-hidden="true"
+                          className="text-[var(--color-muted)] transition-transform duration-200 group-open:rotate-180 shrink-0 text-xs font-mono"
+                        >
+                          ▼
+                        </span>
+                      </summary>
+                      <p className="text-[0.9rem] text-[var(--color-muted)] leading-relaxed mt-3 pt-3 border-t border-[var(--color-line)]/60">
+                        {item.answer}
+                      </p>
+                    </details>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </ScrollReveal>
       </div>

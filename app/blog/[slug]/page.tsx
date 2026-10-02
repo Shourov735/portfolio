@@ -30,14 +30,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const images = [
     {
       url: ogImage,
-      alt: `${post.title} — Md Shourov`,
+      alt: `${post.title} — Md. Shourov`,
     },
   ]
 
   return {
     title,
     description,
-    authors: [{ name: "Md Shourov", url: SITE_URL }],
+    authors: [{ name: "Md. Shourov", url: SITE_URL }],
     keywords: post.tags,
     alternates: {
       canonical: post.canonical ?? `/blog/${post.slug}`,
@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description,
       url,
       type: "article",
-      siteName: "Md Shourov Portfolio",
+      siteName: "Md. Shourov Portfolio",
       locale: "en_US",
       images,
       publishedTime: formatISODate(post.date),

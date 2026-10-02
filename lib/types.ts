@@ -117,6 +117,11 @@ export interface LookingFor {
   targetRoles: string[]
 }
 
+export interface FAQItem {
+  question: string
+  answer: string
+}
+
 export interface PortfolioContent {
   stats: Stat[]
   skills: SkillGroup[]
@@ -129,6 +134,7 @@ export interface PortfolioContent {
   achievements?: Achievement[]
   testimonials: string[]
   lookingFor?: LookingFor
+  faq?: FAQItem[]
 }
 
 export interface GitHubData {

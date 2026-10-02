@@ -9,23 +9,23 @@ import { SITE_URL, absoluteUrl } from "@/lib/site"
 export const metadata: Metadata = {
   title: "Engineering Notes",
   description:
-    "Long-form writing on software engineering, edge systems, and student engineering practice by Md Shourov (Shourov735), IIT, University of Dhaka.",
+    "Long-form writing on software engineering, edge systems, and student engineering practice by Md. Shourov (Shourov735), IIT, University of Dhaka.",
   alternates: {
     canonical: "/blog",
   },
   openGraph: {
-    title: "Engineering Notes — Md Shourov",
+    title: "Engineering Notes — Md. Shourov",
     description:
-      "Long-form writing on software engineering, edge systems, and student engineering practice by Md Shourov.",
+      "Long-form writing on software engineering, edge systems, and student engineering practice by Md. Shourov.",
     type: "website",
     url: `${SITE_URL}/blog`,
-    siteName: "Md Shourov Portfolio",
+    siteName: "Md. Shourov Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Engineering Notes — Md Shourov",
+    title: "Engineering Notes — Md. Shourov",
     description:
-      "Long-form writing on software engineering, edge systems, and student engineering practice by Md Shourov.",
+      "Long-form writing on software engineering, edge systems, and student engineering practice by Md. Shourov.",
   },
 }
 
@@ -37,7 +37,7 @@ export default async function BlogIndex() {
   const itemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "Engineering Notes by Md Shourov",
+    name: "Engineering Notes by Md. Shourov",
     description: "A chronological index of long-form engineering writing.",
     itemListElement: posts.map((post, idx) => ({
       "@type": "ListItem",
@@ -55,7 +55,7 @@ export default async function BlogIndex() {
       />
       <div className="section pt-16 md:pt-20">
         <div className="container-main">
-          <Breadcrumbs items={[{ name: "Md Shourov", href: "/" }, { name: "Engineering Notes" }]} />
+          <Breadcrumbs items={[{ name: "Md. Shourov", href: "/" }, { name: "Engineering Notes" }]} />
 
           <header className="mt-10 max-w-3xl">
             <p className="eyebrow">Engineering Notes</p>

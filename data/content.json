@@ -808,5 +808,31 @@
       "coursework": ["Mathematics", "Physics", "Computer Science"]
     }
   ],
+  "faq": [
+    {
+      "question": "Who is Md. Shourov?",
+      "answer": "Md. Shourov (known online as Shourov735) is a Software Engineering undergraduate student at the Institute of Information Technology (IIT), University of Dhaka (BSSE program), and the IT Secretary at Nabodigonto Social Welfare Organization."
+    },
+    {
+      "question": "What degree and university is Md. Shourov affiliated with?",
+      "answer": "Md. Shourov is pursuing a Bachelor of Science in Software Engineering (BSSE, 2024–Present) at the Institute of Information Technology (IIT), University of Dhaka (IIT DU) in Bangladesh."
+    },
+    {
+      "question": "What is Md. Shourov's flagship software engineering project?",
+      "answer": "His flagship production system is Nabodigonto, a serverless community and treasury management platform deployed on Cloudflare Workers edge, featuring a double-signed blind audit protocol."
+    },
+    {
+      "question": "What is Md. Shourov's problem-solving and competitive programming track record?",
+      "answer": "Md. Shourov has solved 150+ competitive programming problems across Codeforces and LeetCode, with strong foundations in algorithms, data structures, and GoF design patterns."
+    },
+    {
+      "question": "What core technologies and tech stack does Md. Shourov specialize in?",
+      "answer": "His primary stack includes Next.js, React, TypeScript, C++, Java, PostgreSQL (Neon), Tailwind CSS, Cloudflare Workers, and SQLite for resilient web, mobile, and backend systems."
+    },
+    {
+      "question": "How can recruiters and engineering teams contact Md. Shourov?",
+      "answer": "Recruiters and collaborators can contact Md. Shourov via email at mdshourov735@gmail.com, connect on LinkedIn (in/md-shourov-613934358), or inspect open-source code on GitHub (github.com/Shourov735)."
+    }
+  ],
   "testimonials": []
 }

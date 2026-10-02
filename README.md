@@ -270,11 +270,37 @@ All website content is managed through [`data/content.json`](data/content.json).
 
 ---
 
-## 📬 Contact Webhook Configuration
+## 📬 Contact Form & Anti-Bot Protection
 
-The contact form posts submissions to `/api/contact`. To forward messages to Discord, Slack, or Zapier, set the environment variable in `.env.local` or your Vercel project settings:
+The contact form posts submissions to `/api/contact`. Submissions are protected by **Cloudflare Turnstile** anti-bot verification before messages are forwarded to your webhook.
+
+### Environment Variables
+
+| Variable | Description | Exposed to Client? |
+| :--- | :--- | :--- |
+| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Turnstile public site key used to render the widget | **Yes** (Client) |
+| `TURNSTILE_SECRET_KEY` | Turnstile secret key used by `/api/contact` to verify tokens | **No** (Server only) |
+| `CONTACT_WEBHOOK_URL` | Webhook URL for Discord, Slack, or Zapier message forwarding | **No** (Server only) |
+| `TURNSTILE_HOSTNAMES` | *(Optional)* Comma-separated list of additional allowed hostnames | **No** (Server only) |
+
+### Cloudflare Turnstile Setup
+
+1. Go to [Cloudflare Dashboard](https://dash.cloudflare.com) → **Turnstile** → **Add Site**.
+2. **Site Name**: `Portfolio Contact Form`
+3. **Domains**: Add `mdshourov.vercel.app`, `localhost`, and `127.0.0.1`.
+4. **Widget Mode**: `Managed` (recommended).
+5. Copy the generated **Site Key** and **Secret Key**.
+6. Set these in `.env.local` for local development, and in **Vercel Project Settings → Environment Variables** for production.
+
+### Local Development & Testing
+
+Cloudflare provides official testing keys for development:
+- **Site Key (Always Passes):** `1x00000000000000000000AA`
+- **Secret Key (Always Passes):** `1x0000000000000000000000000000000AA`
 
 ```env
+NEXT_PUBLIC_TURNSTILE_SITE_KEY=1x00000000000000000000AA
+TURNSTILE_SECRET_KEY=1x0000000000000000000000000000000AA
 CONTACT_WEBHOOK_URL=https://discord.com/api/webhooks/...
 ```
 

@@ -1,10 +1,36 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef, useCallback, useEffect } from "react"
+import Script from "next/script"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { SiYoutube, SiX, SiMedium, SiTelegram } from "react-icons/si"
 import { FaGithub, FaLinkedin } from "react-icons/fa6"
 import { MdEmail } from "react-icons/md"
+
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (
+        container: string | HTMLElement,
+        params: {
+          sitekey: string
+          action?: string
+          cData?: string
+          callback?: (token: string) => void
+          "error-callback"?: (errorCode?: string) => void
+          "expired-callback"?: () => void
+          "timeout-callback"?: () => void
+          theme?: "light" | "dark" | "auto"
+          size?: "normal" | "compact" | "flexible"
+          tabindex?: number
+        }
+      ) => string
+      reset: (widgetId?: string) => void
+      remove: (widgetId?: string) => void
+      getResponse: (widgetId?: string) => string
+    }
+  }
+}
 
 const CONTACT_LINKS = [
   {
@@ -47,6 +73,51 @@ const CONTACT_LINKS = [
 export function Contact() {
   const [status, setStatus] = useState<{ type: "success" | "error"; message: string } | null>(null)
   const [sending, setSending] = useState(false)
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
+  const turnstileContainerRef = useRef<HTMLDivElement>(null)
+  const widgetIdRef = useRef<string | null>(null)
+
+  const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY
+
+  const renderWidget = useCallback(() => {
+    if (!window.turnstile || !turnstileContainerRef.current || widgetIdRef.current || !siteKey) {
+      return
+    }
+
+    try {
+      widgetIdRef.current = window.turnstile.render(turnstileContainerRef.current, {
+        sitekey: siteKey,
+        action: "contact",
+        theme: "auto",
+        callback: (token: string) => {
+          setTurnstileToken(token)
+          setStatus((prev) =>
+            prev?.type === "error" && prev.message.toLowerCase().includes("verification") ? null : prev
+          )
+        },
+        "expired-callback": () => {
+          setTurnstileToken(null)
+        },
+        "error-callback": () => {
+          setTurnstileToken(null)
+        },
+      })
+    } catch (err) {
+      console.error("Turnstile render error:", err)
+    }
+  }, [siteKey])
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.turnstile) {
+      renderWidget()
+    }
+    return () => {
+      if (widgetIdRef.current && window.turnstile) {
+        window.turnstile.remove(widgetIdRef.current)
+        widgetIdRef.current = null
+      }
+    }
+  }, [renderWidget])
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -59,15 +130,41 @@ export function Contact() {
       return
     }
 
+    if (siteKey && !turnstileToken) {
+      setStatus({ type: "error", message: "Please complete the human verification and try again." })
+      return
+    }
+
     setSending(true)
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({
+          ...payload,
+          turnstileToken,
+        }),
       })
-      if (!res.ok) throw new Error("API unavailable")
+
+      const data = await res.json().catch(() => null)
+
+      if (!res.ok) {
+        setStatus({
+          type: "error",
+          message: data?.error || "Please complete the human verification and try again.",
+        })
+        if (widgetIdRef.current && window.turnstile) {
+          window.turnstile.reset(widgetIdRef.current)
+        }
+        setTurnstileToken(null)
+        return
+      }
+
       form.reset()
+      if (widgetIdRef.current && window.turnstile) {
+        window.turnstile.reset(widgetIdRef.current)
+      }
+      setTurnstileToken(null)
       setStatus({ type: "success", message: "Thanks! Your message was submitted successfully." })
     } catch {
       openMailFallback(payload)
@@ -207,6 +304,22 @@ export function Contact() {
               <span>Leave this empty</span>
               <input type="text" name="website" tabIndex={-1} autoComplete="off" />
             </label>
+
+            {siteKey && (
+              <>
+                <Script
+                  src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+                  strategy="afterInteractive"
+                  onLoad={renderWidget}
+                />
+                <div className="min-h-[66px] flex flex-col justify-center">
+                  <div ref={turnstileContainerRef} className="cf-turnstile-wrapper overflow-hidden rounded-lg" />
+                  <span className="sr-only" aria-live="polite">
+                    {turnstileToken ? "Human verification complete." : "Human verification pending."}
+                  </span>
+                </div>
+              </>
+            )}
 
             <button type="submit" disabled={sending} className="btn-primary disabled:opacity-60 mt-1">
               {sending ? "Sending..." : "Send Message"}

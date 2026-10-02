@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
+import { verifyTurnstileToken } from "@/lib/turnstile"
 
 const MAX_FIELD_LENGTH = 4000
 
@@ -13,6 +14,25 @@ export async function POST(request: NextRequest) {
 
     if (message.website) {
       return NextResponse.json({ ok: true, delivered: false })
+    }
+
+    const clientIp =
+      request.headers.get("cf-connecting-ip") ??
+      request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+      request.headers.get("x-real-ip") ??
+      undefined
+
+    const turnstile = await verifyTurnstileToken({
+      token: body?.turnstileToken ?? body?.["cf-turnstile-response"],
+      remoteIp: clientIp,
+      expectedAction: "contact",
+    })
+
+    if (!turnstile.success) {
+      return NextResponse.json(
+        { ok: false, error: turnstile.error || "Please complete the human verification and try again." },
+        { status: 400 }
+      )
     }
 
     const webhookUrl = process.env.CONTACT_WEBHOOK_URL

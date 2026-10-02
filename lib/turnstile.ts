@@ -30,10 +30,10 @@ export async function verifyTurnstileToken({
   remoteIp,
   expectedAction = "contact",
 }: VerifyTurnstileOptions): Promise<VerifyTurnstileResult> {
-  const secretKey = process.env.TURNSTILE_SECRET_KEY
+  const secretKey = process.env.TURNSTILE_SECRET_KEY || process.env.TURNSTILE_SECRET
 
   if (!secretKey) {
-    console.error("Turnstile configuration error: TURNSTILE_SECRET_KEY is not configured.")
+    console.error("Turnstile configuration error: Neither TURNSTILE_SECRET_KEY nor TURNSTILE_SECRET is configured.")
     return {
       success: false,
       error: "Human verification configuration error on the server.",

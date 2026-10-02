@@ -34,7 +34,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Md. Shourov — Software Engineering Student at IIT, University of Dhaka",
+    default: "Md. Shourov — Software Engineering Student, IIT DU",
     template: "%s · Md. Shourov",
   },
   description:
@@ -103,7 +103,7 @@ export const metadata: Metadata = {
     statusBarStyle: "black-translucent",
   },
   openGraph: {
-    title: "Md. Shourov — Software Engineering Student at IIT, University of Dhaka",
+    title: "Md. Shourov — Software Engineering Student, IIT DU",
     description:
       "Software Engineering student at IIT, University of Dhaka building real-world web, mobile, and backend systems. IT Secretary at Nabodigonto.",
     type: "website",
@@ -123,7 +123,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@Shourov735",
     creator: "@Shourov735",
-    title: "Md. Shourov — Software Engineering Student at IIT, University of Dhaka",
+    title: "Md. Shourov — Software Engineering Student, IIT DU",
     description:
       "Software Engineering student at IIT, University of Dhaka building real-world web, mobile, and backend systems. IT Secretary at Nabodigonto.",
     images: [

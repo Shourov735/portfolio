@@ -1,5 +1,6 @@
 ---
 title: "Accessibility Is an Engineering Practice, Not a Checklist"
+metaTitle: "Accessibility as an Engineering Practice"
 description: "Why accessibility is a property of the codebase rather than the UI, and what to do about it on a portfolio without a design team."
 date: "2026-04-21"
 tags:

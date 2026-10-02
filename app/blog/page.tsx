@@ -79,8 +79,10 @@ export default async function BlogIndex() {
           </header>
 
           {featured && (
-            <section className="mt-16 md:mt-20" aria-label="Latest post">
-              <p className="eyebrow-muted">Latest</p>
+            <section className="mt-16 md:mt-20" aria-labelledby="latest-post-heading">
+              <h2 id="latest-post-heading" className="eyebrow-muted">
+                Latest
+              </h2>
               <div className="mt-4">
                 <PostCard post={featured} featured />
               </div>

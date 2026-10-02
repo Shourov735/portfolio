@@ -1,6 +1,7 @@
 ---
 title: "Remastering InsideJibon: Building a $0-Subscription EdTech Engine on Cloudflare Edge"
-description: "How I re-architected InsideJibon with Cloudflare Durable Objects for live classes, Workers AI & Vectorize for caption RAG, Duolingo-style streaks, and a zero-egress video model under a hard $0/month subscription constraint."
+metaTitle: "InsideJibon: $0 EdTech on Cloudflare Edge"
+description: "How I re-architected InsideJibon with Cloudflare Durable Objects, Workers AI caption RAG, and a zero-egress video pipeline under a $0/month constraint."
 date: "2026-09-26"
 tags:
   - Projects

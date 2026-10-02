@@ -1,5 +1,6 @@
 export interface BlogFrontmatter {
   title: string
+  metaTitle?: string
   description: string
   date: string
   updated?: string
@@ -49,6 +50,7 @@ export interface VisualEvidence {
 
 export interface Project {
   title: string
+  metaTitle?: string
   summary: string
   metaDescription?: string
   image: string

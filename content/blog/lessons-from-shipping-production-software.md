@@ -1,5 +1,6 @@
 ---
 title: "Lessons from Shipping a Production Serverless Platform"
+metaTitle: "Lessons from Shipping Production Software"
 description: "Field notes from architecting and running Nabodigonto — a Cloudflare Workers platform with double-signed treasury auditing — in production."
 date: "2026-03-04"
 tags:

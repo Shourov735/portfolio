@@ -1,5 +1,6 @@
 ---
 title: "Building ARVAANA: Engineering a Luxury Fragrance Platform for Bangladesh"
+metaTitle: "Building ARVAANA: Luxury Fragrance Platform"
 description: "How I architected ARVAANA: a Next.js 16 luxury fragrance e-commerce platform with zero-FOUC dual themes, reactive pricing, and WhatsApp checkout."
 date: "2026-09-18"
 tags:

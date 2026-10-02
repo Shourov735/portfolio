@@ -1,5 +1,6 @@
 ---
 title: "Building a Fast Next.js Portfolio with the App Router"
+metaTitle: "Building a Fast Next.js Portfolio"
 description: "Practical lessons from rebuilding my portfolio on Next.js 16 — file-system content, static generation, and a custom open-graph pipeline."
 date: "2026-01-15"
 updated: "2026-02-02"

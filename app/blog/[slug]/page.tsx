@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return { title: "Post not found" }
   }
 
-  const title = post.title
+  const title = post.metaTitle ?? post.title
   const description = post.description
   const url = absoluteUrl(`/blog/${post.slug}`)
   const ogImage = absoluteUrl(post.cover ?? "/opengraph-image")

@@ -214,6 +214,7 @@
     },
     {
       "title": "Quiz Management & Examination System",
+      "metaTitle": "Quiz Management System — Case Study",
       "role": "Developer (Mini-SPL Project)",
       "summary": "Desktop examination application developed in Java and JavaFX for the Design Patterns Lab Final Project (Mini-SPL) at IIT, University of Dhaka. Implements rigorous GoF patterns, role-based workflows, and SQLite relational persistence.",
       "metaDescription": "Java & JavaFX desktop examination app implementing GoF design patterns, secure teacher exam authoring, timed student testing, and instant grading.",
@@ -428,6 +429,7 @@
     },
     {
       "title": "Quiz Management & Examination System",
+      "metaTitle": "Quiz Management System — Case Study",
       "role": "Developer (Mini-SPL Project)",
       "summary": "Desktop examination application developed in Java and JavaFX for the Design Patterns Lab Final Project (Mini-SPL) at IIT, University of Dhaka. Implements rigorous GoF patterns, role-based workflows, and SQLite relational persistence.",
       "metaDescription": "Java & JavaFX desktop examination app implementing GoF design patterns, secure teacher exam authoring, timed student testing, and instant grading.",

@@ -42,6 +42,7 @@ export function Spotlight() {
                           alt={`${project.title} — Engineering Case Study by Md Shourov`}
                           width={640}
                           height={400}
+                          sizes="(max-width: 1024px) 100vw, 50vw"
                           className="w-full aspect-[16/10] object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                         />
                       </Link>

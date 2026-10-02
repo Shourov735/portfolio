@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return { title: "Project Not Found" }
   }
 
-  const title = `${project.title} — Engineering Case Study`
+  const title = project.metaTitle ?? `${project.title} — Case Study`
   const description = project.metaDescription || project.summary
   const pageUrl = absoluteUrl(`/projects/${slug}`)
   const imageUrl = absoluteUrl(project.image ?? "/opengraph-image")
@@ -133,6 +133,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                 width={960}
                 height={540}
                 priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 960px"
                 className="w-full h-full object-cover"
               />
             </div>

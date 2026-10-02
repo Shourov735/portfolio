@@ -11,6 +11,7 @@ const isProd = process.env.NODE_ENV === "production"
 
 type FrontmatterShape = {
   title?: unknown
+  metaTitle?: unknown
   description?: unknown
   date?: unknown
   updated?: unknown
@@ -36,6 +37,7 @@ function asBool(value: unknown): boolean {
 function parseFrontmatter(data: FrontmatterShape) {
   return {
     title: asString(data.title),
+    metaTitle: data.metaTitle ? asString(data.metaTitle) : undefined,
     description: asString(data.description),
     date: asString(data.date),
     updated: data.updated ? asString(data.updated) : undefined,
@@ -92,6 +94,7 @@ async function loadAllPosts(): Promise<BlogPost[]> {
     const post: BlogPost = {
       slug: postSlug,
       title: fm.title,
+      metaTitle: fm.metaTitle,
       description: fm.description,
       date: fm.date,
       updated: fm.updated,
@@ -117,6 +120,7 @@ function toSummary(post: BlogPost): BlogPostSummary {
   return {
     slug: post.slug,
     title: post.title,
+    metaTitle: post.metaTitle,
     description: post.description,
     date: post.date,
     updated: post.updated,

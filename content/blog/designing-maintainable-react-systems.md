@@ -1,5 +1,6 @@
 ---
 title: "Designing Maintainable React Systems at Student Scale"
+metaTitle: "Designing Maintainable React Systems"
 description: "Notes from building production React apps: component boundaries, server components, and the discipline that makes code outlive the assignment."
 date: "2026-02-08"
 tags:

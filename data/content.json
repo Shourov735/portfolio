@@ -1,7 +1,7 @@
 {
   "stats": [
     {
-      "value": "10",
+      "value": "11",
       "label": "Projects Built"
     },
     {
@@ -173,6 +173,69 @@
           "AI Tutor Pipeline   ──> Vectorize (lessons_v1) + Workers AI (@cf/m2m100 & bge)",
           "Relational Database ──> Neon Serverless Postgres via Drizzle ORM (Explicit Projections)",
           "Video Streaming     ──> YouTube Unlisted CDN (youtube-nocookie) + Position Sync"
+        ]
+      }
+    },
+    {
+      "title": "Remocomp",
+      "role": "Creator & Maintainer",
+      "summary": "An open-source, curated registry of frame-accurate Remotion video components that humans and AI agents install shadcn-style by copying the source into their own repository. Ships a three-tier token-budgeted discovery API, a stdio MCP server, an npm CLI, and a 14-rule AST quality gate that runs identically in the browser, on the Cloudflare edge, and in CI.",
+      "metaDescription": "Open-source Remotion component registry with a three-tier token-budgeted API, a stdio MCP server, an npm CLI, and a 14-rule AST quality gate shared across browser, edge and CI.",
+      "metaTitle": "Remocomp: A Token-Budgeted Component Registry",
+      "image": "/assets/images/remocomp.jpg",
+      "category": "Open Source",
+      "tags": [
+        "Remotion 4",
+        "React 19",
+        "TypeScript",
+        "Cloudflare Workers",
+        "D1 & R2",
+        "Drizzle ORM",
+        "MCP Server",
+        "AST Quality Gate",
+        "Tailwind CSS"
+      ],
+      "links": [
+        {
+          "label": "Live Demo",
+          "url": "https://remocomp.shourov.workers.dev"
+        },
+        {
+          "label": "CLI on npm",
+          "url": "https://www.npmjs.com/package/remocomp"
+        }
+      ],
+      "highlights": [
+        "Three-tier progressive discovery: a five-result search costs roughly 160-200 tokens through the CLI while a single component's prop schema costs about 600, so schemas sit behind a second request and only the chosen component's source is ever fetched",
+        "One quality gate in three runtimes: a 14-rule AST checker (13 errors, 1 warning) runs in the browser as you type, on the Worker at submission, and over the whole catalogue in CI, parsed with acorn at 61 KB gzipped instead of the 1 MB TypeScript compiler API",
+        "Three consumption paths over one registry: an npm CLI, a stdio MCP server exposing search/detail/source tools, and plain REST endpoints, plus shadcn-compatible /r/{slug}.json registry items that install by source copy with remotion as the only dependency",
+        "Scene contract: describe a whole video as JSON, validate every slug and prop against the live registry, and render the timeline with components that already exist instead of generating bespoke TSX for each beat",
+        "Community pipeline with real gatekeeping: GitHub OAuth submissions, a reviewer desk gated on GitHub account IDs, and an isolated verification renderer that runs with no network and none of the registry's secrets",
+        "Edge data plane on Cloudflare: D1 for relational metadata with an FTS5 index kept in sync by triggers, R2 for source and rendered media, and three separate Workers rate-limit bindings so an agent's traffic cannot spend a browser's allowance"
+      ],
+      "problem": "Asking an AI agent to build a video in Remotion means it writes a bespoke React scene for every beat, and most of what it writes is the same animation re-implemented badly — CSS transitions and setInterval timers that silently break frame-accurate rendering. Existing component libraries answer this with black-box npm packages, which reintroduces version drift, a heavy dependency tree, and no way to tune the motion you own. The cost is paid twice: the agent burns tokens regenerating code that already exists, and the creator ends up depending on a component they cannot edit.",
+      "technicalApproach": "Built Remocomp as a pnpm + Turborepo monorepo where a Next.js 15 app on OpenNext and Cloudflare Workers serves the gallery, the component workbench and every registry API from a single deployment, backed by D1 for relational metadata and FTS5 search and R2 for source code and rendered media. Discovery is budgeted by tier rather than by convenience, the acceptance rules live in one package that runs unchanged in three runtimes, and installation copies source into the user's repository rather than pulling a package, so remotion stays the only dependency.",
+      "challenges": [
+        "Sharing a real JavaScript parser between a browser bundle, a Workers bundle and Node. The TypeScript compiler API is 1 MB gzipped on its own and does not fit beside the site, so the gate parses with acorn plus its TypeScript plugin — 61 KB gzipped, pure JavaScript with no Node built-ins, and identical output in all three runtimes.",
+        "An undocumented component was published through the maintainer CLI path and leaked into discovery with no description and no prop schema. A direct publish skips the reviewer desk, so the same publish checklist now runs on both paths and meta.json is no longer a way around the review rules.",
+        "Search recall silently depended on where a component was stored: seed components matched every query word with AND while the FTS5 index treated words as alternatives, so a plain-language query like \"compare two things\" found nothing. Replaced with OR-with-coverage ranking so recall depends on the question, not on the storage backend."
+      ],
+      "keyDecisions": [
+        "Copy the source, do not install a package: components land in the user's own repository with remotion as the only dependency, which keeps the tree small and leaves every animation editable instead of sealed behind a black box.",
+        "Budget the response, not the feature: props schemas, defaults and source each live behind their own request, and bestFor/avoidWhen are capped to one line each so an agent can reject a component without spending a request on reading its source.",
+        "Store trust, never assume it: the gate version, the Remotion version tested and the verification status are nullable columns, and the \"Passed gate\" badge renders only when a pass was actually recorded — a component that never went through the gate must not wear a badge implying it did."
+      ],
+      "result": "Shipped a live registry at remocomp.shourov.workers.dev with 9 curated components across primitives, scenes, transitions and templates, a published remocomp CLI and remocomp-mcp server on npm, and shadcn-compatible registry endpoints. Mobile Lighthouse reports 80 for performance with 100 for accessibility, best practices and SEO; the remaining performance gap is attributed honestly to mounting a live Remotion player on the gallery, which is the feature itself.",
+      "visualEvidence": {
+        "type": "diagram",
+        "title": "Three-Tier Agent Surface & Registry Data Plane",
+        "caption": "Architecture: budgeted discovery on Cloudflare Workers, D1 metadata with an FTS5 index, and R2 for source and rendered media.",
+        "content": [
+          "Tier 1  Search    ──> GET /api/v1/search?q=             ~160-200 tokens via the CLI · no prop schemas · own rate-limit binding",
+          "Tier 2  Inspect   ──> GET /api/v1/components/{slug}    propsSchema alone costs ~600 tokens · defaults · bestFor · avoidWhen",
+          "Tier 3  Install   ──> GET /r/{slug}.json               shadcn registry item · source written into the repo",
+          "Quality Gate       ──> 14 AST rules · browser + Worker + CI · acorn, not the TypeScript compiler",
+          "Edge Data Plane    ──> D1 (metadata + FTS5 via triggers) · R2 (source, posters, previews)"
         ]
       }
     },
@@ -388,6 +451,69 @@
           "AI Tutor Pipeline   ──> Vectorize (lessons_v1) + Workers AI (@cf/m2m100 & bge)",
           "Relational Database ──> Neon Serverless Postgres via Drizzle ORM (Explicit Projections)",
           "Video Streaming     ──> YouTube Unlisted CDN (youtube-nocookie) + Position Sync"
+        ]
+      }
+    },
+    {
+      "title": "Remocomp",
+      "role": "Creator & Maintainer",
+      "summary": "An open-source, curated registry of frame-accurate Remotion video components that humans and AI agents install shadcn-style by copying the source into their own repository. Ships a three-tier token-budgeted discovery API, a stdio MCP server, an npm CLI, and a 14-rule AST quality gate that runs identically in the browser, on the Cloudflare edge, and in CI.",
+      "metaDescription": "Open-source Remotion component registry with a three-tier token-budgeted API, a stdio MCP server, an npm CLI, and a 14-rule AST quality gate shared across browser, edge and CI.",
+      "metaTitle": "Remocomp: A Token-Budgeted Component Registry",
+      "image": "/assets/images/remocomp.jpg",
+      "category": "Open Source",
+      "tags": [
+        "Remotion 4",
+        "React 19",
+        "TypeScript",
+        "Cloudflare Workers",
+        "D1 & R2",
+        "Drizzle ORM",
+        "MCP Server",
+        "AST Quality Gate",
+        "Tailwind CSS"
+      ],
+      "links": [
+        {
+          "label": "Live Demo",
+          "url": "https://remocomp.shourov.workers.dev"
+        },
+        {
+          "label": "CLI on npm",
+          "url": "https://www.npmjs.com/package/remocomp"
+        }
+      ],
+      "highlights": [
+        "Three-tier progressive discovery: a five-result search costs roughly 160-200 tokens through the CLI while a single component's prop schema costs about 600, so schemas sit behind a second request and only the chosen component's source is ever fetched",
+        "One quality gate in three runtimes: a 14-rule AST checker (13 errors, 1 warning) runs in the browser as you type, on the Worker at submission, and over the whole catalogue in CI, parsed with acorn at 61 KB gzipped instead of the 1 MB TypeScript compiler API",
+        "Three consumption paths over one registry: an npm CLI, a stdio MCP server exposing search/detail/source tools, and plain REST endpoints, plus shadcn-compatible /r/{slug}.json registry items that install by source copy with remotion as the only dependency",
+        "Scene contract: describe a whole video as JSON, validate every slug and prop against the live registry, and render the timeline with components that already exist instead of generating bespoke TSX for each beat",
+        "Community pipeline with real gatekeeping: GitHub OAuth submissions, a reviewer desk gated on GitHub account IDs, and an isolated verification renderer that runs with no network and none of the registry's secrets",
+        "Edge data plane on Cloudflare: D1 for relational metadata with an FTS5 index kept in sync by triggers, R2 for source and rendered media, and three separate Workers rate-limit bindings so an agent's traffic cannot spend a browser's allowance"
+      ],
+      "problem": "Asking an AI agent to build a video in Remotion means it writes a bespoke React scene for every beat, and most of what it writes is the same animation re-implemented badly — CSS transitions and setInterval timers that silently break frame-accurate rendering. Existing component libraries answer this with black-box npm packages, which reintroduces version drift, a heavy dependency tree, and no way to tune the motion you own. The cost is paid twice: the agent burns tokens regenerating code that already exists, and the creator ends up depending on a component they cannot edit.",
+      "technicalApproach": "Built Remocomp as a pnpm + Turborepo monorepo where a Next.js 15 app on OpenNext and Cloudflare Workers serves the gallery, the component workbench and every registry API from a single deployment, backed by D1 for relational metadata and FTS5 search and R2 for source code and rendered media. Discovery is budgeted by tier rather than by convenience, the acceptance rules live in one package that runs unchanged in three runtimes, and installation copies source into the user's repository rather than pulling a package, so remotion stays the only dependency.",
+      "challenges": [
+        "Sharing a real JavaScript parser between a browser bundle, a Workers bundle and Node. The TypeScript compiler API is 1 MB gzipped on its own and does not fit beside the site, so the gate parses with acorn plus its TypeScript plugin — 61 KB gzipped, pure JavaScript with no Node built-ins, and identical output in all three runtimes.",
+        "An undocumented component was published through the maintainer CLI path and leaked into discovery with no description and no prop schema. A direct publish skips the reviewer desk, so the same publish checklist now runs on both paths and meta.json is no longer a way around the review rules.",
+        "Search recall silently depended on where a component was stored: seed components matched every query word with AND while the FTS5 index treated words as alternatives, so a plain-language query like \"compare two things\" found nothing. Replaced with OR-with-coverage ranking so recall depends on the question, not on the storage backend."
+      ],
+      "keyDecisions": [
+        "Copy the source, do not install a package: components land in the user's own repository with remotion as the only dependency, which keeps the tree small and leaves every animation editable instead of sealed behind a black box.",
+        "Budget the response, not the feature: props schemas, defaults and source each live behind their own request, and bestFor/avoidWhen are capped to one line each so an agent can reject a component without spending a request on reading its source.",
+        "Store trust, never assume it: the gate version, the Remotion version tested and the verification status are nullable columns, and the \"Passed gate\" badge renders only when a pass was actually recorded — a component that never went through the gate must not wear a badge implying it did."
+      ],
+      "result": "Shipped a live registry at remocomp.shourov.workers.dev with 9 curated components across primitives, scenes, transitions and templates, a published remocomp CLI and remocomp-mcp server on npm, and shadcn-compatible registry endpoints. Mobile Lighthouse reports 80 for performance with 100 for accessibility, best practices and SEO; the remaining performance gap is attributed honestly to mounting a live Remotion player on the gallery, which is the feature itself.",
+      "visualEvidence": {
+        "type": "diagram",
+        "title": "Three-Tier Agent Surface & Registry Data Plane",
+        "caption": "Architecture: budgeted discovery on Cloudflare Workers, D1 metadata with an FTS5 index, and R2 for source and rendered media.",
+        "content": [
+          "Tier 1  Search    ──> GET /api/v1/search?q=             ~160-200 tokens via the CLI · no prop schemas · own rate-limit binding",
+          "Tier 2  Inspect   ──> GET /api/v1/components/{slug}    propsSchema alone costs ~600 tokens · defaults · bestFor · avoidWhen",
+          "Tier 3  Install   ──> GET /r/{slug}.json               shadcn registry item · source written into the repo",
+          "Quality Gate       ──> 14 AST rules · browser + Worker + CI · acorn, not the TypeScript compiler",
+          "Edge Data Plane    ──> D1 (metadata + FTS5 via triggers) · R2 (source, posters, previews)"
         ]
       }
     },

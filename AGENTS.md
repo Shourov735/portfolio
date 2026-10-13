@@ -97,7 +97,7 @@ Any agent working in this repository **must strictly preserve** these core facts
 | **Canonical Domain** | `https://mdshourov.vercel.app` | **Never** use `shourov735.vercel.app` anywhere in SEO, metadata, sitemaps, or links. |
 | **Education** | B.Sc. in Software Engineering (BSSE) | Institute of Information Technology (IIT), University of Dhaka (IIT DU), 2024 – Present. |
 | **Problem Solving Metric** | **150+ problems solved** | **Strictly 150+**. Never claim 1,500+, 1500, or any exaggerated number. |
-| **Project Directory Count** | Exactly **10 projects** | Never claim 12+, 15+, or numbers that contradict `data/content.json`. |
+| **Project Directory Count** | Exactly **11 projects** | Never claim 12+, 15+, or numbers that contradict `data/content.json`. |
 | **Skill Proficiency** | 3 Qualitative Tiers | Grouped strictly into **Primary**, **Working Knowledge**, and **Familiar**. **Never** add percentage bars (e.g. "C++ 80%") or fake numerical proficiency scores. |
 | **Performance Claims** | Evidence-Driven & Qualitative | Never claim unverified benchmarks like "sub-100ms", "under 600ms", or "80% reduction" without verifiable test data. |
 | **Flagship Project** | **Nabodigonto** | Real-world non-profit platform where Md. Shourov engineered the double-signed blind audit protocol and was appointed **IT Secretary**. |
@@ -142,9 +142,9 @@ The portfolio follows a strict **Single Source of Truth** pattern:
 ### Homepage Section Sequence
 The homepage (`app/page.tsx`) must preserve this recruiter-optimized scanning flow:
 1. `<Hero />` — Identity, university, and core focus
-2. `<StatsBand />` — Verified numbers (150+ problems, 10 projects, IIT DU)
+2. `<StatsBand />` — Verified numbers (150+ problems, 11 projects, IIT DU)
 3. `<Spotlight />` — Flagship production systems (Nabodigonto, InsideJibon)
-4. `<Projects />` — Searchable & filterable directory of 10 projects
+4. `<Projects />` — Searchable & filterable directory of 11 projects
 5. `<CurrentlyLooking />` — Compact opportunity banner (Internship / Junior roles)
 6. `<Skills />` — 3-tier qualitative grouping (Primary, Working Knowledge, Familiar)
 7. `<About />` — Engineering philosophy, tenets, and IIT DU background

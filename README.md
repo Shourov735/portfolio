@@ -103,7 +103,19 @@ Architected with **Next.js 16 (App Router)**, **React 19**, **TypeScript**, and 
 
 ---
 
-#### 3. [Quiz Management & Examination System](https://github.com/Shourov735/Quiz-Management-and-Examination-System) — Mini-SPL Academic Project
+#### 3. [Remocomp](https://remocomp.shourov.workers.dev/) — Curated Remotion Registry for Humans & AI Agents
+[![Live Registry](https://img.shields.io/badge/Live_Registry-remocomp.shourov.workers.dev-f38020?style=flat-square&logo=cloudflare&logoColor=white)](https://remocomp.shourov.workers.dev/)
+[![npm](https://img.shields.io/badge/npm-remocomp_0.1.0-cb3837?style=flat-square&logo=npm&logoColor=white)](https://www.npmjs.com/package/remocomp)
+[![Stack](https://img.shields.io/badge/Stack-Remotion_4_%7C_Cloudflare_Workers_%7C_D1_%2B_R2_%7C_MCP-black?style=flat-square)](#)
+
+- **Three-Tier Token-Budgeted Discovery:** A five-result search costs roughly 160–200 tokens through the CLI while a single component's prop schema costs about 600 — so schemas live behind a second request, and only the chosen component's source is ever fetched.
+- **Source Ownership, Not Package Dependency:** Components are copied into the consuming repository shadcn-style, leaving `remotion` as the only dependency and every spring constant editable.
+- **One Quality Gate in Three Runtimes:** A 14-rule AST checker (13 errors, 1 warning) runs in the browser as you type, on the Worker at submission, and over the whole catalogue in CI — parsed with acorn (61 KB gzipped) instead of the 1 MB TypeScript compiler API.
+- **Three Consumption Paths:** An npm CLI (`remocomp`), a stdio MCP server (`remocomp-mcp`), and plain REST endpoints over the same registry, plus a scene contract for describing a whole video as validated JSON.
+
+---
+
+#### 4. [Quiz Management & Examination System](https://github.com/Shourov735/Quiz-Management-and-Examination-System) — Mini-SPL Academic Project
 [![Repository](https://img.shields.io/badge/Repo-Quiz--Management--System-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/Shourov735/Quiz-Management-and-Examination-System)
 [![Academic Project](https://img.shields.io/badge/Academic_Project-Mini--SPL_%2F_Design_Patterns-blue?style=flat-square)](#)
 [![Stack](https://img.shields.io/badge/Stack-Java_17_%7C_JavaFX_21_%7C_SQLite_%7C_GoF_Patterns-ed8b00?style=flat-square&logo=openjdk&logoColor=white)](#)
@@ -114,7 +126,7 @@ Architected with **Next.js 16 (App Router)**, **React 19**, **TypeScript**, and 
 
 ---
 
-#### 4. [Mosque Library Management](https://mosquelibrary.vercel.app/) — Community Library Web App
+#### 5. [Mosque Library Management](https://mosquelibrary.vercel.app/) — Community Library Web App
 [![Live Demo](https://img.shields.io/badge/Live_Demo-Mosque_Library-0070f3?style=flat-square&logo=vercel&logoColor=white)](https://mosquelibrary.vercel.app/)
 [![Stack](https://img.shields.io/badge/Stack-Next.js_%7C_TypeScript_%7C_Tailwind_%7C_Prisma_%7C_PostgreSQL-black?style=flat-square)](#)
 
@@ -129,6 +141,7 @@ Architected with **Next.js 16 (App Router)**, **React 19**, **TypeScript**, and 
 | :--- | :--- | :--- | :--- | :--- |
 | **Nabodigonto** | Web | Next.js 16, Cloudflare Workers, Prisma, Clerk | Community & financial audit platform with 3D member ID cards and double-signed treasury ledger. | [Live Demo](https://nabodigonto.conversora-tech.workers.dev) · [GitHub](https://github.com/Shourov735/nabodigonto) |
 | **InsideJibon** | Web | Next.js 16, Cloudflare Workers, Durable Objects, Workers AI, Neon | High-performance bilingual EdTech platform with Durable Objects live classrooms, Workers AI RAG tutoring, and study streaks. | [Live Demo](https://insidejibon.shourov.workers.dev) · [GitHub](https://github.com/Shourov735/InsideJibon) |
+| **Remocomp** | Open Source | Remotion 4, React 19, TypeScript, Cloudflare Workers, D1 & R2, MCP | Curated frame-accurate Remotion component registry with a token-budgeted agent API, stdio MCP server, npm CLI, and a 14-rule AST quality gate shared across browser, edge and CI. | [Live Registry](https://remocomp.shourov.workers.dev) · [npm](https://www.npmjs.com/package/remocomp) |
 | **ARVAANA** | Web | Next.js 16, React 19, TypeScript, Tailwind, DaisyUI | Luxury fragrance e-commerce with zero-FOUC dual themes, multi-tier bottle pricing, and WhatsApp checkout. | [Live Demo](https://arvaanabd.vercel.app/) |
 | **Quiz Management System** | Systems | Java 17, JavaFX 21, SQLite, GoF Patterns | Desktop examination software developed for IIT DU Mini-SPL implementing 5 GoF patterns and SQLite. | [GitHub](https://github.com/Shourov735/Quiz-Management-and-Examination-System) |
 | **Quran Reading Tracker** | Mobile | React Native, Expo, TypeScript, AsyncStorage | Offline-first Android mobile app with dual independent pipelines for Arabic recitation and Bangla translation. | [GitHub](https://github.com/Shourov735/QuranReadingTracker) |

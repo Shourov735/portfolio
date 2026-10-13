@@ -55,24 +55,27 @@
 2. **InsideJibon** (Web): https://insidejibon.shourov.workers.dev
    - High-performance bilingual (English/Bengali) EdTech platform on Cloudflare Workers edge featuring Durable Objects live classrooms, Workers AI & Vectorize RAG tutoring over video captions, and gamification streaks.
    - GitHub: https://github.com/Shourov735/InsideJibon
-3. **ARVAANA Fragrances** (Web E-Commerce): https://arvaanabd.vercel.app
+3. **Remocomp** (Open Source / Developer Tooling): https://remocomp.shourov.workers.dev
+   - Open-source curated registry of frame-accurate Remotion video components, installed shadcn-style by copying source into the user's repository. Ships a three-tier token-budgeted discovery API (~160-200 tokens for a five-result search), a stdio MCP server, an npm CLI (`remocomp`, `remocomp-mcp`), and a 14-rule AST quality gate that runs identically in the browser, on Cloudflare Workers and in CI.
+   - npm: https://www.npmjs.com/package/remocomp
+4. **ARVAANA Fragrances** (Web E-Commerce): https://arvaanabd.vercel.app
    - Luxury fragrance e-commerce platform for artisanal alcohol-free attars and inspired perfumes in Bangladesh with zero-FOUC dual themes, multi-tier variant pricing, and WhatsApp concierge checkout.
-4. **Quiz Management & Examination System** (Desktop / Systems):
+5. **Quiz Management & Examination System** (Desktop / Systems):
    - Desktop examination suite developed for IIT DU Design Patterns Lab (Mini-SPL) implementing Gang of Four (GoF) patterns (Strategy, State, Factory, Observer) and SQLite persistence.
    - GitHub: https://github.com/Shourov735/Quiz-Management-and-Examination-System
-5. **Quran Reading Tracker** (Mobile Android):
+6. **Quran Reading Tracker** (Mobile Android):
    - Offline-first habit tracking application with zero cloud telemetry and local SQLite persistence.
    - GitHub: https://github.com/Shourov735/QuranReadingTracker
-6. **Mosque Library Management System** (Web): https://mosquelibrary.vercel.app
+7. **Mosque Library Management System** (Web): https://mosquelibrary.vercel.app
    - Full-stack library system with Islamic book catalog, loan renewals, and committee roles.
-7. **romankh3/image-comparison** (Open Source Contribution):
+8. **romankh3/image-comparison** (Open Source Contribution):
    - Contributed algorithmic refactoring (PR #255) to Maven Central visual regression testing library (1,000+ stars).
-8. **TetriC** (Systems / Networking):
+9. **TetriC** (Systems / Networking):
    - Multiplayer console Tetris game built in raw C using POSIX TCP socket programming and non-blocking I/O.
    - GitHub: https://github.com/Shourov735/TetriC
-9. **Codeforces Solutions** (Competitive Programming):
-   - Archive of 150+ competitive programming solutions covering graphs, number theory, greedy, and dynamic programming.
-   - GitHub: https://github.com/Shourov735/Codeforces
-10. **LeetCode Solutions** (Algorithms / Data Structures):
+10. **Codeforces Solutions** (Competitive Programming):
+    - Archive of 150+ competitive programming solutions covering graphs, number theory, greedy, and dynamic programming.
+    - GitHub: https://github.com/Shourov735/Codeforces
+11. **LeetCode Solutions** (Algorithms / Data Structures):
     - Clean implementations for technical interview problems focusing on space/time trade-offs and reusable algorithmic patterns.
     - GitHub: https://github.com/Shourov735/LeetCode

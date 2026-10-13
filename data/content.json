@@ -231,7 +231,7 @@
         "title": "Three-Tier Agent Surface & Registry Data Plane",
         "caption": "Architecture: budgeted discovery on Cloudflare Workers, D1 metadata with an FTS5 index, and R2 for source and rendered media.",
         "content": [
-          "Tier 1  Search    ──> GET /api/v1/search?q=             ~160-200 tokens via the CLI · no prop schemas · own rate-limit binding",
+          "Tier 1  Search    ──> GET /ai/search?q=                 ~160-200 tokens via the CLI · no prop schemas · own rate-limit binding",
           "Tier 2  Inspect   ──> GET /api/v1/components/{slug}    propsSchema alone costs ~600 tokens · defaults · bestFor · avoidWhen",
           "Tier 3  Install   ──> GET /r/{slug}.json               shadcn registry item · source written into the repo",
           "Quality Gate       ──> 14 AST rules · browser + Worker + CI · acorn, not the TypeScript compiler",
@@ -509,7 +509,7 @@
         "title": "Three-Tier Agent Surface & Registry Data Plane",
         "caption": "Architecture: budgeted discovery on Cloudflare Workers, D1 metadata with an FTS5 index, and R2 for source and rendered media.",
         "content": [
-          "Tier 1  Search    ──> GET /api/v1/search?q=             ~160-200 tokens via the CLI · no prop schemas · own rate-limit binding",
+          "Tier 1  Search    ──> GET /ai/search?q=                 ~160-200 tokens via the CLI · no prop schemas · own rate-limit binding",
           "Tier 2  Inspect   ──> GET /api/v1/components/{slug}    propsSchema alone costs ~600 tokens · defaults · bestFor · avoidWhen",
           "Tier 3  Install   ──> GET /r/{slug}.json               shadcn registry item · source written into the repo",
           "Quality Gate       ──> 14 AST rules · browser + Worker + CI · acorn, not the TypeScript compiler",

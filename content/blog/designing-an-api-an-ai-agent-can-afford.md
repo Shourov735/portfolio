@@ -38,12 +38,14 @@ A human who gets an unhelpful response scrolls. An agent who gets an unhelpful r
 The agent surface is three endpoints, and the tiering is not a caching strategy. It is a promise about what the model is allowed to be carrying at each step.
 
 ```
-Tier 1   GET /api/v1/search?q=title+card        "what could this be?"
+Tier 1   GET /ai/search?q=title+card            "what could this be?"
 Tier 2   GET /api/v1/components/kinetic-text    "how do I drive it?"
 Tier 3   GET /r/kinetic-text.json               "what is it, in source?"
 ```
 
-Alongside them sit `/ai/components.json` (the full paginated index, with an ETag so a polling agent can get a 304 instead of the whole catalogue) and `/llms.txt` (the same thing in prose, for a client that has just arrived and has no patience for JSON).
+Alongside them sit `/ai/components.json` (the full paginated index, with an ETag so a polling agent can get a 304 instead of the whole catalogue), `/ai/scene-catalog.json` (what can be sequenced, and with which props), and `/llms.txt` (the same thing in prose, for a client that has just arrived and has no patience for JSON).
+
+`/api/v1/search` is the fuller sibling of tier 1 and returns the same hits with more detail. For a first look, `/ai/search` is the cheaper one, and the difference is where the budget goes — which is the next section.
 
 An agent that has been told this registry exists should be able to reach a working component in **three requests and one command**. That is the design target, and every field below exists to protect it.
 
@@ -64,10 +66,11 @@ Measured against the live registry:
 | `remocomp find "title card"` (4 hits) | 640 | **~160** |
 | `remocomp find "scene"` (5 hits) | 796 | **~200** |
 | `remocomp find "counter"` (1 hit) | 196 | ~50 |
-| `GET /api/v1/search?q=title+card&limit=5` | 3,569 | ~890 |
+| `GET /ai/search?q=title+card` (4 hits) | 1,565 | ~390 |
+| `GET /api/v1/search?q=title+card&limit=5` | 5,318 | ~1,330 |
 | `GET /api/v1/components/mental-model-card` → `propsSchema` alone | 2,416 | **~600** |
 
-Read that last row next to the first one. One component's prop schema costs about **four times more** than a five-result search page. That asymmetry is the entire design problem.
+Read the last row next to the first. One component's prop schema costs about **four times more** than the entire result of a four-component search. That asymmetry is the entire design problem.
 
 So tier 1 returns exactly this, and nothing else:
 
@@ -75,12 +78,12 @@ So tier 1 returns exactly this, and nothing else:
 [{ "slug": "kinetic-text", "name": "Kinetic Text",
    "category": "primitives", "summary": "Word-by-word spring reveal…",
    "fps": 30, "durationInFrames": 60,
-   "bestFor": ["High-energy video intro hooks", "YouTube title cards", "…"],
-   "avoidWhen": ["Dense multi-paragraph body text", "Static legal disclaimers"],
-   "installCommand": "npx remocomp add kinetic-text" }]
+   "bestFor": ["High-energy video intro hooks"],
+   "avoidWhen": ["Dense multi-paragraph body text"],
+   "install": "npx remocomp add kinetic-text" }]
 ```
 
-Deliberately absent: `propsSchema`, `defaultProps`, and the source.
+Deliberately absent: `propsSchema`, `defaultProps`, dimensions, tags, and the source.
 
 This is the decision I spent the most time on, and I got it wrong first. My original instinct was to make tier 1 complete — it felt dishonest to hide data. But a props schema describing a component the model may never install is pure speculation burning context, and with five candidates you can be speculating about five components at once.
 

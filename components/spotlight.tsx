@@ -1,9 +1,12 @@
 "use client"
 
-import Image from "next/image"
 import Link from "next/link"
 import { getContent, slugify } from "@/lib/content"
 import { ScrollReveal } from "@/components/scroll-reveal"
+import { BorderGlow } from "@/components/border-glow"
+import { NabodigontoAuditPreview } from "@/components/previews/nabodigonto-audit-preview"
+import { InsideJibonPipelinePreview } from "@/components/previews/insidejibon-pipeline-preview"
+import { ArvaanaVariantPreview } from "@/components/previews/arvaana-variant-preview"
 
 export function Spotlight() {
   const projects = getContent().featuredProject
@@ -14,40 +17,40 @@ export function Spotlight() {
         <ScrollReveal>
           <div className="section-heading">
             <p className="eyebrow">Featured Work</p>
-            <h2>Flagship engineering projects & production systems.</h2>
+            <h2>Flagship engineering projects &amp; production systems.</h2>
             <p className="text-[var(--color-muted)] max-w-[640px] mt-2 text-base">
               A curated selection of high-impact platforms, from double-signed treasury protocols to bilingual
-              EdTech and systems software.
+              EdTech and zero-FOUC luxury e-commerce.
             </p>
           </div>
         </ScrollReveal>
 
-        <div className="grid gap-10">
+        <div className="grid gap-12">
           {projects.map((project, index) => {
             const slug = slugify(project.title)
             const isReversed = index % 2 !== 0
 
             return (
               <ScrollReveal key={project.title}>
-                <article className="group border border-[var(--color-line)] rounded-2xl bg-[var(--color-surface)] overflow-hidden hover:border-[var(--color-primary)] transition-colors duration-200">
-                  <div
+                <BorderGlow className="border border-[var(--color-line)] rounded-2xl bg-[var(--color-surface)] overflow-hidden hover:border-[var(--color-primary)] transition-colors duration-200 shadow-sm">
+                  <article
                     className={`grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-6 md:p-8 ${
                       isReversed ? "lg:[&>*:first-child]:order-2" : ""
                     }`}
                   >
-                    <div className="lg:col-span-6 relative overflow-hidden rounded-xl border border-[var(--color-line)] bg-[var(--color-surface-muted)]">
-                      <Link href={`/projects/${slug}`} className="block overflow-hidden">
-                        <Image
-                          src={project.image}
-                          alt={`${project.title} — Engineering Case Study by Md Shourov`}
-                          width={640}
-                          height={400}
-                          sizes="(max-width: 1024px) 100vw, 50vw"
-                          className="w-full aspect-[16/10] object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-                        />
-                      </Link>
+                    {/* Visual Interactive Preview Column */}
+                    <div className="lg:col-span-6 relative overflow-hidden rounded-xl border border-[var(--color-line)] bg-[var(--color-surface-muted)] shadow-xs">
+                      {project.title === "Nabodigonto" && <NabodigontoAuditPreview />}
+                      {project.title === "InsideJibon" && <InsideJibonPipelinePreview />}
+                      {project.title === "ARVAANA" && <ArvaanaVariantPreview />}
+                      {!["Nabodigonto", "InsideJibon", "ARVAANA"].includes(project.title) && (
+                        <div className="p-8 text-center text-sm font-mono text-[var(--color-muted)]">
+                          {project.title} Preview
+                        </div>
+                      )}
                     </div>
 
+                    {/* Metadata & Narrative Column */}
                     <div className="lg:col-span-6 flex flex-col justify-between space-y-4">
                       <div>
                         <div className="flex flex-wrap items-center gap-2 mb-3">
@@ -63,8 +66,8 @@ export function Spotlight() {
                               Flagship Project
                             </span>
                           ) : (
-                            <span className="text-[11px] font-mono uppercase tracking-[0.16em] text-[var(--color-muted)]">
-                              Featured
+                            <span className="text-[11px] font-mono uppercase tracking-[0.16em] text-[var(--color-muted)] font-medium">
+                              Production System
                             </span>
                           )}
                         </div>
@@ -82,7 +85,7 @@ export function Spotlight() {
 
                       {project.highlights && project.highlights.length > 0 && (
                         <div className="pt-2">
-                          <p className="text-[11px] font-mono uppercase tracking-[0.16em] text-[var(--color-muted)] mb-3">
+                          <p className="text-[11px] font-mono uppercase tracking-[0.16em] text-[var(--color-muted)] mb-3 font-medium">
                             Key highlights
                           </p>
                           <ul className="grid gap-2.5">
@@ -133,8 +136,8 @@ export function Spotlight() {
                         ))}
                       </div>
                     </div>
-                  </div>
-                </article>
+                  </article>
+                </BorderGlow>
               </ScrollReveal>
             )
           })}

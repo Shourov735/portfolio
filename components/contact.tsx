@@ -300,10 +300,12 @@ export function Contact() {
               />
             </div>
 
-            <label className="absolute left-[-9999px]" aria-hidden="true">
-              <span>Leave this empty</span>
+            <div
+              aria-hidden="true"
+              style={{ position: "absolute", left: "-9999px", opacity: 0, pointerEvents: "none" }}
+            >
               <input type="text" name="website" tabIndex={-1} autoComplete="off" />
-            </label>
+            </div>
 
             {siteKey && (
               <>
@@ -314,9 +316,11 @@ export function Contact() {
                 />
                 <div className="min-h-[66px] flex flex-col justify-center">
                   <div ref={turnstileContainerRef} className="cf-turnstile-wrapper overflow-hidden rounded-lg" />
-                  <span className="sr-only" aria-live="polite">
-                    {turnstileToken ? "Human verification complete." : "Human verification pending."}
-                  </span>
+                  {turnstileToken && (
+                    <span className="sr-only" aria-live="polite">
+                      Human verification complete.
+                    </span>
+                  )}
                 </div>
               </>
             )}

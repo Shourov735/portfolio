@@ -303,14 +303,48 @@ export default function RootLayout({
                   "@id": `${SITE_URL}/#faq`,
                   name: "Md. Shourov — Software Engineering & Academic FAQ",
                   isPartOf: { "@id": `${SITE_URL}/#website` },
-                  mainEntity: (content.faq ?? []).map((item) => ({
-                    "@type": "Question",
-                    name: item.question,
-                    acceptedAnswer: {
-                      "@type": "Answer",
-                      text: item.answer,
+                  mainEntity: [
+                    {
+                      "@type": "Question",
+                      name: "Who is Md. Shourov?",
+                      acceptedAnswer: {
+                        "@type": "Answer",
+                        text: "Md. Shourov (known online as Shourov735) is a Software Engineering undergraduate student at the Institute of Information Technology (IIT), University of Dhaka (BSSE program), and the IT Secretary at Nabodigonto Social Welfare Organization.",
+                      },
                     },
-                  })),
+                    {
+                      "@type": "Question",
+                      name: "What degree and university is Md. Shourov affiliated with?",
+                      acceptedAnswer: {
+                        "@type": "Answer",
+                        text: "Md. Shourov is pursuing a Bachelor of Science in Software Engineering (BSSE, 2024–Present) at the Institute of Information Technology (IIT), University of Dhaka (IIT DU) in Bangladesh.",
+                      },
+                    },
+                    {
+                      "@type": "Question",
+                      name: "What is Md. Shourov's flagship software engineering project?",
+                      acceptedAnswer: {
+                        "@type": "Answer",
+                        text: "His flagship production system is Nabodigonto, a serverless community and treasury management platform deployed on Cloudflare Workers edge, featuring a double-signed blind audit protocol.",
+                      },
+                    },
+                    {
+                      "@type": "Question",
+                      name: "What is Md. Shourov's problem-solving and competitive programming track record?",
+                      acceptedAnswer: {
+                        "@type": "Answer",
+                        text: "Md. Shourov has solved 150+ competitive programming problems across Codeforces and LeetCode, with strong foundations in algorithms, data structures, and GoF design patterns.",
+                      },
+                    },
+                    ...(content.faq ?? []).map((item) => ({
+                      "@type": "Question",
+                      name: item.question,
+                      acceptedAnswer: {
+                        "@type": "Answer",
+                        text: item.answer,
+                      },
+                    })),
+                  ],
                 },
               ],
             }),

@@ -13,8 +13,8 @@
       "label": "Languages Explored"
     },
     {
-      "value": "2024",
-      "label": "BSc in Software Engineering"
+      "value": "'24–'28",
+      "label": "BSSE @ IIT, Univ. of Dhaka"
     }
   ],
   "skills": [
@@ -22,44 +22,96 @@
       "category": "Primary",
       "description": "Core technologies I use frequently and have substantial practical experience with across production and academic work.",
       "items": [
-        { "name": "Next.js" },
-        { "name": "React" },
-        { "name": "TypeScript" },
-        { "name": "C++" },
-        { "name": "Java" },
-        { "name": "Tailwind CSS" },
-        { "name": "PostgreSQL / Neon" },
-        { "name": "Vercel" },
-        { "name": "Cloudflare Workers & R2" },
-        { "name": "Git & GitHub" },
-        { "name": "SQLite" }
+        {
+          "name": "Next.js"
+        },
+        {
+          "name": "React"
+        },
+        {
+          "name": "TypeScript"
+        },
+        {
+          "name": "C++"
+        },
+        {
+          "name": "Java"
+        },
+        {
+          "name": "Tailwind CSS"
+        },
+        {
+          "name": "PostgreSQL / Neon"
+        },
+        {
+          "name": "Vercel"
+        },
+        {
+          "name": "Cloudflare Workers & R2"
+        },
+        {
+          "name": "Git & GitHub"
+        },
+        {
+          "name": "SQLite"
+        }
       ]
     },
     {
       "category": "Working Knowledge",
       "description": "Technologies I have practical experience with and use for targeted platforms and systems.",
       "items": [
-        { "name": "React Native / Expo" },
-        { "name": "JavaScript" },
-        { "name": "Cloudflare D1" },
-        { "name": "Linux / Bash" },
-        { "name": "JavaFX" },
-        { "name": "Socket Programming" },
-        { "name": "Node.js" },
-        { "name": "Maven & JUnit 5" }
+        {
+          "name": "React Native / Expo"
+        },
+        {
+          "name": "JavaScript"
+        },
+        {
+          "name": "Cloudflare D1"
+        },
+        {
+          "name": "Linux / Bash"
+        },
+        {
+          "name": "JavaFX"
+        },
+        {
+          "name": "Socket Programming"
+        },
+        {
+          "name": "Node.js"
+        },
+        {
+          "name": "Maven & JUnit 5"
+        }
       ]
     },
     {
       "category": "Familiar",
       "description": "Technologies I have explored or used occasionally that are not central to my current daily stack.",
       "items": [
-        { "name": "Python" },
-        { "name": "MySQL" },
-        { "name": "Prisma ORM" },
-        { "name": "Firebase" },
-        { "name": "MongoDB" },
-        { "name": "Supabase" },
-        { "name": "SQL Indexing & Optimization" }
+        {
+          "name": "Python"
+        },
+        {
+          "name": "MySQL"
+        },
+        {
+          "name": "Prisma ORM"
+        },
+        {
+          "name": "Firebase"
+        },
+        {
+          "name": "MongoDB"
+        },
+        {
+          "name": "Supabase"
+        },
+        {
+          "name": "SQL Indexing & Optimization"
+        }
       ]
     }
   ],
@@ -71,7 +123,14 @@
       "metaDescription": "Flagship community platform for Nabodigonto featuring double-signed blind audit treasury verification, dynamic member ID cards, and transparent reporting.",
       "image": "/assets/images/nabodigonto.jpg",
       "category": "Web",
-      "tags": ["Next.js 16", "Cloudflare Workers", "Prisma", "Neon Postgres", "Clerk Auth", "Tailwind CSS"],
+      "tags": [
+        "Next.js 16",
+        "Cloudflare Workers",
+        "Prisma",
+        "Neon Postgres",
+        "Clerk Auth",
+        "Tailwind CSS"
+      ],
       "links": [
         {
           "label": "Live Demo",
@@ -177,76 +236,21 @@
       }
     },
     {
-      "title": "Remocomp",
-      "role": "Creator & Maintainer",
-      "summary": "An open-source, curated registry of frame-accurate Remotion video components that humans and AI agents install shadcn-style by copying the source into their own repository. Ships a three-tier token-budgeted discovery API, a stdio MCP server, an npm CLI, and a 14-rule AST quality gate that runs identically in the browser, on the Cloudflare edge, and in CI.",
-      "metaDescription": "Open-source Remotion component registry with a three-tier token-budgeted API, a stdio MCP server, an npm CLI, and a 14-rule AST quality gate shared across browser, edge and CI.",
-      "metaTitle": "Remocomp: A Token-Budgeted Component Registry",
-      "image": "/assets/images/remocomp.jpg",
-      "category": "Open Source",
-      "tags": [
-        "Remotion 4",
-        "React 19",
-        "TypeScript",
-        "Cloudflare Workers",
-        "D1 & R2",
-        "Drizzle ORM",
-        "MCP Server",
-        "AST Quality Gate",
-        "Tailwind CSS"
-      ],
-      "links": [
-        {
-          "label": "Live Demo",
-          "url": "https://remocomp.shourov.workers.dev"
-        },
-        {
-          "label": "CLI on npm",
-          "url": "https://www.npmjs.com/package/remocomp"
-        }
-      ],
-      "highlights": [
-        "Three-tier progressive discovery: a five-result search costs roughly 160-200 tokens through the CLI while a single component's prop schema costs about 600, so schemas sit behind a second request and only the chosen component's source is ever fetched",
-        "One quality gate in three runtimes: a 14-rule AST checker (13 errors, 1 warning) runs in the browser as you type, on the Worker at submission, and over the whole catalogue in CI, parsed with acorn at 61 KB gzipped instead of the 1 MB TypeScript compiler API",
-        "Three consumption paths over one registry: an npm CLI, a stdio MCP server exposing search/detail/source tools, and plain REST endpoints, plus shadcn-compatible /r/{slug}.json registry items that install by source copy with remotion as the only dependency",
-        "Scene contract: describe a whole video as JSON, validate every slug and prop against the live registry, and render the timeline with components that already exist instead of generating bespoke TSX for each beat",
-        "Community pipeline with real gatekeeping: GitHub OAuth submissions, a reviewer desk gated on GitHub account IDs, and an isolated verification renderer that runs with no network and none of the registry's secrets",
-        "Edge data plane on Cloudflare: D1 for relational metadata with an FTS5 index kept in sync by triggers, R2 for source and rendered media, and three separate Workers rate-limit bindings so an agent's traffic cannot spend a browser's allowance"
-      ],
-      "problem": "Asking an AI agent to build a video in Remotion means it writes a bespoke React scene for every beat, and most of what it writes is the same animation re-implemented badly — CSS transitions and setInterval timers that silently break frame-accurate rendering. Existing component libraries answer this with black-box npm packages, which reintroduces version drift, a heavy dependency tree, and no way to tune the motion you own. The cost is paid twice: the agent burns tokens regenerating code that already exists, and the creator ends up depending on a component they cannot edit.",
-      "technicalApproach": "Built Remocomp as a pnpm + Turborepo monorepo where a Next.js 15 app on OpenNext and Cloudflare Workers serves the gallery, the component workbench and every registry API from a single deployment, backed by D1 for relational metadata and FTS5 search and R2 for source code and rendered media. Discovery is budgeted by tier rather than by convenience, the acceptance rules live in one package that runs unchanged in three runtimes, and installation copies source into the user's repository rather than pulling a package, so remotion stays the only dependency.",
-      "challenges": [
-        "Sharing a real JavaScript parser between a browser bundle, a Workers bundle and Node. The TypeScript compiler API is 1 MB gzipped on its own and does not fit beside the site, so the gate parses with acorn plus its TypeScript plugin — 61 KB gzipped, pure JavaScript with no Node built-ins, and identical output in all three runtimes.",
-        "An undocumented component was published through the maintainer CLI path and leaked into discovery with no description and no prop schema. A direct publish skips the reviewer desk, so the same publish checklist now runs on both paths and meta.json is no longer a way around the review rules.",
-        "Search recall silently depended on where a component was stored: seed components matched every query word with AND while the FTS5 index treated words as alternatives, so a plain-language query like \"compare two things\" found nothing. Replaced with OR-with-coverage ranking so recall depends on the question, not on the storage backend."
-      ],
-      "keyDecisions": [
-        "Copy the source, do not install a package: components land in the user's own repository with remotion as the only dependency, which keeps the tree small and leaves every animation editable instead of sealed behind a black box.",
-        "Budget the response, not the feature: props schemas, defaults and source each live behind their own request, and bestFor/avoidWhen are capped to one line each so an agent can reject a component without spending a request on reading its source.",
-        "Store trust, never assume it: the gate version, the Remotion version tested and the verification status are nullable columns, and the \"Passed gate\" badge renders only when a pass was actually recorded — a component that never went through the gate must not wear a badge implying it did."
-      ],
-      "result": "Shipped a live registry at remocomp.shourov.workers.dev with 9 curated components across primitives, scenes, transitions and templates, a published remocomp CLI and remocomp-mcp server on npm, and shadcn-compatible registry endpoints. Mobile Lighthouse reports 80 for performance with 100 for accessibility, best practices and SEO; the remaining performance gap is attributed honestly to mounting a live Remotion player on the gallery, which is the feature itself.",
-      "visualEvidence": {
-        "type": "diagram",
-        "title": "Three-Tier Agent Surface & Registry Data Plane",
-        "caption": "Architecture: budgeted discovery on Cloudflare Workers, D1 metadata with an FTS5 index, and R2 for source and rendered media.",
-        "content": [
-          "Tier 1  Search    ──> GET /ai/search?q=                 ~160-200 tokens via the CLI · no prop schemas · own rate-limit binding",
-          "Tier 2  Inspect   ──> GET /api/v1/components/{slug}    propsSchema alone costs ~600 tokens · defaults · bestFor · avoidWhen",
-          "Tier 3  Install   ──> GET /r/{slug}.json               shadcn registry item · source written into the repo",
-          "Quality Gate       ──> 14 AST rules · browser + Worker + CI · acorn, not the TypeScript compiler",
-          "Edge Data Plane    ──> D1 (metadata + FTS5 via triggers) · R2 (source, posters, previews)"
-        ]
-      }
-    },
-    {
       "title": "ARVAANA",
       "role": "Full-Stack Developer",
       "summary": "A modern luxury fragrance e-commerce platform crafted for artisanal alcohol-free attars and inspired perfumes in Bangladesh. Features zero-FOUC dual themes, multi-tier bottle volume pricing, and a zero-friction WhatsApp concierge checkout flow.",
       "metaDescription": "Modern luxury fragrance e-commerce platform for artisanal attars and perfumes with zero-FOUC dual themes, reactive sizing, and WhatsApp checkout.",
       "image": "/assets/images/arvaana.jpg",
       "category": "Web",
-      "tags": ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS", "DaisyUI", "E-Commerce", "Vercel"],
+      "tags": [
+        "Next.js 16",
+        "React 19",
+        "TypeScript",
+        "Tailwind CSS",
+        "DaisyUI",
+        "E-Commerce",
+        "Vercel"
+      ],
       "links": [
         {
           "label": "Live Demo",
@@ -274,71 +278,6 @@
         "Static Generation with Client Hydration: Rendered product catalogs statically for fast page loads, keeping variant calculations responsive in client state."
       ],
       "result": "Launched a production luxury fragrance store serving customers nationwide with intuitive multi-variant pricing and seamless mobile ordering."
-    },
-    {
-      "title": "Quiz Management & Examination System",
-      "metaTitle": "Quiz Management System — Case Study",
-      "role": "Developer (Mini-SPL Project)",
-      "summary": "Desktop examination application developed in Java and JavaFX for the Design Patterns Lab Final Project (Mini-SPL) at IIT, University of Dhaka. Implements rigorous GoF patterns, role-based workflows, and SQLite relational persistence.",
-      "metaDescription": "Java & JavaFX desktop examination app implementing GoF design patterns, secure teacher exam authoring, timed student testing, and instant grading.",
-      "image": "/assets/images/quiz-system.jpg",
-      "category": "Systems",
-      "tags": ["Java 17", "JavaFX 21", "SQLite", "Design Patterns", "JUnit 5", "Maven"],
-      "links": [
-        {
-          "label": "GitHub",
-          "url": "https://github.com/Shourov735/Quiz-Management-and-Examination-System"
-        }
-      ],
-      "highlights": [
-        "Implementation of GoF patterns: Strategy (scoring), State (quiz lifecycle), Factory (questions), Observer (timer/events)",
-        "Role-based dashboards for Teachers (quiz authoring, question bank, analytics) and Students (exam taking, result review)",
-        "Support for 4 question types: MCQ, True/False, Fill-in-the-Blank, and Multiple Answer",
-        "Full SQLite persistence via JDBC with automated schema migration and database seeder"
-      ],
-      "problem": "Academic testing systems often suffer from rigid scoring rules, hardcoded question types, and tightly coupled UI and business logic that make codebase maintenance and testing difficult.",
-      "technicalApproach": "Engineered a modular desktop application in Java 17 and JavaFX 21 applying classic Gang of Four (GoF) object-oriented design patterns to cleanly separate concerns and ensure testability with JUnit 5.",
-      "challenges": [
-        "Coordinating quiz timer events, countdown warnings, and auto-submission across asynchronous JavaFX application threads.",
-        "Designing polymorphic database schemas and JDBC queries to support multiple distinct question types."
-      ],
-      "keyDecisions": [
-        "Strategy Pattern for Scoring: Allows switching between standard scoring, negative marking, and weighted points without altering exam runner code.",
-        "State Pattern for Exam Lifecycle: Modeled quiz states (Not Started, In Progress, Paused, Submitted, Graded) to prevent invalid state transitions.",
-        "Factory Pattern for Questions: Decoupled UI question component instantiation from question data models."
-      ],
-      "result": "Completed and presented as the final Mini-SPL course project at IIT DU, achieving clean automated test coverage and seamless multi-role examination workflows."
-    },
-    {
-      "title": "Mosque Library Management",
-      "role": "Full-Stack Developer",
-      "summary": "A full-stack web application for managing mosque libraries — Islamic book catalog browsing, member issue/return tracking, and committee role assignments with bilingual (EN/BN) support.",
-      "metaDescription": "Full-stack library management system for Islamic book catalog browsing, member borrowing ledgers, and committee access control.",
-      "image": "/assets/images/mosque-library.jpg",
-      "category": "Web",
-      "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Full-Stack", "Prisma", "PostgreSQL"],
-      "links": [
-        {
-          "label": "Live Demo",
-          "url": "https://mosquelibrary.vercel.app"
-        }
-      ],
-      "highlights": [
-        "Comprehensive Islamic book catalog with search, categorization, and availability tracking",
-        "Member borrowing lifecycle with due dates, loan renewals, and overdue alerts",
-        "Bilingual English and Bengali localization for seamless community accessibility"
-      ],
-      "problem": "Community mosque libraries frequently encounter lost books, untracked loans, and manual paper records, making it difficult for patrons to discover available literature.",
-      "technicalApproach": "Developed a modern web portal using Next.js, TypeScript, and Prisma ORM backed by PostgreSQL, with responsive layouts in Tailwind CSS and bilingual language support.",
-      "challenges": [
-        "Managing book loan states (Issued, Overdue, Returned, Lost) and renewal limits.",
-        "Providing quick search across both Bengali and English book titles and author names."
-      ],
-      "keyDecisions": [
-        "Relational Schema: Enforced strict foreign keys connecting books, copies, members, and loan transactions to maintain audit integrity.",
-        "Bilingual UI Localization: Built lightweight dictionary-based localization to cater to both local and international patrons."
-      ],
-      "result": "Delivered an accessible web catalog and lending management system ready for community library operations."
     }
   ],
   "projects": [
@@ -349,7 +288,14 @@
       "metaDescription": "Flagship community platform for Nabodigonto featuring double-signed blind audit treasury verification, dynamic member ID cards, and transparent reporting.",
       "image": "/assets/images/nabodigonto.jpg",
       "category": "Web",
-      "tags": ["Next.js 16", "Cloudflare Workers", "Prisma", "Neon Postgres", "Clerk Auth", "Tailwind CSS"],
+      "tags": [
+        "Next.js 16",
+        "Cloudflare Workers",
+        "Prisma",
+        "Neon Postgres",
+        "Clerk Auth",
+        "Tailwind CSS"
+      ],
       "links": [
         {
           "label": "Live Demo",
@@ -524,7 +470,15 @@
       "metaDescription": "Modern luxury fragrance e-commerce platform for artisanal attars and perfumes with zero-FOUC dual themes, reactive sizing, and WhatsApp checkout.",
       "image": "/assets/images/arvaana.jpg",
       "category": "Web",
-      "tags": ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS", "DaisyUI", "E-Commerce", "Vercel"],
+      "tags": [
+        "Next.js 16",
+        "React 19",
+        "TypeScript",
+        "Tailwind CSS",
+        "DaisyUI",
+        "E-Commerce",
+        "Vercel"
+      ],
       "links": [
         {
           "label": "Live Demo",
@@ -561,7 +515,14 @@
       "metaDescription": "Java & JavaFX desktop examination app implementing GoF design patterns, secure teacher exam authoring, timed student testing, and instant grading.",
       "image": "/assets/images/quiz-system.jpg",
       "category": "Systems",
-      "tags": ["Java 17", "JavaFX 21", "SQLite", "Design Patterns", "JUnit 5", "Maven"],
+      "tags": [
+        "Java 17",
+        "JavaFX 21",
+        "SQLite",
+        "Design Patterns",
+        "JUnit 5",
+        "Maven"
+      ],
       "links": [
         {
           "label": "GitHub",
@@ -594,7 +555,14 @@
       "metaDescription": "Offline-first React Native mobile app to track daily Quran reading habits with local SQLite persistence, milestone charts, and full privacy.",
       "image": "/assets/images/quran-tracker.jpg",
       "category": "Mobile",
-      "tags": ["React Native", "Expo", "TypeScript", "Mobile", "Offline-First", "AsyncStorage"],
+      "tags": [
+        "React Native",
+        "Expo",
+        "TypeScript",
+        "Mobile",
+        "Offline-First",
+        "AsyncStorage"
+      ],
       "links": [
         {
           "label": "GitHub",
@@ -637,7 +605,14 @@
       "metaDescription": "Full-stack library management system for Islamic book catalog browsing, member borrowing ledgers, and committee access control.",
       "image": "/assets/images/mosque-library.jpg",
       "category": "Web",
-      "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Full-Stack", "Prisma", "PostgreSQL"],
+      "tags": [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Full-Stack",
+        "Prisma",
+        "PostgreSQL"
+      ],
       "links": [
         {
           "label": "Live Demo",
@@ -668,7 +643,14 @@
       "metaDescription": "Contribution to romankh3/image-comparison, an open-source Java visual regression QA testing library published on Maven Central.",
       "image": "/assets/images/image-comparison.jpg",
       "category": "Open Source",
-      "tags": ["Java", "Open Source", "Image Processing", "JUnit 5", "Algorithms", "Maven"],
+      "tags": [
+        "Java",
+        "Open Source",
+        "Image Processing",
+        "JUnit 5",
+        "Algorithms",
+        "Maven"
+      ],
       "links": [
         {
           "label": "GitHub",
@@ -703,7 +685,13 @@
       "metaDescription": "Modular console-based multiplayer Tetris in C with terminal frame buffering, non-blocking keyboard I/O, and concurrent head-to-head modes.",
       "image": "/assets/images/tetric.jpg",
       "category": "Systems",
-      "tags": ["C", "Socket Programming", "Game Development", "Multiplayer", "Algorithms"],
+      "tags": [
+        "C",
+        "Socket Programming",
+        "Game Development",
+        "Multiplayer",
+        "Algorithms"
+      ],
       "links": [
         {
           "label": "GitHub",
@@ -750,7 +738,13 @@
       "metaDescription": "Archive of 150+ competitive programming solutions in C++ on Codeforces focusing on graph algorithms, number theory, and dynamic programming.",
       "image": "/assets/images/codeforces.jpg",
       "category": "Algorithms",
-      "tags": ["C++", "C", "Algorithms", "Data Structures", "Competitive Programming"],
+      "tags": [
+        "C++",
+        "C",
+        "Algorithms",
+        "Data Structures",
+        "Competitive Programming"
+      ],
       "links": [
         {
           "label": "GitHub",
@@ -783,7 +777,12 @@
       "metaDescription": "Clean, benchmarked implementations for algorithmic interview problems focusing on optimal data structure trade-offs and complexity proofs.",
       "image": "/assets/images/leetcode.jpg",
       "category": "Algorithms",
-      "tags": ["C++", "Algorithms", "Data Structures", "Problem Solving"],
+      "tags": [
+        "C++",
+        "Algorithms",
+        "Data Structures",
+        "Problem Solving"
+      ],
       "links": [
         {
           "label": "GitHub",
@@ -815,43 +814,80 @@
       "title": "Remastering InsideJibon: Building a $0-Subscription EdTech Engine on Cloudflare Edge",
       "date": "2026-09-26",
       "summary": "How I re-architected InsideJibon with Cloudflare Durable Objects for live classes, Workers AI & Vectorize for caption RAG, Duolingo-style streaks, and a zero-egress video model under a hard $0/month subscription constraint.",
-      "tags": ["Projects", "Architecture", "Cloudflare Workers", "Next.js", "AI", "Edge"]
+      "tags": [
+        "Projects",
+        "Architecture",
+        "Cloudflare Workers",
+        "Next.js",
+        "AI",
+        "Edge"
+      ]
     },
     {
       "title": "Designing the Blind Audit Protocol for Nabodigonto",
       "date": "2026-08-15",
       "summary": "How I implemented a double-signed verification protocol in Next.js and Prisma so treasury balances stay masked until both Finance and Admin confirm physical cash and bank statements.",
-      "tags": ["Projects", "Architecture", "Backend", "Next.js", "Security"]
+      "tags": [
+        "Projects",
+        "Architecture",
+        "Backend",
+        "Next.js",
+        "Security"
+      ]
     },
     {
       "title": "Building Offline-First Habits with Quran Reading Tracker",
       "date": "2026-08-01",
       "summary": "Why I chose React Native, Expo, and AsyncStorage to track Arabic recitation and Bangla translation independently without accounts, third-party analytics, or cloud dependencies.",
-      "tags": ["Projects", "Mobile", "React Native", "Architecture"]
+      "tags": [
+        "Projects",
+        "Mobile",
+        "React Native",
+        "Architecture"
+      ]
     },
     {
       "title": "Applying GoF Design Patterns in a JavaFX Examination System",
       "date": "2026-07-20",
       "summary": "Using Strategy for scoring algorithms, State for quiz lifecycles, and Factory for polymorphic question rendering in our Mini-SPL project at IIT, DU.",
-      "tags": ["Java", "Systems", "Architecture", "OOP"]
+      "tags": [
+        "Java",
+        "Systems",
+        "Architecture",
+        "OOP"
+      ]
     },
     {
       "title": "Contributing to open-source image-comparison (PR #255)",
       "date": "2026-06-26",
       "summary": "Forked and contributed to romankh3/image-comparison on Maven Central as a university assignment. Refactored recursive flood-fill to iterative ArrayDeque traversal and eliminated GC pressure.",
-      "tags": ["Open Source", "Java", "Testing", "Lessons Learned"]
+      "tags": [
+        "Open Source",
+        "Java",
+        "Testing",
+        "Lessons Learned"
+      ]
     },
     {
       "title": "What I learned while building TetriC",
       "date": "2026-06-18",
       "summary": "How to send packets and synchronize game frames using socket programming and non-blocking I/O in C.",
-      "tags": ["Systems", "C", "Backend", "Lessons Learned"]
+      "tags": [
+        "Systems",
+        "C",
+        "Backend",
+        "Lessons Learned"
+      ]
     },
     {
       "title": "How I approach competitive programming practice",
       "date": "2026-06-18",
       "summary": "Understand problem constraints, identify optimal data structures, implement edge cases cleanly, and iterate until accepted.",
-      "tags": ["Algorithms", "C++", "Lessons Learned"]
+      "tags": [
+        "Algorithms",
+        "C++",
+        "Lessons Learned"
+      ]
     }
   ],
   "now": [
@@ -876,7 +912,12 @@
     "badge": "Available for Opportunities",
     "title": "Software Engineering Opportunities",
     "description": "Currently looking for software engineering internship and junior engineering opportunities where I can work on backend, full-stack, cloud, or systems-oriented problems.",
-    "targetRoles": ["Backend Engineering", "Full-Stack Web", "Cloud & Systems", "Mobile Engineering"]
+    "targetRoles": [
+      "Backend Engineering",
+      "Full-Stack Web",
+      "Cloud & Systems",
+      "Mobile Engineering"
+    ]
   },
   "education": [
     {
@@ -931,33 +972,33 @@
       "institution": "Science Background",
       "duration": "2020 - 2022",
       "summary": "Focused on mathematics and physics, strengthening problem-solving and analytical thinking.",
-      "coursework": ["Mathematics", "Physics", "Computer Science"]
+      "coursework": [
+        "Mathematics",
+        "Physics",
+        "Computer Science"
+      ]
     }
   ],
   "faq": [
     {
-      "question": "Who is Md. Shourov?",
-      "answer": "Md. Shourov (known online as Shourov735) is a Software Engineering undergraduate student at the Institute of Information Technology (IIT), University of Dhaka (BSSE program), and the IT Secretary at Nabodigonto Social Welfare Organization."
+      "question": "What engineering roles am I currently targeting?",
+      "answer": "I am actively seeking Software Engineering internships and Junior/Associate Software Engineer roles focusing on full-stack web engineering, edge computing (Cloudflare Workers/Serverless), backend architecture, and offline-first applications."
     },
     {
-      "question": "What degree and university is Md. Shourov affiliated with?",
-      "answer": "Md. Shourov is pursuing a Bachelor of Science in Software Engineering (BSSE, 2024–Present) at the Institute of Information Technology (IIT), University of Dhaka (IIT DU) in Bangladesh."
+      "question": "How do I balance BSSE coursework at IIT DU with shipping production systems?",
+      "answer": "Software Engineering coursework at IIT, University of Dhaka provides rigorous fundamentals—data structures, algorithms, database systems, design patterns, and concurrency. I apply these academic principles directly to production architectures like Nabodigonto and InsideJibon, creating a reinforcing loop between theory and high-craft implementation."
     },
     {
-      "question": "What is Md. Shourov's flagship software engineering project?",
-      "answer": "His flagship production system is Nabodigonto, a serverless community and treasury management platform deployed on Cloudflare Workers edge, featuring a double-signed blind audit protocol."
+      "question": "What does my typical architecture stack look like for edge and backend systems?",
+      "answer": "For edge and modern web platforms, I leverage Next.js 16 App Router, TypeScript, Cloudflare Workers, Durable Objects, and PostgreSQL (Neon/D1) paired with Drizzle or Prisma. For performance and desktop systems, I build in modern C++ and Java with SQLite and Maven."
     },
     {
-      "question": "What is Md. Shourov's problem-solving and competitive programming track record?",
-      "answer": "Md. Shourov has solved 150+ competitive programming problems across Codeforces and LeetCode, with strong foundations in algorithms, data structures, and GoF design patterns."
+      "question": "What is my problem-solving and competitive programming track record?",
+      "answer": "I have solved 150+ competitive programming problems across Codeforces and LeetCode, with primary focus on graph algorithms, dynamic programming, number theory, and GoF design patterns."
     },
     {
-      "question": "What core technologies and tech stack does Md. Shourov specialize in?",
-      "answer": "His primary stack includes Next.js, React, TypeScript, C++, Java, PostgreSQL (Neon), Tailwind CSS, Cloudflare Workers, and SQLite for resilient web, mobile, and backend systems."
-    },
-    {
-      "question": "How can recruiters and engineering teams contact Md. Shourov?",
-      "answer": "Recruiters and collaborators can contact Md. Shourov via email at mdshourov735@gmail.com, connect on LinkedIn (in/md-shourov-613934358), or inspect open-source code on GitHub (github.com/Shourov735)."
+      "question": "How can engineering teams reach me for opportunities?",
+      "answer": "Recruiters and engineering leads can reach me directly by email at mdshourov735@gmail.com, connect on LinkedIn (linkedin.com/in/md-shourov-613934358), or review my code on GitHub (github.com/Shourov735)."
     }
   ],
   "testimonials": []

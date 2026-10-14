@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { useTheme } from "@/components/theme-provider"
 import { Logo } from "@/components/logo"
+import { CommandPalette } from "@/components/command-palette"
 
 const navLinks = [
   { href: "/#spotlight", label: "Featured", id: "spotlight" },
@@ -19,12 +20,24 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState("")
+  const [commandOpen, setCommandOpen] = useState(false)
   const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16)
     window.addEventListener("scroll", onScroll, { passive: true })
     return () => window.removeEventListener("scroll", onScroll)
+  }, [])
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault()
+        setCommandOpen((prev) => !prev)
+      }
+    }
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
   }, [])
 
   useEffect(() => {
@@ -52,98 +65,121 @@ export function Header() {
   }
 
   return (
-    <header
-      className={`sticky top-0 z-50 border-b border-transparent bg-[var(--color-bg)]/80 backdrop-blur-lg transition-[border-color,box-shadow] duration-180 ${
-        scrolled ? "border-[var(--color-line)] shadow-sm" : ""
-      }`}
-    >
-      <nav
-        className="container-main flex h-[68px] items-center justify-between gap-5"
-        aria-label="Primary navigation"
+    <>
+      <header
+        className={`sticky top-0 z-50 border-b border-transparent bg-[var(--color-bg)]/80 backdrop-blur-lg transition-[border-color,box-shadow] duration-180 ${
+          scrolled ? "border-[var(--color-line)] shadow-sm" : ""
+        }`}
       >
-        <Link href="/" className="inline-flex items-center group" aria-label="Md. Shourov home">
-          <Logo size={30} text="Shourov" />
-        </Link>
-
-        <button
-          className="menu-toggle md:hidden flex flex-col justify-center w-11 h-11 p-2.5 border-0 bg-transparent cursor-pointer"
-          onClick={toggleMenu}
-          type="button"
-          aria-expanded={menuOpen}
-          aria-controls="nav-menu"
-          aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+        <nav
+          className="container-main flex h-[68px] items-center justify-between gap-5"
+          aria-label="Primary navigation"
         >
-          <span
-            className={`block h-0.5 w-6 rounded-full bg-[var(--color-text)] transition-all duration-180 ${menuOpen ? "translate-y-[7px] rotate-45" : ""}`}
-          />
-          <span
-            className={`block h-0.5 w-6 rounded-full bg-[var(--color-text)] transition-all duration-180 my-[5px] ${menuOpen ? "opacity-0" : ""}`}
-          />
-          <span
-            className={`block h-0.5 w-6 rounded-full bg-[var(--color-text)] transition-all duration-180 ${menuOpen ? "-translate-y-[7px] -rotate-45" : ""}`}
-          />
-        </button>
+          <Link href="/" className="inline-flex items-center group" aria-label="Md. Shourov home">
+            <Logo size={30} text="Shourov" />
+          </Link>
 
-        <div
-          id="nav-menu"
-          className={`flex items-center gap-1 max-md:fixed max-md:inset-x-0 max-md:top-[68px] max-md:grid max-md:p-5 max-md:border-b max-md:border-[var(--color-line)] max-md:bg-[var(--color-surface)] max-md:shadow-lg max-md:transition-transform max-md:duration-200 ${
-            menuOpen ? "max-md:translate-y-0" : "max-md:-translate-y-[120%]"
-          }`}
-        >
-          {navLinks.map((link) => {
-            const isExternalPage = link.href.startsWith("/blog") || link.href.startsWith("/projects")
-            const className = `min-h-10 rounded-md px-3 py-2 text-[13px] font-mono uppercase tracking-wider transition-colors duration-160 max-md:w-full max-md:justify-start max-md:px-2 ${
-              !isExternalPage && activeSection === link.id
-                ? "text-[var(--color-primary-strong)] bg-[var(--color-surface-muted)]"
-                : "text-[var(--color-muted)] hover:text-[var(--color-primary-strong)] hover:bg-[var(--color-surface-muted)]"
-            }`
-            const ariaCurrent = !isExternalPage && activeSection === link.id ? "page" : undefined
-            if (isExternalPage) {
+          <button
+            className="menu-toggle md:hidden flex flex-col justify-center w-11 h-11 p-2.5 border-0 bg-transparent cursor-pointer"
+            onClick={toggleMenu}
+            type="button"
+            aria-expanded={menuOpen}
+            aria-controls="nav-menu"
+            aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+          >
+            <span
+              className={`block h-0.5 w-6 rounded-full bg-[var(--color-text)] transition-all duration-180 ${menuOpen ? "translate-y-[7px] rotate-45" : ""}`}
+            />
+            <span
+              className={`block h-0.5 w-6 rounded-full bg-[var(--color-text)] transition-all duration-180 my-[5px] ${menuOpen ? "opacity-0" : ""}`}
+            />
+            <span
+              className={`block h-0.5 w-6 rounded-full bg-[var(--color-text)] transition-all duration-180 ${menuOpen ? "-translate-y-[7px] -rotate-45" : ""}`}
+            />
+          </button>
+
+          <div
+            id="nav-menu"
+            className={`flex items-center gap-1.5 max-md:fixed max-md:inset-x-0 max-md:top-[68px] max-md:grid max-md:p-5 max-md:border-b max-md:border-[var(--color-line)] max-md:bg-[var(--color-surface)] max-md:shadow-lg max-md:transition-transform max-md:duration-200 ${
+              menuOpen ? "max-md:translate-y-0" : "max-md:-translate-y-[120%]"
+            }`}
+          >
+            {navLinks.map((link) => {
+              const isExternalPage = link.href.startsWith("/blog") || link.href.startsWith("/projects")
+              const className = `min-h-10 rounded-md px-3 py-2 text-[13px] font-mono uppercase tracking-wider transition-colors duration-160 max-md:w-full max-md:justify-start max-md:px-2 ${
+                !isExternalPage && activeSection === link.id
+                  ? "text-[var(--color-primary-strong)] bg-[var(--color-surface-muted)] font-semibold"
+                  : "text-[var(--color-muted)] hover:text-[var(--color-primary-strong)] hover:bg-[var(--color-surface-muted)]"
+              }`
+              const ariaCurrent = !isExternalPage && activeSection === link.id ? "page" : undefined
+              if (isExternalPage) {
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    aria-current={ariaCurrent}
+                    className={className}
+                    onClick={closeMenu}
+                  >
+                    {link.label}
+                  </Link>
+                )
+              }
               return (
-                <Link
+                <a
                   key={link.href}
                   href={link.href}
                   aria-current={ariaCurrent}
                   className={className}
-                  onClick={closeMenu}
+                  onClick={(e) => {
+                    closeMenu()
+                    if (link.href.includes("#")) {
+                      const hash = `#${link.id}`
+                      const target = document.querySelector(hash)
+                      if (target) {
+                        e.preventDefault()
+                        target.scrollIntoView({ behavior: "smooth", block: "start" })
+                        history.pushState(null, "", hash)
+                      }
+                    }
+                  }}
                 >
                   {link.label}
-                </Link>
+                </a>
               )
-            }
-            return (
-              <a
-                key={link.href}
-                href={link.href}
-                aria-current={ariaCurrent}
-                className={className}
-                onClick={(e) => {
-                  closeMenu()
-                  if (link.href.includes("#")) {
-                    const hash = `#${link.id}`
-                    const target = document.querySelector(hash)
-                    if (target) {
-                      e.preventDefault()
-                      target.scrollIntoView({ behavior: "smooth", block: "start" })
-                      history.pushState(null, "", hash)
-                    }
-                  }
-                }}
-              >
-                {link.label}
-              </a>
-            )
-          })}
-          <button
-            onClick={toggleTheme}
-            className="inline-grid place-items-center w-10 h-10 rounded-md border-0 bg-transparent cursor-pointer text-[var(--color-muted)] hover:text-[var(--color-primary-strong)] hover:bg-[var(--color-surface-muted)]"
-            type="button"
-            aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
-          >
-            <span aria-hidden="true">{theme === "dark" ? "☀" : "◐"}</span>
-          </button>
-        </div>
-      </nav>
-    </header>
+            })}
+
+            {/* Command Palette Trigger Button */}
+            <button
+              onClick={() => {
+                closeMenu()
+                setCommandOpen(true)
+              }}
+              type="button"
+              aria-label="Open command palette"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-[var(--color-line)] bg-[var(--color-surface)] text-[var(--color-muted)] hover:text-[var(--color-text)] hover:border-[var(--color-primary)] transition-all text-xs font-mono cursor-pointer shadow-2xs max-md:w-full max-md:justify-between"
+            >
+              <span className="text-[11px] uppercase tracking-wider font-medium">Command</span>
+              <kbd className="px-1.5 py-0.5 rounded bg-[var(--color-surface-muted)] border border-[var(--color-line)] text-[10px] text-[var(--color-muted)] font-mono">
+                ⌘K
+              </kbd>
+            </button>
+
+            {/* Theme Toggle Button */}
+            <button
+              onClick={toggleTheme}
+              className="inline-grid place-items-center w-10 h-10 rounded-md border-0 bg-transparent cursor-pointer text-[var(--color-muted)] hover:text-[var(--color-primary-strong)] hover:bg-[var(--color-surface-muted)]"
+              type="button"
+              aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
+            >
+              <span aria-hidden="true">{theme === "dark" ? "☀" : "◐"}</span>
+            </button>
+          </div>
+        </nav>
+      </header>
+
+      {/* Global Command Palette Modal */}
+      <CommandPalette open={commandOpen} onClose={() => setCommandOpen(false)} />
+    </>
   )
 }

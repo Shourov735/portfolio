@@ -129,7 +129,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             <div className="relative aspect-[16/9] w-full overflow-hidden bg-[var(--color-surface-muted)] border-b border-[var(--color-line)]">
               <Image
                 src={project.image}
-                alt={`${project.title} - Engineering Case Study by Md Shourov`}
+                alt={`${project.title} — architectural layout and system interface preview`}
                 width={960}
                 height={540}
                 priority

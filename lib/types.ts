@@ -8,6 +8,7 @@ export interface BlogFrontmatter {
   cover?: string
   draft?: boolean
   canonical?: string
+  relatedProjectSlug?: string
 }
 
 export interface BlogPostSummary extends BlogFrontmatter {
@@ -48,6 +49,13 @@ export interface VisualEvidence {
   content: string[]
 }
 
+export interface ArchitectureDecision {
+  decision: string
+  rejected: string
+  rationale: string
+  tradeOff?: string
+}
+
 export interface Project {
   title: string
   metaTitle?: string
@@ -68,6 +76,10 @@ export interface Project {
   details?: string
   tech?: string[]
   highlights?: string[]
+  systemType?: string
+  constraints?: string[]
+  relatedBlogSlug?: string
+  adrs?: ArchitectureDecision[]
 }
 
 export interface Note {

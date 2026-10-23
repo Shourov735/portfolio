@@ -19,6 +19,7 @@ type FrontmatterShape = {
   cover?: unknown
   draft?: unknown
   canonical?: unknown
+  relatedProjectSlug?: unknown
 }
 
 function asString(value: unknown, fallback = ""): string {
@@ -45,6 +46,7 @@ function parseFrontmatter(data: FrontmatterShape) {
     cover: data.cover ? asString(data.cover) : undefined,
     draft: data.draft ? asBool(data.draft) : undefined,
     canonical: data.canonical ? asString(data.canonical) : undefined,
+    relatedProjectSlug: data.relatedProjectSlug ? asString(data.relatedProjectSlug) : undefined,
   }
 }
 
@@ -102,6 +104,7 @@ async function loadAllPosts(): Promise<BlogPost[]> {
       cover: fm.cover,
       draft: fm.draft,
       canonical: fm.canonical,
+      relatedProjectSlug: fm.relatedProjectSlug,
       content,
       wordCount: wordCountOf(content),
       readingTime: 0,
@@ -128,6 +131,7 @@ function toSummary(post: BlogPost): BlogPostSummary {
     cover: post.cover,
     draft: post.draft,
     canonical: post.canonical,
+    relatedProjectSlug: post.relatedProjectSlug,
     readingTime: post.readingTime,
   }
 }

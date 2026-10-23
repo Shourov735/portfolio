@@ -325,6 +325,34 @@
         "Neon Serverless Postgres: Chose over local SQLite edge storage for robust transactional consistency, multi-table audit joins, and reliable connection pooling.",
         "Client-Side PDF Compilation: Leveraged browser canvas and PDF generation libraries to export receipts and ID cards without incurring edge compute costs."
       ],
+      "systemType": "Distributed Serverless / FinTech Non-Profit",
+      "constraints": [
+        "$0/mo runtime infrastructure budget",
+        "Double-signed cryptographic blind consensus",
+        "Gazipur 3G mobile latency resilience",
+        "Zero-server PVC card compilation"
+      ],
+      "relatedBlogSlug": "lessons-from-shipping-production-software",
+      "adrs": [
+        {
+          "decision": "Double-Signed Blind Verification State Machine",
+          "rejected": "Single-Admin Database Role Flag",
+          "rationale": "Prevents unilateral fraud by enforcing dual authenticated keys before revealing treasury balance.",
+          "tradeOff": "Requires two active officers for monthly ledger sign-off, adding procedural delay."
+        },
+        {
+          "decision": "Client-Side 300 DPI Canvas PDF & PVC Rendering",
+          "rejected": "Headless Chromium / Puppeteer Serverless Engine",
+          "rationale": "Eliminates high edge compute memory usage and keeps runtime costs at $0/month.",
+          "tradeOff": "Generation performance is bound to client hardware and browser canvas capabilities."
+        },
+        {
+          "decision": "Neon Serverless Postgres via Drizzle",
+          "rejected": "Cloudflare D1 SQLite",
+          "rationale": "Provides robust relational joins, ACID transactions, and proven connection pooling for financial ledgers.",
+          "tradeOff": "Requires HTTP-based connection pooling to bridge edge serverless lifecycles."
+        }
+      ],
       "result": "Successfully launched into production as the organization's official operational backbone. Appointed IT Secretary by the executive board to oversee system governance, feature rollouts, and technical stewardship.",
       "visualEvidence": {
         "type": "state-machine",
@@ -385,6 +413,34 @@
         "Durable Objects over Managed WebSockets: Colocated state, presence, and chat in isolated edge actors with SQLite persistence, zero server management, and no monthly fees.",
         "YouTube-First Video Pipeline: Leveraged unlisted embeds and public oEmbed validation over expensive dedicated video storage, eliminating 100% of video bandwidth and transcode costs.",
         "Explicit SQL Projections: Replaced all unbounded SELECT * queries across 13 services with narrow column projections, cutting edge payload sizes and cold starts significantly."
+      ],
+      "systemType": "Edge Compute & Real-Time EdTech",
+      "constraints": [
+        "Strict $0/mo subscription invariant",
+        "Zero cloud egress budget",
+        "<45ms edge global latency",
+        "No GPU server hosting"
+      ],
+      "relatedBlogSlug": "remastering-insidejibon-edtech-on-cloudflare-edge",
+      "adrs": [
+        {
+          "decision": "YouTube-First Video Pipeline via oEmbed & nocookie IFrame",
+          "rejected": "Cloudflare Stream or AWS S3 + Transcoding",
+          "rationale": "Completely eliminates video bandwidth, storage, and transcoding expenses to preserve $0/mo invariant.",
+          "tradeOff": "Delegates player controls and sandboxing to YouTube iframe with client-side position sync."
+        },
+        {
+          "decision": "Cloudflare Durable Objects for Live Classrooms",
+          "rejected": "Managed WebSockets (Pusher / Ably / Socket.io)",
+          "rationale": "Colocates real-time presence, chat moderation, and state synchronization at the edge with zero external SaaS bills.",
+          "tradeOff": "Requires specialized post-build compilation to package Durable Objects alongside OpenNext."
+        },
+        {
+          "decision": "Workers AI (@cf/baai/bge) + Vectorize for RAG Tutoring",
+          "rejected": "OpenAI Embeddings API + Pinecone Cloud",
+          "rationale": "Native Cloudflare vector database keeps AI retrieval entirely inside the edge network with zero API egress.",
+          "tradeOff": "Bounded by free-tier daily vector dimension quotas and prompt token windows."
+        }
       ],
       "result": "Successfully remastered InsideJibon into a production-grade, masterclass platform featuring live classes, AI assistance, habit-forming gamification, and full bilingual parity at zero monthly subscription cost.",
       "visualEvidence": {
@@ -449,6 +505,33 @@
         "Budget the response, not the feature: props schemas, defaults and source each live behind their own request, and bestFor/avoidWhen are capped to one line each so an agent can reject a component without spending a request on reading its source.",
         "Store trust, never assume it: the gate version, the Remotion version tested and the verification status are nullable columns, and the \"Passed gate\" badge renders only when a pass was actually recorded — a component that never went through the gate must not wear a badge implying it did."
       ],
+      "systemType": "Agentic Media Component Registry & CLI",
+      "constraints": [
+        "<300 tokens LLM inspection budget",
+        "Pure frame-deterministic math (zero time drift)",
+        "14 AST rules under 61KB gzipped parser"
+      ],
+      "relatedBlogSlug": "designing-an-api-an-ai-agent-can-afford",
+      "adrs": [
+        {
+          "decision": "Copy-Paste Source Architecture (shadcn model)",
+          "rejected": "Monolithic npm package distribution",
+          "rationale": "Leaves every spring constant editable and keeps remotion as the sole runtime dependency.",
+          "tradeOff": "Component updates require manual re-pull or diff review rather than running npm update."
+        },
+        {
+          "decision": "Tiered Token-Budgeted Discovery API",
+          "rejected": "Single monolithic API payload with embedded props",
+          "rationale": "Keeps search response under 200 tokens so language models don't exhaust their reasoning context.",
+          "tradeOff": "AI agents must issue follow-up requests for detailed prop schemas and source code."
+        },
+        {
+          "decision": "Acorn-Based AST Parser over TypeScript Compiler",
+          "rejected": "Full TypeScript Compiler API (1 MB+ gzipped)",
+          "rationale": "Runs identical 14-rule linting across browser, Cloudflare Worker, and CI at 61 KB gzipped.",
+          "tradeOff": "Does not resolve deep cross-file semantic types from imported third-party packages."
+        }
+      ],
       "result": "Shipped a live registry at remocomp.shourov.workers.dev with 9 curated components across primitives, scenes, transitions and templates, a published remocomp CLI and remocomp-mcp server on npm, and shadcn-compatible registry endpoints. Mobile Lighthouse reports 80 for performance with 100 for accessibility, best practices and SEO; the remaining performance gap is attributed honestly to mounting a live Remotion player on the gallery, which is the feature itself.",
       "visualEvidence": {
         "type": "diagram",
@@ -505,6 +588,27 @@
         "Conversational WhatsApp Checkout: Replaced traditional payment gateways with automated URL-encoded WhatsApp messages, matching local purchasing habits.",
         "Static Generation with Client Hydration: Rendered product catalogs statically for fast page loads, keeping variant calculations responsive in client state."
       ],
+      "systemType": "High-Conversion Headless E-Commerce",
+      "constraints": [
+        "Static pre-rendering (zero server cold start)",
+        "Direct WhatsApp concierge payload",
+        "Zero checkout drop-off rate"
+      ],
+      "relatedBlogSlug": "building-arvaana-luxury-fragrance-ecommerce",
+      "adrs": [
+        {
+          "decision": "Direct WhatsApp Concierge Checkout",
+          "rejected": "Multi-Step Credit Card Payment Gateway",
+          "rationale": "Directly aligns with local Bangladeshi consumer behavior and removes cart abandonment friction.",
+          "tradeOff": "Requires manual administrative order logging through WhatsApp business operators."
+        },
+        {
+          "decision": "Reactive In-Memory Volume Pricing Engine",
+          "rejected": "Separate Product Pages per Bottle Size",
+          "rationale": "Preserves customer reviews, avoids page-hop latency, and displays volume discount savings dynamically.",
+          "tradeOff": "Requires client state coordination across volume selections."
+        }
+      ],
       "result": "Launched a production luxury fragrance store serving customers nationwide with intuitive multi-variant pricing and seamless mobile ordering."
     },
     {
@@ -546,6 +650,26 @@
         "State Pattern for Exam Lifecycle: Modeled quiz states (Not Started, In Progress, Paused, Submitted, Graded) to prevent invalid state transitions.",
         "Factory Pattern for Questions: Decoupled UI question component instantiation from question data models."
       ],
+      "systemType": "Desktop Examination Engine (Mini-SPL)",
+      "constraints": [
+        "GoF architectural compliance (Strategy, Observer, Factory, State)",
+        "Asynchronous JavaFX UI thread safety",
+        "Polymorphic question schemas across SQLite tables"
+      ],
+      "adrs": [
+        {
+          "decision": "Strategy Pattern for Examination Scoring",
+          "rejected": "Monolithic switch/case scoring logic",
+          "rationale": "Decouples grading algorithms (standard, negative marking, weighted) from exam runner execution.",
+          "tradeOff": "Introduces additional interface and strategy class hierarchies."
+        },
+        {
+          "decision": "Observer Pattern for Exam Timer & UI Sync",
+          "rejected": "Polling thread inside JavaFX controller",
+          "rationale": "Ensures UI countdown and auto-submission events execute safely on the JavaFX Application Thread.",
+          "tradeOff": "Requires explicit listener deregistration to prevent memory leaks."
+        }
+      ],
       "result": "Completed and presented as the final Mini-SPL course project at IIT DU, achieving clean automated test coverage and seamless multi-role examination workflows."
     },
     {
@@ -584,6 +708,20 @@
       "keyDecisions": [
         "Zero-Network Architecture: No server backend, no authentication wall, and no telemetry SDKs — guaranteeing user privacy.",
         "Optimistic Local State: UI updates immediately upon completion with asynchronous disk persistence."
+      ],
+      "systemType": "Offline-First Mobile Architecture",
+      "constraints": [
+        "100% offline local privacy",
+        "Zero network telemetry or ads",
+        "Timezone-resilient streak engine"
+      ],
+      "adrs": [
+        {
+          "decision": "Dual Decoupled Pipelines (Ruku Recitation vs. Ayat Translation)",
+          "rejected": "Single monolithic page counter",
+          "rationale": "Separates Arabic recitation targets from Bengali translation comprehension naturally.",
+          "tradeOff": "Requires dual state stores and separate streak milestone tracking."
+        }
       ],
       "result": "Shipped a clean, lightweight Android application with daily habit tracking, streak preservation, and complete offline autonomy.",
       "visualEvidence": {
@@ -634,6 +772,12 @@
         "Relational Schema: Enforced strict foreign keys connecting books, copies, members, and loan transactions to maintain audit integrity.",
         "Bilingual UI Localization: Built lightweight dictionary-based localization to cater to both local and international patrons."
       ],
+      "systemType": "Relational Community Catalog & Circulation System",
+      "constraints": [
+        "Bilingual English/Bengali UI parity",
+        "Relational foreign-key loan integrity",
+        "Role-based circulation workflows"
+      ],
       "result": "Delivered an accessible web catalog and lending management system ready for community library operations."
     },
     {
@@ -676,6 +820,26 @@
         "Iterative ArrayDeque BFS: Completely eliminated recursion depth limits, enabling comparison of large 4K+ images without stack limits.",
         "Primitive Coordinate Packing: Replaced redundant Point object instantiations to reduce GC allocation pressure."
       ],
+      "systemType": "Open-Source Visual QA Testing Library",
+      "constraints": [
+        "Zero JVM call-stack overflow on 4K diffs",
+        "Zero GC transient object thrashing",
+        "Upstream 100% test pass rate (66/66 JUnit tests)"
+      ],
+      "adrs": [
+        {
+          "decision": "Iterative ArrayDeque BFS Traversal",
+          "rejected": "Recursive DFS Flood-Fill",
+          "rationale": "Completely eliminates JVM StackOverflowError on high-resolution 4K difference clusters.",
+          "tradeOff": "Heap queue allocation replaces call-stack frames, requiring explicit queue sizing."
+        },
+        {
+          "decision": "Primitive Coordinate Packing",
+          "rejected": "java.awt.Point Object Allocations",
+          "rationale": "Prevents millions of transient Point object instantiations, eliminating GC allocation pressure.",
+          "tradeOff": "Slightly more procedural coordinate packing compared to object-oriented Point instances."
+        }
+      ],
       "result": "Submitted upstream as Pull Request #255, passing all 66 unit tests, satisfying code quality checks, and fulfilling an advanced university Software Engineering open-source assignment."
     },
     {
@@ -712,6 +876,20 @@
       "keyDecisions": [
         "Non-blocking I/O with select(): Enabled concurrent handling of player keypresses and incoming network socket packets.",
         "Compact Binary Network Protocol: Encoded board states and line-clear events into lightweight fixed-size binary structs."
+      ],
+      "systemType": "POSIX TCP Socket Multiplayer Systems Game",
+      "constraints": [
+        "POSIX-compliant socket I/O",
+        "<16ms frame render budget",
+        "Raw ANSI terminal escape code rendering"
+      ],
+      "adrs": [
+        {
+          "decision": "Non-blocking select() Event Loop",
+          "rejected": "Multi-threaded blocking socket reads",
+          "rationale": "Ensures game tick updates and keyboard inputs are never stalled by delayed network packets.",
+          "tradeOff": "Requires state machine handling of partial packet reads across socket buffers."
+        }
       ],
       "result": "Successfully created and demonstrated a responsive, network-capable terminal Tetris game for a university Software Engineering project.",
       "visualEvidence": {
@@ -768,6 +946,12 @@
         "Fast I/O & Precomputation: Factoring sieve precomputation and fast stream decoupling into competitive templates.",
         "Modular Solution Organization: Categorized code by contest rounds and algorithmic techniques for quick revision."
       ],
+      "systemType": "High-Performance Competitive Algorithms (C++20)",
+      "constraints": [
+        "1.0–2.0s strict execution time limit",
+        "256MB memory limit",
+        "150+ problems solved"
+      ],
       "result": "Solved 150+ competitive algorithmic problems, building rigorous problem-solving habits that directly inform my software engineering design."
     },
     {
@@ -805,6 +989,11 @@
       "keyDecisions": [
         "In-place space optimizations when memory constraints are tight.",
         "Clear variable naming and documentation of recurrence relations."
+      ],
+      "systemType": "Interview Algorithmic Problem Solving (C++)",
+      "constraints": [
+        "Optimal asymptotic time/space bounds",
+        "Edge case resilience (overflow, bounds)"
       ],
       "result": "Maintained an active practice repository demonstrating consistent problem-solving rigor and analytical precision."
     }

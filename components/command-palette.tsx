@@ -1,16 +1,25 @@
 "use client"
 
-import { useState, useEffect, useRef, useCallback } from "react"
+import { useState, useEffect, useRef, useMemo, useCallback } from "react"
 import { useRouter } from "next/navigation"
 import { useTheme } from "@/components/theme-provider"
+import {
+  getAllSearchableItems,
+  scoreSearchItem,
+  type SearchableItem,
+  type SearchCategory,
+} from "@/lib/search-index"
 
-interface CommandAction {
-  id: string
-  title: string
-  subtitle?: string
-  category: "Flagship Case Studies" | "Navigation" | "Quick Utilities" | "Profiles & Links"
-  shortcut?: string
-  perform: () => void
+type FilterPill = "All" | "Projects" | "Blog" | "Skills" | "Academic" | "FAQ & Now" | "Actions"
+
+const PILL_CATEGORY_MAP: Record<FilterPill, SearchCategory[] | null> = {
+  All: null,
+  Projects: ["Projects & Case Studies"],
+  Blog: ["Engineering Blog"],
+  Skills: ["Technical Skills"],
+  Academic: ["Academic & Achievements"],
+  "FAQ & Now": ["Philosophy & FAQ", "Currently Studying (Now)"],
+  Actions: ["Navigation & Sections", "Quick Actions & Socials"],
 }
 
 export function CommandPalette({
@@ -26,12 +35,15 @@ export function CommandPalette({
 
 function CommandDialog({ onClose }: { onClose: () => void }) {
   const [query, setQuery] = useState("")
+  const [activePill, setActivePill] = useState<FilterPill>("All")
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [toastMessage, setToastMessage] = useState<string | null>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const listRef = useRef<HTMLDivElement>(null)
   const router = useRouter()
   const { theme, toggleTheme } = useTheme()
+
+  const allItems = useMemo(() => getAllSearchableItems(), [])
 
   const showToast = useCallback((msg: string) => {
     setToastMessage(msg)
@@ -40,195 +52,106 @@ function CommandDialog({ onClose }: { onClose: () => void }) {
     }, 2200)
   }, [])
 
-  const actions: CommandAction[] = [
-    // Flagships
-    {
-      id: "nabodigonto",
-      title: "Nabodigonto Case Study",
-      subtitle: "Double-signed blind audit protocol & member platform",
-      category: "Flagship Case Studies",
-      perform: () => {
-        router.push("/projects/nabodigonto")
-        onClose()
-      },
-    },
-    {
-      id: "insidejibon",
-      title: "InsideJibon Case Study",
-      subtitle: "Cloudflare Durable Objects & Workers AI Vectorize RAG",
-      category: "Flagship Case Studies",
-      perform: () => {
-        router.push("/projects/insidejibon")
-        onClose()
-      },
-    },
-    {
-      id: "arvaana",
-      title: "ARVAANA Case Study",
-      subtitle: "Luxury fragrance platform with zero-FOUC & WhatsApp engine",
-      category: "Flagship Case Studies",
-      perform: () => {
-        router.push("/projects/arvaana")
-        onClose()
-      },
-    },
-
-    // Navigation
-    {
-      id: "nav-projects",
-      title: "Projects Directory",
-      subtitle: "Interactive index of 11 systems and repositories",
-      category: "Navigation",
-      perform: () => {
-        const el = document.getElementById("projects")
-        if (el) el.scrollIntoView({ behavior: "smooth" })
-        else router.push("/#projects")
-        onClose()
-      },
-    },
-    {
-      id: "nav-bento",
-      title: "Open-Source & Algorithmic Proof",
-      subtitle: "Maven Central PR #255 & 150+ competitive solutions",
-      category: "Navigation",
-      perform: () => {
-        const el = document.getElementById("algorithmic-proof")
-        if (el) el.scrollIntoView({ behavior: "smooth" })
-        else router.push("/#algorithmic-proof")
-        onClose()
-      },
-    },
-    {
-      id: "nav-skills",
-      title: "Technical Competence",
-      subtitle: "Explore primary and working technologies",
-      category: "Navigation",
-      perform: () => {
-        const el = document.getElementById("skills")
-        if (el) el.scrollIntoView({ behavior: "smooth" })
-        else router.push("/#skills")
-        onClose()
-      },
-    },
-    {
-      id: "nav-education",
-      title: "Academic Foundation",
-      subtitle: "BSSE at IIT, University of Dhaka & national merit",
-      category: "Navigation",
-      perform: () => {
-        const el = document.getElementById("education")
-        if (el) el.scrollIntoView({ behavior: "smooth" })
-        else router.push("/#education")
-        onClose()
-      },
-    },
-    {
-      id: "nav-blog",
-      title: "Engineering Notes & Writing",
-      subtitle: "Case studies on edge architecture and systems design",
-      category: "Navigation",
-      perform: () => {
-        router.push("/blog")
-        onClose()
-      },
-    },
-    {
-      id: "nav-contact",
-      title: "Contact & Collaboration",
-      subtitle: "Send a message or find direct communication channels",
-      category: "Navigation",
-      perform: () => {
-        const el = document.getElementById("contact")
-        if (el) el.scrollIntoView({ behavior: "smooth" })
-        else router.push("/#contact")
-        onClose()
-      },
-    },
-
-    // Quick Utilities
-    {
-      id: "util-email",
-      title: "Copy Email Address",
-      subtitle: "mdshourov735@gmail.com",
-      category: "Quick Utilities",
-      shortcut: "C",
-      perform: () => {
+  // Execute item action
+  const executeItem = useCallback(
+    (item: SearchableItem) => {
+      if (item.actionType === "copy-email") {
         if (navigator?.clipboard) {
           navigator.clipboard.writeText("mdshourov735@gmail.com")
           showToast("✓ Copied mdshourov735@gmail.com to clipboard")
         }
-      },
-    },
-    {
-      id: "util-resume",
-      title: "Download Resume PDF",
-      subtitle: "Md. Shourov — Software Engineering Resume",
-      category: "Quick Utilities",
-      shortcut: "D",
-      perform: () => {
-        window.open("/assets/resume/Md-Shourov-Resume.pdf", "_blank")
+        return
+      }
+
+      if (item.actionType === "download-resume") {
+        window.open(item.href || "/assets/resume/Md-Shourov-Resume.pdf", "_blank")
         onClose()
-      },
-    },
-    {
-      id: "util-theme",
-      title: `Toggle Theme (${theme === "dark" ? "Switch to Light" : "Switch to Dark"})`,
-      subtitle: `Currently in ${theme} mode`,
-      category: "Quick Utilities",
-      shortcut: "T",
-      perform: () => {
+        return
+      }
+
+      if (item.actionType === "toggle-theme") {
         toggleTheme()
         showToast(`Switched theme to ${theme === "dark" ? "light" : "dark"} mode`)
-      },
-    },
+        return
+      }
 
-    // Profiles & Links
-    {
-      id: "profile-github",
-      title: "GitHub Profile",
-      subtitle: "github.com/Shourov735",
-      category: "Profiles & Links",
-      perform: () => {
-        window.open("https://github.com/Shourov735", "_blank", "noopener,noreferrer")
+      if (item.actionType === "external" && item.href) {
+        window.open(item.href, "_blank", "noopener,noreferrer")
         onClose()
-      },
-    },
-    {
-      id: "profile-linkedin",
-      title: "LinkedIn Profile",
-      subtitle: "linkedin.com/in/md-shourov-613934358",
-      category: "Profiles & Links",
-      perform: () => {
-        window.open("https://linkedin.com/in/md-shourov-613934358", "_blank", "noopener,noreferrer")
-        onClose()
-      },
-    },
-    {
-      id: "profile-codeforces",
-      title: "Codeforces Profile",
-      subtitle: "codeforces.com/profile/Shourov735",
-      category: "Profiles & Links",
-      perform: () => {
-        window.open("https://codeforces.com/profile/Shourov735", "_blank", "noopener,noreferrer")
-        onClose()
-      },
-    },
-    {
-      id: "profile-leetcode",
-      title: "LeetCode Profile",
-      subtitle: "leetcode.com/u/Shourov735/",
-      category: "Profiles & Links",
-      perform: () => {
-        window.open("https://leetcode.com/u/Shourov735/", "_blank", "noopener,noreferrer")
-        onClose()
-      },
-    },
-  ]
+        return
+      }
 
-  const filtered = actions.filter((act) => {
-    const text = `${act.title} ${act.subtitle || ""} ${act.category}`.toLowerCase()
-    return text.includes(query.toLowerCase())
-  })
+      if (item.href) {
+        if (item.href.startsWith("/#") || item.href.startsWith("#")) {
+          const hash = item.href.replace(/^\/?#/, "")
+          const target = document.getElementById(hash)
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth" })
+            window.history.pushState(null, "", `#${hash}`)
+          } else {
+            router.push(`/#${hash}`)
+          }
+        } else {
+          router.push(item.href)
+        }
+        onClose()
+      }
+    },
+    [onClose, router, showToast, theme, toggleTheme]
+  )
+
+  // Filtered and scored results
+  const results = useMemo(() => {
+    const tokens = query.trim().toLowerCase().split(/\s+/).filter(Boolean)
+    const allowedCategories = PILL_CATEGORY_MAP[activePill]
+
+    let pool = allItems
+    if (allowedCategories) {
+      pool = pool.filter((item) => allowedCategories.includes(item.category))
+    }
+
+    if (tokens.length === 0) {
+      return pool.map((item) => ({ item, score: 1, matchSnippet: undefined }))
+    }
+
+    const scored = pool
+      .map((item) => {
+        const { score, matchSnippet } = scoreSearchItem(item, tokens)
+        return { item, score, matchSnippet }
+      })
+      .filter((res) => res.score > 0)
+      .sort((a, b) => b.score - a.score)
+
+    return scored
+  }, [allItems, query, activePill])
+
+  // Count items per pill
+  const pillCounts = useMemo(() => {
+    const counts: Record<FilterPill, number> = {
+      All: allItems.length,
+      Projects: 0,
+      Blog: 0,
+      Skills: 0,
+      Academic: 0,
+      "FAQ & Now": 0,
+      Actions: 0,
+    }
+
+    for (const item of allItems) {
+      if (item.category === "Projects & Case Studies") counts.Projects++
+      else if (item.category === "Engineering Blog") counts.Blog++
+      else if (item.category === "Technical Skills") counts.Skills++
+      else if (item.category === "Academic & Achievements") counts.Academic++
+      else if (
+        item.category === "Philosophy & FAQ" ||
+        item.category === "Currently Studying (Now)"
+      )
+        counts["FAQ & Now"]++
+      else counts.Actions++
+    }
+
+    return counts
+  }, [allItems])
 
   // Focus input on mount
   useEffect(() => {
@@ -239,14 +162,14 @@ function CommandDialog({ onClose }: { onClose: () => void }) {
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "ArrowDown") {
       e.preventDefault()
-      setSelectedIndex((prev) => (prev + 1) % (filtered.length || 1))
+      setSelectedIndex((prev) => (prev + 1) % (results.length || 1))
     } else if (e.key === "ArrowUp") {
       e.preventDefault()
-      setSelectedIndex((prev) => (prev - 1 + filtered.length) % (filtered.length || 1))
+      setSelectedIndex((prev) => (prev - 1 + results.length) % (results.length || 1))
     } else if (e.key === "Enter") {
       e.preventDefault()
-      if (filtered[selectedIndex]) {
-        filtered[selectedIndex].perform()
+      if (results[selectedIndex]) {
+        executeItem(results[selectedIndex].item)
       }
     } else if (e.key === "Escape") {
       e.preventDefault()
@@ -264,34 +187,49 @@ function CommandDialog({ onClose }: { onClose: () => void }) {
     }
   }, [selectedIndex])
 
+  const pills: FilterPill[] = ["All", "Projects", "Blog", "Skills", "Academic", "FAQ & Now", "Actions"]
+
   return (
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Command Palette"
-      className="fixed inset-0 z-50 flex items-start justify-center pt-16 md:pt-24 px-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-150"
+      aria-label="Universal Portfolio Search"
+      className="fixed inset-0 z-50 flex items-start justify-center pt-12 md:pt-20 px-3 md:px-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-150"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose()
       }}
     >
-      <div className="w-full max-w-[560px] bg-[var(--color-surface)] border border-[var(--color-line)] rounded-2xl shadow-2xl overflow-hidden flex flex-col text-[var(--color-text)]">
+      <div className="w-full max-w-[640px] bg-[var(--color-surface)] border border-[var(--color-line)] rounded-2xl shadow-2xl overflow-hidden flex flex-col text-[var(--color-text)] max-h-[85vh]">
         {/* Search Input Bar */}
-        <div className="relative flex items-center border-b border-[var(--color-line)] px-4 py-3">
+        <div className="relative flex items-center border-b border-[var(--color-line)] px-4 py-3.5">
           <span className="text-[var(--color-primary-strong)] font-mono text-base mr-3 select-none">
-            ⌘
+            🔍
           </span>
           <input
             ref={inputRef}
             type="text"
-            placeholder="Type a command or jump to case study..."
+            placeholder="Search projects, code, blogs, skills, marks, tenets..."
             value={query}
             onChange={(e) => {
               setQuery(e.target.value)
               setSelectedIndex(0)
             }}
             onKeyDown={handleKeyDown}
-            className="w-full bg-transparent border-0 outline-none text-sm font-sans placeholder:text-[var(--color-muted)] text-[var(--color-text)]"
+            className="w-full bg-transparent border-0 outline-none text-sm md:text-base font-sans placeholder:text-[var(--color-muted)] text-[var(--color-text)]"
           />
+          {query ? (
+            <button
+              type="button"
+              onClick={() => {
+                setQuery("")
+                setSelectedIndex(0)
+                inputRef.current?.focus()
+              }}
+              className="text-xs font-mono uppercase text-[var(--color-muted)] hover:text-[var(--color-text)] mr-2 cursor-pointer"
+            >
+              Clear
+            </button>
+          ) : null}
           <button
             type="button"
             onClick={onClose}
@@ -299,6 +237,38 @@ function CommandDialog({ onClose }: { onClose: () => void }) {
           >
             ESC
           </button>
+        </div>
+
+        {/* Category Filter Pills Row */}
+        <div className="flex items-center gap-1.5 px-3 py-2 border-b border-[var(--color-line)] overflow-x-auto bg-[var(--color-surface-muted)]/40 no-scrollbar">
+          {pills.map((pill) => {
+            const isSelected = activePill === pill
+            const count = pillCounts[pill]
+            return (
+              <button
+                key={pill}
+                type="button"
+                onClick={() => {
+                  setActivePill(pill)
+                  setSelectedIndex(0)
+                }}
+                className={`px-2.5 py-1 rounded-full text-[11px] font-mono whitespace-nowrap transition-all cursor-pointer flex items-center gap-1.5 border ${
+                  isSelected
+                    ? "bg-[var(--color-primary)] text-[var(--color-bg)] border-[var(--color-primary)] font-semibold shadow-2xs"
+                    : "bg-[var(--color-surface)] text-[var(--color-muted)] border-[var(--color-line)] hover:border-[var(--color-primary)] hover:text-[var(--color-text)]"
+                }`}
+              >
+                <span>{pill}</span>
+                <span
+                  className={`text-[9px] px-1.5 py-0.2 rounded-full ${
+                    isSelected ? "bg-[var(--color-bg)] text-[var(--color-primary)] font-bold" : "bg-[var(--color-surface-muted)] text-[var(--color-muted)]"
+                  }`}
+                >
+                  {count}
+                </span>
+              </button>
+            )
+          })}
         </div>
 
         {/* Toast Feedback Banner */}
@@ -309,60 +279,87 @@ function CommandDialog({ onClose }: { onClose: () => void }) {
         )}
 
         {/* Results List */}
-        <div ref={listRef} className="max-h-[380px] overflow-y-auto p-2 space-y-1">
-          {filtered.length === 0 ? (
-            <div className="p-8 text-center text-sm font-mono text-[var(--color-muted)]">
-              No matching commands or case studies for &ldquo;{query}&rdquo;
+        <div ref={listRef} className="flex-1 overflow-y-auto p-2 space-y-1">
+          {results.length === 0 ? (
+            <div className="p-10 text-center text-sm font-mono text-[var(--color-muted)]">
+              <p>No results found matching &ldquo;{query}&rdquo;</p>
+              <p className="text-xs mt-1.5 opacity-80">Try searching for &ldquo;ArrayDeque&rdquo;, &ldquo;Durable Objects&rdquo;, &ldquo;Merit 3&rdquo;, or &ldquo;SQLite&rdquo;</p>
             </div>
           ) : (
-            filtered.map((action, idx) => {
+            results.map((res, idx) => {
+              const item = res.item
               const isSelected = selectedIndex === idx
+
               return (
-                <button
-                  key={action.id}
-                  type="button"
+                <div
+                  key={item.id}
                   data-selected={isSelected}
-                  onClick={() => action.perform()}
+                  onClick={() => executeItem(item)}
                   onMouseEnter={() => setSelectedIndex(idx)}
-                  className={`w-full text-left p-3 rounded-xl transition-all cursor-pointer flex items-center justify-between gap-3 ${
+                  className={`w-full text-left p-3 rounded-xl transition-all cursor-pointer flex flex-col gap-1 border ${
                     isSelected
-                      ? "bg-[var(--color-surface-muted)] text-[var(--color-text)] ring-1 ring-[var(--color-primary)]/40"
-                      : "hover:bg-[var(--color-surface-muted)]/50 text-[var(--color-text)]"
+                      ? "bg-[var(--color-surface-muted)] text-[var(--color-text)] border-[var(--color-primary)]/40 shadow-xs ring-1 ring-[var(--color-primary)]/30"
+                      : "bg-[var(--color-surface)] text-[var(--color-text)] border-transparent hover:bg-[var(--color-surface-muted)]/60"
                   }`}
                 >
-                  <div className="truncate">
-                    <p className="text-sm font-medium font-sans truncate">{action.title}</p>
-                    {action.subtitle && (
-                      <p className="text-xs font-mono text-[var(--color-muted)] truncate mt-0.5">
-                        {action.subtitle}
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-2 truncate">
+                      <p className="text-sm font-semibold font-sans text-[var(--color-text)] truncate">
+                        {item.title}
                       </p>
-                    )}
+                      {item.badge && (
+                        <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[var(--color-surface-muted)] border border-[var(--color-line)] text-[var(--color-primary-strong)] font-medium shrink-0">
+                          {item.badge}
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="flex items-center gap-1.5 shrink-0" onClick={(e) => e.stopPropagation()}>
+                      {item.secondaryActions?.map((sec) => (
+                        <a
+                          key={sec.label}
+                          href={sec.href}
+                          target={sec.href.startsWith("http") ? "_blank" : undefined}
+                          rel={sec.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                          className="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-[var(--color-surface)] border border-[var(--color-line)] text-[var(--color-muted)] hover:text-[var(--color-primary-strong)] hover:border-[var(--color-primary)] transition-colors inline-flex items-center gap-0.5"
+                        >
+                          <span>{sec.label}</span>
+                        </a>
+                      ))}
+                    </div>
                   </div>
 
-                  <div className="flex items-center gap-2 shrink-0">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-[var(--color-muted)] px-2 py-0.5 rounded bg-[var(--color-surface)] border border-[var(--color-line)]">
-                      {action.category}
-                    </span>
-                    {action.shortcut && (
-                      <kbd className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[var(--color-surface)] border border-[var(--color-line)] text-[var(--color-muted)]">
-                        {action.shortcut}
-                      </kbd>
-                    )}
-                  </div>
-                </button>
+                  {item.subtitle && (
+                    <p className="text-xs font-mono text-[var(--color-muted)] truncate">
+                      {item.subtitle}
+                    </p>
+                  )}
+
+                  {/* Dynamic Match Context Snippet */}
+                  {res.matchSnippet && (
+                    <div className="text-[11px] font-mono text-[var(--color-primary-strong)] bg-[var(--color-primary)]/8 px-2 py-1 rounded border border-[var(--color-primary)]/20 mt-1 truncate">
+                      <span className="opacity-70 mr-1.5 font-bold">Match:</span>
+                      <span>{res.matchSnippet}</span>
+                    </div>
+                  )}
+                </div>
               )
             })
           )}
         </div>
 
-        {/* Footer shortcuts hint */}
+        {/* Footer info bar */}
         <div className="border-t border-[var(--color-line)] p-2.5 px-4 bg-[var(--color-surface-muted)]/50 flex items-center justify-between text-[11px] font-mono text-[var(--color-muted)]">
           <div className="flex items-center gap-3">
             <span>↑↓ Navigate</span>
             <span>↵ Select</span>
             <span>Esc Close</span>
           </div>
-          <span>Md. Shourov · Portfolio</span>
+          <span>
+            {query
+              ? `${results.length} ${results.length === 1 ? "result" : "results"}`
+              : `${allItems.length} searchable items`}
+          </span>
         </div>
       </div>
     </div>

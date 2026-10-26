@@ -4,7 +4,7 @@ import Link from "next/link"
 import { getContent, slugify } from "@/lib/content"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { BorderGlow } from "@/components/border-glow"
-import { NabodigontoAuditPreview } from "@/components/previews/nabodigonto-audit-preview"
+import { NabodigontoMonorepoPreview } from "@/components/previews/nabodigonto-monorepo-preview"
 import { InsideJibonPipelinePreview } from "@/components/previews/insidejibon-pipeline-preview"
 import { ArvaanaVariantPreview } from "@/components/previews/arvaana-variant-preview"
 
@@ -40,7 +40,7 @@ export function Spotlight() {
                   >
                     {/* Visual Interactive Preview Column */}
                     <div className="lg:col-span-6 relative overflow-hidden rounded-xl border border-[var(--color-line)] bg-[var(--color-surface-muted)] shadow-xs">
-                      {project.title === "Nabodigonto" && <NabodigontoAuditPreview />}
+                      {project.title === "Nabodigonto" && <NabodigontoMonorepoPreview />}
                       {project.title === "InsideJibon" && <InsideJibonPipelinePreview />}
                       {project.title === "ARVAANA" && <ArvaanaVariantPreview />}
                       {!["Nabodigonto", "InsideJibon", "ARVAANA"].includes(project.title) && (

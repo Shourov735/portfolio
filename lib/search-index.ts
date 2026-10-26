@@ -56,12 +56,12 @@ const BLOG_POSTS_METADATA = [
     tags: ["Projects", "Architecture", "Next.js", "E-Commerce", "Engineering"],
   },
   {
-    slug: "dual-control-financial-reconciliation-nabodigonto",
-    title: "Dual-Control Financial Reconciliation & Multi-Channel Notifications in Practice",
-    description: "How we implemented independent two-officer monthly starting balance matching, cash and bank reconciliation with surplus/deficit tracking, and queue-driven notifications.",
+    slug: "edge-queues-and-bengali-pdf-pipeline-nabodigonto",
+    title: "Asynchronous Multi-Channel Notification Queues & Serverless Bengali PDF Generation on the Edge",
+    description: "Deep dive into Nabodigonto's asynchronous Cloudflare Queues fanout across SMS/Email/WebPush/FCM and serverless Bengali font shaping with pdf-lib and R2.",
     date: "2026-09-02",
-    readingTime: 6,
-    tags: ["Projects", "Backend", "FinTech", "Lessons Learned"],
+    readingTime: 8,
+    tags: ["Projects", "Architecture", "Cloudflare Workers", "Backend", "Lessons Learned"],
   },
   {
     slug: "edge-data-modeling-cloudflare-d1-media-pipeline",
@@ -341,7 +341,7 @@ export function getAllSearchableItems(): SearchableItem[] {
   // 6. Philosophy, Core Tenets & All FAQ Items
   // 6a. Core Engineering Tenets
   const tenets = [
-    { title: "Tenet: Reliability First & Resilient Architecture", desc: "Design for reliability first: resilient schema migrations, dual-control reconciliations, and edge caching." },
+    { title: "Tenet: Reliability First & Resilient Architecture", desc: "Design for reliability first: resilient schema migrations, atomic edge batching, and distributed caching." },
     { title: "Tenet: Offline-First Parity", desc: "Build mobile and client experiences that remain 100% functional without network connectivity." },
     { title: "Tenet: GoF Design Patterns", desc: "Apply Gang of Four patterns (Strategy, State, Observer, Factory) for maintainable, testable codebases." },
     { title: "Tenet: Continuous Open-Source Contribution", desc: "Active upstream contribution to production libraries and community mentorship." },

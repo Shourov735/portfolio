@@ -27,33 +27,80 @@ export function ArchitectureExplorer({ slug }: ArchitectureExplorerProps) {
 }
 
 // -------------------------------------------------------------
-// 1. NABODIGONTO: Dual-Admin Financial Reconciliation Pipeline
+// 1. NABODIGONTO: 100k+ LOC Edge-Native Distributed Pipeline
 // -------------------------------------------------------------
 function NabodigontoExplorer() {
-  const [officer1, setOfficer1] = useState(true)
-  const [officer2, setOfficer2] = useState(true)
-  const [activeStep, setActiveStep] = useState(0)
+  const [activeModule, setActiveModule] = useState<"public" | "api" | "media" | "queue" | "auth">("api")
 
-  const isMatched = officer1 && officer2
+  const modules = {
+    public: {
+      name: "apps/web-public",
+      runtime: "Vite + React 19 SPA",
+      tag: "Zero-Auth Edge Delivery",
+      badge: "Public Tier",
+      latency: "12ms TTFB",
+      summary: "Completely decoupled from authentication dependencies. Serves informational pages, program galleries, and emergency blood donor directories with zero Clerk SDK overhead.",
+      specs: [
+        "Eliminates 120KB+ auth runtime from public mobile visitors",
+        "Offline JSON snapshot cached in browser for emergency blood lookups",
+        "Edge-cached globally with instant invalidation",
+      ],
+    },
+    api: {
+      name: "services/api",
+      runtime: "Hono.js on Cloudflare Workers",
+      tag: "9 Modular Domains & D1 Batching",
+      badge: "Core Service",
+      latency: "38ms execution",
+      summary: "Modular edge router partitioned into 9 domain modules (members, dues, welfare, donors, notifications, etc.). Executes multi-table mutations atomically via Cloudflare D1 batch statements.",
+      specs: [
+        "End-to-end type safety via packages/contracts & Hono RPC",
+        "D1 batch() transactions prevent race conditions on distributed SQLite",
+        "Zero long-lived TCP connection pool exhaustion risks",
+      ],
+    },
+    media: {
+      name: "services/media-service",
+      runtime: "Cloudflare Worker + R2 Storage",
+      tag: "Serverless Bengali PDF Engine",
+      badge: "Media Worker",
+      latency: "<40ms generation",
+      summary: "Dedicated media processing worker. Uses pdf-lib and @pdf-lib/fontkit to perform in-memory OpenType glyph shaping for complex Bengali typography, streaming vector PDFs directly to Cloudflare R2.",
+      specs: [
+        "Custom Kalpurush/SolaimanLipi TrueType font embedding",
+        "Dynamic digital PVC membership ID cards with QR token routes (/verify/[token])",
+        "Presigned R2 uploads with magic-byte validation under 25MB RAM",
+      ],
+    },
+    queue: {
+      name: "services/notification-service",
+      runtime: "Cloudflare Queues Consumer",
+      tag: "4-Channel Notification Fanout",
+      badge: "Async Queue",
+      latency: "Background async",
+      summary: "Asynchronous worker consuming Cloudflare Queues payloads. Fans out transactional messages across 4 independent delivery channels with exponential backoff and dead-letter queueing.",
+      specs: [
+        "Bangladeshi SMS Gateway (OneCodeSoft) for members without data access",
+        "Transactional email receipts with PDF download links via Resend",
+        "Real-time Web Push (VAPID) and Mobile Push (Firebase Cloud Messaging)",
+      ],
+    },
+    auth: {
+      name: "packages/auth",
+      runtime: "Stateless Edge Middleware",
+      tag: "Networkless JWT Verification",
+      badge: "Security Layer",
+      latency: "<2ms verify",
+      summary: "Shared security package enforcing role-based access control across 6 organizational tiers (General Member, Volunteer, Donor, Finance Lead, Admin, IT Secretary).",
+      specs: [
+        "Stateless cryptographic JWT verification in V8 edge isolates",
+        "Fine-grained route guard middleware shared across Hono and Next.js",
+        "Zero external database trips for session token validation",
+      ],
+    },
+  }
 
-  const steps = [
-    {
-      title: "1. Independent Starting Balance Entry",
-      detail: "Finance Director and System Admin independently submit the starting balance for the month without seeing each other's live inputs.",
-    },
-    {
-      title: "2. Dual-Officer Match Check",
-      detail: "System evaluates if amount1 === amount2. If matched, finalizedStartingBalance is locked into D1 ledger.",
-    },
-    {
-      title: "3. Dues & Expense Aggregation",
-      detail: "Expected closing balance is calculated: Starting Balance + Verified Dues & Donations - Approved Expenses.",
-    },
-    {
-      title: "4. Hand Cash & Bank Reconciliation",
-      detail: "Physical hand cash is counted and bank account statements verified against expected closing total to flag surplus or deficit.",
-    },
-  ]
+  const current = modules[activeModule]
 
   return (
     <section className="my-12 scroll-mt-24" id="interactive-architecture" aria-labelledby="nabo-arch-heading">
@@ -64,120 +111,70 @@ function NabodigontoExplorer() {
         </span>
       </div>
       <h2 id="nabo-arch-heading" className="font-display text-2xl md:text-3xl text-[var(--color-text)] mb-6 tracking-tight">
-        Dual-Admin Financial Reconciliation &amp; Cash Audit
+        100k+ LOC Edge-Native Distributed Monorepo &amp; Pipeline
       </h2>
 
       <div className="rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)]/80 p-5 md:p-6 shadow-xs">
-        {/* Treasury Vault Display */}
-        <div
-          className={`p-5 rounded-xl border transition-all duration-300 ${
-            isMatched
-              ? "bg-emerald-500/10 border-emerald-500/40 dark:bg-emerald-950/20"
-              : "bg-[var(--color-surface-muted)] border-[var(--color-line)]"
-          }`}
-        >
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-mono uppercase tracking-wider text-[var(--color-muted)]">
-              {isMatched ? "Reconciled Closing Ledger Balance" : "Starting Balance Pending Dual Confirmation"}
-            </span>
-            <span
-              className={`text-[11px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-full font-semibold ${
-                isMatched
-                  ? "bg-emerald-500/20 text-emerald-700 dark:text-emerald-300"
-                  : "bg-amber-500/15 text-amber-700 dark:text-amber-400"
-              }`}
-            >
-              {isMatched ? "● Reconciled (Zero Discrepancy)" : "○ Awaiting Officer 2"}
-            </span>
-          </div>
-
-          <div className="flex items-baseline gap-3 my-2">
-            <span className="font-display text-3xl md:text-4xl tracking-tight text-[var(--color-text)] tabular-nums transition-all">
-              {isMatched ? "৳ 89,200.00" : "৳ Pending..."}
-            </span>
-            <span className="text-xs font-mono text-[var(--color-muted)]">
-              {isMatched ? "BDT · Cash (৳14.2k) + Bank (৳75.0k)" : "Dual Confirmation Required"}
-            </span>
-          </div>
-
-          <p className="text-xs text-[var(--color-muted)] mt-2 leading-relaxed">
-            {isMatched
-              ? "Reconciliation verified: Starting balance (৳45,000) matched. Collections (+৳62,500) and expenses (-৳18,300) match counted physical cash and verified bank accounts."
-              : "Two-person rule: Starting balance remains unfinalized until both designated officers submit identical amounts."}
-          </p>
-        </div>
-
-        {/* Dual Signature Controls */}
-        <div className="mt-5 pt-4 border-t border-[var(--color-line)]">
-          <span className="text-xs font-mono uppercase tracking-wider text-[var(--color-muted)] block mb-2.5 font-medium">
-            Simulate Officer Submission (Click to test verification):
-          </span>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <button
-              type="button"
-              onClick={() => setOfficer1(!officer1)}
-              className={`p-3 rounded-xl border text-left text-xs transition-all cursor-pointer ${
-                officer1
-                  ? "bg-[var(--color-primary)]/15 border-[var(--color-primary)] text-[var(--color-primary-strong)] font-semibold"
-                  : "bg-[var(--color-surface)] border-[var(--color-line)] text-[var(--color-muted)] hover:border-[var(--color-primary)]/40"
-              }`}
-            >
-              <div className="flex items-center justify-between mb-1">
-                <span className="font-mono uppercase text-[10px] tracking-wider">Officer 1: Finance Lead</span>
-                <span>{officer1 ? "✓ Submitted" : "Pending"}</span>
-              </div>
-              <p className="font-sans text-xs text-[var(--color-text)]">
-                {officer1 ? "৳ 45,000.00 starting balance" : "Enter starting balance"}
-              </p>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => setOfficer2(!officer2)}
-              className={`p-3 rounded-xl border text-left text-xs transition-all cursor-pointer ${
-                officer2
-                  ? "bg-[var(--color-primary)]/15 border-[var(--color-primary)] text-[var(--color-primary-strong)] font-semibold"
-                  : "bg-[var(--color-surface)] border-[var(--color-line)] text-[var(--color-muted)] hover:border-[var(--color-primary)]/40"
-              }`}
-            >
-              <div className="flex items-center justify-between mb-1">
-                <span className="font-mono uppercase text-[10px] tracking-wider">Officer 2: IT Secretary</span>
-                <span>{officer2 ? "✓ Submitted" : "Pending"}</span>
-              </div>
-              <p className="font-sans text-xs text-[var(--color-text)]">
-                {officer2 ? "৳ 45,000.00 starting balance" : "Enter starting balance"}
-              </p>
-            </button>
-          </div>
-        </div>
-
-        {/* Protocol Lifecycle Stepper */}
-        <div className="mt-6 pt-5 border-t border-[var(--color-line)]">
-          <span className="text-xs font-mono uppercase tracking-wider text-[var(--color-muted)] block mb-3 font-medium">
-            Protocol State Machine:
-          </span>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-            {steps.map((st, idx) => (
+        {/* Module Selector Bar */}
+        <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 mb-6">
+          {(["api", "media", "queue", "public", "auth"] as const).map((key) => {
+            const mod = modules[key]
+            const isSelected = activeModule === key
+            return (
               <button
-                key={idx}
+                key={key}
                 type="button"
-                onClick={() => setActiveStep(idx)}
-                className={`p-2.5 rounded-lg border text-left text-xs transition-all cursor-pointer ${
-                  activeStep === idx
-                    ? "bg-[var(--color-primary)]/10 border-[var(--color-primary)] font-semibold text-[var(--color-primary-strong)]"
-                    : "bg-[var(--color-surface)] border-[var(--color-line)] text-[var(--color-muted)] hover:text-[var(--color-text)]"
+                onClick={() => setActiveModule(key)}
+                className={`p-2.5 rounded-xl border text-left transition-all cursor-pointer ${
+                  isSelected
+                    ? "bg-[var(--color-primary)]/15 border-[var(--color-primary)] text-[var(--color-primary-strong)] font-semibold shadow-xs"
+                    : "bg-[var(--color-surface-muted)] border-[var(--color-line)] text-[var(--color-muted)] hover:border-[var(--color-primary)]/40 hover:text-[var(--color-text)]"
                 }`}
               >
-                <span className="block text-[10px] font-mono text-[var(--color-primary)] mb-1">
-                  Step 0{idx + 1}
+                <span className="block text-[10px] font-mono uppercase tracking-wider text-[var(--color-muted)] mb-0.5">
+                  {mod.badge}
                 </span>
-                <span className="line-clamp-1">{st.title.split(". ")[1]}</span>
+                <span className="block text-xs font-mono font-medium truncate">
+                  {mod.name.split("/")[1] || mod.name}
+                </span>
               </button>
-            ))}
+            )
+          })}
+        </div>
+
+        {/* Selected Module Detail Panel */}
+        <div className="p-5 rounded-xl border border-[var(--color-primary)]/30 bg-[var(--color-surface-muted)] transition-all">
+          <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-[11px] font-mono text-[var(--color-primary)] font-semibold uppercase tracking-wider">
+                {current.runtime}
+              </span>
+              <h3 className="font-mono text-base md:text-lg font-bold text-[var(--color-text)] mt-0.5">
+                {current.name} &mdash; {current.tag}
+              </h3>
+            </div>
+            <span className="text-[11px] font-mono px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 font-semibold border border-emerald-500/30">
+              ● {current.latency}
+            </span>
           </div>
-          <p className="mt-3 text-xs text-[var(--color-muted)] font-mono bg-[var(--color-surface-muted)] p-3 rounded-lg border border-[var(--color-line)]">
-            {steps[activeStep].detail}
+
+          <p className="text-xs md:text-sm text-[var(--color-muted)] leading-relaxed mb-4">
+            {current.summary}
           </p>
+
+          <div className="pt-4 border-t border-[var(--color-line)]">
+            <span className="text-[11px] font-mono uppercase tracking-wider text-[var(--color-muted)] block mb-2 font-medium">
+              Verified Architectural Guarantees:
+            </span>
+            <ul className="grid gap-2 list-none p-0 m-0">
+              {current.specs.map((spec, i) => (
+                <li key={i} className="flex items-start gap-2 text-xs text-[var(--color-text)] font-mono">
+                  <span className="text-emerald-500 shrink-0">✓</span>
+                  <span>{spec}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>

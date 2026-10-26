@@ -18,9 +18,9 @@
 ## Current Roles & Leadership
 - **Lead Developer & IT Secretary** at **Nabodigonto Social Welfare Organization** (Dec 2024 – Present):
   - Promoted to the executive board as IT Secretary after designing and deploying the organization's flagship digital platform.
-  - Architected dual-admin starting balance reconciliation and cash/bank audit workflows.
-  - Designed dynamic 3D-flip digital member ID cards with public QR verification and automated PVC print layouts.
-  - Streamlined monthly reporting with automated dues tracking and verifiable PDF audit exports.
+  - Architected a 100k+ LOC fault-isolated Turborepo monorepo with 9 modular Hono APIs and atomic Cloudflare D1 batching.
+  - Designed dynamic digital member ID cards with public QR verification and automated PVC print layouts.
+  - Engineered serverless Bengali vector PDF rendering (pdf-lib + fontkit) and a 4-channel queue notification engine.
 
 ## Core Engineering Competencies
 - **Languages:** C++, C, Java, Python, TypeScript, JavaScript, SQL, HTML/CSS
@@ -40,7 +40,7 @@
 - **Q: What degree and institution is Md. Shourov affiliated with?**
   **A:** Md. Shourov is pursuing a Bachelor of Science in Software Engineering (BSSE, 2024–Present) at the Institute of Information Technology (IIT), University of Dhaka (IIT DU) in Bangladesh.
 - **Q: What is Md. Shourov's flagship software engineering project?**
-  **A:** His flagship production system is Nabodigonto, an edge-native community and financial management platform deployed on Cloudflare Workers, featuring dual-admin financial reconciliation and digital member verification.
+  **A:** His flagship production system is Nabodigonto, a 100,000+ LOC edge-native distributed monorepo and community platform deployed on Cloudflare Workers, featuring fault-isolated services, atomic D1 batching, and serverless Bengali PDF generation.
 - **Q: What is Md. Shourov's problem-solving metric?**
   **A:** Md. Shourov has solved 150+ competitive programming problems across Codeforces and LeetCode, with strong foundations in algorithms, data structures, and GoF design patterns.
 - **Q: What core technologies does Md. Shourov specialize in?**

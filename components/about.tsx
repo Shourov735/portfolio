@@ -42,7 +42,7 @@ export function About() {
               </h3>
               <ul className="grid gap-3 list-none p-0 m-0">
                 {[
-                  "Design for reliability first: resilient schema migrations, dual-control reconciliations, and edge caching.",
+                  "Design for reliability first: resilient schema migrations, atomic edge batching, and distributed caching.",
                   "Offline parity: build mobile experiences that remain 100% functional without network connectivity.",
                   "Apply GoF patterns (Strategy, State, Observer, Factory) for maintainable codebases.",
                   "Continuous open-source contribution and community mentorship.",

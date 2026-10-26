@@ -15,7 +15,7 @@ relatedProjectSlug: "nabodigonto"
 
 In late 2024, I set out to build the core digital platform for **Nabodigonto Social Welfare Organization** — a registered grassroots non-profit in Bangladesh operating community welfare programs, emergency blood donation coordination, student scholarships, and mutual aid funds. Following the initial architecture and launch of the platform, the executive board appointed me as **IT Secretary** to oversee the organization's technology roadmap, infrastructure, and ongoing engineering.
 
-What began as an MVP web app eventually expanded into an ecosystem managing hundreds of active members, digital PVC-style membership IDs with dynamic verification, monthly dues tracking, dual-admin treasury reconciliation, and automated notifications.
+What began as an MVP web app eventually expanded into an ecosystem managing hundreds of active members, digital PVC-style membership IDs with dynamic verification, monthly dues tracking, and automated multi-channel notifications.
 
 Today, Nabodigonto spans more than **100,000 lines of TypeScript across a Turborepo monorepo**. This article is the first of a three-part technical series breaking down the real architectural decisions, operational trade-offs, and lessons learned from engineering this system for edge deployment.
 
@@ -85,54 +85,53 @@ Rather than writing traditional REST controllers with hand-rolled `fetch` calls 
 In `packages/contracts`, we define domain validation schemas using Zod:
 
 ```ts
-// packages/contracts/src/accountability.ts
+// packages/contracts/src/dues.ts
 import { z } from "zod"
 
-export const StartPeriodSchema = z.object({
-  periodMonth: z.string().regex(/^\d{4}-\d{2}$/, "Must be in YYYY-MM format"),
-  startingBalance: z.number().nonnegative("Starting balance must be non-negative"),
-  officerRole: z.enum(["FINANCE_OFFICER", "SYSTEM_ADMIN"]),
-  verificationNotes: z.string().max(500).optional(),
+export const RecordDuesPaymentSchema = z.object({
+  memberId: z.string().cuid(),
+  amount: z.number().positive("Amount must be greater than zero"),
+  monthPaid: z.string().regex(/^\d{4}-\d{2}$/, "Must be in YYYY-MM format"),
+  paymentMethod: z.enum(["HAND_CASH", "BKASH", "NAGAD", "BANK_TRANSFER"]),
+  notes: z.string().max(500).optional(),
 })
 
-export type StartPeriodInput = z.infer<typeof StartPeriodSchema>
+export type RecordDuesPaymentInput = z.infer<typeof RecordDuesPaymentSchema>
 
-export const ReconcilePeriodSchema = z.object({
-  periodId: z.string().cuid(),
-  handCashCounted: z.number().nonnegative(),
-  bankBalanceVerified: z.number().nonnegative(),
-  discrepancyType: z.enum(["NONE", "SURPLUS", "DEFICIT"]).default("NONE"),
-  discrepancyAmount: z.number().default(0),
-  justificationNotes: z.string().max(1000).optional(),
+export const RegisterMemberSchema = z.object({
+  fullName: z.string().min(3).max(100),
+  phoneNumber: z.string().regex(/^(\+8801|01)[3-9]\d{8}$/, "Valid BD phone number required"),
+  bloodGroup: z.enum(["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"]),
+  role: z.enum(["GENERAL_MEMBER", "VOLUNTEER", "DONOR"]).default("GENERAL_MEMBER"),
 })
 
-export type ReconcilePeriodInput = z.infer<typeof ReconcilePeriodSchema>
+export type RegisterMemberInput = z.infer<typeof RegisterMemberSchema>
 ```
 
 In `services/api`, the Hono router mounts these contracts directly with input validators:
 
 ```ts
-// services/api/src/routes/accountability.ts
+// services/api/src/routes/dues.ts
 import { Hono } from "hono"
 import { zValidator } from "@hono/zod-validator"
-import { StartPeriodSchema } from "@nabodigonto/contracts"
-import { requireAdminAuth } from "../middleware/auth"
+import { RecordDuesPaymentSchema } from "@nabodigonto/contracts"
+import { requireOfficerAuth } from "../middleware/auth"
 
-export const accountabilityRouter = new Hono()
+export const duesRouter = new Hono()
   .post(
-    "/period/start",
-    requireAdminAuth,
-    zValidator("json", StartPeriodSchema),
+    "/collect",
+    requireOfficerAuth,
+    zValidator("json", RecordDuesPaymentSchema),
     async (c) => {
       const input = c.req.valid("json")
-      const user = c.get("user")
+      const officer = c.get("user")
       
-      const result = await c.env.DB_SERVICE.recordStartingBalanceEntry({
+      const result = await c.env.DB_SERVICE.recordDuesPaymentAtomic({
         ...input,
-        recordedBy: user.id,
+        receivedById: officer.id,
       })
 
-      return c.json(result, 200)
+      return c.json(result, 201)
     }
   )
 ```
@@ -147,12 +146,13 @@ import type { AppType } from "@nabodigonto/api"
 export const api = hc<AppType>(process.env.NEXT_PUBLIC_API_URL!)
 
 // Inside a React component or action:
-const res = await api.accountability.period.start.$post({
+const res = await api.dues.collect.$post({
   json: {
-    periodMonth: "2026-08",
-    startingBalance: 45000,
-    officerRole: "FINANCE_OFFICER",
-    verificationNotes: "Physical passbook and cash register counted.",
+    memberId: "cuid_9872134",
+    amount: 500,
+    monthPaid: "2026-08",
+    paymentMethod: "BKASH",
+    notes: "August membership dues.",
   },
 })
 

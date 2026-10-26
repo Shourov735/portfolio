@@ -70,18 +70,16 @@ model DuesPayment {
   member          Member         @relation(fields: [memberId], references: [id])
 }
 
-model FinancialPeriod {
-  id                  String     @id @default(cuid())
-  periodMonth         String     @unique // Format: YYYY-MM
-  startingBalance1    Float?
-  startingBalance2    Float?
-  officer1Id          String?
-  officer2Id          String?
-  isReconciled        Boolean    @default(false)
-  handCashCounted     Float      @default(0)
-  bankBalanceVerified Float      @default(0)
-  discrepancyAmount   Float      @default(0)
-  status              String     @default("PENDING_START")
+model BloodDonor {
+  id              String         @id @default(cuid())
+  memberId        String?
+  fullName        String
+  bloodGroup      String         // A+, B+, O+, AB+, etc.
+  district        String
+  lastDonatedAt   DateTime?
+  isAvailable     Boolean        @default(true)
+  phoneNumber     String
+  createdAt       DateTime       @default(now())
 }
 ```
 
@@ -270,4 +268,4 @@ Because generation is pure in-memory vector math, producing a complete card take
 - **Isolate Document Rendering:** Generating PDFs and images should never run on the primary API thread. Moving media generation to an isolated worker protects the main API from memory spikes.
 - **Direct Vector Assembly Beats Headless Browsers:** For documents with structured layouts, building PDFs programmatically with `pdf-lib` is orders of magnitude faster and lighter than running headless browser instances.
 
-In **Part 3**, we will explore the governance layer: how we engineered **dual-control financial reconciliation** for transparent non-profit accounting and orchestrated multi-channel notifications across SMS and email.
+In **Part 3**, we will explore how we engineered an **asynchronous 4-channel notification queue** across SMS, email, web push, and FCM, and scaled our serverless Bengali PDF generation pipeline.

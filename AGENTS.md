@@ -105,7 +105,7 @@ Any agent working in this repository **must strictly preserve** these core facts
 | **Project Directory Count** | Exactly **11 projects** | Never claim 12+, 15+, or numbers that contradict `data/content.json`. |
 | **Skill Proficiency** | 3 Qualitative Tiers | Grouped strictly into **Primary**, **Working Knowledge**, and **Familiar**. **Never** add percentage bars (e.g. "C++ 80%") or fake numerical proficiency scores. |
 | **Performance Claims** | Evidence-Driven & Qualitative | Never claim unverified benchmarks like "sub-100ms", "under 600ms", or "80% reduction" without verifiable test data. |
-| **Flagship Project** | **Nabodigonto** | Real-world 100k+ LOC non-profit monorepo platform where Md. Shourov engineered dual-admin financial reconciliation and was appointed **IT Secretary**. |
+| **Flagship Project** | **Nabodigonto** | Real-world 100k+ LOC non-profit monorepo platform where Md. Shourov engineered fault-isolated edge services, Cloudflare D1 atomic batching, and serverless Bengali PDF generation, and was appointed **IT Secretary**. |
 
 ---
 

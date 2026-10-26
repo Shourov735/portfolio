@@ -119,8 +119,8 @@
     {
       "title": "Nabodigonto",
       "role": "Lead Software Engineer & IT Secretary",
-      "summary": "Flagship community and financial management platform for Nabodigonto Social Welfare Organization. Features digital member ID cards with QR token verification, monthly dues tracking, dual-admin cash and bank reconciliation, multi-channel automated notifications, and an edge-native monorepo architecture.",
-      "metaDescription": "Flagship community platform for Nabodigonto featuring dual-admin financial reconciliation, digital member ID cards with QR verification, and automated dues tracking.",
+      "summary": "100,000+ LOC edge-native distributed monorepo and community platform for Nabodigonto Social Welfare Organization. Decomposed into fault-isolated applications (Vite public SPA, React 19 member portal, Expo mobile app), a modular Hono.js API worker on Cloudflare D1 with atomic batch transactions, an isolated Bengali PDF and media engine on R2, and a 4-channel queue notification engine (SMS, email, push).",
+      "metaDescription": "100,000+ LOC edge-native distributed monorepo and community platform featuring fault-isolated services, Cloudflare D1 atomic batching, serverless Bengali PDF generation, and 4-channel queue notifications.",
       "image": "/assets/images/nabodigonto.jpg",
       "category": "Web",
       "tags": [
@@ -143,34 +143,35 @@
       ],
       "highlights": [
         "Real production platform engineered and maintained for a registered social welfare organization, leading to executive appointment as IT Secretary",
-        "Fault-isolated monorepo architecture separating public web, member portal, Hono API worker, media worker, and queue-driven notification worker",
-        "Dual-admin balance reconciliation workflow validating monthly starting balances and reconciling physical cash against bank statements",
-        "Dynamic 3D flip member ID cards with cryptographic verification token routes (/verify/[token]) and QR code generation",
-        "Multi-channel notification pipeline dispatching automated dues reminders via SMS, email, web push, and FCM"
+        "Fault-isolated monorepo architecture separating public web (Vite SPA), member portal (React 19 + Clerk RBAC), and Expo mobile app",
+        "Modular Hono.js API worker with 9 domain modules backed by Cloudflare D1 and atomic batch() transactions",
+        "Serverless Bengali PDF & media engine using pdf-lib and fontkit for custom Bengali typography and digital member ID cards with QR verification",
+        "4-channel queue notification engine via Cloudflare Queues dispatching automated SMS (OneCodeSoft), Email (Resend), WebPush, and FCM with retry backoff"
       ],
-      "problem": "Nabodigonto Social Welfare Organization previously handled member dues and community welfare contributions using manual paper records and spreadsheets. This led to reconciliation delays, lack of public verification, and difficulties tracking cash collections against bank balances.",
-      "technicalApproach": "Architected a full-stack platform decomposed into a fault-isolated Turborepo monorepo: an unauthenticated, offline-resilient public portal (Vite + React 19), an authenticated dashboard (Clerk + TanStack Router), a modular Hono.js API worker on Cloudflare D1 with atomic batch writes, an isolated media worker generating Bengali PDF receipts and ID cards via R2, and a queue worker handling multi-channel SMS and email notifications.",
+      "problem": "Nabodigonto Social Welfare Organization previously relied on fragmented paper records, scattered messaging groups, and manual receipt collection to manage hundreds of members, blood donation directories, and student aid. Serving both rural members on flaky mobile 3G/4G and administrative officers required high performance, resilient offline access, and unified communication without incurring monthly cloud subscription costs.",
+      "technicalApproach": "Architected an edge-native distributed platform structured as a 100k+ LOC Turborepo monorepo: an auth-free public portal (Vite + React 19) with offline cached donor directories, an authenticated portal (React 19 + TanStack Router/Query + Clerk RBAC), a modular Hono API worker across 9 domain modules with atomic Cloudflare D1 batch mutations, a dedicated serverless media engine rendering Bengali Unicode vector PDFs (pdf-lib + fontkit) uploaded to Cloudflare R2, and an asynchronous notification worker consuming Cloudflare Queues for SMS, email, and mobile push delivery.",
       "challenges": [
-        "Ensuring strict separation of duties during monthly financial close so physical hand cash and bank balances are reconciled with two-officer confirmation.",
-        "Generating high-resolution printable membership ID cards and bilingual payment receipts with accurate Bengali font rendering within serverless memory constraints.",
-        "Migrating from a Next.js monolith to a decoupled monorepo to isolate public visitors from authentication bundles and ensure zero-downtime public access."
+        "Rendering complex Bengali Unicode typography and ligatures in serverless vector PDFs within Cloudflare Worker 128MB memory constraints without headless browsers.",
+        "Eliminating authentication bundle bloat on public informational and emergency blood donor directories to ensure sub-second loads on rural Bangladeshi mobile networks.",
+        "Guaranteeing multi-statement ACID consistency across membership ledgers on distributed SQLite (Cloudflare D1) without long-running database locks."
       ],
       "keyDecisions": [
-        "Dual-Admin Balance Reconciliation: Monthly starting balances require independent submissions from both Finance Director and Admin before closing balances reconcile against actual cash.",
-        "Fault-Isolated Turborepo Architecture: Separated public web from authenticated portal and backend workers so auth failures or heavy admin operations never degrade public traffic.",
-        "Dedicated Media Worker for Bengali Typography: Handled PDF compilation with pdf-lib and fontkit in a separate worker to keep the primary API fast and lean."
+        "Fault-Isolated Monorepo Architecture: Decoupled public web from authenticated portal and backend workers so auth downtime or heavy admin workloads never impact public availability.",
+        "Atomic D1 Batch Transactions: Structured multi-table mutations into single-roundtrip atomic batch() statements, preventing race conditions on edge SQLite.",
+        "Serverless Bengali Media Engine: Offloaded vector PDF rendering with custom TTF font embedding to an isolated media worker backed by Cloudflare R2, protecting API throughput.",
+        "4-Channel Queue-Driven Notifications: Decoupled slow external telecom SMS and email APIs using Cloudflare Queues with exponential retry backoff."
       ],
       "result": "Successfully launched into production as the organization's official operational backbone. Appointed IT Secretary by the executive board to oversee system governance, feature rollouts, and technical stewardship.",
       "visualEvidence": {
         "type": "diagram",
-        "title": "Fault-Isolated Edge Architecture & Reconciliation Pipeline",
-        "caption": "Architecture: Decoupled public/portal frontends, modular Hono API on D1, dedicated media worker, and queue notifications.",
+        "title": "100k+ LOC Distributed Monorepo Architecture & Pipeline",
+        "caption": "Architecture: Decoupled public/portal frontends, modular Hono API on D1, dedicated media worker, and 4-channel queue notifications.",
         "content": [
-          "Public Web (Vite + React 19) ──> Zero Auth Bundle · Offline Fallback · Public Directory",
-          "Member Portal (TanStack)     ──> Role-Gated Admin (6 Roles) · Dues Hub · Member IDs",
-          "Core API (Hono + D1)         ──> Atomic batch() Transactions · Dues Engine · Two-Officer Reconcile",
-          "Media Service (R2 + Fonts)   ──> Bengali Font Shaping · Printable Member PVC Cards · PDF Receipts",
-          "Notification Queue Worker   ──> SMS (OneCodeSoft) · Email (Resend) · WebPush · FCM"
+          "Public Web (Vite + React 19) ──> Zero Auth Bundle · Offline Fallback Snapshot · Public Directory",
+          "Member Portal (TanStack Router) ──> Role-Gated Admin (6 Roles) · Dues Hub · Member Verification",
+          "Core API (Hono + D1)         ──> 9 Domain Modules · Atomic batch() Transactions · Shared Contracts",
+          "Media Service (R2 + Fonts)   ──> Bengali Font Shaping (fontkit) · PVC Member Cards · Vector PDF Receipts",
+          "Notification Worker (Queues) ──> 4 Channels: OneCodeSoft SMS · Resend Email · WebPush · FCM"
         ]
       }
     },
@@ -285,8 +286,8 @@
     {
       "title": "Nabodigonto",
       "role": "Lead Software Engineer & IT Secretary",
-      "summary": "Flagship community and financial management platform for Nabodigonto Social Welfare Organization. Features digital member ID cards with QR token verification, monthly dues tracking, dual-admin cash and bank reconciliation, multi-channel automated notifications, and an edge-native monorepo architecture.",
-      "metaDescription": "Flagship community platform for Nabodigonto featuring dual-admin financial reconciliation, digital member ID cards with QR verification, and automated dues tracking.",
+      "summary": "100,000+ LOC edge-native distributed monorepo and community platform for Nabodigonto Social Welfare Organization. Decomposed into fault-isolated applications (Vite public SPA, React 19 member portal, Expo mobile app), a modular Hono.js API worker on Cloudflare D1 with atomic batch transactions, an isolated Bengali PDF and media engine on R2, and a 4-channel queue notification engine (SMS, email, push).",
+      "metaDescription": "100,000+ LOC edge-native distributed monorepo and community platform featuring fault-isolated services, Cloudflare D1 atomic batching, serverless Bengali PDF generation, and 4-channel queue notifications.",
       "image": "/assets/images/nabodigonto.jpg",
       "category": "Web",
       "tags": [
@@ -309,38 +310,33 @@
       ],
       "highlights": [
         "Appointed as IT Secretary of the organization after designing and deploying this system",
-        "Fault-isolated monorepo architecture separating public web, member portal, Hono API worker, media worker, and queue-driven notification worker",
-        "Dual-admin balance reconciliation workflow validating monthly starting balances and reconciling physical cash against bank statements",
-        "Dynamic 3D flip member ID cards with cryptographic verification token routes (/verify/[token]) and QR code generation",
-        "Multi-channel notification pipeline dispatching automated dues reminders via SMS, email, web push, and FCM"
+        "Fault-isolated monorepo architecture separating public web (Vite SPA), member portal (React 19 + Clerk RBAC), and Expo mobile app",
+        "Modular Hono.js API worker with 9 domain modules backed by Cloudflare D1 and atomic batch() transactions",
+        "Serverless Bengali PDF & media engine using pdf-lib and fontkit for custom Bengali typography and digital member ID cards with QR verification",
+        "4-channel queue notification engine via Cloudflare Queues dispatching automated SMS (OneCodeSoft), Email (Resend), WebPush, and FCM with retry backoff"
       ],
-      "problem": "Nabodigonto Social Welfare Organization previously handled member dues and community welfare contributions using manual paper records and spreadsheets. This led to reconciliation delays, lack of public verification, and difficulties tracking cash collections against bank balances.",
-      "technicalApproach": "Architected a full-stack platform decomposed into a fault-isolated Turborepo monorepo: an unauthenticated, offline-resilient public portal (Vite + React 19), an authenticated dashboard (Clerk + TanStack Router), a modular Hono.js API worker on Cloudflare D1 with atomic batch writes, an isolated media worker generating Bengali PDF receipts and ID cards via R2, and a queue worker handling multi-channel SMS and email notifications.",
+      "problem": "Nabodigonto Social Welfare Organization previously relied on fragmented paper records, scattered messaging groups, and manual receipt collection to manage hundreds of members, blood donation directories, and student aid. Serving both rural members on flaky mobile 3G/4G and administrative officers required high performance, resilient offline access, and unified communication without incurring monthly cloud subscription costs.",
+      "technicalApproach": "Architected an edge-native distributed platform structured as a 100k+ LOC Turborepo monorepo: an auth-free public portal (Vite + React 19) with offline cached donor directories, an authenticated portal (React 19 + TanStack Router/Query + Clerk RBAC), a modular Hono API worker across 9 domain modules with atomic Cloudflare D1 batch mutations, a dedicated serverless media engine rendering Bengali Unicode vector PDFs (pdf-lib + fontkit) uploaded to Cloudflare R2, and an asynchronous notification worker consuming Cloudflare Queues for SMS, email, and mobile push delivery.",
       "challenges": [
-        "Ensuring strict separation of duties during monthly financial close so physical hand cash and bank balances are reconciled with two-officer confirmation.",
-        "Generating high-resolution printable membership ID cards and bilingual payment receipts with accurate Bengali font rendering within serverless memory constraints.",
-        "Migrating from a Next.js monolith to a decoupled monorepo to isolate public visitors from authentication bundles and ensure zero-downtime public access."
+        "Rendering complex Bengali Unicode typography and ligatures in serverless vector PDFs within Cloudflare Worker 128MB memory constraints without headless browsers.",
+        "Eliminating authentication bundle bloat on public informational and emergency blood donor directories to ensure sub-second loads on rural Bangladeshi mobile networks.",
+        "Guaranteeing multi-statement ACID consistency across membership ledgers on distributed SQLite (Cloudflare D1) without long-running database locks."
       ],
       "keyDecisions": [
-        "Dual-Admin Balance Reconciliation: Monthly starting balances require independent submissions from both Finance Director and Admin before closing balances reconcile against actual cash.",
-        "Fault-Isolated Turborepo Architecture: Separated public web from authenticated portal and backend workers so auth failures or heavy admin operations never degrade public traffic.",
-        "Dedicated Media Worker for Bengali Typography: Handled PDF compilation with pdf-lib and fontkit in a separate worker to keep the primary API fast and lean."
+        "Fault-Isolated Monorepo Architecture: Decoupled public web from authenticated portal and backend workers so auth downtime or heavy admin workloads never impact public availability.",
+        "Atomic D1 Batch Transactions: Structured multi-table mutations into single-roundtrip atomic batch() statements, preventing race conditions on edge SQLite.",
+        "Serverless Bengali Media Engine: Offloaded vector PDF rendering with custom TTF font embedding to an isolated media worker backed by Cloudflare R2, protecting API throughput.",
+        "4-Channel Queue-Driven Notifications: Decoupled slow external telecom SMS and email APIs using Cloudflare Queues with exponential retry backoff."
       ],
-      "systemType": "Edge-Native Non-Profit Operations & Financial Ledger",
+      "systemType": "100k+ LOC Edge-Native Distributed Monorepo & Community Platform",
       "constraints": [
         "$0/mo baseline operational cost",
         "Gazipur 3G mobile latency resilience",
-        "Two-person financial reconciliation rule",
-        "Offline public web availability"
+        "Stateless JWT edge verification",
+        "Offline public directory availability"
       ],
       "relatedBlogSlug": "architecting-nabodigonto-100k-loc-monorepo",
       "adrs": [
-        {
-          "decision": "Two-Officer Financial Reconciliation Workflow",
-          "rejected": "Single-Admin Unilateral Entry",
-          "rationale": "Enforces separation of duties by requiring Finance Director and System Admin to cross-check starting balances and physical cash counts.",
-          "tradeOff": "Requires two active officers for monthly ledger confirmation."
-        },
         {
           "decision": "Fault-Isolated Monorepo over Single Monolith",
           "rejected": "Single All-in-One Next.js Application",
@@ -352,19 +348,25 @@
           "rejected": "Unbounded Direct Edge Writes",
           "rationale": "Guarantees multi-table consistency across member ledgers and dues updates while maintaining edge colocation.",
           "tradeOff": "Requires batch statement structure rather than long-running interactive database transactions."
+        },
+        {
+          "decision": "Dedicated Media Worker for Bengali Typography",
+          "rejected": "Headless Chromium / Puppeteer",
+          "rationale": "Puppeteer requires hundreds of MBs and cannot run in V8 isolates; pdf-lib + fontkit delivers in-memory vector PDFs in <40ms under 25MB RAM.",
+          "tradeOff": "Requires manual coordinate layout calculations for vector PDF canvases."
         }
       ],
       "result": "Successfully launched into production as the organization's official operational backbone. Appointed IT Secretary by the executive board to oversee system governance, feature rollouts, and technical stewardship.",
       "visualEvidence": {
         "type": "diagram",
-        "title": "Fault-Isolated Edge Architecture & Reconciliation Pipeline",
-        "caption": "Architecture: Decoupled public/portal frontends, modular Hono API on D1, dedicated media worker, and queue notifications.",
+        "title": "100k+ LOC Distributed Monorepo Architecture & Pipeline",
+        "caption": "Architecture: Decoupled public/portal frontends, modular Hono API on D1, dedicated media worker, and 4-channel queue notifications.",
         "content": [
-          "Public Web (Vite + React 19) ──> Zero Auth Bundle · Offline Fallback · Public Directory",
-          "Member Portal (TanStack)     ──> Role-Gated Admin (6 Roles) · Dues Hub · Member IDs",
-          "Core API (Hono + D1)         ──> Atomic batch() Transactions · Dues Engine · Two-Officer Reconcile",
-          "Media Service (R2 + Fonts)   ──> Bengali Font Shaping · Printable Member PVC Cards · PDF Receipts",
-          "Notification Queue Worker   ──> SMS (OneCodeSoft) · Email (Resend) · WebPush · FCM"
+          "Public Web (Vite + React 19) ──> Zero Auth Bundle · Offline Fallback Snapshot · Public Directory",
+          "Member Portal (TanStack Router) ──> Role-Gated Admin (6 Roles) · Dues Hub · Member Verification",
+          "Core API (Hono + D1)         ──> 9 Domain Modules · Atomic batch() Transactions · Shared Contracts",
+          "Media Service (R2 + Fonts)   ──> Bengali Font Shaping (fontkit) · PVC Member Cards · Vector PDF Receipts",
+          "Notification Worker (Queues) ──> 4 Channels: OneCodeSoft SMS · Resend Email · WebPush · FCM"
         ]
       }
     },

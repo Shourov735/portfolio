@@ -27,31 +27,31 @@ export function ArchitectureExplorer({ slug }: ArchitectureExplorerProps) {
 }
 
 // -------------------------------------------------------------
-// 1. NABODIGONTO: Blind Audit Protocol & Dual-Key Signoff Flow
+// 1. NABODIGONTO: Dual-Admin Financial Reconciliation Pipeline
 // -------------------------------------------------------------
 function NabodigontoExplorer() {
-  const [signer1, setSigner1] = useState(false)
-  const [signer2, setSigner2] = useState(false)
+  const [officer1, setOfficer1] = useState(true)
+  const [officer2, setOfficer2] = useState(true)
   const [activeStep, setActiveStep] = useState(0)
 
-  const isUnblinded = signer1 && signer2
+  const isMatched = officer1 && officer2
 
   const steps = [
     {
-      title: "1. Member Dues Transaction",
-      detail: "Member deposits monthly dues via mobile banking; transaction receipt enters masked staging queue.",
+      title: "1. Independent Starting Balance Entry",
+      detail: "Finance Director and System Admin independently submit the starting balance for the month without seeing each other's live inputs.",
     },
     {
-      title: "2. Cryptographic Blind Token",
-      detail: "SHA-256 HMAC generated over ledger delta. Raw treasury totals are masked from public/member views.",
+      title: "2. Dual-Officer Match Check",
+      detail: "System evaluates if amount1 === amount2. If matched, finalizedStartingBalance is locked into D1 ledger.",
     },
     {
-      title: "3. Dual-Key Authentication",
-      detail: "Both the Finance Officer and Executive Admin must provide authenticated digital signatures to confirm reconciliation.",
+      title: "3. Dues & Expense Aggregation",
+      detail: "Expected closing balance is calculated: Starting Balance + Verified Dues & Donations - Approved Expenses.",
     },
     {
-      title: "4. Ledger Unmask & Dispersal",
-      detail: "Ledger consensus reached. Running balance is unmasked publicly and immutable PDF audit certificate is minted.",
+      title: "4. Hand Cash & Bank Reconciliation",
+      detail: "Physical hand cash is counted and bank account statements verified against expected closing total to flag surplus or deficit.",
     },
   ]
 
@@ -64,88 +64,88 @@ function NabodigontoExplorer() {
         </span>
       </div>
       <h2 id="nabo-arch-heading" className="font-display text-2xl md:text-3xl text-[var(--color-text)] mb-6 tracking-tight">
-        Blind Audit Protocol & Double-Signed Flow
+        Dual-Admin Financial Reconciliation &amp; Cash Audit
       </h2>
 
       <div className="rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)]/80 p-5 md:p-6 shadow-xs">
         {/* Treasury Vault Display */}
         <div
           className={`p-5 rounded-xl border transition-all duration-300 ${
-            isUnblinded
+            isMatched
               ? "bg-emerald-500/10 border-emerald-500/40 dark:bg-emerald-950/20"
               : "bg-[var(--color-surface-muted)] border-[var(--color-line)]"
           }`}
         >
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs font-mono uppercase tracking-wider text-[var(--color-muted)]">
-              {isUnblinded ? "Verified Ledger Balance (Unmasked)" : "Cryptographically Blinded Treasury Vault"}
+              {isMatched ? "Reconciled Closing Ledger Balance" : "Starting Balance Pending Dual Confirmation"}
             </span>
             <span
               className={`text-[11px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-full font-semibold ${
-                isUnblinded
+                isMatched
                   ? "bg-emerald-500/20 text-emerald-700 dark:text-emerald-300"
                   : "bg-amber-500/15 text-amber-700 dark:text-amber-400"
               }`}
             >
-              {isUnblinded ? "● Unblinded (2/2 Signed)" : "○ Blinded (Locked)"}
+              {isMatched ? "● Reconciled (Zero Discrepancy)" : "○ Awaiting Officer 2"}
             </span>
           </div>
 
           <div className="flex items-baseline gap-3 my-2">
             <span className="font-display text-3xl md:text-4xl tracking-tight text-[var(--color-text)] tabular-nums transition-all">
-              {isUnblinded ? "৳ 1,42,850.00" : "৳ ••••••••"}
+              {isMatched ? "৳ 89,200.00" : "৳ Pending..."}
             </span>
             <span className="text-xs font-mono text-[var(--color-muted)]">
-              {isUnblinded ? "BDT · Net Treasury Reserve" : "Zero-Knowledge Hash"}
+              {isMatched ? "BDT · Cash (৳14.2k) + Bank (৳75.0k)" : "Dual Confirmation Required"}
             </span>
           </div>
 
           <p className="text-xs text-[var(--color-muted)] mt-2 leading-relaxed">
-            {isUnblinded
-              ? "Dual consensus verified: Both keyholder signatures verified against serverless ledger state. Treasury totals unmasked."
-              : "Security invariant: Ledger values remain completely obscured until two designated keyholders cryptographically sign off."}
+            {isMatched
+              ? "Reconciliation verified: Starting balance (৳45,000) matched. Collections (+৳62,500) and expenses (-৳18,300) match counted physical cash and verified bank accounts."
+              : "Two-person rule: Starting balance remains unfinalized until both designated officers submit identical amounts."}
           </p>
         </div>
 
         {/* Dual Signature Controls */}
         <div className="mt-5 pt-4 border-t border-[var(--color-line)]">
           <span className="text-xs font-mono uppercase tracking-wider text-[var(--color-muted)] block mb-2.5 font-medium">
-            Simulate Keyholder Sign-Off (Click to toggle):
+            Simulate Officer Submission (Click to test verification):
           </span>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <button
               type="button"
-              onClick={() => setSigner1(!signer1)}
+              onClick={() => setOfficer1(!officer1)}
               className={`p-3 rounded-xl border text-left text-xs transition-all cursor-pointer ${
-                signer1
+                officer1
                   ? "bg-[var(--color-primary)]/15 border-[var(--color-primary)] text-[var(--color-primary-strong)] font-semibold"
                   : "bg-[var(--color-surface)] border-[var(--color-line)] text-[var(--color-muted)] hover:border-[var(--color-primary)]/40"
               }`}
             >
               <div className="flex items-center justify-between mb-1">
-                <span className="font-mono uppercase text-[10px] tracking-wider">Keyholder 1</span>
-                <span>{signer1 ? "✓ Signed" : "Pending"}</span>
+                <span className="font-mono uppercase text-[10px] tracking-wider">Officer 1: Finance Lead</span>
+                <span>{officer1 ? "✓ Submitted" : "Pending"}</span>
               </div>
               <p className="font-sans text-xs text-[var(--color-text)]">
-                Finance Officer (Treasury Review)
+                {officer1 ? "৳ 45,000.00 starting balance" : "Enter starting balance"}
               </p>
             </button>
 
             <button
               type="button"
-              onClick={() => setSigner2(!signer2)}
+              onClick={() => setOfficer2(!officer2)}
               className={`p-3 rounded-xl border text-left text-xs transition-all cursor-pointer ${
-                signer2
+                officer2
                   ? "bg-[var(--color-primary)]/15 border-[var(--color-primary)] text-[var(--color-primary-strong)] font-semibold"
                   : "bg-[var(--color-surface)] border-[var(--color-line)] text-[var(--color-muted)] hover:border-[var(--color-primary)]/40"
               }`}
             >
               <div className="flex items-center justify-between mb-1">
-                <span className="font-mono uppercase text-[10px] tracking-wider">Keyholder 2</span>
-                <span>{signer2 ? "✓ Signed" : "Pending"}</span>
+                <span className="font-mono uppercase text-[10px] tracking-wider">Officer 2: IT Secretary</span>
+                <span>{officer2 ? "✓ Submitted" : "Pending"}</span>
               </div>
               <p className="font-sans text-xs text-[var(--color-text)]">
-                Executive Admin (Governance Signoff)
+                {officer2 ? "৳ 45,000.00 starting balance" : "Enter starting balance"}
               </p>
             </button>
           </div>
@@ -527,7 +527,7 @@ function ImageComparisonExplorer() {
         </span>
       </div>
       <h2 id="img-arch-heading" className="font-display text-2xl md:text-3xl text-[var(--color-text)] mb-6 tracking-tight">
-        PR #255: Recursive DFS vs Iterative ArrayDeque BFS
+        PR #255: Recursive Flood-Fill vs Iterative ArrayDeque
       </h2>
 
       <div className="rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)]/80 p-5 md:p-6 shadow-xs">
@@ -541,7 +541,7 @@ function ImageComparisonExplorer() {
                 : "text-[var(--color-muted)] hover:text-[var(--color-text)]"
             }`}
           >
-            Before PR #255 (Recursive DFS)
+            Before PR #255 (Recursive joinToRegion)
           </button>
           <button
             type="button"
@@ -552,32 +552,32 @@ function ImageComparisonExplorer() {
                 : "text-[var(--color-muted)] hover:text-[var(--color-text)]"
             }`}
           >
-            After PR #255 (Iterative ArrayDeque BFS)
+            After PR #255 (Iterative ArrayDeque)
           </button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="p-4 rounded-xl bg-[var(--color-surface-muted)] border border-[var(--color-line)] font-mono text-xs">
             <span className="text-[10px] uppercase tracking-wider text-[var(--color-muted)] block mb-2 font-bold">
-              Memory & Call Stack Metric:
+              Memory &amp; Call Stack Metric:
             </span>
             <div className="space-y-1.5">
               <div className="flex justify-between">
                 <span>Call Stack Depth:</span>
                 <span className={mode === "before" ? "text-rose-500 font-bold" : "text-emerald-500 font-bold"}>
-                  {mode === "before" ? "14,280 frames (StackOverflow Risk)" : "1 frame (Flat Call Stack)"}
+                  {mode === "before" ? "O(N) Recursion (StackOverflow Risk)" : "O(1) Flat Call Stack"}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span>Object Allocations:</span>
+                <span>Coordinate Checks:</span>
                 <span className={mode === "before" ? "text-rose-500 font-bold" : "text-emerald-500 font-bold"}>
-                  {mode === "before" ? "Millions of `java.awt.Point` objects" : "Primitive (x, y) coordinates"}
+                  {mode === "before" ? "new Point(x, y) allocated per pixel" : "Primitive containsPoint(x, y)"}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span>4K Resolution Diff:</span>
+                <span>20k-Pixel Diff Test:</span>
                 <span className={mode === "before" ? "text-rose-500 font-bold" : "text-emerald-500 font-bold"}>
-                  {mode === "before" ? "Fails with StackOverflowError" : "100% Passes (Zero Stack Limits)"}
+                  {mode === "before" ? "Risks JVM StackOverflowError" : "100% Passes (66/66 JUnit)"}
                 </span>
               </div>
             </div>
@@ -586,23 +586,27 @@ function ImageComparisonExplorer() {
           <div className="p-4 rounded-xl bg-[#0b1120] text-slate-300 font-mono text-xs overflow-x-auto leading-relaxed border border-slate-800">
             {mode === "before" ? (
               <pre className="text-rose-400">
-{`// RECURSIVE DFS (Original)
-private void joinToRegion(Point p, Rectangle r) {
-    // ⚠️ Calls itself for every neighbour
-    // Stack grows with contiguous diff size
-    joinToRegion(new Point(p.x + 1, p.y), r);
-    // StackOverflowError on large differences!
+{`// RECURSIVE FLOOD-FILL (Original)
+private void joinToRegion(int x, int y) {
+    if (isJumpRejected(x, y)) return;
+    matrix[y][x] = regionCount;
+    for (int i = 0; i < threshold; i++) {
+        joinToRegion(x + 1 + i, y);
+        joinToRegion(x, y + 1 + i);
+        // Deep recursion risks StackOverflowError
+    }
 }`}
               </pre>
             ) : (
               <pre className="text-emerald-400">
-{`// ITERATIVE ARRAYDEQUE BFS (PR #255)
-Deque<int[]> queue = new ArrayDeque<>();
-queue.add(new int[]{startX, startY});
-while (!queue.isEmpty()) {
-    int[] curr = queue.poll();
-    // ✓ Evaluated in heap queue
-    // Flat call-stack, zero stack exhaustion
+{`// ITERATIVE ARRAYDEQUE (PR #255)
+ArrayDeque<Integer> positions = new ArrayDeque<>();
+addToRegion(matrix, regionMarker, positions, x, y);
+while (!positions.isEmpty()) {
+    int pos = positions.removeLast();
+    int curX = pos % matrix[0].length;
+    int curY = pos / matrix[0].length;
+    // Flat stack; index arithmetic y * w + x
 }`}
               </pre>
             )}

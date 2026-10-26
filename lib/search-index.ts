@@ -29,16 +29,8 @@ export interface SearchResult {
   matchSnippet?: string
 }
 
-// 7 Published Engineering Blog Posts
+// 9 Published Engineering Blog Posts
 const BLOG_POSTS_METADATA = [
-  {
-    slug: "remastering-insidejibon-edtech-on-cloudflare-edge",
-    title: "Remastering InsideJibon: Building a $0-Subscription EdTech Engine on Cloudflare Edge",
-    description: "How I re-architected InsideJibon with Cloudflare Durable Objects, Workers AI caption RAG, and a zero-egress video pipeline under a $0/month constraint.",
-    date: "2026-09-26",
-    readingTime: 12,
-    tags: ["Projects", "Architecture", "Cloudflare Workers", "Next.js", "AI", "Edge"],
-  },
   {
     slug: "designing-an-api-an-ai-agent-can-afford",
     title: "Designing an API an AI Agent Can Actually Afford",
@@ -46,6 +38,14 @@ const BLOG_POSTS_METADATA = [
     date: "2026-10-13",
     readingTime: 14,
     tags: ["Projects", "Architecture", "AI Agents", "AI", "Cloudflare Workers", "Lessons Learned"],
+  },
+  {
+    slug: "remastering-insidejibon-edtech-on-cloudflare-edge",
+    title: "Remastering InsideJibon: Building a $0-Subscription EdTech Engine on Cloudflare Edge",
+    description: "How I re-architected InsideJibon with Cloudflare Durable Objects, Workers AI caption RAG, and a zero-egress video pipeline under a $0/month constraint.",
+    date: "2026-09-26",
+    readingTime: 12,
+    tags: ["Projects", "Architecture", "Cloudflare Workers", "Next.js", "AI", "Edge"],
   },
   {
     slug: "building-arvaana-luxury-fragrance-ecommerce",
@@ -56,20 +56,36 @@ const BLOG_POSTS_METADATA = [
     tags: ["Projects", "Architecture", "Next.js", "E-Commerce", "Engineering"],
   },
   {
+    slug: "dual-control-financial-reconciliation-nabodigonto",
+    title: "Dual-Control Financial Reconciliation & Multi-Channel Notifications in Practice",
+    description: "How we implemented independent two-officer monthly starting balance matching, cash and bank reconciliation with surplus/deficit tracking, and queue-driven notifications.",
+    date: "2026-09-02",
+    readingTime: 6,
+    tags: ["Projects", "Backend", "FinTech", "Lessons Learned"],
+  },
+  {
+    slug: "edge-data-modeling-cloudflare-d1-media-pipeline",
+    title: "Edge Data Modeling & Offline Resiliency: Cloudflare D1, Batch Transactions, and Media Pipelines",
+    description: "Deep dive into edge SQLite constraints with Cloudflare D1, atomic batch transactions, R2 storage, and isolated Bengali font rendering with pdf-lib.",
+    date: "2026-08-22",
+    readingTime: 7,
+    tags: ["Architecture", "Database", "Cloudflare Workers", "Backend"],
+  },
+  {
+    slug: "architecting-nabodigonto-100k-loc-monorepo",
+    title: "Architecting Nabodigonto: Scaling a Production Community Platform to a 100k+ LOC Monorepo",
+    description: "How I structured Nabodigonto into a fault-isolated Turborepo with separate public and portal frontends, Cloudflare Workers API, and shared type contracts.",
+    date: "2026-08-15",
+    readingTime: 8,
+    tags: ["Projects", "Architecture", "Cloudflare Workers", "TypeScript", "Next.js"],
+  },
+  {
     slug: "accessibility-as-an-engineering-practice",
     title: "Accessibility Is an Engineering Practice, Not a Checklist",
     description: "Why accessibility is a property of the codebase rather than the UI, and what to do about it on a portfolio without a design team.",
     date: "2026-04-21",
     readingTime: 4,
     tags: ["Lessons Learned", "Frontend", "Accessibility", "Web Standards"],
-  },
-  {
-    slug: "lessons-from-shipping-production-software",
-    title: "Lessons from Shipping a Production Serverless Platform",
-    description: "Field notes from architecting and running Nabodigonto — a Cloudflare Workers platform with double-signed treasury auditing — in production.",
-    date: "2026-03-04",
-    readingTime: 4,
-    tags: ["Projects", "Architecture", "Cloudflare Workers", "Lessons Learned"],
   },
   {
     slug: "designing-maintainable-react-systems",
@@ -158,7 +174,7 @@ export function getAllSearchableItems(): SearchableItem[] {
         ...(project.tags || []),
         ...(project.tech || []),
         isFlagship ? "Flagship Case Study" : "",
-        isPR ? "Maven Central PR #255 romankh3/image-comparison ArrayDeque BFS" : "",
+        isPR ? "Maven Central PR #255 romankh3/image-comparison ArrayDeque iterative traversal" : "",
         isAlgo ? "Competitive Programming Archive Codeforces LeetCode" : "",
       ].filter(Boolean),
       contentSnippet: fullSnippet,
@@ -169,7 +185,7 @@ export function getAllSearchableItems(): SearchableItem[] {
     })
   }
 
-  // 2. Engineering Blog (7 Posts)
+  // 2. Engineering Blog (9 Posts)
   for (const post of BLOG_POSTS_METADATA) {
     items.push({
       id: `blog-${post.slug}`,
@@ -325,7 +341,7 @@ export function getAllSearchableItems(): SearchableItem[] {
   // 6. Philosophy, Core Tenets & All FAQ Items
   // 6a. Core Engineering Tenets
   const tenets = [
-    { title: "Tenet: Reliability First & Resilient Architecture", desc: "Design for reliability first: resilient schema migrations, double-signed blind audits, and edge caching." },
+    { title: "Tenet: Reliability First & Resilient Architecture", desc: "Design for reliability first: resilient schema migrations, dual-control reconciliations, and edge caching." },
     { title: "Tenet: Offline-First Parity", desc: "Build mobile and client experiences that remain 100% functional without network connectivity." },
     { title: "Tenet: GoF Design Patterns", desc: "Apply Gang of Four patterns (Strategy, State, Observer, Factory) for maintainable, testable codebases." },
     { title: "Tenet: Continuous Open-Source Contribution", desc: "Active upstream contribution to production libraries and community mentorship." },

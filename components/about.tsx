@@ -31,7 +31,7 @@ export function About() {
             <p className="text-[var(--color-muted)] text-base md:text-[1.0625rem] leading-relaxed">
               150+ problems solved in competitive programming have trained me to reason deeply under strict
               performance and memory constraints. I channel that rigor into engineering real-world software —
-              such as architecting the flagship double-signed treasury system for{" "}
+              such as architecting the flagship community and operations platform for{" "}
               <strong className="text-[var(--color-text)] font-semibold">Nabodigonto</strong>, where I was
               subsequently appointed as{" "}
               <strong className="text-[var(--color-text)] font-semibold">IT Secretary</strong>.
@@ -42,7 +42,7 @@ export function About() {
               </h3>
               <ul className="grid gap-3 list-none p-0 m-0">
                 {[
-                  "Design for reliability first: resilient schema migrations, blind audits, and edge caching.",
+                  "Design for reliability first: resilient schema migrations, dual-control reconciliations, and edge caching.",
                   "Offline parity: build mobile experiences that remain 100% functional without network connectivity.",
                   "Apply GoF patterns (Strategy, State, Observer, Factory) for maintainable codebases.",
                   "Continuous open-source contribution and community mentorship.",

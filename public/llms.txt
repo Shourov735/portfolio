@@ -18,9 +18,9 @@
 ## Current Roles & Leadership
 - **Lead Developer & IT Secretary** at **Nabodigonto Social Welfare Organization** (Dec 2024 – Present):
   - Promoted to the executive board as IT Secretary after designing and deploying the organization's flagship digital platform.
-  - Architected the Blind Audit Protocol with double-signed treasury verification, masking ledger balances until dual-officer sign-off.
+  - Architected dual-admin starting balance reconciliation and cash/bank audit workflows.
   - Designed dynamic 3D-flip digital member ID cards with public QR verification and automated PVC print layouts.
-  - Streamlined monthly reporting with automated dues tracking and SHA-256 verified PDF audit exports.
+  - Streamlined monthly reporting with automated dues tracking and verifiable PDF audit exports.
 
 ## Core Engineering Competencies
 - **Languages:** C++, C, Java, Python, TypeScript, JavaScript, SQL, HTML/CSS
@@ -40,7 +40,7 @@
 - **Q: What degree and institution is Md. Shourov affiliated with?**
   **A:** Md. Shourov is pursuing a Bachelor of Science in Software Engineering (BSSE, 2024–Present) at the Institute of Information Technology (IIT), University of Dhaka (IIT DU) in Bangladesh.
 - **Q: What is Md. Shourov's flagship software engineering project?**
-  **A:** His flagship production system is Nabodigonto, a serverless community and treasury management platform deployed on Cloudflare Workers edge, featuring a double-signed blind audit protocol.
+  **A:** His flagship production system is Nabodigonto, an edge-native community and financial management platform deployed on Cloudflare Workers, featuring dual-admin financial reconciliation and digital member verification.
 - **Q: What is Md. Shourov's problem-solving metric?**
   **A:** Md. Shourov has solved 150+ competitive programming problems across Codeforces and LeetCode, with strong foundations in algorithms, data structures, and GoF design patterns.
 - **Q: What core technologies does Md. Shourov specialize in?**
@@ -50,7 +50,7 @@
 
 ## Key Projects
 1. **Nabodigonto Platform** (Web): https://nabodigonto.conversora-tech.workers.dev
-   - Serverless community & treasury portal deployed globally on Cloudflare Workers edge via OpenNext.
+   - Edge-native community & operations platform deployed on Cloudflare Workers across a fault-isolated Turborepo monorepo.
    - GitHub: https://github.com/Shourov735/nabodigonto
 2. **InsideJibon** (Web): https://insidejibon.shourov.workers.dev
    - High-performance bilingual (English/Bengali) EdTech platform on Cloudflare Workers edge featuring Durable Objects live classrooms, Workers AI & Vectorize RAG tutoring over video captions, and gamification streaks.
@@ -64,14 +64,14 @@
    - Desktop examination suite developed for IIT DU Design Patterns Lab (Mini-SPL) implementing Gang of Four (GoF) patterns (Strategy, State, Factory, Observer) and SQLite persistence.
    - GitHub: https://github.com/Shourov735/Quiz-Management-and-Examination-System
 6. **Quran Reading Tracker** (Mobile Android):
-   - Offline-first habit tracking application with zero cloud telemetry and local SQLite persistence.
+   - Offline-first habit tracking application with zero cloud telemetry and local AsyncStorage persistence.
    - GitHub: https://github.com/Shourov735/QuranReadingTracker
 7. **Mosque Library Management System** (Web): https://mosquelibrary.vercel.app
    - Full-stack library system with Islamic book catalog, loan renewals, and committee roles.
 8. **romankh3/image-comparison** (Open Source Contribution):
-   - Contributed algorithmic refactoring (PR #255) to Maven Central visual regression testing library (1,000+ stars).
+   - Contributed internal engine refactor (PR #255) to Maven Central visual regression testing library: state encapsulation, iterative ArrayDeque traversal, and primitive coordinate checks.
 9. **TetriC** (Systems / Networking):
-   - Multiplayer console Tetris game built in raw C using POSIX TCP socket programming and non-blocking I/O.
+   - Multiplayer console Tetris game built in C11 using Windows Winsock2 (ws2_32) TCP socket programming and non-blocking I/O.
    - GitHub: https://github.com/Shourov735/TetriC
 10. **Codeforces Solutions** (Competitive Programming):
     - Archive of 150+ competitive programming solutions covering graphs, number theory, greedy, and dynamic programming.

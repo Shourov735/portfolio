@@ -118,17 +118,17 @@
   "featuredProject": [
     {
       "title": "Nabodigonto",
-      "role": "Lead Developer / IT Secretary",
-      "summary": "Flagship community and financial management platform for Nabodigonto Social Welfare Organization. Features blind audit double-signed treasury verification, dynamic 3D flip digital member ID cards with QR verification, dues tracking, and transparent financial reporting.",
-      "metaDescription": "Flagship community platform for Nabodigonto featuring double-signed blind audit treasury verification, dynamic member ID cards, and transparent reporting.",
+      "role": "Lead Software Engineer & IT Secretary",
+      "summary": "Flagship community and financial management platform for Nabodigonto Social Welfare Organization. Features digital member ID cards with QR token verification, monthly dues tracking, dual-admin cash and bank reconciliation, multi-channel automated notifications, and an edge-native monorepo architecture.",
+      "metaDescription": "Flagship community platform for Nabodigonto featuring dual-admin financial reconciliation, digital member ID cards with QR verification, and automated dues tracking.",
       "image": "/assets/images/nabodigonto.jpg",
       "category": "Web",
       "tags": [
         "Next.js 16",
         "Cloudflare Workers",
         "Prisma",
-        "Neon Postgres",
-        "Clerk Auth",
+        "TypeScript",
+        "Turborepo",
         "Tailwind CSS"
       ],
       "links": [
@@ -142,34 +142,35 @@
         }
       ],
       "highlights": [
-        "Real production platform engineered for a registered social welfare organization, resulting in executive appointment as IT Secretary",
-        "Blind Audit Protocol: double-signed verification keeping treasury totals masked until dual officer sign-off",
-        "Dynamic 3D flip member ID cards with public QR verification and bulk PVC print layouts",
-        "Dues tracking ledger with automated receipt generation and SHA-256 verified PDF audit reports",
-        "Serverless deployment on Cloudflare Workers edge via OpenNext with Neon PostgreSQL and Clerk v7"
+        "Real production platform engineered and maintained for a registered social welfare organization, leading to executive appointment as IT Secretary",
+        "Fault-isolated monorepo architecture separating public web, member portal, Hono API worker, media worker, and queue-driven notification worker",
+        "Dual-admin balance reconciliation workflow validating monthly starting balances and reconciling physical cash against bank statements",
+        "Dynamic 3D flip member ID cards with cryptographic verification token routes (/verify/[token]) and QR code generation",
+        "Multi-channel notification pipeline dispatching automated dues reminders via SMS, email, web push, and FCM"
       ],
-      "problem": "Nabodigonto Social Welfare Organization previously handled member dues and community welfare contributions using manual paper records and spreadsheets. This led to reconciliation delays, lack of public verification, and the risk of discrepancy in treasury reports.",
-      "technicalApproach": "Architected a full-stack serverless web platform on Next.js 16 deployed to Cloudflare Workers via OpenNext. Used Neon Serverless PostgreSQL with Prisma ORM for relational integrity, and integrated Clerk v7 for multi-role access control spanning members, financial auditors, and executive officers.",
+      "problem": "Nabodigonto Social Welfare Organization previously handled member dues and community welfare contributions using manual paper records and spreadsheets. This led to reconciliation delays, lack of public verification, and difficulties tracking cash collections against bank balances.",
+      "technicalApproach": "Architected a full-stack platform decomposed into a fault-isolated Turborepo monorepo: an unauthenticated, offline-resilient public portal (Vite + React 19), an authenticated dashboard (Clerk + TanStack Router), a modular Hono.js API worker on Cloudflare D1 with atomic batch writes, an isolated media worker generating Bengali PDF receipts and ID cards via R2, and a queue worker handling multi-channel SMS and email notifications.",
       "challenges": [
-        "Enforcing an uncompromising audit policy so that no single officer could unilaterally reveal or modify financial balance totals.",
-        "Generating high-resolution (300 DPI) printable PVC membership ID cards with embedded QR verification completely client-side to minimize server resource costs.",
-        "Adapting Next.js App Router server actions and Prisma connection pooling within edge worker lifecycle constraints."
+        "Ensuring strict separation of duties during monthly financial close so physical hand cash and bank balances are reconciled with two-officer confirmation.",
+        "Generating high-resolution printable membership ID cards and bilingual payment receipts with accurate Bengali font rendering within serverless memory constraints.",
+        "Migrating from a Next.js monolith to a decoupled monorepo to isolate public visitors from authentication bundles and ensure zero-downtime public access."
       ],
       "keyDecisions": [
-        "Double-Signed Verification State Machine: Treasury balances remain strictly masked until both the Finance Officer and Executive Admin supply their authenticated approvals.",
-        "Neon Serverless Postgres: Chose over local SQLite edge storage for robust transactional consistency, multi-table audit joins, and reliable connection pooling.",
-        "Client-Side PDF Compilation: Leveraged browser canvas and PDF generation libraries to export receipts and ID cards without incurring edge compute costs."
+        "Dual-Admin Balance Reconciliation: Monthly starting balances require independent submissions from both Finance Director and Admin before closing balances reconcile against actual cash.",
+        "Fault-Isolated Turborepo Architecture: Separated public web from authenticated portal and backend workers so auth failures or heavy admin operations never degrade public traffic.",
+        "Dedicated Media Worker for Bengali Typography: Handled PDF compilation with pdf-lib and fontkit in a separate worker to keep the primary API fast and lean."
       ],
       "result": "Successfully launched into production as the organization's official operational backbone. Appointed IT Secretary by the executive board to oversee system governance, feature rollouts, and technical stewardship.",
       "visualEvidence": {
-        "type": "state-machine",
-        "title": "Blind Audit Protocol & Double-Signed Signoff Flow",
-        "caption": "Verification pipeline: Treasury totals remain masked until both officers sign off.",
+        "type": "diagram",
+        "title": "Fault-Isolated Edge Architecture & Reconciliation Pipeline",
+        "caption": "Architecture: Decoupled public/portal frontends, modular Hono API on D1, dedicated media worker, and queue notifications.",
         "content": [
-          "Dues & Contributions ──> [Pending Ledger Transactions]",
-          "Finance Officer Check ──> [Sign-off 1 Applied (Ledger Masked)]",
-          "Executive Admin Audit ──> [Sign-off 2 Applied (Audit Confirmed)]",
-          "Protocol Resolved     ──> [Treasury Unmasked & SHA-256 PDF Audit Report Generated]"
+          "Public Web (Vite + React 19) ──> Zero Auth Bundle · Offline Fallback · Public Directory",
+          "Member Portal (TanStack)     ──> Role-Gated Admin (6 Roles) · Dues Hub · Member IDs",
+          "Core API (Hono + D1)         ──> Atomic batch() Transactions · Dues Engine · Two-Officer Reconcile",
+          "Media Service (R2 + Fonts)   ──> Bengali Font Shaping · Printable Member PVC Cards · PDF Receipts",
+          "Notification Queue Worker   ──> SMS (OneCodeSoft) · Email (Resend) · WebPush · FCM"
         ]
       }
     },
@@ -283,17 +284,17 @@
   "projects": [
     {
       "title": "Nabodigonto",
-      "role": "Lead Developer / IT Secretary",
-      "summary": "Flagship community and financial management platform for Nabodigonto Social Welfare Organization. Features blind audit double-signed treasury verification, dynamic 3D flip digital member ID cards with QR verification, dues tracking, and transparent financial reporting.",
-      "metaDescription": "Flagship community platform for Nabodigonto featuring double-signed blind audit treasury verification, dynamic member ID cards, and transparent reporting.",
+      "role": "Lead Software Engineer & IT Secretary",
+      "summary": "Flagship community and financial management platform for Nabodigonto Social Welfare Organization. Features digital member ID cards with QR token verification, monthly dues tracking, dual-admin cash and bank reconciliation, multi-channel automated notifications, and an edge-native monorepo architecture.",
+      "metaDescription": "Flagship community platform for Nabodigonto featuring dual-admin financial reconciliation, digital member ID cards with QR verification, and automated dues tracking.",
       "image": "/assets/images/nabodigonto.jpg",
       "category": "Web",
       "tags": [
         "Next.js 16",
         "Cloudflare Workers",
         "Prisma",
-        "Neon Postgres",
-        "Clerk Auth",
+        "TypeScript",
+        "Turborepo",
         "Tailwind CSS"
       ],
       "links": [
@@ -308,61 +309,62 @@
       ],
       "highlights": [
         "Appointed as IT Secretary of the organization after designing and deploying this system",
-        "Blind Audit Protocol & Double-Signed Verification masking treasury totals until dual officer sign-off",
-        "Dynamic 3D flip member ID cards with public verification QR codes and bulk PVC print layouts",
-        "Dues tracking portal with instant receipt generation and SHA-256 verified PDF audit reports",
-        "Serverless deployment on Cloudflare Workers via OpenNext with Neon PostgreSQL and Clerk v7"
+        "Fault-isolated monorepo architecture separating public web, member portal, Hono API worker, media worker, and queue-driven notification worker",
+        "Dual-admin balance reconciliation workflow validating monthly starting balances and reconciling physical cash against bank statements",
+        "Dynamic 3D flip member ID cards with cryptographic verification token routes (/verify/[token]) and QR code generation",
+        "Multi-channel notification pipeline dispatching automated dues reminders via SMS, email, web push, and FCM"
       ],
-      "problem": "Nabodigonto Social Welfare Organization previously handled member dues and community welfare contributions using manual paper records and spreadsheets. This led to reconciliation delays, lack of public verification, and the risk of discrepancy in treasury reports.",
-      "technicalApproach": "Architected a full-stack serverless web platform on Next.js 16 deployed to Cloudflare Workers via OpenNext. Used Neon Serverless PostgreSQL with Prisma ORM for relational integrity, and integrated Clerk v7 for multi-role access control spanning members, financial auditors, and executive officers.",
+      "problem": "Nabodigonto Social Welfare Organization previously handled member dues and community welfare contributions using manual paper records and spreadsheets. This led to reconciliation delays, lack of public verification, and difficulties tracking cash collections against bank balances.",
+      "technicalApproach": "Architected a full-stack platform decomposed into a fault-isolated Turborepo monorepo: an unauthenticated, offline-resilient public portal (Vite + React 19), an authenticated dashboard (Clerk + TanStack Router), a modular Hono.js API worker on Cloudflare D1 with atomic batch writes, an isolated media worker generating Bengali PDF receipts and ID cards via R2, and a queue worker handling multi-channel SMS and email notifications.",
       "challenges": [
-        "Enforcing an uncompromising audit policy so that no single officer could unilaterally reveal or modify financial balance totals.",
-        "Generating high-resolution (300 DPI) printable PVC membership ID cards with embedded QR verification completely client-side to minimize server resource costs.",
-        "Adapting Next.js App Router server actions and Prisma connection pooling within edge worker lifecycle constraints."
+        "Ensuring strict separation of duties during monthly financial close so physical hand cash and bank balances are reconciled with two-officer confirmation.",
+        "Generating high-resolution printable membership ID cards and bilingual payment receipts with accurate Bengali font rendering within serverless memory constraints.",
+        "Migrating from a Next.js monolith to a decoupled monorepo to isolate public visitors from authentication bundles and ensure zero-downtime public access."
       ],
       "keyDecisions": [
-        "Double-Signed Verification State Machine: Treasury balances remain strictly masked until both the Finance Officer and Executive Admin supply their authenticated approvals.",
-        "Neon Serverless Postgres: Chose over local SQLite edge storage for robust transactional consistency, multi-table audit joins, and reliable connection pooling.",
-        "Client-Side PDF Compilation: Leveraged browser canvas and PDF generation libraries to export receipts and ID cards without incurring edge compute costs."
+        "Dual-Admin Balance Reconciliation: Monthly starting balances require independent submissions from both Finance Director and Admin before closing balances reconcile against actual cash.",
+        "Fault-Isolated Turborepo Architecture: Separated public web from authenticated portal and backend workers so auth failures or heavy admin operations never degrade public traffic.",
+        "Dedicated Media Worker for Bengali Typography: Handled PDF compilation with pdf-lib and fontkit in a separate worker to keep the primary API fast and lean."
       ],
-      "systemType": "Distributed Serverless / FinTech Non-Profit",
+      "systemType": "Edge-Native Non-Profit Operations & Financial Ledger",
       "constraints": [
-        "$0/mo runtime infrastructure budget",
-        "Double-signed cryptographic blind consensus",
+        "$0/mo baseline operational cost",
         "Gazipur 3G mobile latency resilience",
-        "Zero-server PVC card compilation"
+        "Two-person financial reconciliation rule",
+        "Offline public web availability"
       ],
-      "relatedBlogSlug": "lessons-from-shipping-production-software",
+      "relatedBlogSlug": "architecting-nabodigonto-100k-loc-monorepo",
       "adrs": [
         {
-          "decision": "Double-Signed Blind Verification State Machine",
-          "rejected": "Single-Admin Database Role Flag",
-          "rationale": "Prevents unilateral fraud by enforcing dual authenticated keys before revealing treasury balance.",
-          "tradeOff": "Requires two active officers for monthly ledger sign-off, adding procedural delay."
+          "decision": "Two-Officer Financial Reconciliation Workflow",
+          "rejected": "Single-Admin Unilateral Entry",
+          "rationale": "Enforces separation of duties by requiring Finance Director and System Admin to cross-check starting balances and physical cash counts.",
+          "tradeOff": "Requires two active officers for monthly ledger confirmation."
         },
         {
-          "decision": "Client-Side 300 DPI Canvas PDF & PVC Rendering",
-          "rejected": "Headless Chromium / Puppeteer Serverless Engine",
-          "rationale": "Eliminates high edge compute memory usage and keeps runtime costs at $0/month.",
-          "tradeOff": "Generation performance is bound to client hardware and browser canvas capabilities."
+          "decision": "Fault-Isolated Monorepo over Single Monolith",
+          "rejected": "Single All-in-One Next.js Application",
+          "rationale": "Eliminates heavy auth bundle overhead from public landing pages and isolates PDF generation CPU load from API routing.",
+          "tradeOff": "Requires monorepo workspace orchestration (pnpm + Turborepo) and shared packages."
         },
         {
-          "decision": "Neon Serverless Postgres via Drizzle",
-          "rejected": "Cloudflare D1 SQLite",
-          "rationale": "Provides robust relational joins, ACID transactions, and proven connection pooling for financial ledgers.",
-          "tradeOff": "Requires HTTP-based connection pooling to bridge edge serverless lifecycles."
+          "decision": "Cloudflare D1 with Atomic Batch Statements",
+          "rejected": "Unbounded Direct Edge Writes",
+          "rationale": "Guarantees multi-table consistency across member ledgers and dues updates while maintaining edge colocation.",
+          "tradeOff": "Requires batch statement structure rather than long-running interactive database transactions."
         }
       ],
       "result": "Successfully launched into production as the organization's official operational backbone. Appointed IT Secretary by the executive board to oversee system governance, feature rollouts, and technical stewardship.",
       "visualEvidence": {
-        "type": "state-machine",
-        "title": "Blind Audit Protocol & Double-Signed Signoff Flow",
-        "caption": "Verification pipeline: Treasury totals remain masked until both officers sign off.",
+        "type": "diagram",
+        "title": "Fault-Isolated Edge Architecture & Reconciliation Pipeline",
+        "caption": "Architecture: Decoupled public/portal frontends, modular Hono API on D1, dedicated media worker, and queue notifications.",
         "content": [
-          "Dues & Contributions ──> [Pending Ledger Transactions]",
-          "Finance Officer Check ──> [Sign-off 1 Applied (Ledger Masked)]",
-          "Executive Admin Audit ──> [Sign-off 2 Applied (Audit Confirmed)]",
-          "Protocol Resolved     ──> [Treasury Unmasked & SHA-256 PDF Audit Report Generated]"
+          "Public Web (Vite + React 19) ──> Zero Auth Bundle · Offline Fallback · Public Directory",
+          "Member Portal (TanStack)     ──> Role-Gated Admin (6 Roles) · Dues Hub · Member IDs",
+          "Core API (Hono + D1)         ──> Atomic batch() Transactions · Dues Engine · Two-Officer Reconcile",
+          "Media Service (R2 + Fonts)   ──> Bengali Font Shaping · Printable Member PVC Cards · PDF Receipts",
+          "Notification Queue Worker   ──> SMS (OneCodeSoft) · Email (Resend) · WebPush · FCM"
         ]
       }
     },
@@ -418,7 +420,7 @@
       "constraints": [
         "Strict $0/mo subscription invariant",
         "Zero cloud egress budget",
-        "<45ms edge global latency",
+        "Sub-second edge global delivery",
         "No GPU server hosting"
       ],
       "relatedBlogSlug": "remastering-insidejibon-edtech-on-cloudflare-edge",
@@ -592,7 +594,7 @@
       "constraints": [
         "Static pre-rendering (zero server cold start)",
         "Direct WhatsApp concierge payload",
-        "Zero checkout drop-off rate"
+        "Frictionless conversational ordering"
       ],
       "relatedBlogSlug": "building-arvaana-luxury-fragrance-ecommerce",
       "adrs": [
@@ -676,7 +678,7 @@
       "title": "Quran Reading Tracker",
       "role": "Mobile Developer",
       "summary": "An offline-first Android mobile application built with React Native and Expo to cultivate and track daily Quran reading habits with complete privacy and local data persistence.",
-      "metaDescription": "Offline-first React Native mobile app to track daily Quran reading habits with local SQLite persistence, milestone charts, and full privacy.",
+      "metaDescription": "Offline-first React Native mobile app to track daily Quran reading habits with local AsyncStorage persistence, milestone charts, and full privacy.",
       "image": "/assets/images/quran-tracker.jpg",
       "category": "Mobile",
       "tags": [
@@ -783,8 +785,8 @@
     {
       "title": "image-comparison",
       "role": "Open-Source Contributor",
-      "summary": "Contributed to romankh3/image-comparison, an open-source Java visual QA testing library on Maven Central, as a University Software Engineering assignment (PR #255). Refactored recursive region traversal to iterative ArrayDeque and optimized coordinate checks.",
-      "metaDescription": "Contribution to romankh3/image-comparison, an open-source Java visual regression QA testing library published on Maven Central.",
+      "summary": "Contributed an internal engine refactor to romankh3/image-comparison (PR #255), an open-source visual QA testing library on Maven Central. Decoupled comparison state into a local DifferenceMatrix, replaced recursive region traversal with an iterative ArrayDeque to avoid stack overflow risks, and added primitive coordinate checks to avoid per-pixel Point allocations.",
+      "metaDescription": "Open-source contribution to romankh3/image-comparison on Maven Central (PR #255): iterative difference traversal, primitive coordinate evaluation, and state encapsulation.",
       "image": "/assets/images/image-comparison.jpg",
       "category": "Open Source",
       "tags": [
@@ -806,41 +808,43 @@
         }
       ],
       "highlights": [
-        "Replaced recursive difference grouping with iterative ArrayDeque BFS, eliminating StackOverflowError on high-resolution diffs",
-        "Optimized memory allocation by replacing per-pixel Point objects with primitive coordinate evaluation",
-        "Maintained 100% test suite pass rate (66/66 JUnit tests) with zero PMD/CPD quality violations"
+        "Decoupled comparison state from ImageComparison instance fields into an isolated DifferenceMatrix record",
+        "Replaced recursive region grouping with an iterative ArrayDeque traversal storing flattened pixel indices (y * width + x) to prevent stack overflow on deep difference regions",
+        "Added primitive containsPoint(int x, int y) overloads on Rectangle and ExcludedAreas, eliminating per-pixel Point allocations",
+        "Added regression unit tests for large 20,000-pixel difference regions and primitive coordinate checks, passing all 66 unit tests"
       ],
-      "problem": "The library's difference-grouping algorithm used a recursive flood-fill algorithm that risked triggering StackOverflowError when analyzing high-resolution image differences, while allocating millions of transient Point objects that triggered frequent garbage collection pauses.",
-      "technicalApproach": "Refactored the core region identification algorithm into an iterative Breadth-First Search (BFS) using Java's ArrayDeque, avoiding call-stack exhaustion, and evaluated coordinates directly via primitive values.",
+      "problem": "The comparison engine had maintainability and stack safety concerns: temporary difference matrix and counter state were stored directly on the ImageComparison instance, region grouping used deep recursion that risked StackOverflowError on large connected diffs, and excluded-area checks instantiated a new java.awt.Point object for every pixel checked.",
+      "technicalApproach": "Encapsulated comparison-specific state into a private DifferenceMatrix class. Refactored recursive flood-fill into an iterative ArrayDeque traversal using index arithmetic (y * width + x), added primitive int coordinate overloads to ExcludedAreas and Rectangle, replaced magic numbers with named constants, and introduced regression unit tests.",
       "challenges": [
-        "Ensuring the refactored iterative algorithm generated pixel-for-pixel identical difference bounding boxes as the original recursive implementation.",
-        "Passing strict upstream static analysis gates (Checkstyle, PMD, and CPD) without introducing regressions."
+        "Ensuring the iterative traversal produced pixel-for-pixel identical difference bounding boxes as the original recursive approach without regressions.",
+        "Adding regression tests for large diff regions without introducing long test execution times in CI."
       ],
       "keyDecisions": [
-        "Iterative ArrayDeque BFS: Completely eliminated recursion depth limits, enabling comparison of large 4K+ images without stack limits.",
-        "Primitive Coordinate Packing: Replaced redundant Point object instantiations to reduce GC allocation pressure."
+        "Iterative ArrayDeque Traversal: Replaced recursive calls with an in-memory deque processing neighbor offsets, eliminating recursion depth limits.",
+        "Primitive Coordinate Overloads: Added containsPoint(int x, int y) to evaluate coordinates directly, avoiding new Point(x, y) allocations during pixel loops.",
+        "Encapsulated DifferenceMatrix: Moved matrix and counters out of instance fields, making the comparison flow easier to maintain and reason about."
       ],
-      "systemType": "Open-Source Visual QA Testing Library",
+      "systemType": "Open-Source Java QA Testing Library",
       "constraints": [
-        "Zero JVM call-stack overflow on 4K diffs",
-        "Zero GC transient object thrashing",
-        "Upstream 100% test pass rate (66/66 JUnit tests)"
+        "Preserve public API and identical diff output",
+        "Zero call-stack overflow on large difference regions",
+        "Upstream test suite passing (66/66 JUnit tests)"
       ],
       "adrs": [
         {
-          "decision": "Iterative ArrayDeque BFS Traversal",
-          "rejected": "Recursive DFS Flood-Fill",
-          "rationale": "Completely eliminates JVM StackOverflowError on high-resolution 4K difference clusters.",
-          "tradeOff": "Heap queue allocation replaces call-stack frames, requiring explicit queue sizing."
+          "decision": "Iterative ArrayDeque Region Traversal",
+          "rejected": "Recursive joinToRegion Method",
+          "rationale": "Prevents JVM StackOverflowError when difference clusters span tens of thousands of connected pixels.",
+          "tradeOff": "Requires managing an in-memory deque and index math (y * width + x) instead of implicit call-stack frames."
         },
         {
-          "decision": "Primitive Coordinate Packing",
-          "rejected": "java.awt.Point Object Allocations",
-          "rationale": "Prevents millions of transient Point object instantiations, eliminating GC allocation pressure.",
-          "tradeOff": "Slightly more procedural coordinate packing compared to object-oriented Point instances."
+          "decision": "Primitive Coordinate Method Overloads",
+          "rejected": "Allocating java.awt.Point per pixel check",
+          "rationale": "Checks coordinates directly with primitive ints in ExcludedAreas, avoiding heap allocations inside the hot pixel loop.",
+          "tradeOff": "Adds overloaded methods to Rectangle and ExcludedAreas."
         }
       ],
-      "result": "Submitted upstream as Pull Request #255, passing all 66 unit tests, satisfying code quality checks, and fulfilling an advanced university Software Engineering open-source assignment."
+      "result": "Submitted upstream as Pull Request #255, passing all 66 unit tests and PMD check, resolving maintainability and recursion limits as part of a university Software Engineering assignment."
     },
     {
       "title": "TetriC",
@@ -868,19 +872,19 @@
         "Dynamic score progression, levels, and persistent high score leaderboards"
       ],
       "problem": "Implementing real-time interactive multiplayer in a resource-constrained terminal environment requires strict frame timing, low-latency socket networking, and cross-platform terminal I/O handling in pure C.",
-      "technicalApproach": "Built a modular ANSI terminal game engine in C with matrix-based collision detection, non-blocking keyboard input, and POSIX TCP socket networking for two-player duels.",
+      "technicalApproach": "Built a modular ANSI terminal game engine in C11 with matrix-based collision detection, non-blocking keyboard input, and Windows Winsock2 TCP socket networking for multiplayer matches.",
       "challenges": [
         "Synchronizing piece drop ticks and line clears between two separate network machines without gameplay jitter.",
-        "Handling ANSI terminal escape codes cleanly across Linux and Windows command-line environments without screen tearing."
+        "Handling ANSI terminal escape codes and screen buffering cleanly in the Windows console environment without tearing."
       ],
       "keyDecisions": [
         "Non-blocking I/O with select(): Enabled concurrent handling of player keypresses and incoming network socket packets.",
         "Compact Binary Network Protocol: Encoded board states and line-clear events into lightweight fixed-size binary structs."
       ],
-      "systemType": "POSIX TCP Socket Multiplayer Systems Game",
+      "systemType": "Windows C11 Console Game & Winsock2 Multiplayer",
       "constraints": [
-        "POSIX-compliant socket I/O",
-        "<16ms frame render budget",
+        "Windows Winsock2 (ws2_32) networking",
+        "Frame-accurate terminal game loop",
         "Raw ANSI terminal escape code rendering"
       ],
       "adrs": [
@@ -1013,15 +1017,15 @@
       ]
     },
     {
-      "title": "Designing the Blind Audit Protocol for Nabodigonto",
+      "title": "Architecting Nabodigonto: Scaling a Production Monorepo on Cloudflare Workers",
       "date": "2026-08-15",
-      "summary": "How I implemented a double-signed verification protocol in Next.js and Prisma so treasury balances stay masked until both Finance and Admin confirm physical cash and bank statements.",
+      "summary": "How I structured Nabodigonto into a fault-isolated Turborepo with separate public and portal frontends, Cloudflare D1 atomic batch writes, and an isolated media worker for Bengali PDF generation.",
       "tags": [
         "Projects",
         "Architecture",
         "Backend",
-        "Next.js",
-        "Security"
+        "Cloudflare Workers",
+        "TypeScript"
       ]
     },
     {
@@ -1049,7 +1053,7 @@
     {
       "title": "Contributing to open-source image-comparison (PR #255)",
       "date": "2026-06-26",
-      "summary": "Forked and contributed to romankh3/image-comparison on Maven Central as a university assignment. Refactored recursive flood-fill to iterative ArrayDeque traversal and eliminated GC pressure.",
+      "summary": "Forked and contributed to romankh3/image-comparison on Maven Central. Refactored comparison state into a local DifferenceMatrix, replaced recursive flood-fill with iterative ArrayDeque traversal, and added primitive coordinate checks.",
       "tags": [
         "Open Source",
         "Java",

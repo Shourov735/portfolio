@@ -325,7 +325,7 @@ export default function RootLayout({
                       name: "What is Md. Shourov's flagship software engineering project?",
                       acceptedAnswer: {
                         "@type": "Answer",
-                        text: "His flagship production system is Nabodigonto, a serverless community and treasury management platform deployed on Cloudflare Workers edge, featuring a double-signed blind audit protocol.",
+                        text: "His flagship production system is Nabodigonto, an edge-native community and financial management platform deployed on Cloudflare Workers, featuring dual-admin financial reconciliation and digital member verification.",
                       },
                     },
                     {

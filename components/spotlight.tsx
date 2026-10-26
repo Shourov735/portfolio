@@ -19,7 +19,7 @@ export function Spotlight() {
             <p className="eyebrow">Featured Work</p>
             <h2>Flagship engineering projects &amp; production systems.</h2>
             <p className="text-[var(--color-muted)] max-w-[640px] mt-2 text-base">
-              A curated selection of high-impact platforms, from double-signed treasury protocols to bilingual
+              A curated selection of high-impact platforms, from large-scale community platforms to bilingual
               EdTech and zero-FOUC luxury e-commerce.
             </p>
           </div>

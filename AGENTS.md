@@ -72,6 +72,11 @@ Think beyond the exact sentence of a request:
 - When told *"Add X"*, interpret it as: *"Add X correctly, investigate what X is, and update every relevant part of the portfolio so the entire repository remains accurate and consistent."*
 - When told *"Change X"*, interpret it as: *"Change X and identify any dependent information that must also change."*
 
+### 1.9 Zero Fabrication & Local Codebase Verification First (Strict Anti-Hallucination Policy)
+- **Zero Fabrication:** Never invent algorithms, protocols, cryptographic primitives (e.g. "blind audit protocol", "double-signed treasury auditing", "on-chain SHA-256 consensus"), benchmark numbers, frame counts ("14,280 frames"), or unverified test metrics.
+- **Inspect Real Code First:** Before authoring or revising any project summary, preview, case study, or blog post, inspect its actual source code in `/home/shourov/Projects/` or its PR diffs on GitHub via `gh`.
+- **Engineering-First Voice:** Describe software as a pragmatic, thoughtful engineer rather than a marketing copywriter. Every technical claim must be something Md. Shourov can comfortably and truthfully walk through line-by-line during a technical interview.
+
 ---
 
 ## 2. Project & Tech Stack Overview
@@ -100,7 +105,7 @@ Any agent working in this repository **must strictly preserve** these core facts
 | **Project Directory Count** | Exactly **11 projects** | Never claim 12+, 15+, or numbers that contradict `data/content.json`. |
 | **Skill Proficiency** | 3 Qualitative Tiers | Grouped strictly into **Primary**, **Working Knowledge**, and **Familiar**. **Never** add percentage bars (e.g. "C++ 80%") or fake numerical proficiency scores. |
 | **Performance Claims** | Evidence-Driven & Qualitative | Never claim unverified benchmarks like "sub-100ms", "under 600ms", or "80% reduction" without verifiable test data. |
-| **Flagship Project** | **Nabodigonto** | Real-world non-profit platform where Md. Shourov engineered the double-signed blind audit protocol and was appointed **IT Secretary**. |
+| **Flagship Project** | **Nabodigonto** | Real-world 100k+ LOC non-profit monorepo platform where Md. Shourov engineered dual-admin financial reconciliation and was appointed **IT Secretary**. |
 
 ---
 

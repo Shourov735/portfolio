@@ -35,11 +35,11 @@ export function AlgorithmicProofBento() {
                 </div>
 
                 <h4 className="font-display text-xl md:text-2xl text-[var(--color-text)] tracking-tight leading-snug">
-                  Iterative Diff Traversal &amp; Coordinate Packing
+                  Iterative Diff Traversal &amp; State Encapsulation
                 </h4>
 
                 <p className="text-sm text-[var(--color-muted)] mt-2.5 leading-relaxed">
-                  Contributed to <strong className="text-[var(--color-text)] font-semibold">romankh3/image-comparison</strong>, an open-source visual regression QA library published on Maven Central. Refactored the core region identification algorithm to eliminate recursion depth limits.
+                  Contributed an internal engine refactor to <strong className="text-[var(--color-text)] font-semibold">romankh3/image-comparison</strong> (PR #255), an open-source visual regression QA library published on Maven Central. Decoupled comparison state, replaced recursive traversal, and eliminated per-pixel Point allocations.
                 </p>
 
                 {/* Architecture comparison box */}
@@ -49,21 +49,21 @@ export function AlgorithmicProofBento() {
                       Before Refactoring
                     </p>
                     <p className="text-[var(--color-muted)] leading-relaxed">
-                      Recursive flood-fill traversal risked <span className="text-[var(--color-text)]">StackOverflowError</span> on high-resolution 4K images; millions of transient Point objects taxed GC.
+                      Mutable matrix state stored on instance fields; recursive grouping risked <span className="text-[var(--color-text)]">StackOverflowError</span> on deep diffs; <span className="text-[var(--color-text)]">new Point(x, y)</span> allocated per pixel.
                     </p>
                   </div>
                   <div className="space-y-1">
                     <p className="text-[10px] uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-bold">
-                      After Refactoring
+                      After Refactoring (PR #255)
                     </p>
                     <p className="text-[var(--color-muted)] leading-relaxed">
-                      Iterative <span className="text-[var(--color-text)]">ArrayDeque BFS</span> with primitive coordinate checks. 100% test pass rate (66/66) and zero PMD violations.
+                      Isolated <span className="text-[var(--color-text)]">DifferenceMatrix</span>; iterative <span className="text-[var(--color-text)]">ArrayDeque</span> traversal; primitive coordinate checks without object allocations.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex flex-wrap gap-2 pt-1">
-                  {["Java 11", "ArrayDeque BFS", "Maven Central", "66/66 JUnit Tests", "PMD Clean"].map((tag) => (
+                  {["Java 11", "ArrayDeque Traversal", "Maven Central", "PR #255", "JUnit 5", "PMD Clean"].map((tag) => (
                     <span
                       key={tag}
                       className="inline-flex items-center px-2.5 py-0.5 rounded text-[11px] font-mono bg-[var(--color-surface-muted)] text-[var(--color-muted)] border border-[var(--color-line)]"

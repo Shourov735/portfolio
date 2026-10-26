@@ -84,10 +84,10 @@ Architected with **Next.js 16 (App Router)**, **React 19**, **TypeScript**, and 
 
 > **Impact:** Appointed as **IT Secretary** of Nabodigonto Social Welfare Organization following the architecture, development, and launch of this platform.
 
-- **Blind Audit Protocol:** Prevents financial discrepancies by masking treasury balances until both Finance and System Admin submit independent reconciliation entries.
+- **Dual-Admin Financial Reconciliation:** Enforces independent two-officer monthly starting balance matching and physical hand-cash/bank balance reconciliation.
 - **Dynamic 3D Flip Member ID Cards:** Generates digital PVC-style identity cards with dynamic QR verification codes (`/verify/[token]`) and bulk PVC printing layouts.
-- **Dues Tracking & Verified Receipts:** Automated self-service monthly dues ledger with cryptographic SHA-256 verified PDF audit statements.
-- **Modern Cloud Stack:** Next.js 16, React 19, Prisma 7, Neon Serverless PostgreSQL / Cloudflare D1, Clerk Auth, deployed serverless on Cloudflare Workers via OpenNext.
+- **Dues Tracking & Verified Receipts:** Automated monthly dues ledger, multi-channel payment logging, and server-generated PDF statements and member ID cards.
+- **Modern Cloud Stack:** Next.js 16, React 19, Prisma, Cloudflare D1 / Neon, Clerk Auth, deployed on Cloudflare Workers.
 
 ---
 
@@ -139,7 +139,7 @@ Architected with **Next.js 16 (App Router)**, **React 19**, **TypeScript**, and 
 
 | Project | Category | Tech Stack | Description | Links |
 | :--- | :--- | :--- | :--- | :--- |
-| **Nabodigonto** | Web | Next.js 16, Cloudflare Workers, Prisma, Clerk | Community & financial audit platform with 3D member ID cards and double-signed treasury ledger. | [Live Demo](https://nabodigonto.conversora-tech.workers.dev) · [GitHub](https://github.com/Shourov735/nabodigonto) |
+| **Nabodigonto** | Web | Next.js 16, Cloudflare Workers, Prisma, Clerk | 100k+ LOC monorepo platform featuring dual-admin financial reconciliation, PVC member ID cards, and multi-channel notifications. | [Live Demo](https://nabodigonto.conversora-tech.workers.dev) · [GitHub](https://github.com/Shourov735/nabodigonto) |
 | **InsideJibon** | Web | Next.js 16, Cloudflare Workers, Durable Objects, Workers AI, Neon | High-performance bilingual EdTech platform with Durable Objects live classrooms, Workers AI RAG tutoring, and study streaks. | [Live Demo](https://insidejibon.shourov.workers.dev) · [GitHub](https://github.com/Shourov735/InsideJibon) |
 | **Remocomp** | Open Source | Remotion 4, React 19, TypeScript, Cloudflare Workers, D1 & R2, MCP | Curated frame-accurate Remotion component registry with a token-budgeted agent API, stdio MCP server, npm CLI, and a 14-rule AST quality gate shared across browser, edge and CI. | [Live Registry](https://remocomp.shourov.workers.dev) · [npm](https://www.npmjs.com/package/remocomp) |
 | **ARVAANA** | Web | Next.js 16, React 19, TypeScript, Tailwind, DaisyUI | Luxury fragrance e-commerce with zero-FOUC dual themes, multi-tier bottle pricing, and WhatsApp checkout. | [Live Demo](https://arvaanabd.vercel.app/) |

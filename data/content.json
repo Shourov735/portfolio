@@ -54,6 +54,9 @@
         },
         {
           "name": "SQLite"
+        },
+        {
+          "name": "Cloudflare D1"
         }
       ]
     },
@@ -66,9 +69,6 @@
         },
         {
           "name": "JavaScript"
-        },
-        {
-          "name": "Cloudflare D1"
         },
         {
           "name": "Linux / Bash"
@@ -850,8 +850,8 @@
     },
     {
       "title": "TetriC",
-      "role": "Developer / Systems Project",
-      "summary": "A modular, console-based multiplayer Tetris game built in C for a university Software Engineering project. Features single-player, local two-player, and socket-based network multiplayer over TCP.",
+      "role": "Developer / SPL1 Project",
+      "summary": "Software Project Lab 1 (SPL1) project at IIT DU: a modular, console-based multiplayer Tetris game built in pure C with TCP socket networking, POSIX multi-threading, non-blocking I/O, and real-time ANSI terminal rendering.",
       "metaDescription": "Modular console-based multiplayer Tetris in C with terminal frame buffering, non-blocking keyboard I/O, and concurrent head-to-head modes.",
       "image": "/assets/images/tetric.jpg",
       "category": "Systems",
@@ -1119,7 +1119,7 @@
       "title": "Bachelor of Science in Software Engineering",
       "institution": "Institute of Information Technology (IIT), University of Dhaka",
       "duration": "2024 - Present",
-      "summary": "Studying core software engineering concepts including data structures, algorithms, database systems, object-oriented design patterns, software requirements, and architecture.",
+      "summary": "Studying core software engineering concepts including data structures, algorithms, database systems, object-oriented design patterns, software requirements, and architecture. Current CGPA: 3.32 (3rd Semester).",
       "coursework": [
         "Data Structures & Algorithms",
         "Design Patterns & Software Architecture",
@@ -1164,13 +1164,26 @@
     },
     {
       "title": "Higher Secondary Certificate",
-      "institution": "Science Background",
-      "duration": "2020 - 2022",
-      "summary": "Focused on mathematics and physics, strengthening problem-solving and analytical thinking.",
+      "institution": "Safiuddin Sarker Academy & College",
+      "duration": "2023",
+      "summary": "Achieved GPA 5.00 / 5.00 (Science Group). Focused on mathematics, physics, and analytical problem-solving.",
       "coursework": [
         "Mathematics",
         "Physics",
-        "Computer Science"
+        "Chemistry",
+        "ICT"
+      ]
+    },
+    {
+      "title": "Secondary School Certificate",
+      "institution": "Khailkur Badshah Miah Agrani Bidyalaya & College",
+      "duration": "2021",
+      "summary": "Achieved GPA 5.00 / 5.00 (Science Group). Built strong foundational understanding of scientific principles and mathematics.",
+      "coursework": [
+        "Higher Mathematics",
+        "Physics",
+        "Chemistry",
+        "Biology"
       ]
     }
   ],

@@ -2,11 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Md. Shourov — Software Engineer Resume</title>
+    <title>Md. Shourov — Software Engineer CV &amp; Resume</title>
     <style>
       @page {
         size: A4;
-        margin: 8mm 12mm;
+        margin: 10mm 13mm;
       }
       * {
         box-sizing: border-box;
@@ -17,41 +17,52 @@
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         color: #1e293b;
         background: #ffffff;
-        line-height: 1.34;
-        font-size: 8.8pt;
+        line-height: 1.42;
+        font-size: 9.1pt;
       }
       .container {
         max-width: 100%;
         margin: 0 auto;
       }
+      
+      /* Page Break Utilities */
+      .page {
+        page-break-after: always;
+        break-after: page;
+      }
+      .page:last-child {
+        page-break-after: auto;
+        break-after: auto;
+      }
+
       /* Header */
       .header {
         text-align: center;
-        border-bottom: 2.5px solid #0f766e;
-        padding-bottom: 6px;
-        margin-bottom: 8px;
+        border-bottom: 2px solid #0f766e;
+        padding-bottom: 8px;
+        margin-bottom: 12px;
       }
       .name {
         font-size: 20pt;
         font-weight: 800;
-        letter-spacing: -0.5px;
+        letter-spacing: -0.4px;
         color: #0f172a;
         text-transform: uppercase;
       }
       .headline {
-        font-size: 9.5pt;
+        font-size: 9.6pt;
         font-weight: 700;
         color: #0f766e;
-        margin-top: 2px;
-        letter-spacing: 0.2px;
+        margin-top: 3px;
+        letter-spacing: 0.15px;
       }
       .contact-bar {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
         gap: 4px 10px;
-        margin-top: 4px;
-        font-size: 8.5pt;
+        margin-top: 6px;
+        font-size: 8.6pt;
         color: #475569;
       }
       .contact-bar a {
@@ -65,22 +76,22 @@
 
       /* Section Styling */
       .section {
-        margin-bottom: 8px;
+        margin-bottom: 12px;
       }
       .section-title {
-        font-size: 9.5pt;
+        font-size: 9.8pt;
         font-weight: 800;
         text-transform: uppercase;
         letter-spacing: 0.06em;
         color: #0f766e;
         border-bottom: 1px solid #cbd5e1;
-        padding-bottom: 2px;
-        margin-bottom: 5px;
+        padding-bottom: 3px;
+        margin-bottom: 7px;
       }
 
       /* Entries */
       .entry {
-        margin-bottom: 6px;
+        margin-bottom: 8px;
       }
       .entry:last-child {
         margin-bottom: 0;
@@ -92,22 +103,27 @@
       }
       .entry-title {
         font-weight: 700;
-        font-size: 9.2pt;
+        font-size: 9.3pt;
         color: #0f172a;
       }
       .entry-org {
         font-weight: 600;
         color: #334155;
       }
+      .entry-sub {
+        font-size: 8.6pt;
+        color: #475569;
+        margin-top: 1px;
+      }
       .entry-date {
-        font-size: 8.5pt;
+        font-size: 8.6pt;
         font-weight: 600;
         color: #64748b;
         text-align: right;
         white-space: nowrap;
       }
       .entry-tech {
-        font-size: 8pt;
+        font-size: 8.2pt;
         font-style: italic;
         color: #64748b;
       }
@@ -115,25 +131,25 @@
       /* Bullet Points */
       ul.bullets {
         list-style-type: square;
-        padding-left: 14px;
-        margin-top: 2px;
+        padding-left: 15px;
+        margin-top: 3px;
       }
       ul.bullets li {
-        font-size: 8.5pt;
+        font-size: 8.7pt;
         color: #334155;
-        margin-bottom: 1.5px;
-        line-height: 1.32;
+        margin-bottom: 2.5px;
+        line-height: 1.38;
       }
       ul.bullets li strong {
         color: #0f172a;
       }
 
-      /* Skills List */
+      /* Skills Table */
       .skills-block {
         display: table;
         width: 100%;
-        font-size: 8.5pt;
-        line-height: 1.35;
+        font-size: 8.8pt;
+        line-height: 1.42;
       }
       .skill-row {
         display: table-row;
@@ -142,13 +158,47 @@
         display: table-cell;
         font-weight: 700;
         color: #0f172a;
-        width: 135px;
-        padding-bottom: 2px;
+        width: 155px;
+        padding-bottom: 4px;
       }
       .skill-val {
         display: table-cell;
         color: #334155;
-        padding-bottom: 2px;
+        padding-bottom: 4px;
+      }
+
+      /* References Grid */
+      .ref-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 6px;
+      }
+      .ref-card {
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        padding: 8px 10px;
+        background: #f8fafc;
+      }
+      .ref-name {
+        font-weight: 700;
+        font-size: 9pt;
+        color: #0f172a;
+      }
+      .ref-role {
+        font-size: 8.3pt;
+        color: #0f766e;
+        font-weight: 600;
+        margin-top: 1.5px;
+      }
+      .ref-dept, .ref-inst {
+        font-size: 8.2pt;
+        color: #475569;
+      }
+      .ref-contact {
+        font-size: 8pt;
+        color: #64748b;
+        margin-top: 3px;
       }
 
       /* Links */
@@ -165,308 +215,323 @@
   </head>
   <body>
     <div class="container">
-      <!-- Header -->
-      <header class="header">
-        <h1 class="name">Md. Shourov</h1>
-        <div class="headline">
-          Software Engineering Undergraduate · Institute of Information Technology (IIT), University of Dhaka
-        </div>
-        <div class="contact-bar">
-          <span>Dhaka, Bangladesh</span>
-          <span class="dot">•</span>
-          <a href="mailto:mdshourov735@gmail.com">mdshourov735@gmail.com</a>
-          <span class="dot">•</span>
-          <a href="https://mdshourov.vercel.app">mdshourov.vercel.app</a>
-          <span class="dot">•</span>
-          <a href="https://github.com/Shourov735">github.com/Shourov735</a>
-          <span class="dot">•</span>
-          <a href="https://linkedin.com/in/md-shourov-613934358">linkedin.com/in/md-shourov-613934358</a>
-          <span class="dot">•</span>
-          <a href="https://codeforces.com/profile/Shourov735">Codeforces: Shourov735 (150+ Solved)</a>
-        </div>
-      </header>
-
-      <!-- Education -->
-      <section class="section">
-        <div class="section-title">Education</div>
-        <div class="entry">
-          <div class="entry-header">
-            <div>
-              <span class="entry-title">Institute of Information Technology (IIT), University of Dhaka</span>
-              <span class="entry-org"> — B.S. in Software Engineering</span>
-            </div>
-            <span class="entry-date">2024 – Present</span>
+      <!-- ================= PAGE 1 ================= -->
+      <div class="page">
+        <!-- Header -->
+        <header class="header">
+          <h1 class="name">Md. Shourov</h1>
+          <div class="headline">
+            Software Engineering Undergraduate · Institute of Information Technology (IIT), University of Dhaka
           </div>
+          <div class="contact-bar">
+            <span>Dhaka, Bangladesh</span>
+            <span class="dot">•</span>
+            <a href="mailto:mdshourov735@gmail.com">mdshourov735@gmail.com</a>
+            <span class="dot">•</span>
+            <a href="https://mdshourov.vercel.app">mdshourov.vercel.app</a>
+            <span class="dot">•</span>
+            <a href="https://github.com/Shourov735">github.com/Shourov735</a>
+            <span class="dot">•</span>
+            <a href="https://linkedin.com/in/md-shourov-613934358">linkedin.com/in/md-shourov-613934358</a>
+            <span class="dot">•</span>
+            <a href="https://codeforces.com/profile/Shourov735">Codeforces: Shourov735</a>
+          </div>
+        </header>
+
+        <!-- Academic Record -->
+        <section class="section">
+          <div class="section-title">Academic Record</div>
+          <div class="entry">
+            <div class="entry-header">
+              <div>
+                <span class="entry-title">Institute of Information Technology (IIT), University of Dhaka</span>
+                <span class="entry-org"> — B.S. in Software Engineering (BSSE)</span>
+              </div>
+              <span class="entry-date">2024 – Present</span>
+            </div>
+            <div class="entry-sub">
+              <strong>CGPA: 3.32 / 4.00</strong> (3rd Semester)
+            </div>
+            <ul class="bullets">
+              <li>
+                <strong>Relevant Coursework:</strong> Data Structures &amp; Algorithms, Object-Oriented
+                Programming (Java/C++), Design Patterns, Database Management Systems, Software Requirement
+                Analysis, Computer Architecture, Discrete Mathematics.
+              </li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <div>
+                <span class="entry-title">Safiuddin Sarker Academy &amp; College</span>
+                <span class="entry-org"> — Higher Secondary Certificate (HSC)</span>
+              </div>
+              <span class="entry-date">2023</span>
+            </div>
+            <div class="entry-sub">
+              <strong>GPA: 5.00 / 5.00</strong> · Science Group
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <div>
+                <span class="entry-title">Khailkur Badshah Miah Agrani Bidyalaya &amp; College</span>
+                <span class="entry-org"> — Secondary School Certificate (SSC)</span>
+              </div>
+              <span class="entry-date">2021</span>
+            </div>
+            <div class="entry-sub">
+              <strong>GPA: 5.00 / 5.00</strong> · Science Group
+            </div>
+          </div>
+        </section>
+
+        <!-- Technical Skills -->
+        <section class="section">
+          <div class="section-title">Technical Skills</div>
+          <div class="skills-block">
+            <div class="skill-row">
+              <div class="skill-label">Programming Languages:</div>
+              <div class="skill-val">C++, C, Java, Python, TypeScript, JavaScript, SQL, HTML/CSS</div>
+            </div>
+            <div class="skill-row">
+              <div class="skill-label">Databases:</div>
+              <div class="skill-val">SQLite, NeonDB (PostgreSQL), Cloudflare D1</div>
+            </div>
+            <div class="skill-row">
+              <div class="skill-label">Frameworks &amp; Web:</div>
+              <div class="skill-val">Next.js 16, React, React Native / Expo, Tailwind CSS, JavaFX</div>
+            </div>
+            <div class="skill-row">
+              <div class="skill-label">Tools &amp; Platforms:</div>
+              <div class="skill-val">
+                Cloudflare Workers &amp; R2, Git, GitHub, Linux / Bash, Socket Programming, Maven, JUnit 5, VS Code
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="section">
+          <div class="section-title">Academic &amp; Technical Projects</div>
+
+          <!-- TetriC (SPL1) -->
+          <div class="entry">
+            <div class="entry-header">
+              <div>
+                <span class="entry-title">TetriC — Multiplayer Terminal Game (SPL1 Project)</span>
+                <span class="entry-tech">| C, POSIX Sockets (TCP), Multi-threading (pthreads), Non-blocking I/O</span>
+              </div>
+              <span class="entry-date">
+                <a class="ext-link" href="https://github.com/Shourov735/TetriC">GitHub ↗</a>
+              </span>
+            </div>
+            <ul class="bullets">
+              <li>
+                Engineered a networked 2-player console Tetris game in pure C as the <strong>Software Project Lab 1 (SPL1)</strong> project at IIT DU.
+              </li>
+              <li>
+                Implemented client-server socket communication over TCP, non-blocking input handling, synchronized board states, and ANSI terminal rendering.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Quiz Management -->
+          <div class="entry">
+            <div class="entry-header">
+              <div>
+                <span class="entry-title">Quiz Management &amp; Examination System (Course Project)</span>
+                <span class="entry-tech">| Java 17, JavaFX 21, SQLite, GoF Design Patterns, JUnit 5, Maven</span>
+              </div>
+              <span class="entry-date">
+                <a class="ext-link" href="https://github.com/Shourov735/Quiz-Management-and-Examination-System">GitHub ↗</a>
+              </span>
+            </div>
+            <ul class="bullets">
+              <li>
+                Developed a desktop examination application for IIT DU Design Patterns Lab implementing <strong>GoF patterns</strong>: Strategy (scoring rules), State (quiz progression), Factory (question authoring), and Observer (timer events).
+              </li>
+              <li>
+                Integrated relational database persistence using SQLite via JDBC, automated schema initialization, and unit tests with JUnit 5.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Nabodigonto -->
+          <div class="entry">
+            <div class="entry-header">
+              <div>
+                <span class="entry-title">Nabodigonto Platform</span>
+                <span class="entry-tech">| Next.js, Cloudflare Workers, Cloudflare D1, NeonDB, Clerk, Tailwind CSS</span>
+              </div>
+              <span class="entry-date">
+                <a class="ext-link" href="https://nabodigonto.conversora-tech.workers.dev">Live Demo ↗</a> ·
+                <a class="ext-link" href="https://github.com/Shourov735/nabodigonto">GitHub ↗</a>
+              </span>
+            </div>
+            <ul class="bullets">
+              <li>
+                Developed web platform and backend APIs for Nabodigonto Social Welfare Organization deployed serverless on Cloudflare Workers edge.
+              </li>
+              <li>
+                Implemented member directory management, monthly dues tracking, and serverless Bengali PDF generation for membership documents and receipts.
+              </li>
+            </ul>
+          </div>
+
+          <!-- InsideJibon -->
+          <div class="entry">
+            <div class="entry-header">
+              <div>
+                <span class="entry-title">InsideJibon EdTech Platform</span>
+                <span class="entry-tech">| Next.js, Cloudflare Workers, NeonDB, Drizzle ORM, Clerk, Tailwind CSS</span>
+              </div>
+              <span class="entry-date">
+                <a class="ext-link" href="https://insidejibon.shourov.workers.dev">Live Demo ↗</a> ·
+                <a class="ext-link" href="https://github.com/Shourov735/InsideJibon">GitHub ↗</a>
+              </span>
+            </div>
+            <ul class="bullets">
+              <li>
+                Built a bilingual (EN/BN) learning platform deployed on Cloudflare Workers edge with structured video lessons and student study tracking.
+              </li>
+              <li>
+                Structured database queries with explicit column projections to keep page load times fast and cloud resource usage minimal.
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      <!-- ================= PAGE 2 ================= -->
+      <div class="page">
+        <!-- Co-Curricular Activities -->
+        <section class="section">
+          <div class="section-title">Co-Curricular Activities</div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <div>
+                <span class="entry-title">Battle of Brains (BOB 2025, BOB 2026)</span>
+                <span class="entry-tech">| Annual Programming Contest · CSE, University of Dhaka</span>
+              </div>
+              <span class="entry-date">2025, 2026</span>
+            </div>
+            <ul class="bullets">
+              <li>
+                Participated in the annual individual competitive programming contest organized by the Department of Computer Science &amp; Engineering (CSE), University of Dhaka.
+              </li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <div>
+                <span class="entry-title">Competitive Problem Solving</span>
+                <span class="entry-tech">| Codeforces &amp; LeetCode</span>
+              </div>
+              <span class="entry-date">2022 – Present</span>
+            </div>
+            <ul class="bullets">
+              <li>
+                Solved <strong>150+ algorithmic problems</strong> across Codeforces and LeetCode, with primary focus on data structures, graph algorithms, and dynamic programming.
+              </li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <div>
+                <span class="entry-title">Organizational Leadership — IT Secretary</span>
+                <span class="entry-tech">| Nabodigonto Social Welfare Organization</span>
+              </div>
+              <span class="entry-date">Dec 2024 – Present</span>
+            </div>
+            <ul class="bullets">
+              <li>
+                Appointed to executive board as IT Secretary to manage digital platforms, member databases, and IT operations for community welfare initiatives.
+              </li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <div>
+                <span class="entry-title">Open Source Contribution — romankh3/image-comparison</span>
+                <span class="entry-tech">| PR #255 · Maven Central Library (1,000+ GitHub Stars)</span>
+              </div>
+              <span class="entry-date">2025</span>
+            </div>
+            <ul class="bullets">
+              <li>
+                Contributed algorithmic refactoring to visual comparison library: decoupled comparison state, implemented iterative ArrayDeque traversal, and optimized coordinate checks.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Honors & Achievements -->
+        <section class="section">
+          <div class="section-title">Honors &amp; Achievements</div>
           <ul class="bullets">
             <li>
-              <strong>Relevant Coursework:</strong> Data Structures &amp; Algorithms, Object-Oriented
-              Programming (Java/C++), Design Patterns, Database Management Systems, Software Requirements
-              Analysis, Computer Architecture, Discrete Mathematics.
+              <strong>University of Dhaka Engineering Admission Test (2024):</strong> Secured Merit Rank <strong>735</strong> nationally to earn admission into Software Engineering at IIT, University of Dhaka.
             </li>
             <li>
-              <strong>Admission Record:</strong> Secured top national merit rank in the University of Dhaka
-              Engineering Admission Test (Rank: 735).
+              <strong>National University Admission Merits (2024):</strong> Secured Merit <strong>3</strong> (Rajshahi University, Unit C-1), Merit <strong>56</strong> (University of Chittagong), and Merit <strong>245</strong> (Jahangirnagar University).
+            </li>
+            <li>
+              <strong>Academic Distinction:</strong> Achieved perfect <strong>GPA 5.00 / 5.00</strong> in both Higher Secondary Certificate (HSC 2023) and Secondary School Certificate (SSC 2021).
             </li>
           </ul>
-        </div>
-      </section>
+        </section>
 
-      <!-- Experience & Leadership -->
-      <section class="section">
-        <div class="section-title">Experience &amp; Leadership</div>
-        <div class="entry">
-          <div class="entry-header">
-            <div>
-              <span class="entry-title">IT Secretary &amp; Lead Platform Architect</span>
-              <span class="entry-org"> — Nabodigonto Social Welfare Organization</span>
-            </div>
-            <span class="entry-date">Dec 2024 – Present</span>
-          </div>
+        <!-- Extracurricular Activities -->
+        <section class="section">
+          <div class="section-title">Extracurricular Activities</div>
           <ul class="bullets">
             <li>
-              Appointed to executive board as <strong>IT Secretary</strong> after independently architecting
-              and deploying the organization&rsquo;s core digital platform.
+              <strong>Problem Solving &amp; Algorithmic Puzzles:</strong> Passionate about solving mathematical logic and algorithmic challenges in spare time.
             </li>
             <li>
-              Architected a <strong>100,000+ LOC fault-isolated monorepo</strong> (Turborepo, React 19, Hono, D1)
-              with 9 modular domain APIs and atomic batch transactions.
+              <strong>Social Welfare &amp; Community Volunteering:</strong> Actively assist in community support, educational assistance, and emergency relief distribution.
             </li>
             <li>
-              Built dynamic <strong>digital member ID cards</strong> with public QR verification and
-              automated print-ready PVC batch layouts.
-            </li>
-            <li>
-              Engineered serverless <strong>Bengali vector PDF generation</strong> (pdf-lib, fontkit) and a
-              4-channel queue notification engine (SMS, email, push) via Cloudflare Queues.
+              <strong>Technical Exploration:</strong> Continuously exploring systems-level programming concepts, operating system fundamentals, and software design principles.
             </li>
           </ul>
-        </div>
-      </section>
+        </section>
 
-      <!-- Technical Projects -->
-      <section class="section">
-        <div class="section-title">Featured Technical Projects</div>
-
-        <!-- Nabodigonto -->
-        <div class="entry">
-          <div class="entry-header">
-            <div>
-              <span class="entry-title">Nabodigonto Platform</span>
-              <span class="entry-tech"
-                >| Next.js 16, Cloudflare Workers, Neon PostgreSQL, Prisma, Clerk v7, Tailwind CSS</span
-              >
+        <!-- References -->
+        <section class="section">
+          <div class="section-title">References</div>
+          <div class="ref-grid">
+            <div class="ref-card">
+              <div class="ref-name">Faculty Reference 1</div>
+              <div class="ref-role">Professor / Faculty Member</div>
+              <div class="ref-dept">Institute of Information Technology (IIT)</div>
+              <div class="ref-inst">University of Dhaka</div>
+              <div class="ref-contact">Email: Available upon request</div>
             </div>
-            <span class="entry-date">
-              <a class="ext-link" href="https://nabodigonto.conversora-tech.workers.dev">Live Demo ↗</a> ·
-              <a class="ext-link" href="https://github.com/Shourov735/nabodigonto">GitHub ↗</a>
-            </span>
-          </div>
-          <ul class="bullets">
-            <li>
-              Production community and treasury platform deployed serverless on Cloudflare Workers via
-              OpenNext with global edge caching.
-            </li>
-            <li>
-              Integrated multi-tenant dues tracking, automated financial statements, and role-based officer
-              permissions with Clerk auth.
-            </li>
-          </ul>
-        </div>
-
-        <!-- InsideJibon -->
-        <div class="entry">
-          <div class="entry-header">
-            <div>
-              <span class="entry-title">InsideJibon EdTech Platform</span>
-              <span class="entry-tech"
-                >| Next.js 16, Cloudflare Workers &amp; Durable Objects, Workers AI, Vectorize, Drizzle ORM, Neon PostgreSQL, Clerk</span
-              >
+            <div class="ref-card">
+              <div class="ref-name">Faculty Reference 2</div>
+              <div class="ref-role">Professor / Faculty Member</div>
+              <div class="ref-dept">Institute of Information Technology (IIT)</div>
+              <div class="ref-inst">University of Dhaka</div>
+              <div class="ref-contact">Email: Available upon request</div>
             </div>
-            <span class="entry-date">
-              <a class="ext-link" href="https://insidejibon.shourov.workers.dev">Live Demo ↗</a> ·
-              <a class="ext-link" href="https://github.com/Shourov735/InsideJibon">GitHub ↗</a>
-            </span>
-          </div>
-          <ul class="bullets">
-            <li>
-              Engineered a high-performance bilingual (EN/BN) EdTech platform on Cloudflare Workers featuring real-time live classrooms via Durable Objects (WebSockets, presence, chat) and zero-cost YouTube live integration.
-            </li>
-            <li>
-              Integrated in-house AI tutor with Workers AI &amp; Vectorize RAG indexing video auto-captions with exact-second citations, plus Duolingo-grade study streaks and parent oversight portals.
-            </li>
-          </ul>
-        </div>
-
-        <!-- Remocomp -->
-        <div class="entry">
-          <div class="entry-header">
-            <div>
-              <span class="entry-title">Remocomp — Remotion Component Registry</span>
-              <span class="entry-tech"
-                >| Remotion 4, React 19, TypeScript, Cloudflare Workers, D1 &amp; R2, Drizzle ORM, MCP</span
-              >
-            </div>
-            <span class="entry-date">
-              <a class="ext-link" href="https://remocomp.shourov.workers.dev">Live Registry ↗</a> ·
-              <a class="ext-link" href="https://www.npmjs.com/package/remocomp">npm ↗</a>
-            </span>
-          </div>
-          <ul class="bullets">
-            <li>
-              Built an open-source registry of frame-accurate Remotion components installed by copying source
-              into the user's repo, served from Cloudflare Workers with D1 full-text search (FTS5) and R2
-              storage for zero-egress delivery.
-            </li>
-            <li>
-              Designed a token-budgeted discovery API (~200 tokens for a five-result search vs ~600 for a single
-              prop schema) exposed via an npm CLI, a stdio MCP server, and REST, with a 14-rule AST quality gate
-              shared across browser, edge, and CI.
-            </li>
-          </ul>
-        </div>
-
-        <!-- Quiz Management -->
-        <div class="entry">
-          <div class="entry-header">
-            <div>
-              <span class="entry-title">Quiz Management &amp; Examination System</span>
-              <span class="entry-tech">| Java 17, JavaFX 21, SQLite, Design Patterns, JUnit 5, Maven</span>
-            </div>
-            <span class="entry-date">
-              <a class="ext-link" href="https://github.com/Shourov735/Quiz-Management-and-Examination-System"
-                >GitHub ↗</a
-              >
-            </span>
-          </div>
-          <ul class="bullets">
-            <li>
-              Engineered desktop examination suite for IIT DU Design Patterns Lab (Mini-SPL) implementing
-              <strong>GoF patterns</strong>: <em>Strategy</em> (scoring engines), <em>State</em> (quiz
-              lifecycle), <em>Factory</em> (question authoring: MCQ, True/False, Fill-in, Multi-answer), and
-              <em>Observer</em> (countdown &amp; event pub/sub).
-            </li>
-            <li>
-              Implemented relational persistence using SQLite via JDBC, automated schema migration, and
-              comprehensive test suite with JUnit 5.
-            </li>
-          </ul>
-        </div>
-
-        <!-- Quran Reading Tracker -->
-        <div class="entry">
-          <div class="entry-header">
-            <div>
-              <span class="entry-title">Quran Reading Tracker</span>
-              <span class="entry-tech"
-                >| React Native, Expo, SQLite / AsyncStorage, TypeScript, Mobile Android</span
-              >
-            </div>
-            <span class="entry-date">
-              <a class="ext-link" href="https://github.com/Shourov735/QuranReadingTracker">GitHub ↗</a>
-            </span>
-          </div>
-          <ul class="bullets">
-            <li>
-              Architected offline-first Android application with zero cloud telemetry, ensuring complete
-              privacy and 100% local persistence.
-            </li>
-            <li>
-              Engineered dual-pipeline daily habit tracking for Arabic recitation and Bengali translation with
-              custom streak calculation algorithms.
-            </li>
-          </ul>
-        </div>
-
-        <!-- TetriC -->
-        <div class="entry">
-          <div class="entry-header">
-            <div>
-              <span class="entry-title">TetriC — Multiplayer Terminal Game</span>
-              <span class="entry-tech"
-                >| C, POSIX Socket Programming, Multi-threading (pthreads), Non-blocking I/O</span
-              >
-            </div>
-            <span class="entry-date">
-              <a class="ext-link" href="https://github.com/Shourov735/TetriC">GitHub ↗</a>
-            </span>
-          </div>
-          <ul class="bullets">
-            <li>
-              Engineered networked multiplayer console Tetris in raw C using POSIX TCP sockets, non-blocking
-              I/O, and client-server architecture.
-            </li>
-            <li>
-              Designed custom binary packet serialization protocol, real-time board state synchronization, and
-              ANSI terminal rendering engine.
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- Open Source & Competitions -->
-      <section class="section">
-        <div class="section-title">Open Source &amp; Honors</div>
-        <div class="entry">
-          <div class="entry-header">
-            <div>
-              <span class="entry-title">romankh3/image-comparison</span>
-              <span class="entry-tech"
-                >| Open Source Contributor (PR #255) — Maven Central Library (1,000+ Stars)</span
-              >
-            </div>
-            <span class="entry-date">2025</span>
-          </div>
-          <ul class="bullets">
-            <li>
-              Contributed algorithmic refactor (PR #255) to Maven Central visual regression testing library;
-              decoupled comparison state, implemented iterative ArrayDeque traversal, and added primitive coordinate checks.
-            </li>
-          </ul>
-        </div>
-        <div class="entry">
-          <div class="entry-header">
-            <div>
-              <span class="entry-title">Competitive Programming Achievement</span>
-              <span class="entry-tech">| Codeforces &amp; LeetCode</span>
-            </div>
-            <span class="entry-date">2022 – Present</span>
-          </div>
-          <ul class="bullets">
-            <li>
-              Solved <strong>150+ algorithmic problems</strong> across Codeforces and LeetCode; regular
-              participant in National Collegiate Programming Contests (NCPC).
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- Technical Skills -->
-      <section class="section">
-        <div class="section-title">Technical Skills</div>
-        <div class="skills-block">
-          <div class="skill-row">
-            <div class="skill-label">Languages:</div>
-            <div class="skill-val">C++, C, Java, Python, TypeScript, JavaScript, SQL, HTML/CSS</div>
-          </div>
-          <div class="skill-row">
-            <div class="skill-label">Frontend &amp; Mobile:</div>
-            <div class="skill-val">React, Next.js 16, React Native / Expo, Tailwind CSS, JavaFX</div>
-          </div>
-          <div class="skill-row">
-            <div class="skill-label">Backend &amp; Cloud:</div>
-            <div class="skill-val">
-              Cloudflare Workers &amp; R2, Cloudflare D1, Node.js, PostgreSQL (Neon), SQLite, MongoDB,
-              Supabase, MySQL, Prisma, Drizzle ORM, REST APIs
+            <div class="ref-card">
+              <div class="ref-name">Organizational Reference</div>
+              <div class="ref-role">Executive Board / President</div>
+              <div class="ref-dept">Nabodigonto Social Welfare Organization</div>
+              <div class="ref-inst">Community &amp; Welfare Platform</div>
+              <div class="ref-contact">Email: Available upon request</div>
             </div>
           </div>
-          <div class="skill-row">
-            <div class="skill-label">DevOps &amp; Tools:</div>
-            <div class="skill-val">
-              Git, GitHub, Linux / Bash, Socket Programming, Docker, Vercel, Maven, JUnit 5, VS Code
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   </body>
 </html>

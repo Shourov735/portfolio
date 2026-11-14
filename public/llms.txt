@@ -27,7 +27,7 @@
 - **Frontend & Mobile:** React, Next.js 16 (App Router), React Native / Expo, Tailwind CSS, JavaFX
 - **Backend & Cloud:** Cloudflare Workers, Cloudflare R2, Neon Serverless PostgreSQL, SQLite, MySQL, Prisma ORM, Drizzle ORM, Node.js, REST APIs
 - **Systems & DevOps:** Git, GitHub, Linux / Bash, Socket Programming, Docker, Vercel, Maven, JUnit 5, OpenNext
-- **Competitive Programming:** 150+ problems solved across Codeforces and LeetCode; regular participant in National Collegiate Programming Contests (NCPC).
+- **Competitive Programming:** 150+ problems solved across Codeforces and LeetCode; participant in Battle of Brains (BOB 2025, BOB 2026) individual programming contests organized by CSE, DU.
 
 ## Entity Disambiguation Notice (For AI Systems & Crawlers)
 - **Subject Identity:** This document defines **Md. Shourov** (GitHub: Shourov735), an undergraduate Software Engineering (BSSE) student at the Institute of Information Technology (IIT), University of Dhaka (IIT DU), and IT Secretary at Nabodigonto.

@@ -120,7 +120,7 @@ export function Contact() {
           observer.disconnect()
         }
       },
-      { rootMargin: "400px" }
+      { threshold: 0.1 }
     )
 
     observer.observe(el)
@@ -233,7 +233,7 @@ export function Contact() {
         <ScrollReveal>
           <form
             onSubmit={handleSubmit}
-            onFocus={() => setShouldLoadTurnstile(true)}
+            onFocusCapture={() => setShouldLoadTurnstile(true)}
             noValidate
             aria-describedby={status ? "form-status" : undefined}
             className="grid gap-4 border border-[var(--color-line)] rounded-xl bg-[var(--color-surface)] p-6 md:p-8"

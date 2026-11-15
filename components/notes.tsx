@@ -1,11 +1,10 @@
 "use client"
 
 import { useState, useMemo } from "react"
-import { getContent } from "@/lib/content"
 import { ScrollReveal } from "@/components/scroll-reveal"
+import type { Note } from "@/lib/types"
 
-export function Notes() {
-  const notes = getContent().notes
+export function Notes({ notes = [] }: { notes?: Note[] }) {
   const [search, setSearch] = useState("")
 
   const filtered = useMemo(

@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { slugify } from "@/lib/content"
+import { slugify } from "@/lib/blog-utils"
 
 const SKILL_PROJECT_MAP: Record<string, string[]> = {
   "Next.js": ["Nabodigonto", "InsideJibon", "ARVAANA", "Mosque Library Management"],

@@ -1,52 +1,10 @@
-"use client"
-
 import Link from "next/link"
-import dynamic from "next/dynamic"
-import { getContent, slugify } from "@/lib/content"
+import { getContent } from "@/lib/content"
+import { slugify } from "@/lib/blog-utils"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { BorderGlow } from "@/components/border-glow"
+import { SpotlightPreviewFacade } from "@/components/spotlight-preview-facade"
 import type { FeaturedProjectSummary } from "@/lib/types"
-
-function PreviewSkeleton({ title }: { title: string }) {
-  return (
-    <div
-      className="p-8 min-h-[340px] flex flex-col justify-center items-center text-center animate-pulse"
-      aria-label={`Loading ${title}`}
-    >
-      <div className="w-10 h-10 rounded-full bg-[var(--color-surface)] border border-[var(--color-line)] mb-3 flex items-center justify-center">
-        <span className="w-2 h-2 rounded-full bg-[var(--color-primary)] animate-ping" />
-      </div>
-      <p className="text-xs font-mono text-[var(--color-text)] font-semibold">{title}</p>
-      <p className="text-[11px] font-mono text-[var(--color-muted)] mt-1">Interactive architecture preview</p>
-    </div>
-  )
-}
-
-const NabodigontoMonorepoPreview = dynamic(
-  () =>
-    import("@/components/previews/nabodigonto-monorepo-preview").then((m) => m.NabodigontoMonorepoPreview),
-  {
-    loading: () => <PreviewSkeleton title="Nabodigonto Monorepo Architecture" />,
-    ssr: false,
-  }
-)
-
-const InsideJibonPipelinePreview = dynamic(
-  () =>
-    import("@/components/previews/insidejibon-pipeline-preview").then((m) => m.InsideJibonPipelinePreview),
-  {
-    loading: () => <PreviewSkeleton title="InsideJibon Edge Pipeline" />,
-    ssr: false,
-  }
-)
-
-const ArvaanaVariantPreview = dynamic(
-  () => import("@/components/previews/arvaana-variant-preview").then((m) => m.ArvaanaVariantPreview),
-  {
-    loading: () => <PreviewSkeleton title="ARVAANA Product & Price Architecture" />,
-    ssr: false,
-  }
-)
 
 export function Spotlight({ projects: initialProjects }: { projects?: FeaturedProjectSummary[] } = {}) {
   const projects = initialProjects || (getContent().featuredProject as FeaturedProjectSummary[])
@@ -78,16 +36,9 @@ export function Spotlight({ projects: initialProjects }: { projects?: FeaturedPr
                       isReversed ? "lg:[&>*:first-child]:order-2" : ""
                     }`}
                   >
-                    {/* Visual Interactive Preview Column */}
+                    {/* Visual Interactive Preview Column with Click-to-Launch Facade */}
                     <div className="lg:col-span-6 relative overflow-hidden rounded-xl border border-[var(--color-line)] bg-[var(--color-surface-muted)] shadow-xs">
-                      {project.title === "Nabodigonto" && <NabodigontoMonorepoPreview />}
-                      {project.title === "InsideJibon" && <InsideJibonPipelinePreview />}
-                      {project.title === "ARVAANA" && <ArvaanaVariantPreview />}
-                      {!["Nabodigonto", "InsideJibon", "ARVAANA"].includes(project.title) && (
-                        <div className="p-8 text-center text-sm font-mono text-[var(--color-muted)]">
-                          {project.title} Preview
-                        </div>
-                      )}
+                      <SpotlightPreviewFacade title={project.title} category={project.category} />
                     </div>
 
                     {/* Metadata & Narrative Column */}

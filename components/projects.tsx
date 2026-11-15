@@ -3,23 +3,20 @@
 import { useState, useMemo } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { getContent, slugify } from "@/lib/content"
+import { slugify } from "@/lib/blog-utils"
 import { ScrollReveal } from "@/components/scroll-reveal"
-import { AlgorithmicProofBento } from "@/components/algorithmic-proof-bento"
 import type { ProjectCardSummary } from "@/lib/types"
 
 const ORDERED_CATEGORIES = ["All", "Web", "Systems", "Mobile", "Open Source", "Algorithms"]
 const FLAGSHIP_TITLES = new Set(["Nabodigonto", "InsideJibon", "ARVAANA"])
 
 export function Projects({
-  projects: initialProjects,
+  projects = [],
+  children,
 }: {
   projects?: ProjectCardSummary[]
+  children?: React.ReactNode
 } = {}) {
-  const projects = useMemo(
-    () => initialProjects || (getContent().projects as ProjectCardSummary[]),
-    [initialProjects]
-  )
   const [filter, setFilter] = useState("All")
   const [search, setSearch] = useState("")
 
@@ -131,7 +128,7 @@ export function Projects({
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((project) => {
-            const slug = slugify(project.title)
+            const slug = project.slug || slugify(project.title)
             const isFlagship = FLAGSHIP_TITLES.has(project.title)
             const isAlgorithmic = project.category === "Algorithms"
             const isPR = project.title === "image-comparison"
@@ -153,6 +150,7 @@ export function Projects({
                       width={400}
                       height={250}
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                     />
                   ) : (
@@ -263,8 +261,7 @@ export function Projects({
           </div>
         )}
 
-        {/* Dedicated Open-Source & Algorithmic Proof Bento Strip */}
-        <AlgorithmicProofBento />
+        {children}
       </div>
     </section>
   )

@@ -82,10 +82,17 @@ export interface Project {
   adrs?: ArchitectureDecision[]
 }
 
-export type ProjectCardSummary = Pick<
-  Project,
-  "title" | "summary" | "category" | "tags" | "image" | "links" | "tech" | "highlights"
->
+export interface ProjectCardSummary {
+  title: string
+  slug: string
+  summary: string
+  category: string
+  tags: string[]
+  links: { label: string; url: string }[]
+  image?: string
+  role?: string
+  featured?: boolean
+}
 
 export type FeaturedProjectSummary = Pick<
   Project,

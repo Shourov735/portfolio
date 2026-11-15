@@ -1,5 +1,3 @@
-"use client"
-
 import Link from "next/link"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { BorderGlow } from "@/components/border-glow"
@@ -14,7 +12,8 @@ export function AlgorithmicProofBento() {
             Production upstream engineering & problem-solving rigor.
           </h3>
           <p className="text-[var(--color-muted)] max-w-[620px] mt-2 text-sm leading-relaxed">
-            Direct verification of algorithmic competence—from eliminating call-stack overflows in a production Maven Central library to solving 150+ competitive programming challenges.
+            Direct verification of algorithmic competence—from eliminating call-stack overflows in a
+            production Maven Central library to solving 150+ competitive programming challenges.
           </p>
         </div>
       </ScrollReveal>
@@ -39,7 +38,12 @@ export function AlgorithmicProofBento() {
                 </h4>
 
                 <p className="text-sm text-[var(--color-muted)] mt-2.5 leading-relaxed">
-                  Contributed an internal engine refactor to <strong className="text-[var(--color-text)] font-semibold">romankh3/image-comparison</strong> (PR #255), an open-source visual regression QA library published on Maven Central. Decoupled comparison state, replaced recursive traversal, and eliminated per-pixel Point allocations.
+                  Contributed an internal engine refactor to{" "}
+                  <strong className="text-[var(--color-text)] font-semibold">
+                    romankh3/image-comparison
+                  </strong>{" "}
+                  (PR #255), an open-source visual regression QA library published on Maven Central. Decoupled
+                  comparison state, replaced recursive traversal, and eliminated per-pixel Point allocations.
                 </p>
 
                 {/* Architecture comparison box */}
@@ -49,7 +53,9 @@ export function AlgorithmicProofBento() {
                       Before Refactoring
                     </p>
                     <p className="text-[var(--color-muted)] leading-relaxed">
-                      Mutable matrix state stored on instance fields; recursive grouping risked <span className="text-[var(--color-text)]">StackOverflowError</span> on deep diffs; <span className="text-[var(--color-text)]">new Point(x, y)</span> allocated per pixel.
+                      Mutable matrix state stored on instance fields; recursive grouping risked{" "}
+                      <span className="text-[var(--color-text)]">StackOverflowError</span> on deep diffs;{" "}
+                      <span className="text-[var(--color-text)]">new Point(x, y)</span> allocated per pixel.
                     </p>
                   </div>
                   <div className="space-y-1">
@@ -57,13 +63,22 @@ export function AlgorithmicProofBento() {
                       After Refactoring (PR #255)
                     </p>
                     <p className="text-[var(--color-muted)] leading-relaxed">
-                      Isolated <span className="text-[var(--color-text)]">DifferenceMatrix</span>; iterative <span className="text-[var(--color-text)]">ArrayDeque</span> traversal; primitive coordinate checks without object allocations.
+                      Isolated <span className="text-[var(--color-text)]">DifferenceMatrix</span>; iterative{" "}
+                      <span className="text-[var(--color-text)]">ArrayDeque</span> traversal; primitive
+                      coordinate checks without object allocations.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex flex-wrap gap-2 pt-1">
-                  {["Java 11", "ArrayDeque Traversal", "Maven Central", "PR #255", "JUnit 5", "PMD Clean"].map((tag) => (
+                  {[
+                    "Java 11",
+                    "ArrayDeque Traversal",
+                    "Maven Central",
+                    "PR #255",
+                    "JUnit 5",
+                    "PMD Clean",
+                  ].map((tag) => (
                     <span
                       key={tag}
                       className="inline-flex items-center px-2.5 py-0.5 rounded text-[11px] font-mono bg-[var(--color-surface-muted)] text-[var(--color-muted)] border border-[var(--color-line)]"
@@ -126,7 +141,8 @@ export function AlgorithmicProofBento() {
                 </div>
 
                 <p className="text-sm text-[var(--color-muted)] leading-relaxed mb-4">
-                  Rigorous algorithmic practice under strict 1.0–2.0s runtime constraints and 256MB memory ceilings, translating directly into performant system architectures.
+                  Rigorous algorithmic practice under strict 1.0–2.0s runtime constraints and 256MB memory
+                  ceilings, translating directly into performant system architectures.
                 </p>
 
                 <div className="space-y-2 mb-5">

@@ -42,7 +42,13 @@ export function Header() {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+      const isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k"
+      const target = e.target as HTMLElement | null
+      const isInput =
+        target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable)
+      const isSlash = !isInput && e.key === "/" && !e.metaKey && !e.ctrlKey
+
+      if (isCmdK || isSlash) {
         e.preventDefault()
         setHasOpenedCommand(true)
         setCommandOpen((prev) => !prev)

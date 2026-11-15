@@ -6,7 +6,7 @@
     <style>
       @page {
         size: A4;
-        margin: 8mm 12mm;
+        margin: 6mm 10mm;
       }
       * {
         box-sizing: border-box;
@@ -17,8 +17,8 @@
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         color: #1e293b;
         background: #ffffff;
-        line-height: 1.32;
-        font-size: 8.5pt;
+        line-height: 1.28;
+        font-size: 8.2pt;
       }
       .container {
         max-width: 100%;
@@ -29,18 +29,18 @@
       .header {
         text-align: center;
         border-bottom: 2px solid #0f766e;
-        padding-bottom: 5px;
-        margin-bottom: 7px;
+        padding-bottom: 4px;
+        margin-bottom: 5px;
       }
       .name {
-        font-size: 19pt;
+        font-size: 18pt;
         font-weight: 800;
         letter-spacing: -0.4px;
         color: #0f172a;
         text-transform: uppercase;
       }
       .headline {
-        font-size: 9.1pt;
+        font-size: 8.8pt;
         font-weight: 700;
         color: #0f766e;
         margin-top: 1px;
@@ -50,9 +50,9 @@
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 2px 8px;
-        margin-top: 4px;
-        font-size: 8.2pt;
+        gap: 2px 7px;
+        margin-top: 3px;
+        font-size: 8pt;
         color: #475569;
       }
       .contact-bar a {
@@ -66,25 +66,25 @@
 
       /* Section Styling */
       .section {
-        margin-bottom: 7px;
+        margin-bottom: 5px;
       }
       .section:last-child {
         margin-bottom: 0;
       }
       .section-title {
-        font-size: 9.1pt;
+        font-size: 8.8pt;
         font-weight: 800;
         text-transform: uppercase;
         letter-spacing: 0.06em;
         color: #0f766e;
         border-bottom: 1px solid #cbd5e1;
-        padding-bottom: 1.5px;
-        margin-bottom: 4px;
+        padding-bottom: 1px;
+        margin-bottom: 3px;
       }
 
       /* Entries */
       .entry {
-        margin-bottom: 5px;
+        margin-bottom: 3.5px;
       }
       .entry:last-child {
         margin-bottom: 0;
@@ -96,7 +96,7 @@
       }
       .entry-title {
         font-weight: 700;
-        font-size: 8.8pt;
+        font-size: 8.5pt;
         color: #0f172a;
       }
       .entry-org {
@@ -104,34 +104,56 @@
         color: #334155;
       }
       .entry-sub {
-        font-size: 8.1pt;
+        font-size: 7.9pt;
         color: #475569;
-        margin-top: 0.5px;
       }
       .entry-date {
-        font-size: 8.1pt;
+        font-size: 7.9pt;
         font-weight: 600;
         color: #64748b;
         text-align: right;
         white-space: nowrap;
       }
       .entry-tech {
-        font-size: 7.9pt;
+        font-size: 7.7pt;
         font-style: italic;
         color: #64748b;
+      }
+
+      /* Highlighted Flagship Entry */
+      .entry-highlight {
+        background: #f0fdfa;
+        border-left: 2.5px solid #0f766e;
+        padding: 3px 6px 3px 6px;
+        border-radius: 0 4px 4px 0;
+        margin-bottom: 4px;
+      }
+      .badge-flagship {
+        display: inline-block;
+        font-size: 6.8pt;
+        font-weight: 700;
+        color: #0f766e;
+        background: #ccfbf1;
+        border: 1px solid #5eead4;
+        border-radius: 3px;
+        padding: 0 4px;
+        vertical-align: 1px;
+        margin-left: 4px;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
       }
 
       /* Bullet Points */
       ul.bullets {
         list-style-type: square;
-        padding-left: 13px;
-        margin-top: 1.5px;
+        padding-left: 12px;
+        margin-top: 1px;
       }
       ul.bullets li {
-        font-size: 8.2pt;
+        font-size: 8pt;
         color: #334155;
-        margin-bottom: 1.5px;
-        line-height: 1.3;
+        margin-bottom: 1px;
+        line-height: 1.25;
       }
       ul.bullets li:last-child {
         margin-bottom: 0;
@@ -144,8 +166,8 @@
       .skills-block {
         display: table;
         width: 100%;
-        font-size: 8.2pt;
-        line-height: 1.34;
+        font-size: 8pt;
+        line-height: 1.3;
       }
       .skill-row {
         display: table-row;
@@ -154,47 +176,47 @@
         display: table-cell;
         font-weight: 700;
         color: #0f172a;
-        width: 140px;
-        padding-bottom: 2px;
+        width: 135px;
+        padding-bottom: 1.5px;
       }
       .skill-val {
         display: table-cell;
         color: #334155;
-        padding-bottom: 2px;
+        padding-bottom: 1.5px;
       }
 
       /* References Grid */
       .ref-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 6px;
-        margin-top: 3px;
+        gap: 5px;
+        margin-top: 2.5px;
       }
       .ref-card {
         border: 1px solid #e2e8f0;
         border-radius: 4px;
-        padding: 4px 7px;
+        padding: 3.5px 6px;
         background: #f8fafc;
       }
       .ref-name {
         font-weight: 700;
-        font-size: 8.3pt;
+        font-size: 8.1pt;
         color: #0f172a;
       }
       .ref-role {
-        font-size: 7.8pt;
+        font-size: 7.6pt;
         color: #0f766e;
         font-weight: 600;
         margin-top: 0.5px;
       }
       .ref-dept, .ref-inst {
-        font-size: 7.7pt;
+        font-size: 7.5pt;
         color: #475569;
       }
       .ref-contact {
-        font-size: 7.6pt;
+        font-size: 7.4pt;
         color: #64748b;
-        margin-top: 1.5px;
+        margin-top: 1px;
       }
 
       /* Links */
@@ -202,7 +224,7 @@
         color: #0f766e;
         text-decoration: none;
         font-weight: 600;
-        font-size: 7.8pt;
+        font-size: 7.6pt;
       }
       a.ext-link:hover {
         text-decoration: underline;
@@ -298,6 +320,29 @@
       <section class="section">
         <div class="section-title">Academic &amp; Technical Projects</div>
 
+        <!-- Nabodigonto (Flagship) -->
+        <div class="entry entry-highlight">
+          <div class="entry-header">
+            <div>
+              <span class="entry-title">Nabodigonto Platform</span>
+              <span class="badge-flagship">★ Flagship Production System</span>
+              <span class="entry-tech">| Next.js, Cloudflare Workers, Cloudflare D1, NeonDB, Clerk, Tailwind CSS</span>
+            </div>
+            <span class="entry-date">
+              <a class="ext-link" href="https://nabodigonto.conversora-tech.workers.dev">Live Demo ↗</a> ·
+              <a class="ext-link" href="https://github.com/Shourov735/nabodigonto">GitHub ↗</a>
+            </span>
+          </div>
+          <ul class="bullets">
+            <li>
+              Appointed <strong>IT Secretary</strong> on executive board after independently architecting and deploying the organization's core digital platform.
+            </li>
+            <li>
+              Engineered edge services on Cloudflare Workers with Cloudflare D1 (SQLite), member directories, dues tracking, and serverless Bengali PDF generation.
+            </li>
+          </ul>
+        </div>
+
         <!-- TetriC (SPL1) -->
         <div class="entry">
           <div class="entry-header">
@@ -311,10 +356,7 @@
           </div>
           <ul class="bullets">
             <li>
-              Engineered a networked 2-player console Tetris in pure C as the <strong>Software Project Lab 1 (SPL1)</strong> project at IIT DU.
-            </li>
-            <li>
-              Implemented client-server socket communication over TCP, non-blocking I/O, synchronized board states, and ANSI terminal rendering.
+              Engineered a networked 2-player console Tetris in pure C as the <strong>Software Project Lab 1 (SPL1)</strong> project at IIT DU with client-server TCP sockets, synchronized board states, and ANSI terminal rendering.
             </li>
           </ul>
         </div>
@@ -332,32 +374,7 @@
           </div>
           <ul class="bullets">
             <li>
-              Developed a desktop examination application for IIT DU Design Patterns Lab implementing <strong>GoF patterns</strong> (Strategy, State, Factory, Observer).
-            </li>
-            <li>
-              Integrated relational persistence using SQLite via JDBC, automated schema initialization, and unit test suites with JUnit 5.
-            </li>
-          </ul>
-        </div>
-
-        <!-- Nabodigonto -->
-        <div class="entry">
-          <div class="entry-header">
-            <div>
-              <span class="entry-title">Nabodigonto Platform</span>
-              <span class="entry-tech">| Next.js, Cloudflare Workers, Cloudflare D1, NeonDB, Clerk, Tailwind CSS</span>
-            </div>
-            <span class="entry-date">
-              <a class="ext-link" href="https://nabodigonto.conversora-tech.workers.dev">Live Demo ↗</a> ·
-              <a class="ext-link" href="https://github.com/Shourov735/nabodigonto">GitHub ↗</a>
-            </span>
-          </div>
-          <ul class="bullets">
-            <li>
-              Developed web platform and backend APIs for Nabodigonto Social Welfare Organization deployed serverless on Cloudflare Workers edge.
-            </li>
-            <li>
-              Implemented member directory management, dues tracking, and serverless Bengali PDF generation for membership documents and receipts.
+              Developed desktop exam suite for IIT DU Design Patterns Lab applying <strong>GoF patterns</strong> (Strategy, State, Factory, Observer) with SQLite JDBC relational persistence and JUnit 5 tests.
             </li>
           </ul>
         </div>
@@ -376,10 +393,62 @@
           </div>
           <ul class="bullets">
             <li>
-              Built a bilingual (EN/BN) learning platform deployed on Cloudflare Workers edge with structured video lessons and student study tracking.
+              Built a bilingual (EN/BN) learning platform deployed on Cloudflare Workers edge with video lessons, study tracking, and narrow SQL query projections for high edge performance.
             </li>
+          </ul>
+        </div>
+
+        <!-- Remocomp -->
+        <div class="entry">
+          <div class="entry-header">
+            <div>
+              <span class="entry-title">Remocomp — Remotion Component Registry</span>
+              <span class="entry-tech">| React 19, TypeScript, Cloudflare Workers, Cloudflare D1 &amp; R2, npm CLI</span>
+            </div>
+            <span class="entry-date">
+              <a class="ext-link" href="https://remocomp.shourov.workers.dev">Live Demo ↗</a> ·
+              <a class="ext-link" href="https://www.npmjs.com/package/remocomp">npm ↗</a>
+            </span>
+          </div>
+          <ul class="bullets">
             <li>
-              Structured database queries with explicit column projections to keep page load times fast and cloud resource usage minimal.
+              Created an open-source registry of Remotion video components served from Cloudflare Workers edge with D1 full-text search, R2 storage, an npm CLI, and AST-based code verification.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Quran Reading Tracker -->
+        <div class="entry">
+          <div class="entry-header">
+            <div>
+              <span class="entry-title">Quran Reading Tracker</span>
+              <span class="entry-tech">| React Native, Expo, SQLite, TypeScript, Mobile Android</span>
+            </div>
+            <span class="entry-date">
+              <a class="ext-link" href="https://github.com/Shourov735/QuranReadingTracker">GitHub ↗</a>
+            </span>
+          </div>
+          <ul class="bullets">
+            <li>
+              Engineered an offline-first Android habit tracker with zero cloud telemetry, complete privacy, local SQLite persistence, and dual daily recitation streak calculation algorithms.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Mosque Library Management -->
+        <div class="entry">
+          <div class="entry-header">
+            <div>
+              <span class="entry-title">Mosque Library Management</span>
+              <span class="entry-tech">| Next.js, TypeScript, PostgreSQL, Prisma ORM, Tailwind CSS</span>
+            </div>
+            <span class="entry-date">
+              <a class="ext-link" href="https://mosquelibrary.vercel.app">Live Demo ↗</a>
+            </span>
+          </div>
+          <ul class="bullets">
+            <li>
+              Developed a full-stack community library web portal for Islamic book catalog browsing, member borrowing and overdue tracking, and bilingual (EN/BN) user accessibility.
             </li>
           </ul>
         </div>

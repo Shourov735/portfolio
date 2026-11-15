@@ -3,16 +3,23 @@
 import { useState, useMemo } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { motion, AnimatePresence } from "framer-motion"
 import { getContent, slugify } from "@/lib/content"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { AlgorithmicProofBento } from "@/components/algorithmic-proof-bento"
+import type { ProjectCardSummary } from "@/lib/types"
 
 const ORDERED_CATEGORIES = ["All", "Web", "Systems", "Mobile", "Open Source", "Algorithms"]
 const FLAGSHIP_TITLES = new Set(["Nabodigonto", "InsideJibon", "ARVAANA"])
 
-export function Projects() {
-  const projects = getContent().projects
+export function Projects({
+  projects: initialProjects,
+}: {
+  projects?: ProjectCardSummary[]
+} = {}) {
+  const projects = useMemo(
+    () => initialProjects || (getContent().projects as ProjectCardSummary[]),
+    [initialProjects]
+  )
   const [filter, setFilter] = useState("All")
   const [search, setSearch] = useState("")
 
@@ -50,7 +57,8 @@ export function Projects() {
             <p className="eyebrow">Projects Directory</p>
             <h2>Interactive engineering index &amp; source code.</h2>
             <p className="text-[var(--color-muted)] max-w-[620px] mt-2 text-base">
-              Explore systems architectures, desktop engines, mobile apps, and algorithmic repositories with direct GitHub source access.
+              Explore systems architectures, desktop engines, mobile apps, and algorithmic repositories with
+              direct GitHub source access.
             </p>
           </div>
         </ScrollReveal>
@@ -94,11 +102,7 @@ export function Projects() {
                     }`}
                   >
                     {isActive && (
-                      <motion.span
-                        layoutId="activeFilterTab"
-                        className="absolute inset-0 rounded-full bg-[var(--color-primary)] -z-10"
-                        transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                      />
+                      <span className="absolute inset-0 rounded-full bg-[var(--color-primary)] -z-10" />
                     )}
                     <span className="relative z-10">{cat.name}</span>
                     <span
@@ -126,127 +130,120 @@ export function Projects() {
         </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <AnimatePresence mode="popLayout">
-            {filtered.map((project) => {
-              const slug = slugify(project.title)
-              const isFlagship = FLAGSHIP_TITLES.has(project.title)
-              const isAlgorithmic = project.category === "Algorithms"
-              const isPR = project.title === "image-comparison"
+          {filtered.map((project) => {
+            const slug = slugify(project.title)
+            const isFlagship = FLAGSHIP_TITLES.has(project.title)
+            const isAlgorithmic = project.category === "Algorithms"
+            const isPR = project.title === "image-comparison"
 
-              return (
-                <motion.article
-                  key={project.title}
-                  layout
-                  initial={{ opacity: 0, scale: 0.98 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.96 }}
-                  transition={{ duration: 0.2 }}
-                  className="group flex flex-col h-full border border-[var(--color-line)] rounded-xl bg-[var(--color-surface)] shadow-xs overflow-hidden hover:-translate-y-1 hover:border-[var(--color-primary)]/60 hover:shadow-md transition-all duration-200"
+            return (
+              <article
+                key={project.title}
+                className="group flex flex-col h-full border border-[var(--color-line)] rounded-xl bg-[var(--color-surface)] shadow-xs overflow-hidden hover:-translate-y-1 hover:border-[var(--color-primary)]/60 hover:shadow-md transition-all duration-200"
+              >
+                {/* Visual Header */}
+                <Link
+                  href={`/projects/${slug}`}
+                  className="block relative aspect-[16/10] overflow-hidden bg-[var(--color-surface-muted)] border-b border-[var(--color-line)]/60"
                 >
-                  {/* Visual Header */}
-                  <Link
-                    href={`/projects/${slug}`}
-                    className="block relative aspect-[16/10] overflow-hidden bg-[var(--color-surface-muted)] border-b border-[var(--color-line)]/60"
-                  >
-                    {project.image ? (
-                      <Image
-                        src={project.image}
-                        alt={`${project.title} system interface and architecture`}
-                        width={400}
-                        height={250}
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-gradient-to-tr from-[var(--color-surface-muted)] to-[var(--color-surface)]">
-                        <span className="text-2xl font-black tracking-widest text-[var(--color-muted)] opacity-30">
-                          {project.title.slice(0, 3).toUpperCase()}
-                        </span>
-                      </div>
-                    )}
-
-                    <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
-                      <span className="text-[var(--color-accent)] text-[10px] font-extrabold tracking-[0.1em] uppercase px-2.5 py-1 rounded-full bg-[var(--color-surface)]/95 backdrop-blur-xs border border-[var(--color-line)] shadow-xs">
-                        {project.category}
+                  {project.image ? (
+                    <Image
+                      src={project.image}
+                      alt={`${project.title} system interface and architecture`}
+                      width={400}
+                      height={250}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-tr from-[var(--color-surface-muted)] to-[var(--color-surface)]">
+                      <span className="text-2xl font-black tracking-widest text-[var(--color-muted)] opacity-30">
+                        {project.title.slice(0, 3).toUpperCase()}
                       </span>
-                      {isFlagship && (
-                        <span className="inline-flex items-center gap-1 text-[10px] font-mono uppercase tracking-[0.12em] px-2 py-0.5 rounded-full bg-[var(--color-primary)]/90 text-white font-semibold">
-                          <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                          Flagship
-                        </span>
-                      )}
-                      {isPR && (
-                        <span className="text-[10px] font-mono uppercase tracking-[0.12em] px-2 py-0.5 rounded-full bg-[var(--color-primary)]/15 text-[var(--color-primary-strong)] border border-[var(--color-primary)]/30 font-semibold">
-                          Maven PR
-                        </span>
-                      )}
-                      {isAlgorithmic && (
-                        <span className="text-[10px] font-mono uppercase tracking-[0.12em] px-2 py-0.5 rounded-full bg-[var(--color-surface-muted)] text-[var(--color-muted)] border border-[var(--color-line)]">
-                          Archive
-                        </span>
-                      )}
                     </div>
-                  </Link>
+                  )}
 
-                  {/* Body */}
-                  <div className="p-5 flex flex-col flex-grow justify-between">
-                    <div>
-                      <h3 className="font-display text-lg md:text-xl text-[var(--color-text)] tracking-tight leading-snug">
-                        <Link href={`/projects/${slug}`} className="link-underline">
-                          {project.title}
-                        </Link>
-                      </h3>
+                  <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                    <span className="text-[var(--color-accent)] text-[10px] font-extrabold tracking-[0.1em] uppercase px-2.5 py-1 rounded-full bg-[var(--color-surface)]/95 backdrop-blur-xs border border-[var(--color-line)] shadow-xs">
+                      {project.category}
+                    </span>
+                    {isFlagship && (
+                      <span className="inline-flex items-center gap-1 text-[10px] font-mono uppercase tracking-[0.12em] px-2 py-0.5 rounded-full bg-[var(--color-primary)]/90 text-white font-semibold">
+                        <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                        Flagship
+                      </span>
+                    )}
+                    {isPR && (
+                      <span className="text-[10px] font-mono uppercase tracking-[0.12em] px-2 py-0.5 rounded-full bg-[var(--color-primary)]/15 text-[var(--color-primary-strong)] border border-[var(--color-primary)]/30 font-semibold">
+                        Maven PR
+                      </span>
+                    )}
+                    {isAlgorithmic && (
+                      <span className="text-[10px] font-mono uppercase tracking-[0.12em] px-2 py-0.5 rounded-full bg-[var(--color-surface-muted)] text-[var(--color-muted)] border border-[var(--color-line)]">
+                        Archive
+                      </span>
+                    )}
+                  </div>
+                </Link>
 
-                      <p className="text-[var(--color-muted)] mt-2 text-xs md:text-sm leading-relaxed line-clamp-3">
-                        {project.summary}
-                      </p>
-
-                      <div className="flex flex-wrap gap-1.5 mt-3.5">
-                        {project.tags.slice(0, 4).map((tag) => (
-                          <span
-                            key={tag}
-                            className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-mono bg-[var(--color-surface-muted)] text-[var(--color-muted)] border border-[var(--color-line)]"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                        {project.tags.length > 4 && (
-                          <span className="text-[10px] font-mono text-[var(--color-muted)] self-center">
-                            +{project.tags.length - 4}
-                          </span>
-                        )}
-                      </div>
-                    </div>
-
-                    <div className="flex items-center justify-between gap-2 pt-4 mt-4 border-t border-[var(--color-line)] text-xs">
-                      <Link
-                        href={`/projects/${slug}`}
-                        className="font-mono uppercase tracking-wider text-[var(--color-primary-strong)] hover:opacity-80 inline-flex items-center gap-1 font-semibold"
-                      >
-                        <span>{isAlgorithmic ? "View Solutions" : isPR ? "PR Breakdown" : "Case Study"}</span>
-                        <span aria-hidden="true">→</span>
+                {/* Body */}
+                <div className="p-5 flex flex-col flex-grow justify-between">
+                  <div>
+                    <h3 className="font-display text-lg md:text-xl text-[var(--color-text)] tracking-tight leading-snug">
+                      <Link href={`/projects/${slug}`} className="link-underline">
+                        {project.title}
                       </Link>
+                    </h3>
 
-                      <div className="flex items-center gap-3">
-                        {project.links.map((link) => (
-                          <a
-                            key={link.label}
-                            href={link.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="font-mono uppercase tracking-wider text-[var(--color-muted)] hover:text-[var(--color-text)] inline-flex items-center gap-0.5"
-                          >
-                            <span>{link.label === "Live Demo" ? "Live" : link.label}</span>
-                            <span aria-hidden="true">↗</span>
-                          </a>
-                        ))}
-                      </div>
+                    <p className="text-[var(--color-muted)] mt-2 text-xs md:text-sm leading-relaxed line-clamp-3">
+                      {project.summary}
+                    </p>
+
+                    <div className="flex flex-wrap gap-1.5 mt-3.5">
+                      {project.tags.slice(0, 4).map((tag) => (
+                        <span
+                          key={tag}
+                          className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-mono bg-[var(--color-surface-muted)] text-[var(--color-muted)] border border-[var(--color-line)]"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                      {project.tags.length > 4 && (
+                        <span className="text-[10px] font-mono text-[var(--color-muted)] self-center">
+                          +{project.tags.length - 4}
+                        </span>
+                      )}
                     </div>
                   </div>
-                </motion.article>
-              )
-            })}
-          </AnimatePresence>
+
+                  <div className="flex items-center justify-between gap-2 pt-4 mt-4 border-t border-[var(--color-line)] text-xs">
+                    <Link
+                      href={`/projects/${slug}`}
+                      className="font-mono uppercase tracking-wider text-[var(--color-primary-strong)] hover:opacity-80 inline-flex items-center gap-1 font-semibold"
+                    >
+                      <span>{isAlgorithmic ? "View Solutions" : isPR ? "PR Breakdown" : "Case Study"}</span>
+                      <span aria-hidden="true">→</span>
+                    </Link>
+
+                    <div className="flex items-center gap-3">
+                      {project.links.map((link) => (
+                        <a
+                          key={link.label}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-mono uppercase tracking-wider text-[var(--color-muted)] hover:text-[var(--color-text)] inline-flex items-center gap-0.5"
+                        >
+                          <span>{link.label === "Live Demo" ? "Live" : link.label}</span>
+                          <span aria-hidden="true">↗</span>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </article>
+            )
+          })}
         </div>
 
         {filtered.length === 0 && (

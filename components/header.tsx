@@ -2,9 +2,14 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import dynamic from "next/dynamic"
 import { useTheme } from "@/components/theme-provider"
 import { Logo } from "@/components/logo"
-import { CommandPalette } from "@/components/command-palette"
+
+const CommandPalette = dynamic(
+  () => import("@/components/command-palette").then((mod) => mod.CommandPalette),
+  { ssr: false }
+)
 
 const navLinks = [
   { href: "/#spotlight", label: "Featured", id: "spotlight" },
@@ -21,7 +26,13 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState("")
   const [commandOpen, setCommandOpen] = useState(false)
+  const [hasOpenedCommand, setHasOpenedCommand] = useState(false)
   const { theme, toggleTheme } = useTheme()
+
+  const openCommandPalette = () => {
+    setHasOpenedCommand(true)
+    setCommandOpen(true)
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16)
@@ -33,6 +44,7 @@ export function Header() {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
         e.preventDefault()
+        setHasOpenedCommand(true)
         setCommandOpen((prev) => !prev)
       }
     }
@@ -153,8 +165,10 @@ export function Header() {
             <button
               onClick={() => {
                 closeMenu()
-                setCommandOpen(true)
+                openCommandPalette()
               }}
+              onMouseEnter={() => setHasOpenedCommand(true)}
+              onFocus={() => setHasOpenedCommand(true)}
               type="button"
               aria-label="Open command palette"
               className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-[var(--color-line)] bg-[var(--color-surface)] text-[var(--color-muted)] hover:text-[var(--color-text)] hover:border-[var(--color-primary)] transition-all text-xs font-mono cursor-pointer shadow-2xs max-md:w-full max-md:justify-between"
@@ -178,8 +192,10 @@ export function Header() {
         </nav>
       </header>
 
-      {/* Global Command Palette Modal */}
-      <CommandPalette open={commandOpen} onClose={() => setCommandOpen(false)} />
+      {/* Global Command Palette Modal (mounted only on demand) */}
+      {(commandOpen || hasOpenedCommand) && (
+        <CommandPalette open={commandOpen} onClose={() => setCommandOpen(false)} />
+      )}
     </>
   )
 }

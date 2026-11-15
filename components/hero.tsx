@@ -26,8 +26,8 @@ export function Hero() {
 
           <p className="text-[clamp(1rem,1.4vw,1.0625rem)] text-[var(--color-muted)] max-w-[600px] mt-6 leading-relaxed">
             Undergraduate in Software Engineering (BSSE) at the Institute of Information Technology,
-            University of Dhaka. IT Secretary at Nabodigonto Social Welfare Organization. 150+ problems
-            solved across Codeforces and LeetCode.
+            University of Dhaka. IT Secretary at Nabodigonto Social Welfare Organization. 150+ problems solved
+            across Codeforces and LeetCode.
           </p>
 
           <div className="flex flex-wrap gap-3 mt-9 max-md:flex-col">
@@ -75,7 +75,7 @@ export function Hero() {
               }}
             />
             <Image
-              src="/assets/images/profile.png"
+              src="/assets/images/profile.jpg"
               alt="Md Shourov — Software Engineering Student, IIT University of Dhaka"
               width={400}
               height={400}

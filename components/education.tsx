@@ -1,10 +1,9 @@
-"use client"
-
 import { getContent } from "@/lib/content"
 import { ScrollReveal } from "@/components/scroll-reveal"
+import type { EducationItem } from "@/lib/types"
 
-export function Education() {
-  const items = getContent().education
+export function Education({ items: initialItems }: { items?: EducationItem[] } = {}) {
+  const items = initialItems || getContent().education
 
   return (
     <section className="section bg-[var(--color-surface-muted)]/72" id="education">
@@ -55,7 +54,8 @@ export function Education() {
                         National Selectivity Context:
                       </p>
                       <p className="leading-relaxed">
-                        Ranked 3rd nationally (Rajshahi University, Unit C-1) and Top 0.5% nationally (IIT, University of Dhaka) among 100,000+ competitive applicants.
+                        Ranked 3rd nationally (Rajshahi University, Unit C-1) and Top 0.5% nationally (IIT,
+                        University of Dhaka) among 100,000+ competitive applicants.
                       </p>
                     </div>
 
@@ -80,7 +80,10 @@ export function Education() {
                           </thead>
                           <tbody>
                             {item.results.map((r) => (
-                              <tr key={r.university} className="border-b border-[var(--color-line)]/50 last:border-b-0">
+                              <tr
+                                key={r.university}
+                                className="border-b border-[var(--color-line)]/50 last:border-b-0"
+                              >
                                 <td className="py-1.5 pr-2 text-[var(--color-muted)]">{r.university}</td>
                                 <td className="py-1.5 px-2 text-[var(--color-muted)] font-mono">{r.marks}</td>
                                 <td className="py-1.5 pl-2 text-[var(--color-primary-strong)] font-semibold font-mono">

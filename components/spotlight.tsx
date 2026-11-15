@@ -1,15 +1,55 @@
 "use client"
 
 import Link from "next/link"
+import dynamic from "next/dynamic"
 import { getContent, slugify } from "@/lib/content"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { BorderGlow } from "@/components/border-glow"
-import { NabodigontoMonorepoPreview } from "@/components/previews/nabodigonto-monorepo-preview"
-import { InsideJibonPipelinePreview } from "@/components/previews/insidejibon-pipeline-preview"
-import { ArvaanaVariantPreview } from "@/components/previews/arvaana-variant-preview"
+import type { FeaturedProjectSummary } from "@/lib/types"
 
-export function Spotlight() {
-  const projects = getContent().featuredProject
+function PreviewSkeleton({ title }: { title: string }) {
+  return (
+    <div
+      className="p-8 min-h-[340px] flex flex-col justify-center items-center text-center animate-pulse"
+      aria-label={`Loading ${title}`}
+    >
+      <div className="w-10 h-10 rounded-full bg-[var(--color-surface)] border border-[var(--color-line)] mb-3 flex items-center justify-center">
+        <span className="w-2 h-2 rounded-full bg-[var(--color-primary)] animate-ping" />
+      </div>
+      <p className="text-xs font-mono text-[var(--color-text)] font-semibold">{title}</p>
+      <p className="text-[11px] font-mono text-[var(--color-muted)] mt-1">Interactive architecture preview</p>
+    </div>
+  )
+}
+
+const NabodigontoMonorepoPreview = dynamic(
+  () =>
+    import("@/components/previews/nabodigonto-monorepo-preview").then((m) => m.NabodigontoMonorepoPreview),
+  {
+    loading: () => <PreviewSkeleton title="Nabodigonto Monorepo Architecture" />,
+    ssr: false,
+  }
+)
+
+const InsideJibonPipelinePreview = dynamic(
+  () =>
+    import("@/components/previews/insidejibon-pipeline-preview").then((m) => m.InsideJibonPipelinePreview),
+  {
+    loading: () => <PreviewSkeleton title="InsideJibon Edge Pipeline" />,
+    ssr: false,
+  }
+)
+
+const ArvaanaVariantPreview = dynamic(
+  () => import("@/components/previews/arvaana-variant-preview").then((m) => m.ArvaanaVariantPreview),
+  {
+    loading: () => <PreviewSkeleton title="ARVAANA Product & Price Architecture" />,
+    ssr: false,
+  }
+)
+
+export function Spotlight({ projects: initialProjects }: { projects?: FeaturedProjectSummary[] } = {}) {
+  const projects = initialProjects || (getContent().featuredProject as FeaturedProjectSummary[])
 
   return (
     <section className="section" id="spotlight">

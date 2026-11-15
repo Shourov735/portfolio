@@ -74,6 +74,8 @@ export function Contact() {
   const [status, setStatus] = useState<{ type: "success" | "error"; message: string } | null>(null)
   const [sending, setSending] = useState(false)
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
+  const [shouldLoadTurnstile, setShouldLoadTurnstile] = useState(false)
+  const contactSectionRef = useRef<HTMLElement>(null)
   const turnstileContainerRef = useRef<HTMLDivElement>(null)
   const widgetIdRef = useRef<string | null>(null)
 
@@ -108,7 +110,25 @@ export function Contact() {
   }, [siteKey])
 
   useEffect(() => {
-    if (typeof window !== "undefined" && window.turnstile) {
+    const el = contactSectionRef.current
+    if (!el || shouldLoadTurnstile) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoadTurnstile(true)
+          observer.disconnect()
+        }
+      },
+      { rootMargin: "400px" }
+    )
+
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [shouldLoadTurnstile])
+
+  useEffect(() => {
+    if (shouldLoadTurnstile && typeof window !== "undefined" && window.turnstile) {
       renderWidget()
     }
     return () => {
@@ -117,7 +137,7 @@ export function Contact() {
         widgetIdRef.current = null
       }
     }
-  }, [renderWidget])
+  }, [renderWidget, shouldLoadTurnstile])
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -179,6 +199,7 @@ export function Contact() {
 
   return (
     <section
+      ref={contactSectionRef}
       className="section bg-gradient-to-br from-[var(--color-surface-muted)]/82 to-[var(--color-bg)]"
       id="contact"
     >
@@ -212,6 +233,7 @@ export function Contact() {
         <ScrollReveal>
           <form
             onSubmit={handleSubmit}
+            onFocus={() => setShouldLoadTurnstile(true)}
             noValidate
             aria-describedby={status ? "form-status" : undefined}
             className="grid gap-4 border border-[var(--color-line)] rounded-xl bg-[var(--color-surface)] p-6 md:p-8"
@@ -307,7 +329,7 @@ export function Contact() {
               <input type="text" name="website" tabIndex={-1} autoComplete="off" />
             </div>
 
-            {siteKey && (
+            {siteKey && shouldLoadTurnstile && (
               <>
                 <Script
                   src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
@@ -315,7 +337,10 @@ export function Contact() {
                   onLoad={renderWidget}
                 />
                 <div className="min-h-[66px] flex flex-col justify-center">
-                  <div ref={turnstileContainerRef} className="cf-turnstile-wrapper overflow-hidden rounded-lg" />
+                  <div
+                    ref={turnstileContainerRef}
+                    className="cf-turnstile-wrapper overflow-hidden rounded-lg"
+                  />
                   {turnstileToken && (
                     <span className="sr-only" aria-live="polite">
                       Human verification complete.

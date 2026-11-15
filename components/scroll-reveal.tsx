@@ -16,10 +16,18 @@ export function ScrollReveal({
     if (!el) return
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      el.style.opacity = "1"
-      el.style.transform = "none"
       return
     }
+
+    const rect = el.getBoundingClientRect()
+    // If the element is already inside or near the initial viewport, leave it visible
+    if (rect.top < window.innerHeight * 0.95) {
+      return
+    }
+
+    // Only for elements strictly below the initial viewport, apply hidden state and observe
+    el.style.opacity = "0"
+    el.style.transform = "translateY(18px)"
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -41,8 +49,6 @@ export function ScrollReveal({
       ref={ref}
       className={className}
       style={{
-        opacity: 0,
-        transform: "translateY(18px)",
         transition: "opacity 520ms ease, transform 520ms ease",
       }}
     >

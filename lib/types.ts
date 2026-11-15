@@ -82,6 +82,16 @@ export interface Project {
   adrs?: ArchitectureDecision[]
 }
 
+export type ProjectCardSummary = Pick<
+  Project,
+  "title" | "summary" | "category" | "tags" | "image" | "links" | "tech" | "highlights"
+>
+
+export type FeaturedProjectSummary = Pick<
+  Project,
+  "title" | "summary" | "category" | "tags" | "image" | "links" | "tech" | "highlights" | "systemType"
+>
+
 export interface Note {
   title: string
   date: string

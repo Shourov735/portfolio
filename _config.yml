@@ -1,0 +1,24 @@
+theme: jekyll-theme-primer
+title: Md Shourov — Portfolio
+description: Md Shourov — Software Engineering Student at IIT, University of Dhaka. Official Portfolio & Engineering Case Studies.
+
+exclude:
+  - content/
+  - app/
+  - components/
+  - lib/
+  - data/
+  - docs/
+  - scripts/
+  - node_modules/
+  - package.json
+  - package-lock.json
+  - tsconfig.json
+  - tsconfig.tsbuildinfo
+  - postcss.config.mjs
+  - eslint.config.mjs
+  - next.config.ts
+  - next-env.d.ts
+  - AGENTS.md
+  - PROJECT_CONTEXT.md
+  - seo-geo-optimizer.md

@@ -22,13 +22,7 @@ const PILL_CATEGORY_MAP: Record<FilterPill, SearchCategory[] | null> = {
   Actions: ["Navigation & Sections", "Quick Actions & Socials"],
 }
 
-export function CommandPalette({
-  open,
-  onClose,
-}: {
-  open: boolean
-  onClose: () => void
-}) {
+export function CommandPalette({ open, onClose }: { open: boolean; onClose: () => void }) {
   if (!open) return null
   return <CommandDialog onClose={onClose} />
 }
@@ -56,9 +50,13 @@ function CommandDialog({ onClose }: { onClose: () => void }) {
   const executeItem = useCallback(
     (item: SearchableItem) => {
       if (item.actionType === "copy-email") {
-        if (navigator?.clipboard) {
-          navigator.clipboard.writeText("mdshourov735@gmail.com")
-          showToast("✓ Copied mdshourov735@gmail.com to clipboard")
+        if (navigator?.clipboard?.writeText) {
+          navigator.clipboard
+            .writeText("mdshourov735@gmail.com")
+            .then(() => showToast("✓ Copied mdshourov735@gmail.com to clipboard"))
+            .catch(() => showToast("⚠ Clipboard write blocked. Email: mdshourov735@gmail.com"))
+        } else {
+          showToast("Email: mdshourov735@gmail.com")
         }
         return
       }
@@ -142,10 +140,7 @@ function CommandDialog({ onClose }: { onClose: () => void }) {
       else if (item.category === "Engineering Blog") counts.Blog++
       else if (item.category === "Technical Skills") counts.Skills++
       else if (item.category === "Academic & Achievements") counts.Academic++
-      else if (
-        item.category === "Philosophy & FAQ" ||
-        item.category === "Currently Studying (Now)"
-      )
+      else if (item.category === "Philosophy & FAQ" || item.category === "Currently Studying (Now)")
         counts["FAQ & Now"]++
       else counts.Actions++
     }
@@ -202,9 +197,7 @@ function CommandDialog({ onClose }: { onClose: () => void }) {
       <div className="w-full max-w-[640px] bg-[var(--color-surface)] border border-[var(--color-line)] rounded-2xl shadow-2xl overflow-hidden flex flex-col text-[var(--color-text)] max-h-[85vh]">
         {/* Search Input Bar */}
         <div className="relative flex items-center border-b border-[var(--color-line)] px-4 py-3.5">
-          <span className="text-[var(--color-primary-strong)] font-mono text-base mr-3 select-none">
-            🔍
-          </span>
+          <span className="text-[var(--color-primary-strong)] font-mono text-base mr-3 select-none">🔍</span>
           <input
             ref={inputRef}
             type="text"
@@ -261,7 +254,9 @@ function CommandDialog({ onClose }: { onClose: () => void }) {
                 <span>{pill}</span>
                 <span
                   className={`text-[9px] px-1.5 py-0.2 rounded-full ${
-                    isSelected ? "bg-[var(--color-bg)] text-[var(--color-primary)] font-bold" : "bg-[var(--color-surface-muted)] text-[var(--color-muted)]"
+                    isSelected
+                      ? "bg-[var(--color-bg)] text-[var(--color-primary)] font-bold"
+                      : "bg-[var(--color-surface-muted)] text-[var(--color-muted)]"
                   }`}
                 >
                   {count}
@@ -283,7 +278,10 @@ function CommandDialog({ onClose }: { onClose: () => void }) {
           {results.length === 0 ? (
             <div className="p-10 text-center text-sm font-mono text-[var(--color-muted)]">
               <p>No results found matching &ldquo;{query}&rdquo;</p>
-              <p className="text-xs mt-1.5 opacity-80">Try searching for &ldquo;ArrayDeque&rdquo;, &ldquo;Durable Objects&rdquo;, &ldquo;Merit 3&rdquo;, or &ldquo;SQLite&rdquo;</p>
+              <p className="text-xs mt-1.5 opacity-80">
+                Try searching for &ldquo;ArrayDeque&rdquo;, &ldquo;Durable Objects&rdquo;, &ldquo;Merit
+                3&rdquo;, or &ldquo;SQLite&rdquo;
+              </p>
             </div>
           ) : (
             results.map((res, idx) => {
@@ -330,9 +328,7 @@ function CommandDialog({ onClose }: { onClose: () => void }) {
                   </div>
 
                   {item.subtitle && (
-                    <p className="text-xs font-mono text-[var(--color-muted)] truncate">
-                      {item.subtitle}
-                    </p>
+                    <p className="text-xs font-mono text-[var(--color-muted)] truncate">{item.subtitle}</p>
                   )}
 
                   {/* Dynamic Match Context Snippet */}

@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import dynamic from "next/dynamic"
+import { ErrorBoundary } from "@/components/error-boundary"
 
 function PreviewSkeleton({ title }: { title: string }) {
   return (
@@ -67,12 +68,18 @@ export function SpotlightPreviewFacade({ title }: SpotlightPreviewFacadeProps) {
   if (isLaunched) {
     return (
       <div className="relative">
-        {title === "Nabodigonto" && <NabodigontoMonorepoPreview />}
-        {title === "InsideJibon" && <InsideJibonPipelinePreview />}
-        {title === "ARVAANA" && <ArvaanaVariantPreview />}
-        {!["Nabodigonto", "InsideJibon", "ARVAANA"].includes(title) && (
-          <div className="p-8 text-center text-sm font-mono text-[var(--color-muted)]">{title} Preview</div>
-        )}
+        <ErrorBoundary
+          fallbackTitle={`Unable to load ${title} simulation`}
+          fallbackMessage="A network interruption or chunk loading failure prevented the simulation from mounting. You can try reloading it below."
+          onReset={() => setIsLaunched(true)}
+        >
+          {title === "Nabodigonto" && <NabodigontoMonorepoPreview />}
+          {title === "InsideJibon" && <InsideJibonPipelinePreview />}
+          {title === "ARVAANA" && <ArvaanaVariantPreview />}
+          {!["Nabodigonto", "InsideJibon", "ARVAANA"].includes(title) && (
+            <div className="p-8 text-center text-sm font-mono text-[var(--color-muted)]">{title} Preview</div>
+          )}
+        </ErrorBoundary>
       </div>
     )
   }

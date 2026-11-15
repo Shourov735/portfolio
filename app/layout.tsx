@@ -6,6 +6,8 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { BackToTop } from "@/components/back-to-top"
 import { SkipLink } from "@/components/skip-link"
+import { ConnectivityProvider } from "@/components/connectivity-banner"
+import { PwaRegister } from "@/components/pwa-register"
 import { Analytics } from "@vercel/analytics/react"
 import { SITE_URL, SITE_NAME, AUTHOR_NAME, AUTHOR_ALIASES, absoluteUrl } from "@/lib/site"
 import { getContent } from "@/lib/content"
@@ -175,12 +177,15 @@ export default function RootLayout({
       <body className="min-h-screen antialiased">
         <SkipLink />
         <ThemeProvider>
-          <Header />
-          <main id="main-content" tabIndex={-1}>
-            {children}
-          </main>
-          <Footer />
-          <BackToTop />
+          <ConnectivityProvider>
+            <Header />
+            <main id="main-content" tabIndex={-1}>
+              {children}
+            </main>
+            <Footer />
+            <BackToTop />
+            <PwaRegister />
+          </ConnectivityProvider>
           <Analytics />
         </ThemeProvider>
         <script

@@ -9,7 +9,7 @@ interface SpecHeaderProps {
 }
 
 export function SpecHeader({ project }: SpecHeaderProps) {
-  const [copied, setCopied] = useState(false)
+  const [copied, setCopied] = useState<boolean | "error">(false)
 
   const handleCopySummary = async () => {
     const summaryLines = [
@@ -30,11 +30,15 @@ export function SpecHeader({ project }: SpecHeaderProps) {
       .join("\n\n")
 
     try {
+      if (!navigator.clipboard?.writeText) {
+        throw new Error("Clipboard API not supported")
+      }
       await navigator.clipboard.writeText(summaryLines)
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
     } catch {
-      // Fallback
+      setCopied("error")
+      setTimeout(() => setCopied(false), 3000)
     }
   }
 
@@ -58,9 +62,33 @@ export function SpecHeader({ project }: SpecHeaderProps) {
           type="button"
           onClick={handleCopySummary}
           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono text-[var(--color-muted)] hover:text-[var(--color-text)] bg-[var(--color-surface-muted)] hover:bg-[var(--color-line)]/50 border border-[var(--color-line)] transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
-          aria-label="Copy structured technical summary as markdown"
+          aria-label={
+            copied === "error"
+              ? "Clipboard write blocked. Please select and copy manually."
+              : copied
+                ? "Structured technical summary copied to clipboard"
+                : "Copy structured technical summary as markdown"
+          }
         >
-          {copied ? (
+          {copied === "error" ? (
+            <>
+              <svg
+                aria-hidden="true"
+                className="w-3.5 h-3.5 text-amber-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                />
+              </svg>
+              <span className="text-amber-600 dark:text-amber-400 font-medium">Copy Blocked</span>
+            </>
+          ) : copied ? (
             <>
               <svg
                 aria-hidden="true"
@@ -72,7 +100,9 @@ export function SpecHeader({ project }: SpecHeaderProps) {
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
               </svg>
-              <span className="text-emerald-600 dark:text-emerald-400 font-medium">Copied Markdown Brief</span>
+              <span className="text-emerald-600 dark:text-emerald-400 font-medium">
+                Copied Markdown Brief
+              </span>
             </>
           ) : (
             <>

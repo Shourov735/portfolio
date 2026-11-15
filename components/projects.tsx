@@ -245,19 +245,86 @@ export function Projects({
         </div>
 
         {filtered.length === 0 && (
-          <div className="p-12 border border-dashed border-[var(--color-line)] rounded-xl text-center bg-[var(--color-surface)] mt-6">
-            <p className="text-[var(--color-muted)] font-medium">
-              No projects found matching &ldquo;{search}&rdquo; in category &ldquo;{filter}&rdquo;.
+          <div
+            role="status"
+            aria-live="polite"
+            className="p-10 md:p-12 border border-dashed border-[var(--color-line)] rounded-xl text-center bg-[var(--color-surface)] mt-6"
+          >
+            <div className="w-10 h-10 rounded-full bg-[var(--color-surface-muted)] border border-[var(--color-line)] text-[var(--color-muted)] flex items-center justify-center mx-auto mb-3">
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={1.75}
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                />
+              </svg>
+            </div>
+            <h3 className="text-sm font-semibold text-[var(--color-text)]">No matching projects found</h3>
+            <p className="text-xs text-[var(--color-muted)] mt-1.5 max-w-[48ch] mx-auto">
+              No projects match your active search
+              {search ? (
+                <span>
+                  {" "}
+                  for &ldquo;<strong className="text-[var(--color-text)]">{search}</strong>&rdquo;
+                </span>
+              ) : (
+                ""
+              )}
+              {filter !== "All" ? (
+                <span>
+                  {" "}
+                  in category &ldquo;<strong className="text-[var(--color-text)]">{filter}</strong>&rdquo;
+                </span>
+              ) : (
+                ""
+              )}
+              .
             </p>
-            <button
-              onClick={() => {
-                setFilter("All")
-                setSearch("")
-              }}
-              className="mt-3 text-xs font-bold text-[var(--color-primary-strong)] hover:underline"
-            >
-              Reset filters
-            </button>
+
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
+              {search && (
+                <button
+                  type="button"
+                  onClick={() => setSearch("")}
+                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-mono bg-[var(--color-surface-muted)] border border-[var(--color-line)] text-[var(--color-text)] hover:border-[var(--color-primary)] transition-colors"
+                >
+                  <span>Query: &quot;{search}&quot;</span>
+                  <span aria-hidden="true">×</span>
+                </button>
+              )}
+              {filter !== "All" && (
+                <button
+                  type="button"
+                  onClick={() => setFilter("All")}
+                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-mono bg-[var(--color-surface-muted)] border border-[var(--color-line)] text-[var(--color-text)] hover:border-[var(--color-primary)] transition-colors"
+                >
+                  <span>Category: {filter}</span>
+                  <span aria-hidden="true">×</span>
+                </button>
+              )}
+              <button
+                type="button"
+                onClick={() => {
+                  setFilter("All")
+                  setSearch("")
+                }}
+                className="btn-primary text-xs py-1.5 px-3.5 cursor-pointer ml-1"
+              >
+                Reset all filters
+              </button>
+            </div>
+
+            <p className="text-[11px] font-mono text-[var(--color-muted)] mt-4">
+              Try searching for &ldquo;Cloudflare&rdquo;, &ldquo;TypeScript&rdquo;, &ldquo;Workers&rdquo;, or
+              &ldquo;SQLite&rdquo;
+            </p>
           </div>
         )}
 

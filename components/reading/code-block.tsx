@@ -10,7 +10,7 @@ interface CodeBlockProps {
 }
 
 export function CodeBlock({ code, language, filename, className }: CodeBlockProps) {
-  const [copied, setCopied] = useState(false)
+  const [copied, setCopied] = useState<boolean | "error">(false)
   const [expanded, setExpanded] = useState(false)
 
   // Clean code string
@@ -24,16 +24,22 @@ export function CodeBlock({ code, language, filename, className }: CodeBlockProp
 
   const handleCopy = async () => {
     try {
+      if (!navigator.clipboard?.writeText) {
+        throw new Error("Clipboard not supported")
+      }
       await navigator.clipboard.writeText(rawCode)
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
     } catch {
-      // Fallback
+      setCopied("error")
+      setTimeout(() => setCopied(false), 2500)
     }
   }
 
   return (
-    <div className={`my-6 rounded-2xl border border-[var(--color-line)] bg-[#0b1120] text-slate-200 overflow-hidden shadow-md font-mono text-xs ${className || ""}`}>
+    <div
+      className={`my-6 rounded-2xl border border-[var(--color-line)] bg-[#0b1120] text-slate-200 overflow-hidden shadow-md font-mono text-xs ${className || ""}`}
+    >
       {/* Header Chrome */}
       <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800/80 text-xs text-slate-400 select-none">
         {/* macOS Window Controls */}
@@ -41,9 +47,7 @@ export function CodeBlock({ code, language, filename, className }: CodeBlockProp
           <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
           <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
           <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
-          <span className="ml-2 font-mono text-[11px] text-slate-400 font-medium">
-            {displayLang}
-          </span>
+          <span className="ml-2 font-mono text-[11px] text-slate-400 font-medium">{displayLang}</span>
         </div>
 
         {/* Copy Button */}
@@ -51,25 +55,71 @@ export function CodeBlock({ code, language, filename, className }: CodeBlockProp
           type="button"
           onClick={handleCopy}
           className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-mono text-slate-400 hover:text-slate-100 hover:bg-slate-800 transition-colors cursor-pointer focus:outline-none focus:ring-1 focus:ring-slate-500"
-          aria-label={copied ? "Code copied to clipboard" : "Copy code"}
+          aria-label={
+            copied === "error"
+              ? "Copy failed. Please select and copy code manually."
+              : copied
+                ? "Code copied to clipboard"
+                : "Copy code"
+          }
         >
-          {copied ? (
+          {copied === "error" ? (
             <>
-              <svg aria-hidden="true" className="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <svg
+                aria-hidden="true"
+                className="w-3.5 h-3.5 text-amber-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                />
+              </svg>
+              <span className="text-amber-400 font-medium">Failed</span>
+            </>
+          ) : copied ? (
+            <>
+              <svg
+                aria-hidden="true"
+                className="w-3.5 h-3.5 text-emerald-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2.5}
+              >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
               </svg>
               <span className="text-emerald-400 font-medium">Copied!</span>
             </>
           ) : (
             <>
-              <svg aria-hidden="true" className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+              <svg
+                aria-hidden="true"
+                className="w-3.5 h-3.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"
+                />
               </svg>
               <span>Copy</span>
             </>
           )}
           <span className="sr-only" aria-live="polite">
-            {copied ? "Code copied to clipboard" : ""}
+            {copied === "error"
+              ? "Copy failed. Please select and copy code manually."
+              : copied
+                ? "Code copied to clipboard"
+                : ""}
           </span>
         </button>
       </div>
@@ -100,9 +150,7 @@ export function CodeBlock({ code, language, filename, className }: CodeBlockProp
                     {idx + 1}
                   </span>
                   {/* Code Line Content */}
-                  <span className={`${lineText} whitespace-pre`}>
-                    {line}
-                  </span>
+                  <span className={`${lineText} whitespace-pre`}>{line}</span>
                 </div>
               )
             })}

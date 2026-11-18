@@ -31,7 +31,7 @@ For example, when adding a new project, check whether the project should also be
 - The portfolio project directory and spotlight sections.
 - Project counts or statistics (e.g. stats band, hero badges).
 - GitHub profile README (`Shourov735`).
-- Resume/CV-related content (`assets/resume/resume.html`, `public/assets/resume/resume.html`).
+- Resume/CV-related content in the single source of truth directory (`public/assets/resume/`).
 - Skills or technology sections, if applicable.
 - Featured projects or project lists.
 - Navigation, filters, categories, or metadata.

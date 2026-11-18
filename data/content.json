@@ -1122,11 +1122,15 @@
       "summary": "Studying core software engineering concepts including data structures, algorithms, database systems, object-oriented design patterns, software requirements, and architecture. Current CGPA: 3.32 (3rd Semester).",
       "coursework": [
         "Data Structures & Algorithms",
-        "Design Patterns & Software Architecture",
+        "Object-Oriented Programming (C++, Java)",
         "Database Management Systems",
-        "Operating Systems",
         "Software Requirement Analysis",
-        "Object-Oriented Programming (C++, Java)"
+        "Software Design and Analysis",
+        "Artificial Intelligence",
+        "Software Testing and Quality Assurance",
+        "Web Technology",
+        "Data Analysis",
+        "Cryptography and Security Mechanisms"
       ]
     },
     {

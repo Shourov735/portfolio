@@ -243,11 +243,15 @@ export function getAllSearchableItems(): SearchableItem[] {
   // 4b. Coursework items
   const courses = [
     { name: "Data Structures & Algorithms", desc: "Asymptotic complexity, graph algorithms (BFS, DFS, Dijkstra), dynamic programming, tree structures." },
-    { name: "Design Patterns & Software Architecture", desc: "Gang of Four (GoF) structural, creational, and behavioral design patterns: Strategy, State, Observer, Factory." },
+    { name: "Software Design and Analysis", desc: "Software modeling, architectural design, Gang of Four (GoF) patterns, structural and behavioral decoupling." },
     { name: "Database Management Systems", desc: "Relational schema design, SQL, ACID transactions, normalization, indexing, and query optimization." },
-    { name: "Operating Systems & Concurrency", desc: "Process scheduling, thread synchronization, deadlocks, virtual memory, and socket network programming." },
     { name: "Software Requirement Analysis", desc: "SRS documentation, user stories, software lifecycle modeling, and system verification." },
     { name: "Object-Oriented Programming (C++, Java)", desc: "Encapsulation, inheritance, polymorphism, templates, memory management, and modern Java 17 features." },
+    { name: "Artificial Intelligence", desc: "State space search, heuristics, knowledge representation, probabilistic reasoning, and machine learning fundamentals." },
+    { name: "Software Testing and Quality Assurance", desc: "Test lifecycle, unit testing (JUnit), test-driven development, integration testing, and automated QA verification." },
+    { name: "Web Technology", desc: "Full-stack web architectures, client-server protocols, modern web APIs, DOM, and responsive UI frameworks." },
+    { name: "Data Analysis", desc: "Exploratory data analysis, statistical modeling, data visualization, and analytical processing." },
+    { name: "Cryptography and Security Mechanisms", desc: "Cryptographic primitives, symmetric/asymmetric encryption, hashing, authentication, and secure network protocols." },
   ]
   for (const c of courses) {
     items.push({

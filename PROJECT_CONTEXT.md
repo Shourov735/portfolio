@@ -91,9 +91,6 @@ This repository powers the personal portfolio, engineering case studies, and tec
 │   ├── page.tsx                       # Single-page portfolio landing layout
 │   ├── robots.ts                      # Dynamic robots.txt configuration
 │   └── sitemap.ts                     # Dynamic XML sitemap generator
-├── assets/resume/                     # Canonical resume artifacts
-│   ├── Md-Shourov-Resume.pdf          # Precompiled downloadable PDF resume
-│   └── resume.html                    # Source HTML resume with print stylesheets
 ├── components/                        # UI presentation components
 │   ├── blog/                          # Blog components (post-card, reading-progress, related-posts)
 │   ├── case-study/                    # Case study components (spec-header)
@@ -139,7 +136,7 @@ This repository powers the personal portfolio, engineering case studies, and tec
 │   └── types.ts                       # TypeScript interfaces for all content and domain models
 ├── public/                            # Static web assets
 │   ├── assets/images/                 # Optimized project screenshots and profile assets
-│   ├── assets/resume/                 # Public resume mirrors (HTML and PDF)
+│   ├── assets/resume/                 # Canonical resume and CV artifacts (PDF, DOCX, HTML)
 │   ├── brand/                         # Vector brand marks and wordmarks
 │   ├── llms.txt                       # Machine-readable profile summary for external LLMs
 │   └── site.webmanifest               # Progressive Web App manifest

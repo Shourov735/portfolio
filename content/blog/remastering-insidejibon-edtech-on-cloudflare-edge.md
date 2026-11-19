@@ -212,10 +212,13 @@ Once the instructor verifies the payment, a single click approves the student, a
 
 ---
 
-## 8. Design System 2.0: Academic Modernism
+## 8. Design System 2.0: Academic Modernism & Editorial Landing
 
 The visual identity of InsideJibon was completely overhauled to align with what I call **Academic Modernism**:
 
+- **Editorial Hero & Heritage Aesthetics**: Built a warm ivory aesthetic (`#FAF8F4`) anchored by a geometric vector tribute to the National Martyrs' Memorial (*Jatiyo Sriti Soudho*), celebrating Bangladeshi academic heritage alongside high-contrast serif headlines in `Playfair Display` and native Bengali script (*"শিখি, জানি, এগিয়ে যাই"*).
+- **Interactive Student Workspace Preview**: Embedded a live interactive dashboard preview directly on the marketing hero. Students immediately see a tangible preview of the learning experience—active NCTB courses (e.g. Class 10 / HSC Mathematics: Quadratic Equations), real-time XP counters (1,250 XP, Lv. 12), a 5-day streak indicator, live class countdowns, and upcoming practice exam reminders.
+- **4-Pillar Value Framework**: Integrated a floating visual strip outlining curriculum-aligned courses, interactive live classrooms, practice mock tests, and comprehensive progress tracking.
 - **Role-Scoped Accents**: Rather than overwhelming the user with arbitrary colors, each role gets an intentional semantic accent: Emerald for Students, Indigo for Teachers, Slate for Admins, and Rose for Parents.
 - **First-Class Bengali Typography**: Implemented Google Fonts' `Hind Siliguri` and `Noto Sans Bengali` with `font-display: swap` and precise line-height normalization to prevent layout shifts when switching between Bengali and English.
 - **Universal ⌘K Command Palette**: A keyboard-first command center enabling students and teachers to jump to any course, search doubts, toggle dark mode, or switch languages in under three keystrokes.

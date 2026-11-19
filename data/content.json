@@ -178,8 +178,8 @@
     {
       "title": "InsideJibon",
       "role": "Full-Stack Developer",
-      "summary": "A high-performance, bilingual (EN/BN) EdTech platform re-engineered on Cloudflare Workers edge. Features Durable Objects live classrooms, Workers AI & Vectorize RAG tutoring over video captions, Duolingo-style study streaks, and a zero-egress YouTube streaming pipeline under a $0/mo subscription constraint.",
-      "metaDescription": "High-performance bilingual EdTech platform on Cloudflare Workers featuring Durable Objects live classrooms, Workers AI RAG tutoring, and gamification streaks.",
+      "summary": "A high-performance, bilingual (EN/BN) EdTech platform re-engineered on Cloudflare Workers edge. Features an editorial Academic Modernism landing experience, Durable Objects live classrooms, Workers AI & Vectorize RAG tutoring over video captions, Duolingo-style study streaks, and a zero-egress YouTube streaming pipeline under a $0/mo subscription constraint.",
+      "metaDescription": "High-performance bilingual EdTech platform on Cloudflare Workers featuring an editorial Academic Modernism landing experience, Durable Objects live classrooms, and Workers AI RAG tutoring.",
       "image": "/assets/images/insidejibon.jpg",
       "category": "Web",
       "tags": [
@@ -204,6 +204,7 @@
         }
       ],
       "highlights": [
+        "Editorial Academic Modernism landing experience with bilingual typography (Playfair Display + Bengali), National Monument (Jatiyo Sriti Soudho) vector backdrop, and an interactive student workspace preview",
         "Real-time live classrooms powered by Cloudflare Durable Objects managing presence, moderated chat, hand-raising, and server-side attendance",
         "$0-subscription AI tutor combining Cloudflare Workers AI with Vectorize RAG indexing video auto-captions with exact-second timestamp citations",
         "Duolingo-grade gamification engine with an immutable XP ledger, daily study streaks with freeze protection, and weekly league cohorts",
@@ -223,7 +224,7 @@
         "YouTube-First Video Pipeline: Leveraged unlisted embeds and public oEmbed validation over expensive dedicated video storage, eliminating 100% of video bandwidth and transcode costs.",
         "Explicit SQL Projections: Replaced all unbounded SELECT * queries across 13 services with narrow column projections, cutting edge payload sizes and cold starts significantly."
       ],
-      "result": "Successfully remastered InsideJibon into a production-grade, masterclass platform featuring live classes, AI assistance, habit-forming gamification, and full bilingual parity at zero monthly subscription cost.",
+      "result": "Successfully remastered InsideJibon into a production-grade, masterclass platform featuring an editorial Academic Modernism landing experience, live classes, AI assistance, habit-forming gamification, and full bilingual parity at zero monthly subscription cost.",
       "visualEvidence": {
         "type": "diagram",
         "title": "$0-Cost Edge Architecture & Real-Time Classroom Pipeline",
@@ -373,8 +374,8 @@
     {
       "title": "InsideJibon",
       "role": "Full-Stack Developer",
-      "summary": "A high-performance, bilingual (EN/BN) EdTech platform re-engineered on Cloudflare Workers edge. Features Durable Objects live classrooms, Workers AI & Vectorize RAG tutoring over video captions, Duolingo-style study streaks, and a zero-egress YouTube streaming pipeline under a $0/mo subscription constraint.",
-      "metaDescription": "High-performance bilingual EdTech platform on Cloudflare Workers featuring Durable Objects live classrooms, Workers AI RAG tutoring, and gamification streaks.",
+      "summary": "A high-performance, bilingual (EN/BN) EdTech platform re-engineered on Cloudflare Workers edge. Features an editorial Academic Modernism landing experience, Durable Objects live classrooms, Workers AI & Vectorize RAG tutoring over video captions, Duolingo-style study streaks, and a zero-egress YouTube streaming pipeline under a $0/mo subscription constraint.",
+      "metaDescription": "High-performance bilingual EdTech platform on Cloudflare Workers featuring an editorial Academic Modernism landing experience, Durable Objects live classrooms, and Workers AI RAG tutoring.",
       "image": "/assets/images/insidejibon.jpg",
       "category": "Web",
       "tags": [
@@ -399,6 +400,7 @@
         }
       ],
       "highlights": [
+        "Editorial Academic Modernism landing experience with bilingual typography (Playfair Display + Bengali), National Monument (Jatiyo Sriti Soudho) vector backdrop, and an interactive student workspace preview",
         "Real-time live classrooms powered by Cloudflare Durable Objects managing presence, moderated chat, hand-raising, and server-side attendance",
         "$0-subscription AI tutor combining Cloudflare Workers AI with Vectorize RAG indexing video auto-captions with exact-second timestamp citations",
         "Duolingo-grade gamification engine with an immutable XP ledger, daily study streaks with freeze protection, and weekly league cohorts",
@@ -446,7 +448,7 @@
           "tradeOff": "Bounded by free-tier daily vector dimension quotas and prompt token windows."
         }
       ],
-      "result": "Successfully remastered InsideJibon into a production-grade, masterclass platform featuring live classes, AI assistance, habit-forming gamification, and full bilingual parity at zero monthly subscription cost.",
+      "result": "Successfully remastered InsideJibon into a production-grade, masterclass platform featuring an editorial Academic Modernism landing experience, live classes, AI assistance, habit-forming gamification, and full bilingual parity at zero monthly subscription cost.",
       "visualEvidence": {
         "type": "diagram",
         "title": "$0-Cost Edge Architecture & Real-Time Classroom Pipeline",

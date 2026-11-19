@@ -53,7 +53,7 @@
    - Edge-native community & operations platform deployed on Cloudflare Workers across a fault-isolated Turborepo monorepo.
    - GitHub: https://github.com/Shourov735/nabodigonto
 2. **InsideJibon** (Web): https://insidejibon.shourov.workers.dev
-   - High-performance bilingual (English/Bengali) EdTech platform on Cloudflare Workers edge featuring Durable Objects live classrooms, Workers AI & Vectorize RAG tutoring over video captions, and gamification streaks.
+   - High-performance bilingual (English/Bengali) EdTech platform on Cloudflare Workers edge featuring an editorial Academic Modernism landing experience, Durable Objects live classrooms, Workers AI & Vectorize RAG tutoring over video captions, and gamification streaks.
    - GitHub: https://github.com/Shourov735/InsideJibon
 3. **Remocomp** (Open Source / Developer Tooling): https://remocomp.shourov.workers.dev
    - Open-source curated registry of frame-accurate Remotion video components, installed shadcn-style by copying source into the user's repository. Ships a three-tier token-budgeted discovery API (~160-200 tokens for a five-result search), a stdio MCP server, an npm CLI (`remocomp`, `remocomp-mcp`), and a 14-rule AST quality gate that runs identically in the browser, on Cloudflare Workers and in CI.
